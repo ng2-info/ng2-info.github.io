@@ -1,4 +1,4 @@
-title: "Angular2 Infoを開設しました！"
+title: Angular2 Infoを開設しました！
 date: 2015-12-27 18:11:24
 tags: Information
 ---
