@@ -10,7 +10,8 @@ tags:
 
 毎度のことながら`refactor`がリファクタリングじゃないですね。変更点は以下のとおり。
 
-> BREAKING CHANGE:
+---
+BREAKING CHANGE:
 - Platform pipes can only contain types and arrays of types,
   but no bindings any more.
 - When using transformers, platform pipes need to be specified explicitly
@@ -27,6 +28,6 @@ tags:
 - `Renderer` interface now operates on plain native nodes,
   instead of `RenderElementRef`s or `RenderViewRef`s
 
-目的はRendererのさらなる高速化で、一番重要なのは「ComponentはコンストラクタでViewを生成しない」という点です。CompilerやRendererのAPIに関しても大きな変更がありますが、普通のアプリケーションを作る上ではあまり触らない部分なので被害者はそれほど多くないのではないでしょうか。そうでなくてもおそらくビルドが通らなくなるのですぐに気づいて修正できるでしょう。
+目的はRendererのさらなる高速化で、一番重要なのは「ComponentはコンストラクタでViewを生成しない」という点です。CompilerやRendererのAPIに関しても大きな変更がありますが、普通のアプリケーションを作る上ではあまり触らない部分なので被害者はそれほど多くないのではないでしょうか。たとえ使っていてもおそらくビルドが通らなくなるのでバージョンアップ後にすぐに気づいて修正できるでしょう。
 
 今回の変更に関して、リリース前に対策すべきなのはComponentのコンストラクタで何かしらの処理を行っているケースです。Viewが生成前なのでコンストラクタでの処理がViewの初期化によって上書きされるおそれがあります。コンストラクタは極力DIの解決だけにとどめ、初期化処理は`ngOnInit()`を使用しましょう。
