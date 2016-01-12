@@ -8,6 +8,8 @@ tags:
 今週の週次ミーティングの議事録が公開されました。今週は2016年の方針決定を含めた重要な回でした。
 先週の内容と重なる部分も多いですが、議事録と補足を。
 
+[Angular Weekly Meeting](https://docs.google.com/document/d/150lerb1LmNLuau_a_EznPV1I1UHMTbEl61t4hZ7ZpS0/edit)
+
 ---
 
 ### Tim presented "How Angular 2 transformer for Dart works"
