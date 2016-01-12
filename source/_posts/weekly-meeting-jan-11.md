@@ -27,9 +27,11 @@ Angular2のオープンソースライセンスがMITになりました。
 **2016年中にAngular2を完成させます。** これはangular2-materialやドキュメント整備なども含めた完成です。
 
 #### Mobile
-モバイル環境では、Googleが提唱している"Progressive Web Apps"との連携にやる気充分です。
+モバイル環境では、"Progressive Web Apps"との連携にやる気充分です。
 Progressive Web Appsは具体的にはServiceWorkerやPush Notification、Manifestなどを用いた
 モバイル端末との連携機能によってネイティブアプリ同様のユーザ体験をもたらそうというものです。
+
+[Progressive Web Appsについて - 銀色うつ時間](http://sisidovski.hatenablog.com/entry/2015/12/04/120633)
 
 同じGoogle製のライブラリであるPolymerもServiceWorker連携のPolymer Elementsを公開していたので、
 Angular2でもコアではなくオプションのライブラリによってServiceWorkerを使いやすくなる機能が追加されるかもしれません。
