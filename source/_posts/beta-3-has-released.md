@@ -20,7 +20,7 @@ Beta.3ではpeerDependenciesに指定されているzone.jsのバージョンが
 このバージョンはnpmの`postinstall`でtsdのコマンドを実行します。
 ところがzone.jsのdependenciesにはtsdが入っていないため、グローバルにtsdをインストールしているユーザー以外はインストールに失敗します。
 
-[[pkg]: "postinstall": "tsd install" · Issue #240 · angular/zone.js](https://github.com/angular/zone.js/issues/240)
+["postinstall": "tsd install" · Issue #240 · angular/zone.js](https://github.com/angular/zone.js/issues/240)
 
 Beta.2を使っている環境から依存パッケージを一括アップデートするとzone.jsもアップデートされてしまい、
 その際に上記のエラーによりインストールに失敗するようになります。
