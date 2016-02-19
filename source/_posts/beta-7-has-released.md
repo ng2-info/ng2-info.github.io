@@ -18,6 +18,9 @@ CHANGELOGのリンクだけを貼っておくので、気になる方はチェ�
 ただ、CHANGELOGには載っていないのですがBeta.7でpeerDependenciesが更新されています。
 RxJSは5.0.0-Beta.2に、Zone.jsは0.5.15に上がっています。
 特にRxJSの方は破壊的変更があるので、忘れないようにアップデートしましょう。
+`fromPromise`から`PromiseObservable`への改名がされているだけなので、忘れていてもビルドが通らなくて気付くはずです。
+
+[build(package): bump rxjs to 5.0.0-beta.2 · angular/angular@46d9c87](https://github.com/angular/angular/commit/46d9c87ddc7071e8bc6c21032171610e6b5f6e5a)
 
 ----
 
