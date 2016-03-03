@@ -2,7 +2,7 @@ title: Angular2 Beta.2のリリース
 date: 2016-01-30 01:25:58
 author: laco0416
 tags:
-- Beta.2
+- Beta
 - Release
 ---
 

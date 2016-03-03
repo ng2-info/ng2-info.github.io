@@ -3,7 +3,7 @@ date: 2016-02-11 10:23:58
 author: laco0416
 tags:
 - Release
-- Beta.5
+- Beta
 - AngularJS
 - ComponentRouter
 - Meeting

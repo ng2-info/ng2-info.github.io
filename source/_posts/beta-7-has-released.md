@@ -3,7 +3,7 @@ date: 2016-02-20 00:13:27
 author: laco0416
 tags:
 - Release
-- Beta.7
+- Beta
 - Event
 
 ---

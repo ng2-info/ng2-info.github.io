@@ -3,7 +3,7 @@ date: 2016-02-04 11:32:35
 author: laco
 tags:
 - Release
-- Beta.3
+- Beta
 - AngularJS
 - Meeting
 - BreakingChange
