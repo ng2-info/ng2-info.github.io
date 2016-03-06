@@ -1,7 +1,7 @@
 title: 2016年のAngular2について
 date: 2016-01-07 12:07:19
 tags:
-- Beta.1
+- Beta
 - Planning
 - Meeting
 ---

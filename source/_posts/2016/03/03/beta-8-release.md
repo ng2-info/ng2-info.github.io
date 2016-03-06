@@ -5,7 +5,7 @@ tags:
 - Release
 - Beta
 - ComponentRouter
-- BreakingChanges
+- BreakingChange
 - Router
 
 ---
