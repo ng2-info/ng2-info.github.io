@@ -81,3 +81,7 @@ feed:
 search:
   path: search.xml
   field: all
+
+# Marked
+marked:
+  breaks: false
