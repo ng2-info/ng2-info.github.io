@@ -61,7 +61,7 @@ Zone.js 0.6系がPromiseのpolyfillを兼ねるようになったらしいので
 
 
 ## 今後のイベント情報
-最近はAngular 2の機運もあって日本でたくさんAngular 2のイベントが開催されています。
+最近はAngular 2の機運もあって日本でたくさんAngularのイベントが開催されています。
 募集開始直後に埋まってしまうものがほとんどなので、まだ参加できるものを紹介します
 
 ### [AngularJSハンズオン（初心者向け） in 広島 - Crunch-Lab](https://22525f535689619dc83bdcae89.doorkeeper.jp/events/41718)
