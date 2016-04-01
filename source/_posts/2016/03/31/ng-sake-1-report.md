@@ -32,7 +32,7 @@ tags:
 <script async class="speakerdeck-embed" data-id="8b4fd4950fcd42709d38fa585d3199bd" data-ratio="1.33333333333333" src="//speakerdeck.com/assets/embed.js"></script>
 
 Angular 2のサーバーサイドレンダリングに関する発表でした。実際に[angular/universal](https://github.com/angular/universal)を使ったデモや、
-さらにはpreloadまで試したデモを見せてもらえてとても新鮮でした。
+さらにはprebootまで試したデモを見せてもらえてとても新鮮でした。
 
 #### @mitsuruogさん: Angular 2 Unit testing Overview
 
