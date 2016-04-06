@@ -10,6 +10,8 @@ tags:
 
 --- 
 
+[Angular Weekly Meeting - Google ドキュメント](https://docs.google.com/document/d/150lerb1LmNLuau_a_EznPV1I1UHMTbEl61t4hZ7ZpS0/edit#heading=h.ke05vma2f6h3)
+
 ## Build 2016
 先日開催されたMicrosoftのイベント "Build" でAngularチームのBradがAngular 2のクロスプラットフォーム対応についてスピーチしました。
 
