@@ -24,7 +24,7 @@ RCからはnpmで配布するパッケージ自体が変わりました。
 | core | core |
 | common | common |
 | compiler | compiler |
-| testing | testing |
+| testing | core/testing, compiler/testing, platform-browser/testing,... |
 | platform/browser|  platform-browser, **platform-browser-dynamic** |
 | platform/server | platform-server |
 | platform/common | **common** |
