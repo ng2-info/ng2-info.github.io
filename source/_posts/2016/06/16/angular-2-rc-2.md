@@ -6,6 +6,8 @@ tags:
 - RC
 ---
 
+**追記** : CHANGELOG以外の情報を追加しました。
+
 どうも、らこです。ようやくRC.2がリリースされたので変更点を確認しましょう。
 1ヶ月以上の間に多くの変更が盛り込まれたので数は多いですが、破壊的変更はほとんどないので、
 落ち着いて移行していきましょう
@@ -135,6 +137,10 @@ CHANGELOG.mdを見ればわかるようにとんでもない変更の数なの�
 
 SystemJSを使ったダイナミックなコンポーネントの読み込みをサポートするための仕組みが整いつつあります。
 
+* **core:** introduce support for animations ([5e0f8cf](https://github.com/angular/angular/commit/5e0f8cf)), closes [#8734](https://github.com/angular/angular/issues/8734)
+
+Animation APIが実装されました。詳しくは後述。
+
 ### HTTP関連
 
 * **http:** Set response.ok ([9234035](https://github.com/angular/angular/commit/9234035)), closes [#6390](https://github.com/angular/angular/issues/6390) [#6503](https://github.com/angular/angular/issues/6503)
@@ -256,8 +262,41 @@ ng2 componentからのデータバインディングが可能になりました
 ui-routerのように、ディレクティブを外部でコンパイルしたものをドキュメントに挿入した時に、
 挿入されたディレクティブがルートのInjectorを参照するようにフォールバックが追加されました
 
+### その他
+
+* add minified bundles ([9175a04](https://github.com/angular/angular/commit/9175a04))
+
+各パッケージごとにbundleされたumd.jsが同梱されます
 
 ----
+
+また、CHANGELOG以外にも公式ブログでのアナウンスもされているので一緒に紹介します。
+
+[RC2 Now Available](http://angularjs.blogspot.jp/2016/06/rc2-now-available.html)
+
+### Animation APIのサポート
+
+ついにAnimation APIが実装されました。ドキュメントも用意されています。
+
+[Animations - ts](https://angular.io/docs/ts/latest/guide/animations.html)
+
+このドキュメントはng-confでもAnimationを担当した@teropa氏によるものです。
+gitアニメーション付きでわかりやすくてよいです。
+
+### Forms API
+RC.2に新しいForms APIの一部が実装されています。オプトインになっているので試したい方は `@angular/forms` を使ってみましょう。
+
+### 多くのプルリクエストの消化
+100以上のPRがマージされ、多くのバグが修正され、大きく改善されました
+
+### Web Workerサポート
+RCリリースの際に一度ドロップしていたWeb Workerサポートが完全復帰しました。
+
+### 今後の予定
+RCは今後もいくつか続き、最終的には2.0.0 Finalを目指していきます。
+数ヶ月以内に辿り着きそうとのことで、FormsやRouterも含めて期待していきましょう。
+
+---
 
 いかがでしたでしょうか。
 大きく変わったのはForms周りくらいで、あとはちょっと便利な機能が増えたりバグが直ったりと嬉しい変更ばかりです。
