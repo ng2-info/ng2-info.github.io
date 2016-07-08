@@ -1,7 +1,10 @@
-title: angular-2-rc-4
+title: Angular 2 RC.4の変更点
 date: 2016-07-08 21:57:10
-author:
+author: laco0416
 tags:
+- RC
+- BreakingChange
+- Release
 ---
 
 こんにちは、らこです。RC.3に引き続きアップデートからしばらく経ってしまいましたが、変更点についてまとめておきます。
