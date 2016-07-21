@@ -6,7 +6,8 @@
     "version": "3.1.1"
   },
   "scripts": {
-    "deploy": "hexo gen && hexo dep"  
+    "deploy": "hexo gen && hexo dep",
+    "linkjuice": "cp -R node_modules/linkjuice/dist/* source/js"
   },
   "dependencies": {
     "hexo": "^3.1.0",
@@ -20,6 +21,7 @@
     "hexo-renderer-ejs": "^0.1.0",
     "hexo-renderer-marked": "^0.2.4",
     "hexo-renderer-stylus": "^0.3.0",
-    "hexo-server": "^0.1.2"
+    "hexo-server": "^0.1.2",
+    "linkjuice": "^1.0.0"
   }
 }
