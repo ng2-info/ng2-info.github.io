@@ -78,7 +78,7 @@ AngularJSはもうこれ以上の機能追加の予定がないことを確認�
 これまではAngular2ユーザー向けへのガイドだけでしたが、いよいよ本格的にAngularJSユーザーを取り込んでいくようです。
 マイグレーション用のツールを作るかもしれないとも言及しています。
 
-また、これと平行してAngularJS向けのComonent Routerも今週中にリリースされる予定です。
+また、これと平行してAngularJS向けのComponent Routerも今週中にリリースされる予定です。
 Component RouterはAngular2で公式に提供されているRouterで、
 AngularJSでも使えるようにすることでマイグレーションをスムーズに行えるようになるはずです。
 
