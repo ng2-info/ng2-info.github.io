@@ -12,6 +12,10 @@
     background: #0143A3;
 }
 
+.page-description {
+    font-family: "Open Sans", sans-serif;
+}
+
 pre {
     background: transparent;
 }
@@ -19,4 +23,12 @@ pre {
 a.linkjuice {
     text-decoration: none;
 
+}
+
+p {
+    font-family: "Open Sans", sans-serif;
+}
+
+code {
+    font-family: Inconsolata, monospace, sans-serif;
 }
