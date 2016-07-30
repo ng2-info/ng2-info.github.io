@@ -13,7 +13,6 @@
 {{ if .Site.Params.customFooterPartial }}
 {{ partial .Site.Params.customFooterPartial . }}
 {{ end }}
-<script type="text/javascript" src="{{.Site.BaseURL}}js/linkjuice.min.js"></script>
 <script>
     linkjuice.init('article.post', {
         selectors: ['h2', 'h3', 'h4'],
