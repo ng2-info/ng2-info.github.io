@@ -1,4 +1,4 @@
-baseurl = "ng2-info.github.io/"
+baseurl = "https://ng2-info.github.io/"
 languageCode = "ja-jp"
 title = "Angular2 Info"
 theme = "casper"
