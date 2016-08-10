@@ -39,13 +39,10 @@ import {AppComponent} from './app.component';
 
 @NgModule({
     declarations: [AppComponent],
-    imports: [BrowserModule]
-    entryComponents: [AppComponent]
+    imports: [BrowserModule],
+    bootstrap: [AppComponent]
 })
 class AppModule {
-    constructor(appRef: ApplicationRef) {
-        appRef.bootstrap(AppComponent);
-    }
 }
 ```
 
@@ -53,7 +50,7 @@ class AppModule {
 
 ```ts
 import {AppModule} from './app.module';
-import {platformBrowserDynamic} from '@angular/browser-platform-dynamic';
+import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
 
 platformBrowserDynamic().bootstrapModule(AppModule);
 ```
@@ -166,6 +163,12 @@ export class AwesomeModule {
 }
 ```
 
+#### bootstrap
+
+`bootstrap`プロパティには、アプリケーションのエントリポイントになるコンポーネントを指定します。
+いままで`bootstrap`関数に渡していたコンポーネントを指定しておけば大丈夫です。
+
+
 #### entryComponents
 
 一番難しいのがこの`entryComponents`プロパティです。
@@ -177,7 +180,8 @@ export class AwesomeModule {
 - Lazy Loadingのよって実行時にあとから読み込まれるコンポーネント
 
 以上のどちらかに当てはまるコンポーネントです。
-基本的にはいままで`bootstrap`関数に渡していたコンポーネントだけを指定しておけば大丈夫でしょう。
+ただし、`bootstrap`プロパティに指定してあるコンポーネントは自動的に`entryComponents`にも追加されるので、
+後者の、遅延ロードされるコンポーネントだけを指定することになります。
 
 #### schemas
 
