@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="ja-jp">
+<head>
+
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+  	<meta property="og:title" content=" Angular2 Beta.3リリースと今週のニュース &middot;  Angular2 Info" />
+  	<meta property="og:site_name" content="Angular2 Info" />
+  	<meta property="og:url" content="https://ng2-info.github.io/2016/02/beta-3-has-released/" />
+
+    
+  	<meta property="og:type" content="article" />
+
+    <meta property="og:article:published_time" content="2016-02-04T11:32:35&#43;09:00" />
+
+    
+    <meta property="og:article:tag" content="Release" />
+    
+    <meta property="og:article:tag" content="Beta" />
+    
+    <meta property="og:article:tag" content="AngularJS" />
+    
+    <meta property="og:article:tag" content="Meeting" />
+    
+    <meta property="og:article:tag" content="BreakingChange" />
+    
+    
+
+  <title>
+     Angular2 Beta.3リリースと今週のニュース &middot;  Angular2 Info
+  </title>
+
+    <meta name="description" content="Angular2の最新情報を不定期更新！" />
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" href="https://ng2-info.github.io/favicon.png">
+    <link rel="apple-touch-icon" href="https://ng2-info.github.io/images/apple-touch-icon.png" />
+
+    <link rel="stylesheet" type="text/css" href="https://ng2-info.github.io/css/screen.css" />
+    <link rel="stylesheet" type="text/css" href="https://ng2-info.github.io/css/nav.css" />
+    <link rel="stylesheet" type="text/css" href="https://ng2-info.github.io/css/overwrite.css" />
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400|Inconsolata" />
+
+    
+      
+          <link href="https://ng2-info.github.io/index.xml" rel="alternate" type="application/rss+xml" title="Angular2 Info" />
+      
+      
+    
+    <meta name="generator" content="Hugo 0.15" />
+
+    <link rel="canonical" href="https://ng2-info.github.io/2016/02/beta-3-has-released/" />
+
+    
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-52362663-3', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+    
+
+    
+    <link rel="stylesheet" href="//yandex.st/highlightjs/8.0/styles/default.min.css">
+    <script type="text/javascript" src="https://ng2-info.github.io/js/linkjuice.min.js"></script>
+    <script src="//yandex.st/highlightjs/8.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body class="nav-closed">
+
+  <div class="nav">
+    <h3 class="nav-title">Menu</h3>
+    <a href="#" class="nav-close">
+        <span class="hidden">Close</span>
+    </a>
+    <ul>
+        
+        
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="/">Top</a>
+            </li>
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="/tags/">Tags</a>
+            </li>
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="https://github.com/ng2-info/ng2-info.github.io">Repository</a>
+            </li>
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="http://blog.lacolaco.net">Author&#39;s Blog</a>
+            </li>
+        
+    </ul>
+    
+    
+    <a class="subscribe-button icon-feed" href="https://ng2-info.github.io/index.xml">Subscribe</a>
+    
+</div>
+<span class="nav-cover"></span>
+
+
+ <div class="site-wrapper">
+
+
+
+
+
+<header class="main-header post-head">
+    <nav class="main-nav overlay clearfix">
+
+
+      
+        <a class="blog-logo" href="https://ng2-info.github.io/"><img src="https://ng2-info.github.io/img/ng2-info.png" alt="Home" /></a>
+      
+      
+          <a class="menu-button" href="#"><span class="burger">&#9776;</span><span class="word">Menu</span></a>
+      
+    </nav>
+
+    <div class="vertical">
+        <div class="main-header-content inner">
+            <h1 class="page-title">Angular2 Info</h1>
+            <h2 class="page-description">
+                
+            </h2>
+        </div>
+    </div>
+
+
+</header>
+
+
+
+<main class="content" role="main">
+
+
+
+
+  <article class="post post">
+    <header class="post-header">
+      <nav class="breadcrumb">
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      </nav>
+
+
+        <h1 class="post-title">Angular2 Beta.3リリースと今週のニュース</h1>
+        <small></small>
+
+        <section class="post-meta">
+        
+          <time class="post-date" datetime="2016-02-04T11:32:35&#43;09:00">
+            Feb 4, 2016
+          </time>
+        
+         
+          <span class="post-tag small"><a href="https://ng2-info.github.io/tags/release/">#Release</a></span>
+         
+          <span class="post-tag small"><a href="https://ng2-info.github.io/tags/beta/">#Beta</a></span>
+         
+          <span class="post-tag small"><a href="https://ng2-info.github.io/tags/angularjs/">#AngularJS</a></span>
+         
+          <span class="post-tag small"><a href="https://ng2-info.github.io/tags/meeting/">#Meeting</a></span>
+         
+          <span class="post-tag small"><a href="https://ng2-info.github.io/tags/breakingchange/">#BreakingChange</a></span>
+         
+        </section>
+    </header>
+
+    <section class="post-content">
+
+
+
+
+<p>こんにちは、らこです。先週の宣言通り、Beta.2からは週間リリースが始まっています。<br />
+今週はBeta.3がリリースされたので、主な変更点をピックアップしていきます。</p>
+
+<p><a href="https://github.com/angular/angular/blob/master/CHANGELOG.md#200-beta3-2016-02-03" target="_blank">CHANGELOG: 2.0.0-beta.3 (2016-02-03)</a></p>
+
+<h3 id="はじめに-beta-3はアップデートしないほうがよい">はじめに：Beta.3はアップデートしないほうがよい</h3>
+
+<p>まず初めに不具合と思われる症状についての情報です。<br />
+Beta.3ではpeerDependenciesに指定されているzone.jsのバージョンが0.5.11に上がりましたが、<br />
+このバージョンはnpmの<code>postinstall</code>でtsdのコマンドを実行します。<br />
+ところがzone.jsのdependenciesにはtsdが入っていないため、グローバルにtsdをインストールしているユーザー以外はインストールに失敗します。</p>
+
+<p><a href="https://github.com/angular/zone.js/issues/240" target="_blank">&ldquo;postinstall&rdquo;: &ldquo;tsd install&rdquo; · Issue #240 · angular/zone.js</a></p>
+
+<p>Beta.2を使っている環境から依存パッケージを一括アップデートするとzone.jsもアップデートされてしまい、<br />
+その際に上記のエラーによりインストールに失敗するようになります。</p>
+
+<p>Beta.3はさほど大きな変更もないのでここはBeta.4で解決されるまでアップデートを控えるのが安心でしょう。</p>
+
+<p>もしBeta.3を使いたい場合はzone.jsのバージョンを今はまだ0.5.10に固定しておき、Angular2だけをアップデートするのが良さそうです。<br />
+一時的にpeerDependenciesが一致せず警告が表示されるとは思いますがしょうがありません。<br />
+tsdはTypeScriptの公式でも非推奨なツールになりましたので、今からインストールしたくないものです。</p>
+
+<h3 id="ngfor-add-custom-trackby-function-support">ngFor: add custom trackBy function support</h3>
+
+<p><a href="https://github.com/angular/angular/commit/cee2318" target="_blank">https://github.com/angular/angular/commit/cee2318</a><br />
+<code>ngFor</code>に<code>trackBy</code>が指定できるようになりました。</p>
+
+<p>使ってみたサンプルが<a href="http://plnkr.co/edit/ksy5bnRz2VsufDrYJPOh" target="_blank">こちら</a>です。</p>
+
+<pre><code>&lt;div *ngFor=&quot;#item of items; trackBy:customTrackBy&quot;&gt;
+</code></pre>
+
+<p>という形式で関数を指定できます。trackByに設定した関数にはインデックスと要素が引数で渡されます。</p>
+
+<pre><code>trackByValue(index: number, item: any): any {
+  return item;
+}
+</code></pre>
+
+<p>この関数で返した値によって反復する要素に一意性を持たせることができるようです。<br />
+しかしAngularJSの<code>ng-repeat</code>と違い、<code>ngFor</code>は<code>[1,2,1]</code>などの配列でも問題なく反復できるので、<br />
+明示的に設定しなければいけないケースはあまり発生しないように思われます。</p>
+
+<p>無理やりtrackByで挙動をおかしくした例が<a href="http://plnkr.co/edit/2KISdMxgxLcf3PlklS5E?p=preview" target="_blank">こちら</a>。<br />
+むしろインデックスを<code>trackBy</code>で返したほうが挙動が変わるので、<br />
+よほど特殊な例でないとこの機能を活用することはないでしょう…</p>
+
+<h3 id="debug-replace-debugelement-with-new-debug-dom">debug: replace DebugElement with new Debug DOM</h3>
+
+<p><a href="https://github.com/angular/angular/commit/e1bf3d3" target="_blank">https://github.com/angular/angular/commit/e1bf3d3</a></p>
+
+<p>Beta.3唯一の破壊的変更です。<br />
+DOM操作のユニットテスト用に<code>DebugElement</code>というディレクティブが用意されていましたが、<br />
+その使い方が変わりました。<br />
+詳しくはCHANGELOGのBefore/Afterを見ると良いでしょう。<br />
+全体的に記述量が減ってわかりやすいAPIになりました。</p>
+
+<p>しかしそもそも<code>DebugElement</code>をもう使っている人がどれだけいるのかというところ…</p>
+
+<h2 id="今週の週次ミーティング">今週の週次ミーティング</h2>
+
+<p>今週月曜日のミーティングの内容もかいつまんでまとめます。</p>
+
+<h3 id="angular-1-focus-areas">Angular 1 focus areas</h3>
+
+<p>AngularJSについての話題です。</p>
+
+<p>AngularJSはもうこれ以上の機能追加の予定がないことを確認しました。<br />
+今後のAngularJSの開発はAngular2へのマイグレーションをサポートすることがメインになります。</p>
+
+<p>来週にはAngularJSのユーザー向けにAngular2へのアップグレードガイドを公開する予定のようです。<br />
+これまではAngular2ユーザー向けへのガイドだけでしたが、いよいよ本格的にAngularJSユーザーを取り込んでいくようです。<br />
+マイグレーション用のツールを作るかもしれないとも言及しています。</p>
+
+<p>また、これと平行してAngularJS向けのComponent Routerも今週中にリリースされる予定です。<br />
+Component RouterはAngular2で公式に提供されているRouterで、<br />
+AngularJSでも使えるようにすることでマイグレーションをスムーズに行えるようになるはずです。</p>
+
+<p>Routerだけでなく、i18nやアニメーションもAngularJS向けにライブラリを提供する計画があるようです。<br />
+これまでサードパーティに頼っていてAngular2から公式に提供するものについては、<br />
+このようにPolyfillのような形で移行しやすい形を作っていくようです。</p>
+
+<h3 id="angularconnect-and-ngeurope">AngularConnect and ngEurope</h3>
+
+<p>これは余談ですが、9月のAngularConnectと10月のngEuropeが近すぎる件について、<br />
+セッティングミスらしいことがわかりました。<br />
+チームの大半はAngularConnect側に参加するようです。</p>
+
+<hr />
+
+<p>今週中にリリースされる予定のComponent Router for AngularJSが楽しみですね。<br />
+それでは。</p>
+
+
+
+
+
+
+
+
+
+    </section>
+
+
+  <footer class="post-footer">
+
+
+    
+    <figure class="author-image">
+        <a class="img" href="http://twitter.com/laco0416" style="background-image: url(https://ng2-info.github.io/img/authors/laco.png)"></a>
+    </figure>
+
+    
+
+
+
+
+
+<section class="author">
+  <h5>Author: <a href="http://twitter.com/laco0416">Suguru INATOMI</a></h5>
+</section>
+
+
+
+    
+<section class="share">
+    <h5>Share this post</h5>
+    <a class="icon-twitter" style="font-size: 1.4em"
+       href="https://twitter.com/share?text=Angular2%20Beta.3%e3%83%aa%e3%83%aa%e3%83%bc%e3%82%b9%e3%81%a8%e4%bb%8a%e9%80%b1%e3%81%ae%e3%83%8b%e3%83%a5%e3%83%bc%e3%82%b9%20-%20Angular2%20Info&amp;url=https%3a%2f%2fng2-info.github.io%2f2016%2f02%2fbeta-3-has-released%2f"
+       onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+        <span class="hidden">Twitter</span>
+    </a>
+    <a class="icon-facebook" style="font-size: 1.4em"
+       href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fng2-info.github.io%2f2016%2f02%2fbeta-3-has-released%2f"
+       onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+        <span class="hidden">Facebook</span>
+    </a>
+</section>
+
+
+
+  </footer>
+</article>
+
+</main>
+<footer class="site-footer clearfix">
+    <section class="copyright"><a href="">Angular2 Info</a> </section>
+    
+    <section class="poweredby">Proudly generated by <a class="icon-hugo" href="http://gohugo.io">HUGO</a>, with <a
+            class="icon-theme" href="https://github.com/vjeantet/hugo-theme-casper">Casper</a> theme
+    </section>
+    
+</footer>
+</div>
+<script type="text/javascript" src="https://ng2-info.github.io/js/jquery.js"></script>
+<script type="text/javascript" src="https://ng2-info.github.io/js/jquery.fitvids.js"></script>
+<script type="text/javascript" src="https://ng2-info.github.io/js/index.js"></script>
+
+<script>
+    linkjuice.init('article.post', {
+        selectors: ['h2', 'h3', 'h4'],
+        icon: ''
+    });
+</script>
+</body>
+</html>
+

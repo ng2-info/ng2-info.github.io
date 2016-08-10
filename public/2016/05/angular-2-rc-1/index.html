@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="ja-jp">
+<head>
+
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+  	<meta property="og:title" content=" Angular 2 RCリリースについて &middot;  Angular2 Info" />
+  	<meta property="og:site_name" content="Angular2 Info" />
+  	<meta property="og:url" content="https://ng2-info.github.io/2016/05/angular-2-rc-1/" />
+
+    
+  	<meta property="og:type" content="article" />
+
+    <meta property="og:article:published_time" content="2016-05-09T11:35:30&#43;09:00" />
+
+    
+    <meta property="og:article:tag" content="Release" />
+    
+    <meta property="og:article:tag" content="RC" />
+    
+    <meta property="og:article:tag" content="BreakingChange" />
+    
+    
+
+  <title>
+     Angular 2 RCリリースについて &middot;  Angular2 Info
+  </title>
+
+    <meta name="description" content="Angular2の最新情報を不定期更新！" />
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" href="https://ng2-info.github.io/favicon.png">
+    <link rel="apple-touch-icon" href="https://ng2-info.github.io/images/apple-touch-icon.png" />
+
+    <link rel="stylesheet" type="text/css" href="https://ng2-info.github.io/css/screen.css" />
+    <link rel="stylesheet" type="text/css" href="https://ng2-info.github.io/css/nav.css" />
+    <link rel="stylesheet" type="text/css" href="https://ng2-info.github.io/css/overwrite.css" />
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400|Inconsolata" />
+
+    
+      
+          <link href="https://ng2-info.github.io/index.xml" rel="alternate" type="application/rss+xml" title="Angular2 Info" />
+      
+      
+    
+    <meta name="generator" content="Hugo 0.15" />
+
+    <link rel="canonical" href="https://ng2-info.github.io/2016/05/angular-2-rc-1/" />
+
+    
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-52362663-3', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+    
+
+    
+    <link rel="stylesheet" href="//yandex.st/highlightjs/8.0/styles/default.min.css">
+    <script type="text/javascript" src="https://ng2-info.github.io/js/linkjuice.min.js"></script>
+    <script src="//yandex.st/highlightjs/8.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body class="nav-closed">
+
+  <div class="nav">
+    <h3 class="nav-title">Menu</h3>
+    <a href="#" class="nav-close">
+        <span class="hidden">Close</span>
+    </a>
+    <ul>
+        
+        
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="/">Top</a>
+            </li>
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="/tags/">Tags</a>
+            </li>
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="https://github.com/ng2-info/ng2-info.github.io">Repository</a>
+            </li>
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="http://blog.lacolaco.net">Author&#39;s Blog</a>
+            </li>
+        
+    </ul>
+    
+    
+    <a class="subscribe-button icon-feed" href="https://ng2-info.github.io/index.xml">Subscribe</a>
+    
+</div>
+<span class="nav-cover"></span>
+
+
+ <div class="site-wrapper">
+
+
+
+
+
+<header class="main-header post-head">
+    <nav class="main-nav overlay clearfix">
+
+
+      
+        <a class="blog-logo" href="https://ng2-info.github.io/"><img src="https://ng2-info.github.io/img/ng2-info.png" alt="Home" /></a>
+      
+      
+          <a class="menu-button" href="#"><span class="burger">&#9776;</span><span class="word">Menu</span></a>
+      
+    </nav>
+
+    <div class="vertical">
+        <div class="main-header-content inner">
+            <h1 class="page-title">Angular2 Info</h1>
+            <h2 class="page-description">
+                
+            </h2>
+        </div>
+    </div>
+
+
+</header>
+
+
+
+<main class="content" role="main">
+
+
+
+
+  <article class="post post">
+    <header class="post-header">
+      <nav class="breadcrumb">
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      </nav>
+
+
+        <h1 class="post-title">Angular 2 RCリリースについて</h1>
+        <small></small>
+
+        <section class="post-meta">
+        
+          <time class="post-date" datetime="2016-05-09T11:35:30&#43;09:00">
+            May 9, 2016
+          </time>
+        
+         
+          <span class="post-tag small"><a href="https://ng2-info.github.io/tags/release/">#Release</a></span>
+         
+          <span class="post-tag small"><a href="https://ng2-info.github.io/tags/rc/">#RC</a></span>
+         
+          <span class="post-tag small"><a href="https://ng2-info.github.io/tags/breakingchange/">#BreakingChange</a></span>
+         
+        </section>
+    </header>
+
+    <section class="post-content">
+
+
+
+
+<p>ng-confお疲れ様でした、らこです。<br />
+Angular 2もついにRelease Candidateとなりまして、最終リリースへのステップをまたひとつ進めたところです。<br />
+Betaから大きく変わっている部分もありますが基本的には機械的に対応可能な破壊的変更なので、さくっとRC対応していきましょう。</p>
+
+<hr />
+
+<h2 id="パッケージの変更">パッケージの変更</h2>
+
+<p>RCからはnpmで配布するパッケージ自体が変わりました。<br />
+今まではすべて <code>angular2</code> パッケージの中にまとめられて配布されていましたが、今後は細かい単位でパッケージが分割されます。<br />
+古い<code>angular2</code>のモジュールと新しいパッケージの対応は以下のようになっています。</p>
+
+<table>
+<thead>
+<tr>
+<th align="center"><code>angular2/***</code></th>
+<th align="center"><code>@angular/***</code></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="center">core</td>
+<td align="center">core</td>
+</tr>
+
+<tr>
+<td align="center">common</td>
+<td align="center">common</td>
+</tr>
+
+<tr>
+<td align="center">compiler</td>
+<td align="center">compiler</td>
+</tr>
+
+<tr>
+<td align="center">testing</td>
+<td align="center">core/testing, compiler/testing, platform-browser/testing,&hellip;</td>
+</tr>
+
+<tr>
+<td align="center">platform/browser</td>
+<td align="center">platform-browser, <strong>platform-browser-dynamic</strong></td>
+</tr>
+
+<tr>
+<td align="center">platform/server</td>
+<td align="center">platform-server</td>
+</tr>
+
+<tr>
+<td align="center">platform/common</td>
+<td align="center"><strong>common</strong></td>
+</tr>
+
+<tr>
+<td align="center">http</td>
+<td align="center">http</td>
+</tr>
+
+<tr>
+<td align="center">router</td>
+<td align="center"><strong>router-deprecated</strong></td>
+</tr>
+
+<tr>
+<td align="center">alt_router</td>
+<td align="center"><strong>router</strong></td>
+</tr>
+
+<tr>
+<td align="center">upgrade</td>
+<td align="center">upgrade</td>
+</tr>
+</tbody>
+</table>
+
+<p><code>@angular/core</code> というパッケージ名は、npmの <em>scoped package</em> という形式で、<br />
+「&rdquo;angular&rdquo; organizationの &ldquo;core&rdquo; パッケージ」という意味になります。<br />
+具体的には次のようなインストールコマンドを使います。</p>
+
+<pre><code>$ npm i @angular/core @angular/compiler @angular/common @angular/platform-browser @angular/platform-browser-dynamic
+</code></pre>
+
+<p>パッケージは小分けになりましたが、各パッケージはpeer dependencyで依存しあっているので、<br />
+もし足りないパッケージがあったとしてもインストール後にwarningが発生して教えてくれます。</p>
+
+<p>ところで、一部のAPI、<code>AnimationBuilder</code>や<code>BrowserDomAdapter</code>などがパブリックなAPIから消滅しています。<br />
+内部的には存在していて、無理やり使用することはできますが、自己責任で。<br />
+おそらくRC以降に巻き込まれて一時的に隠れているだけだと思われます。</p>
+
+<h2 id="依存パッケージの変更">依存パッケージの変更</h2>
+
+<p>今までAngular 2はいくつかのpeer dependencyを持っていましたが、それが最小限のものだけになりました。<br />
+具体的には、<code>es6-shim</code>と<code>reflect-metadata</code>がpeer dependencyから削除されました。<br />
+これは依存しなくなったわけではなく、使用するpolyfillをユーザーに委ねるようにした、いわゆるポリシー変更です。<br />
+ES6機能のpolyfillには以前からcore-jsなど他のものを使うことができましたが、es6-shimをインストールしないとwarningがでるという状態だったので、<br />
+扱いやすい形に変わったといえます。</p>
+
+<h2 id="platform-browserとplatform-browser-dynamicの分割">platform-browserとplatform-browser-dynamicの分割</h2>
+
+<p>従来通りランタイムでbootstrapする方式と、Offline Compilerを使ったstaticなbootstrap方式の両方をサポートするため、<br />
+ブラウザプラットフォーム用のパッケージが<code>@angular/platform-browser</code>と<code>@angular/platform-browser-dynamic</code>に分割されました。<br />
+元々<code>angular2/platform/browser</code>からexportされてた<code>bootstrap</code>関数は、<code>@angular/platform-browser-dynamic</code>に含まれています。</p>
+
+<h2 id="alt-routerがrouterに昇格">alt_routerがrouterに昇格</h2>
+
+<p>今までの<code>angular2/router</code>モジュールは<code>@angular/router-deprecated</code>パッケージとなり、<br />
+その名の通り過去のものになってしまいました。<br />
+そしてVictor Savkinが作りなおした新しいパッケージが<code>@angular/router</code>として配布されています。</p>
+
+<p>しかしまだ<code>@angular/router</code>は開発途上なので、旧routerから移行するには機能が足りていない場合があります。<br />
+既存のAngular 2アプリケーションはまだしばらく<code>@angular/router-deprecated</code>でもよさそうです。</p>
+
+<hr />
+
+<p>Beta.17まで順調についてきていればあとはパッケージ名の置換だけで済むはずなので、さくっとRC対応できるはずです。<br />
+RCも短いスパンでアップデートされていくのが目に見えているので、置いていかれないようにしていきましょう。</p>
+
+
+
+
+
+
+
+
+
+    </section>
+
+
+  <footer class="post-footer">
+
+
+    
+    <figure class="author-image">
+        <a class="img" href="http://twitter.com/laco0416" style="background-image: url(https://ng2-info.github.io/img/authors/laco.png)"></a>
+    </figure>
+
+    
+
+
+
+
+
+<section class="author">
+  <h5>Author: <a href="http://twitter.com/laco0416">Suguru INATOMI</a></h5>
+</section>
+
+
+
+    
+<section class="share">
+    <h5>Share this post</h5>
+    <a class="icon-twitter" style="font-size: 1.4em"
+       href="https://twitter.com/share?text=Angular%202%20RC%e3%83%aa%e3%83%aa%e3%83%bc%e3%82%b9%e3%81%ab%e3%81%a4%e3%81%84%e3%81%a6%20-%20Angular2%20Info&amp;url=https%3a%2f%2fng2-info.github.io%2f2016%2f05%2fangular-2-rc-1%2f"
+       onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+        <span class="hidden">Twitter</span>
+    </a>
+    <a class="icon-facebook" style="font-size: 1.4em"
+       href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fng2-info.github.io%2f2016%2f05%2fangular-2-rc-1%2f"
+       onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+        <span class="hidden">Facebook</span>
+    </a>
+</section>
+
+
+
+  </footer>
+</article>
+
+</main>
+<footer class="site-footer clearfix">
+    <section class="copyright"><a href="">Angular2 Info</a> </section>
+    
+    <section class="poweredby">Proudly generated by <a class="icon-hugo" href="http://gohugo.io">HUGO</a>, with <a
+            class="icon-theme" href="https://github.com/vjeantet/hugo-theme-casper">Casper</a> theme
+    </section>
+    
+</footer>
+</div>
+<script type="text/javascript" src="https://ng2-info.github.io/js/jquery.js"></script>
+<script type="text/javascript" src="https://ng2-info.github.io/js/jquery.fitvids.js"></script>
+<script type="text/javascript" src="https://ng2-info.github.io/js/index.js"></script>
+
+<script>
+    linkjuice.init('article.post', {
+        selectors: ['h2', 'h3', 'h4'],
+        icon: ''
+    });
+</script>
+</body>
+</html>
+

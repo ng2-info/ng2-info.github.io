@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="ja-jp">
+<head>
+
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+  	<meta property="og:title" content=" Beta.13リリースとng-conf extendedのお知らせ &middot;  Angular2 Info" />
+  	<meta property="og:site_name" content="Angular2 Info" />
+  	<meta property="og:url" content="https://ng2-info.github.io/2016/03/beta-13-and-ng-conf-extended/" />
+
+    
+  	<meta property="og:type" content="article" />
+
+    <meta property="og:article:published_time" content="2016-03-31T22:14:33&#43;09:00" />
+
+    
+    <meta property="og:article:tag" content="Beta" />
+    
+    <meta property="og:article:tag" content="Release" />
+    
+    <meta property="og:article:tag" content="Event" />
+    
+    
+
+  <title>
+     Beta.13リリースとng-conf extendedのお知らせ &middot;  Angular2 Info
+  </title>
+
+    <meta name="description" content="Angular2の最新情報を不定期更新！" />
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" href="https://ng2-info.github.io/favicon.png">
+    <link rel="apple-touch-icon" href="https://ng2-info.github.io/images/apple-touch-icon.png" />
+
+    <link rel="stylesheet" type="text/css" href="https://ng2-info.github.io/css/screen.css" />
+    <link rel="stylesheet" type="text/css" href="https://ng2-info.github.io/css/nav.css" />
+    <link rel="stylesheet" type="text/css" href="https://ng2-info.github.io/css/overwrite.css" />
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400|Inconsolata" />
+
+    
+      
+          <link href="https://ng2-info.github.io/index.xml" rel="alternate" type="application/rss+xml" title="Angular2 Info" />
+      
+      
+    
+    <meta name="generator" content="Hugo 0.15" />
+
+    <link rel="canonical" href="https://ng2-info.github.io/2016/03/beta-13-and-ng-conf-extended/" />
+
+    
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-52362663-3', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+    
+
+    
+    <link rel="stylesheet" href="//yandex.st/highlightjs/8.0/styles/default.min.css">
+    <script type="text/javascript" src="https://ng2-info.github.io/js/linkjuice.min.js"></script>
+    <script src="//yandex.st/highlightjs/8.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body class="nav-closed">
+
+  <div class="nav">
+    <h3 class="nav-title">Menu</h3>
+    <a href="#" class="nav-close">
+        <span class="hidden">Close</span>
+    </a>
+    <ul>
+        
+        
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="/">Top</a>
+            </li>
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="/tags/">Tags</a>
+            </li>
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="https://github.com/ng2-info/ng2-info.github.io">Repository</a>
+            </li>
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="http://blog.lacolaco.net">Author&#39;s Blog</a>
+            </li>
+        
+    </ul>
+    
+    
+    <a class="subscribe-button icon-feed" href="https://ng2-info.github.io/index.xml">Subscribe</a>
+    
+</div>
+<span class="nav-cover"></span>
+
+
+ <div class="site-wrapper">
+
+
+
+
+
+<header class="main-header post-head">
+    <nav class="main-nav overlay clearfix">
+
+
+      
+        <a class="blog-logo" href="https://ng2-info.github.io/"><img src="https://ng2-info.github.io/img/ng2-info.png" alt="Home" /></a>
+      
+      
+          <a class="menu-button" href="#"><span class="burger">&#9776;</span><span class="word">Menu</span></a>
+      
+    </nav>
+
+    <div class="vertical">
+        <div class="main-header-content inner">
+            <h1 class="page-title">Angular2 Info</h1>
+            <h2 class="page-description">
+                
+            </h2>
+        </div>
+    </div>
+
+
+</header>
+
+
+
+<main class="content" role="main">
+
+
+
+
+  <article class="post post">
+    <header class="post-header">
+      <nav class="breadcrumb">
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      </nav>
+
+
+        <h1 class="post-title">Beta.13リリースとng-conf extendedのお知らせ</h1>
+        <small></small>
+
+        <section class="post-meta">
+        
+          <time class="post-date" datetime="2016-03-31T22:14:33&#43;09:00">
+            Mar 31, 2016
+          </time>
+        
+         
+          <span class="post-tag small"><a href="https://ng2-info.github.io/tags/beta/">#Beta</a></span>
+         
+          <span class="post-tag small"><a href="https://ng2-info.github.io/tags/release/">#Release</a></span>
+         
+          <span class="post-tag small"><a href="https://ng2-info.github.io/tags/event/">#Event</a></span>
+         
+        </section>
+    </header>
+
+    <section class="post-content">
+
+
+
+
+<p>どうも、らこです。今週もAngular 2のアップデートが行われ、Beta.13になりました。主な変更点をかいつまんで紹介します。</p>
+
+<h1 id="beta-13リリース">Beta.13リリース</h1>
+
+<h2 id="デコレータメタデータの静的解決が実装されました">デコレータメタデータの静的解決が実装されました</h2>
+
+<p>将来的に実装されるOffline Template Compileのための基礎となる機能が実装されました。<br />
+コンポーネントやディレクティブなどのデコレータで定義している設定(メタデータ)にJavaScriptを実行することなくアクセスできるようにする仕組みです。<br />
+これまではコンポーネントのテンプレートは実行時に文字列が評価されるので静的に解析するのが難しかったですが、<br />
+この仕組みによって予めメタデータの情報だけを抽出できるようになり、ツールによる静的解析に大きく寄与します。</p>
+
+<p>さっそくcodelyzer(ng2lintから名前が変わりました)で使う計画もあるようです。</p>
+
+<ul>
+<li><a href="https://github.com/angular/angular/commit/ae876d1" target="_blank">feat(build): Persisting decorator metadata · angular/angular@ae876d1</a><br /></li>
+<li><a href="https://github.com/mgechev/codelyzer/issues/11" target="_blank">Use metadata reader · Issue #11 · mgechev/codelyzer</a><br /></li>
+</ul>
+
+<h2 id="ngif-などの-系ディレクティブをng-contentで扱いやすくなりました"><code>*ngIf</code>などの<code>*-</code>系ディレクティブをng-contentで扱いやすくなりました</h2>
+
+<p>これはバグ修正に含めるべきな気もしますが、今まで<code>*-</code>系のディレクティブが付いた要素はng-contentのselectで選択するときに<code>template</code>要素としてしかselectできませんでしたが、<br />
+この変更によって直接選択できるようになります。</p>
+
+<p>次の要素がcontentになっていたとして、</p>
+
+<pre><code>&lt;p *ngIf=&quot;condition&quot; foo&gt;&lt;/p&gt;
+</code></pre>
+
+<p>以前はtemplateでしかselectできませんでしたが</p>
+
+<pre><code>    // Use the implicit template for projection
+    &lt;ng-content select=&quot;template&quot;&gt;&lt;/ng-content&gt;
+</code></pre>
+
+<p>これからは直接selectできるようになります</p>
+
+<pre><code>    // Use the actual element for projection
+    &lt;ng-content select=&quot;p[foo]&quot;&gt;&lt;/ng-content&gt;
+</code></pre>
+
+<ul>
+<li><a href="https://github.com/angular/angular/commit/aa966f5" target="_blank">feat(Compiler): Allow overriding the projection selector · angular/angular@aa966f5</a><br /></li>
+</ul>
+
+<h2 id="i18n関連機能の実装が終わりました">i18n関連機能の実装が終わりました</h2>
+
+<p><blockquote class="twitter-tweet" data-cards="hidden" data-lang="ja"><p lang="en" dir="ltr">Angular 2 beta 13 is out! The i18n support begins in this release&hellip;<a href="https://t.co/nsyUVw2Rpr">https://t.co/nsyUVw2Rpr</a> <a href="https://t.co/QZU4ZfyR6s">pic.twitter.com/QZU4ZfyR6s</a></p>&mdash; Angular (@angularjs) <a href="https://twitter.com/angularjs/status/715390643732762625">2016年3月31日</a></blockquote><br />
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script></p>
+
+<p>i18nを実現するためのコンポーネント、ディレクティブ、サービスなどがようやく出揃い、i18n実装完了ということになったようです。<br />
+ただしi18n実装のトラッキングイシューでは全然完了してないので、公式ドキュメントが出るまでは待つほうがよさそうです。<br />
+急ぎで国際化を行いたい場合は、<a href="https://github.com/ocombe/ng2-translate" target="_blank">ocombe/ng2-translate</a>を使うと良いでしょう。</p>
+
+<ul>
+<li><a href="https://github.com/angular/angular/issues/7480" target="_blank">Tracking: i18n support · Issue #7480 · angular/angular</a><br /></li>
+</ul>
+
+<hr />
+
+<h2 id="ng-conf-extendedのお知らせ">ng-conf extendedのお知らせ</h2>
+
+<p>ソルトレイクシティで5/4から開催されるAngular最大のイベントng-confのライブビューイングイベントを開催します。</p>
+
+<p><a href="http://connpass.com/event/29136/" target="_blank">ng-conf extended Tokyo - connpass</a></p>
+
+<p>上のイベントページはすべて英語で書いていますが、ng-confも当然英語のセッションですのでご了承ください。<br />
+日本に住んでいる外国人の方も何人か来てくれそうなので、英語で話ができるいい機会にもなるんじゃないでしょうか。</p>
+
+<p>ちなみにイベントページにも書いていますが、ソルトレイクシティは日本と時差が15時間あるので、イベントの開始が日本時間の夜中0時で、終了が朝9時です。<br />
+結構ヘビーなので体力に自信のない方は自宅でゆったり見てもらったほうがよいと思います。</p>
+
+<hr />
+
+<p>Angular 2のフットプリントのサイズを小さくする件について少しずつ動きが出ています。<br />
+まずは現在配布中のmin.jsが軒並み壊れている問題を解決するようです。<br />
+その次に、npmでインストールしたライブラリを含めてアプリケーションをminifyするときに壊れないようにするための手段を用意してくれるようです。<br />
+2,3週間以内に動きがあると思うので楽しみに待ちましょう。</p>
+
+<p>それでは。</p>
+
+
+
+
+
+
+
+
+
+    </section>
+
+
+  <footer class="post-footer">
+
+
+    
+    <figure class="author-image">
+        <a class="img" href="http://twitter.com/laco0416" style="background-image: url(https://ng2-info.github.io/img/authors/laco.png)"></a>
+    </figure>
+
+    
+
+
+
+
+
+<section class="author">
+  <h5>Author: <a href="http://twitter.com/laco0416">Suguru INATOMI</a></h5>
+</section>
+
+
+
+    
+<section class="share">
+    <h5>Share this post</h5>
+    <a class="icon-twitter" style="font-size: 1.4em"
+       href="https://twitter.com/share?text=Beta.13%e3%83%aa%e3%83%aa%e3%83%bc%e3%82%b9%e3%81%a8ng-conf%20extended%e3%81%ae%e3%81%8a%e7%9f%a5%e3%82%89%e3%81%9b%20-%20Angular2%20Info&amp;url=https%3a%2f%2fng2-info.github.io%2f2016%2f03%2fbeta-13-and-ng-conf-extended%2f"
+       onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+        <span class="hidden">Twitter</span>
+    </a>
+    <a class="icon-facebook" style="font-size: 1.4em"
+       href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fng2-info.github.io%2f2016%2f03%2fbeta-13-and-ng-conf-extended%2f"
+       onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+        <span class="hidden">Facebook</span>
+    </a>
+</section>
+
+
+
+  </footer>
+</article>
+
+</main>
+<footer class="site-footer clearfix">
+    <section class="copyright"><a href="">Angular2 Info</a> </section>
+    
+    <section class="poweredby">Proudly generated by <a class="icon-hugo" href="http://gohugo.io">HUGO</a>, with <a
+            class="icon-theme" href="https://github.com/vjeantet/hugo-theme-casper">Casper</a> theme
+    </section>
+    
+</footer>
+</div>
+<script type="text/javascript" src="https://ng2-info.github.io/js/jquery.js"></script>
+<script type="text/javascript" src="https://ng2-info.github.io/js/jquery.fitvids.js"></script>
+<script type="text/javascript" src="https://ng2-info.github.io/js/index.js"></script>
+
+<script>
+    linkjuice.init('article.post', {
+        selectors: ['h2', 'h3', 'h4'],
+        icon: ''
+    });
+</script>
+</body>
+</html>
+

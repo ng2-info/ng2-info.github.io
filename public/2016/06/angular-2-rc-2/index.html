@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="ja-jp">
+<head>
+
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+  	<meta property="og:title" content=" Angular 2 RC.2がリリースされました &middot;  Angular2 Info" />
+  	<meta property="og:site_name" content="Angular2 Info" />
+  	<meta property="og:url" content="https://ng2-info.github.io/2016/06/angular-2-rc-2/" />
+
+    
+  	<meta property="og:type" content="article" />
+
+    <meta property="og:article:published_time" content="2016-06-16T20:51:37&#43;09:00" />
+
+    
+    <meta property="og:article:tag" content="Release" />
+    
+    <meta property="og:article:tag" content="RC" />
+    
+    
+
+  <title>
+     Angular 2 RC.2がリリースされました &middot;  Angular2 Info
+  </title>
+
+    <meta name="description" content="Angular2の最新情報を不定期更新！" />
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" href="https://ng2-info.github.io/favicon.png">
+    <link rel="apple-touch-icon" href="https://ng2-info.github.io/images/apple-touch-icon.png" />
+
+    <link rel="stylesheet" type="text/css" href="https://ng2-info.github.io/css/screen.css" />
+    <link rel="stylesheet" type="text/css" href="https://ng2-info.github.io/css/nav.css" />
+    <link rel="stylesheet" type="text/css" href="https://ng2-info.github.io/css/overwrite.css" />
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400|Inconsolata" />
+
+    
+      
+          <link href="https://ng2-info.github.io/index.xml" rel="alternate" type="application/rss+xml" title="Angular2 Info" />
+      
+      
+    
+    <meta name="generator" content="Hugo 0.15" />
+
+    <link rel="canonical" href="https://ng2-info.github.io/2016/06/angular-2-rc-2/" />
+
+    
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-52362663-3', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+    
+
+    
+    <link rel="stylesheet" href="//yandex.st/highlightjs/8.0/styles/default.min.css">
+    <script type="text/javascript" src="https://ng2-info.github.io/js/linkjuice.min.js"></script>
+    <script src="//yandex.st/highlightjs/8.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body class="nav-closed">
+
+  <div class="nav">
+    <h3 class="nav-title">Menu</h3>
+    <a href="#" class="nav-close">
+        <span class="hidden">Close</span>
+    </a>
+    <ul>
+        
+        
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="/">Top</a>
+            </li>
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="/tags/">Tags</a>
+            </li>
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="https://github.com/ng2-info/ng2-info.github.io">Repository</a>
+            </li>
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="http://blog.lacolaco.net">Author&#39;s Blog</a>
+            </li>
+        
+    </ul>
+    
+    
+    <a class="subscribe-button icon-feed" href="https://ng2-info.github.io/index.xml">Subscribe</a>
+    
+</div>
+<span class="nav-cover"></span>
+
+
+ <div class="site-wrapper">
+
+
+
+
+
+<header class="main-header post-head">
+    <nav class="main-nav overlay clearfix">
+
+
+      
+        <a class="blog-logo" href="https://ng2-info.github.io/"><img src="https://ng2-info.github.io/img/ng2-info.png" alt="Home" /></a>
+      
+      
+          <a class="menu-button" href="#"><span class="burger">&#9776;</span><span class="word">Menu</span></a>
+      
+    </nav>
+
+    <div class="vertical">
+        <div class="main-header-content inner">
+            <h1 class="page-title">Angular2 Info</h1>
+            <h2 class="page-description">
+                
+            </h2>
+        </div>
+    </div>
+
+
+</header>
+
+
+
+<main class="content" role="main">
+
+
+
+
+  <article class="post post">
+    <header class="post-header">
+      <nav class="breadcrumb">
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      </nav>
+
+
+        <h1 class="post-title">Angular 2 RC.2がリリースされました</h1>
+        <small></small>
+
+        <section class="post-meta">
+        
+          <time class="post-date" datetime="2016-06-16T20:51:37&#43;09:00">
+            Jun 16, 2016
+          </time>
+        
+         
+          <span class="post-tag small"><a href="https://ng2-info.github.io/tags/release/">#Release</a></span>
+         
+          <span class="post-tag small"><a href="https://ng2-info.github.io/tags/rc/">#RC</a></span>
+         
+        </section>
+    </header>
+
+    <section class="post-content">
+
+
+
+
+<p><strong>追記</strong> : CHANGELOG以外の情報を追加しました。</p>
+
+<p>どうも、らこです。ようやくRC.2がリリースされたので変更点を確認しましょう。<br />
+1ヶ月以上の間に多くの変更が盛り込まれたので数は多いですが、破壊的変更はほとんどないので、<br />
+落ち着いて移行していきましょう</p>
+
+<p><a href="https://github.com/angular/angular/blob/master/CHANGELOG.md#200-rc2-2016-06-15" target="_blank">angular/CHANGELOG.md at master · angular/angular</a></p>
+
+<hr />
+
+<h2 id="angular-2-rc-2-変更点">Angular 2 RC.2 変更点</h2>
+
+<p>CHANGELOG.mdを見ればわかるようにとんでもない変更の数なので、分類してまとまりごとに見ていきましょう。<br />
+まず、アプリケーション開発に関係のあるものだけを抽出すると次のようになります</p>
+
+<h3 id="bug-fixes">Bug Fixes</h3>
+
+<ul>
+<li><strong>bootstrap:</strong> Swap coreBootstrap() and coreLoadAndBootstrap() arguments (<a href="https://github.com/angular/angular/commit/f95a604" target="_blank">f95a604</a>)<br /></li>
+<li><strong>compiler:</strong> Support for comment finishing with multiple dashes (<a href="https://github.com/angular/angular/commit/60a2ba8" target="_blank">60a2ba8</a>), closes <a href="https://github.com/angular/angular/issues/7119" target="_blank">#7119</a><br /></li>
+<li><strong>compiler:</strong> have CSS parser support nested parentheses inside functions (<a href="https://github.com/angular/angular/commit/ceac045" target="_blank">ceac045</a>), closes <a href="https://github.com/angular/angular/issues/7580" target="_blank">#7580</a><br /></li>
+<li><strong>Control:</strong> Support select multiple with Control class (#8069) (<a href="https://github.com/angular/angular/commit/84f859d" target="_blank">84f859d</a>)<br /></li>
+<li><strong>facade:</strong> change EventEmitter to be sync by default (#8761) (<a href="https://github.com/angular/angular/commit/e5904f4" target="_blank">e5904f4</a>)<br /></li>
+<li><strong>forms:</strong> rename old forms folder to forms-deprecated (<a href="https://github.com/angular/angular/commit/515a8e0" target="_blank">515a8e0</a>)<br /></li>
+<li><strong>forms:</strong> update accessor value when native select value changes (<a href="https://github.com/angular/angular/commit/7a2ce7f" target="_blank">7a2ce7f</a>), closes <a href="https://github.com/angular/angular/issues/8710" target="_blank">#8710</a><br /></li>
+<li><strong>forms:</strong> update value and validity when controls are added (<a href="https://github.com/angular/angular/commit/50acb96" target="_blank">50acb96</a>), closes <a href="https://github.com/angular/angular/issues/8826" target="_blank">#8826</a><br /></li>
+<li><strong>forms:</strong> separate ngModelGroup from formGroupName (<a href="https://github.com/angular/angular/commit/5c0cfdee48ba5aa48528a1c20ffd99318ee716ae" target="_blank">5c0cfde</a>)<br /></li>
+<li><strong>http:</strong> Set response.ok (<a href="https://github.com/angular/angular/commit/9234035" target="_blank">9234035</a>), closes <a href="https://github.com/angular/angular/issues/6390" target="_blank">#6390</a> <a href="https://github.com/angular/angular/issues/6503" target="_blank">#6503</a><br /></li>
+<li><strong>metadata:</strong> Allow spacing in multiple selectors (#7418) (<a href="https://github.com/angular/angular/commit/b2e804c" target="_blank">b2e804c</a>)<br /></li>
+<li><strong>ngSwitch:</strong> use switchCase instead of switchWhen (#9076) (<a href="https://github.com/angular/angular/commit/e1fcab7" target="_blank">e1fcab7</a>)<br /></li>
+<li><strong>Request:</strong> Change Request.text&rsquo;s return type to string (<a href="https://github.com/angular/angular/commit/b2e0946" target="_blank">b2e0946</a>), closes <a href="https://github.com/angular/angular/issues/8138" target="_blank">#8138</a><br /></li>
+<li><strong>router:</strong> Added pushState fallback for IE 9 browser. (<a href="https://github.com/angular/angular/commit/bab6023" target="_blank">bab6023</a>), closes <a href="https://github.com/angular/angular/issues/6506" target="_blank">#6506</a> <a href="https://github.com/angular/angular/issues/7929" target="_blank">#7929</a><br /></li>
+<li><strong>testing:</strong>  add discardPeriodicTasks to be used with fakeAsync (#8629) (<a href="https://github.com/angular/angular/commit/0cb93a4" target="_blank">0cb93a4</a>), closes <a href="https://github.com/angular/angular/issues/8616" target="_blank">#8616</a><br /></li>
+<li><strong>upgrade:</strong> allow deeper nesting of ng2 components/directives (#8949) (<a href="https://github.com/angular/angular/commit/48bf349" target="_blank">48bf349</a>)<br /></li>
+<li><strong>upgrade:</strong> allow functions for template and templateUrl (#9022) (<a href="https://github.com/angular/angular/commit/a19c4e8" target="_blank">a19c4e8</a>)<br /></li>
+<li><strong>upgrade:</strong> Ensure upgrade adapter works on angular.js 1.2 (#8647) (<a href="https://github.com/angular/angular/commit/cbc8d0a" target="_blank">cbc8d0a</a>)<br /></li>
+<li><strong>upgrade:</strong> fallback to root ng2 injector when element is compiled outside the document (#86 (<a href="https://github.com/angular/angular/commit/db82906" target="_blank">db82906</a>)<br /></li>
+<li><strong>upgrade:</strong> make bindings available on $scope in controller &amp; link function (#8645) (<a href="https://github.com/angular/angular/commit/6cdc53c" target="_blank">6cdc53c</a>)<br /></li>
+</ul>
+
+<h3 id="features">Features</h3>
+
+<ul>
+<li><strong>ChangeDetectorRef:</strong> make detectChanges() correct (<a href="https://github.com/angular/angular/commit/6028368" target="_blank">6028368</a>), closes <a href="https://github.com/angular/angular/issues/8599" target="_blank">#8599</a><br /></li>
+<li><strong>common:</strong> DatePipe supports ISO string (<a href="https://github.com/angular/angular/commit/abc266f" target="_blank">abc266f</a>), closes <a href="https://github.com/angular/angular/issues/7794" target="_blank">#7794</a><br /></li>
+<li><strong>common/datePipe:</strong> change date formatter to use correct pattern closes #7008 (#8154) (<a href="https://github.com/angular/angular/commit/324f014" target="_blank">324f014</a>), closes <a href="https://github.com/angular/angular/issues/7008" target="_blank">#7008</a> <a href="https://github.com/(/issues/8154" target="_blank">(#8154</a><br /></li>
+<li><strong>compiler:</strong> Add support for <code>&lt;ng-container&gt;</code> (<a href="https://github.com/angular/angular/commit/0dbff55bc6750653c5f8decc06d07e7269e3d6a5" target="_blank">0dbff55</a>)<br /></li>
+<li><strong>ComponentResolver:</strong> Add a SystemJS resolver for compiled apps (#9145) (<a href="https://github.com/angular/angular/commit/a6e5ddc" target="_blank">a6e5ddc</a>)<br /></li>
+<li><strong>core:</strong> add a component resolver that can load components lazily using system.js (<a href="https://github.com/angular/angular/commit/1a0aea6" target="_blank">1a0aea6</a>)<br /></li>
+<li><strong>core:</strong> introduce support for animations (<a href="https://github.com/angular/angular/commit/5e0f8cf" target="_blank">5e0f8cf</a>), closes <a href="https://github.com/angular/angular/issues/8734" target="_blank">#8734</a><br /></li>
+<li><strong>core/linker:</strong> add SimpleChanges type to lifecycle_hooks to simplify OnChanges signature (<a href="https://github.com/angular/angular/commit/0a872ff" target="_blank">0a872ff</a>), closes <a href="https://github.com/angular/angular/issues/8557" target="_blank">#8557</a><br /></li>
+<li><strong>debug:</strong> collect styles and classes for the DebugElement (<a href="https://github.com/angular/angular/commit/155b882" target="_blank">155b882</a>)<br /></li>
+<li><strong>enableDebugTools:</strong> return ComponentRef (<a href="https://github.com/angular/angular/commit/4086b49" target="_blank">4086b49</a>)<br /></li>
+<li><strong>forms:</strong> add the submitted flag to NgForm and NgFormModel directives (<a href="https://github.com/angular/angular/commit/420e83a" target="_blank">420e83a</a>), closes <a href="https://github.com/angular/angular/issues/2960" target="_blank">#2960</a> <a href="https://github.com/angular/angular/issues/7449" target="_blank">#7449</a><br /></li>
+<li><strong>forms:</strong> allow ngModel to register with parent form (<a href="https://github.com/angular/angular/commit/4ed6cf7" target="_blank">4ed6cf7</a>)<br /></li>
+<li><strong>forms:</strong> compose validator fns automatically if arrays (<a href="https://github.com/angular/angular/commit/61960c51a3b21d1cfba523f53016f6284182d4e3" target="_blank">61960c5</a>)<br /></li>
+<li><strong>forms:</strong> support setting control name in ngModelOptions (<a href="https://github.com/angular/angular/commit/a191e9697c32062eda06cd1f1cfd856d89c16026" target="_blank">a191e96</a>)<br /></li>
+<li><strong>forms:</strong> add easy way to switch between forms modules (<a href="https://github.com/angular/angular/commit/22916bb5d1abf2818d7d8d99d39605af251f42e4" target="_blank">22916bb</a>)<br /></li>
+<li><strong>http:</strong> added withCredentials support (<a href="https://github.com/angular/angular/commit/95af14b" target="_blank">95af14b</a>), closes <a href="https://github.com/angular/angular/issues/7281" target="_blank">#7281</a> <a href="https://github.com/angular/angular/issues/7281" target="_blank">#7281</a><br /></li>
+<li><strong>http:</strong> automatically set request Content-Type header based on body type (<a href="https://github.com/angular/angular/commit/0f0a8ad" target="_blank">0f0a8ad</a>), closes <a href="https://github.com/angular/angular/issues/7310" target="_blank">#7310</a><br /></li>
+<li><strong>http:</strong> implement Response.prototype.toString() to make for a nicer error message (<a href="https://github.com/angular/angular/commit/89f6108" target="_blank">89f6108</a>), closes <a href="https://github.com/angular/angular/issues/7511" target="_blank">#7511</a><br /></li>
+<li><strong>http:</strong> set the statusText property from the XMLHttpRequest instance (<a href="https://github.com/angular/angular/commit/3019140" target="_blank">3019140</a>), closes <a href="https://github.com/angular/angular/issues/4162" target="_blank">#4162</a><br /></li>
+<li><strong>NgTemplateOutlet:</strong> add context to NgTemplateOutlet (<a href="https://github.com/angular/angular/commit/164a091" target="_blank">164a091</a>), closes <a href="https://github.com/angular/angular/issues/9042" target="_blank">#9042</a><br /></li>
+<li><strong>NgZone:</strong> isStable (<a href="https://github.com/angular/angular/commit/587c119" target="_blank">587c119</a>), closes <a href="https://github.com/angular/angular/issues/8108" target="_blank">#8108</a><br /></li>
+<li><strong>security:</strong> allow data: URLs for images and videos. (<a href="https://github.com/angular/angular/commit/dd50124" target="_blank">dd50124</a>)<br /></li>
+<li><strong>security:</strong> allow url(&hellip;) style values. (<a href="https://github.com/angular/angular/commit/15ae710" target="_blank">15ae710</a>), closes <a href="https://github.com/angular/angular/issues/8514" target="_blank">#8514</a><br /></li>
+<li><strong>security:</strong> Automatic XSRF handling. (<a href="https://github.com/angular/angular/commit/4d793c4" target="_blank">4d793c4</a>)<br /></li>
+<li>add minified bundles (<a href="https://github.com/angular/angular/commit/9175a04" target="_blank">9175a04</a>)<br /></li>
+<li><strong>security:</strong> expose the safe value types. (<a href="https://github.com/angular/angular/commit/50c9bed" target="_blank">50c9bed</a>), closes <a href="https://github.com/angular/angular/issues/8568" target="_blank">#8568</a><br /></li>
+<li><strong>security:</strong> support transform CSS functions for sanitization. (<a href="https://github.com/angular/angular/commit/8b1b427" target="_blank">8b1b427</a>), closes <a href="https://github.com/angular/angular/issues/8514" target="_blank">#8514</a><br /></li>
+<li><strong>security:</strong> warn users when sanitizing in dev mode. (<a href="https://github.com/angular/angular/commit/3e68b7e" target="_blank">3e68b7e</a>), closes <a href="https://github.com/angular/angular/issues/8522" target="_blank">#8522</a><br /></li>
+<li><strong>shadow_css:</strong> add encapsulation support for CSS @supports at-rule (<a href="https://github.com/angular/angular/commit/cb84cbf" target="_blank">cb84cbf</a>), closes <a href="https://github.com/angular/angular/issues/7944" target="_blank">#7944</a><br /></li>
+<li><strong>ViewEncapsulation:</strong> default ViewEncapsulation to configurable (<a href="https://github.com/angular/angular/commit/f93512b" target="_blank">f93512b</a>), closes <a href="https://github.com/angular/angular/issues/7883" target="_blank">#7883</a><br /></li>
+</ul>
+
+<p>だいぶ絞りましたがまだ多いですね。1件ずつ見ていくとキリがないのでグループごとにまとめていきます</p>
+
+<hr />
+
+<h3 id="コア機能関連">コア機能関連</h3>
+
+<ul>
+<li><strong>facade:</strong> change EventEmitter to be sync by default (#8761) (<a href="https://github.com/angular/angular/commit/e5904f4" target="_blank">e5904f4</a>)<br /></li>
+</ul>
+
+<p><code>EventEmitter</code> によるイベントの伝播が、デフォルトで同期処理になりました。<br />
+標準のHTML要素からのイベントと同じ振る舞いをするようになり、<code>@Output</code> との区別をしなくてよくなりました。</p>
+
+<ul>
+<li><strong>NgZone:</strong> isStable (<a href="https://github.com/angular/angular/commit/587c119" target="_blank">587c119</a>), closes <a href="https://github.com/angular/angular/issues/8108" target="_blank">#8108</a><br /></li>
+</ul>
+
+<p><code>NgZone</code> が <code>isStable</code> プロパティを持ちます</p>
+
+<h3 id="コンポーネント関連">コンポーネント関連</h3>
+
+<ul>
+<li><strong>compiler:</strong> Support for comment finishing with multiple dashes (<a href="https://github.com/angular/angular/commit/60a2ba8" target="_blank">60a2ba8</a>), closes <a href="https://github.com/angular/angular/issues/7119" target="_blank">#7119</a><br /></li>
+</ul>
+
+<p><code>&lt;!-- --&gt;</code> のように複数のダッシュ記号で閉じられたコメントが許容されるようになりました</p>
+
+<ul>
+<li><strong>compiler:</strong> have CSS parser support nested parentheses inside functions (<a href="https://github.com/angular/angular/commit/ceac045" target="_blank">ceac045</a>), closes <a href="https://github.com/angular/angular/issues/7580" target="_blank">#7580</a><br /></li>
+</ul>
+
+<p>コンポーネントが読み込むCSS内で入れ子の関数が許可されました</p>
+
+<ul>
+<li><strong>ChangeDetectorRef:</strong> make detectChanges() correct (<a href="https://github.com/angular/angular/commit/6028368" target="_blank">6028368</a>), closes <a href="https://github.com/angular/angular/issues/8599" target="_blank">#8599</a><br /></li>
+</ul>
+
+<p>私のPRです。<br />
+<code>ChangeDetectorRef#detectChanges()</code> が、 <code>detach</code> 状態でも動作するように修正されました</p>
+
+<ul>
+<li><strong>compiler:</strong> Add support for <code>&lt;ng-container&gt;</code> (<a href="https://github.com/angular/angular/commit/0dbff55bc6750653c5f8decc06d07e7269e3d6a5" target="_blank">0dbff55</a>)<br /></li>
+</ul>
+
+<p>コンパイル後にHTMLコメントになりDOMに影響しない <code>&lt;ng-container&gt;</code> が導入されました。<br />
+テンプレート内で階層構造だけを作りたいときに使えます。例えば <code>ngSwitch</code> で無駄なdivタグを作らなくてよくなります。</p>
+
+<ul>
+<li><strong>core/linker:</strong> add SimpleChanges type to lifecycle_hooks to simplify OnChanges signature (<a href="https://github.com/angular/angular/commit/0a872ff" target="_blank">0a872ff</a>), closes <a href="https://github.com/angular/angular/issues/8557" target="_blank">#8557</a><br /></li>
+</ul>
+
+<p><code>ngOnChanges</code> メソッドに渡される引数の型が <code>SimpleChanges</code> 型になりました。<br />
+実体は<code>{[key:string]: SimpleChange}</code> のタイプエイリアスです</p>
+
+<ul>
+<li><strong>metadata:</strong> Allow spacing in multiple selectors (#7418) (<a href="https://github.com/angular/angular/commit/b2e804c" target="_blank">b2e804c</a>)<br /></li>
+</ul>
+
+<p>これも私のPRです。<br />
+<code>@ViewChildren</code> や <code>@ContentChildren</code> に文字列でテンプレート変数を渡すときにカンマ区切りの中にスペースを許容するようになりました</p>
+
+<ul>
+<li><strong>shadow_css:</strong> add encapsulation support for CSS @supports at-rule (<a href="https://github.com/angular/angular/commit/cb84cbf" target="_blank">cb84cbf</a>), closes <a href="https://github.com/angular/angular/issues/7944" target="_blank">#7944</a><br /></li>
+</ul>
+
+<p><code>ViewEncapusulation.Emulated</code> がCSSの <code>@supports</code> に対応しました。</p>
+
+<ul>
+<li><strong>ViewEncapsulation:</strong> default ViewEncapsulation to configurable (<a href="https://github.com/angular/angular/commit/f93512b" target="_blank">f93512b</a>), closes <a href="https://github.com/angular/angular/issues/7883" target="_blank">#7883</a><br /></li>
+</ul>
+
+<p>これも私のPRです。<br />
+<code>Component</code> デコレータに <code>encapsulation</code> プロパティを設定しなかった時のデフォルトの設定を変更できるようになりました。<br />
+<code>CompilerConfig</code> から変更可能です</p>
+
+<ul>
+<li><strong>ComponentResolver:</strong> Add a SystemJS resolver for compiled apps (#9145) (<a href="https://github.com/angular/angular/commit/a6e5ddc" target="_blank">a6e5ddc</a>)<br /></li>
+<li><strong>core:</strong> add a component resolver that can load components lazily using system.js (<a href="https://github.com/angular/angular/commit/1a0aea6" target="_blank">1a0aea6</a>)<br /></li>
+</ul>
+
+<p>SystemJSを使ったダイナミックなコンポーネントの読み込みをサポートするための仕組みが整いつつあります。</p>
+
+<ul>
+<li><strong>core:</strong> introduce support for animations (<a href="https://github.com/angular/angular/commit/5e0f8cf" target="_blank">5e0f8cf</a>), closes <a href="https://github.com/angular/angular/issues/8734" target="_blank">#8734</a><br /></li>
+</ul>
+
+<p>Animation APIが実装されました。詳しくは後述。</p>
+
+<h3 id="http関連">HTTP関連</h3>
+
+<ul>
+<li><strong>http:</strong> Set response.ok (<a href="https://github.com/angular/angular/commit/9234035" target="_blank">9234035</a>), closes <a href="https://github.com/angular/angular/issues/6390" target="_blank">#6390</a> <a href="https://github.com/angular/angular/issues/6503" target="_blank">#6503</a><br /></li>
+<li><strong>Request:</strong> Change Request.text&rsquo;s return type to string (<a href="https://github.com/angular/angular/commit/b2e0946" target="_blank">b2e0946</a>), closes <a href="https://github.com/angular/angular/issues/8138" target="_blank">#8138</a><br /></li>
+<li><strong>http:</strong> added withCredentials support (<a href="https://github.com/angular/angular/commit/95af14b" target="_blank">95af14b</a>), closes <a href="https://github.com/angular/angular/issues/7281" target="_blank">#7281</a> <a href="https://github.com/angular/angular/issues/7281" target="_blank">#7281</a><br /></li>
+<li><strong>http:</strong> automatically set request Content-Type header based on body type (<a href="https://github.com/angular/angular/commit/0f0a8ad" target="_blank">0f0a8ad</a>), closes <a href="https://github.com/angular/angular/issues/7310" target="_blank">#7310</a><br /></li>
+<li><strong>http:</strong> implement Response.prototype.toString() to make for a nicer error message (<a href="https://github.com/angular/angular/commit/89f6108" target="_blank">89f6108</a>), closes <a href="https://github.com/angular/angular/issues/7511" target="_blank">#7511</a><br /></li>
+<li><strong>http:</strong> set the statusText property from the XMLHttpRequest instance (<a href="https://github.com/angular/angular/commit/3019140" target="_blank">3019140</a>), closes <a href="https://github.com/angular/angular/issues/4162" target="_blank">#4162</a><br /></li>
+</ul>
+
+<p><code>RequestOptions</code> と <code>BaseRequestOptions</code> に <code>withCredentials</code> プロパティが追加されたことと、<br />
+<code>post()</code> や <code>put()</code> などの第2引数 <code>body</code> がany型となり、その型によって自動的にContent-Typeを設定してくれるようになったのが重要です。<br />
+今までワークアラウンドで解決していた部分が不要になるでしょう。</p>
+
+<h3 id="ルーター関連">ルーター関連</h3>
+
+<p>Router v3が出ていますのでRC.2に含まれているルーター関連のコミットはほとんど意味ないです。</p>
+
+<ul>
+<li><strong>router:</strong> Added pushState fallback for IE 9 browser. (<a href="https://github.com/angular/angular/commit/bab6023" target="_blank">bab6023</a>), closes <a href="https://github.com/angular/angular/issues/6506" target="_blank">#6506</a> <a href="https://github.com/angular/angular/issues/7929" target="_blank">#7929</a><br /></li>
+</ul>
+
+<p>ブラウザがPushStateに対応していない時のフォールバックが追加されました</p>
+
+<h3 id="パイプ-ディレクティブ関連">パイプ・ディレクティブ関連</h3>
+
+<ul>
+<li><strong>ngSwitch:</strong> use switchCase instead of switchWhen (#9076) (<a href="https://github.com/angular/angular/commit/e1fcab7" target="_blank">e1fcab7</a>)<br /></li>
+</ul>
+
+<p><code>ngSwitchWhen</code> が <code>ngSwitchCase</code> に改名されました。JavaScriptのswitch文と合わせた形です。</p>
+
+<ul>
+<li><strong>common:</strong> DatePipe supports ISO string (<a href="https://github.com/angular/angular/commit/abc266f" target="_blank">abc266f</a>), closes <a href="https://github.com/angular/angular/issues/7794" target="_blank">#7794</a><br /></li>
+</ul>
+
+<p>これも私のPRです。<br />
+DatePipeが <code>Date.fromISOString</code> で受け入れ可能な ISO形式の文字列を許容するようになりました</p>
+
+<ul>
+<li><strong>common/datePipe:</strong> change date formatter to use correct pattern closes #7008 (#8154) (<a href="https://github.com/angular/angular/commit/324f014" target="_blank">324f014</a>), closes <a href="https://github.com/angular/angular/issues/7008" target="_blank">#7008</a> <a href="https://github.com/(/issues/8154" target="_blank">(#8154</a><br /></li>
+</ul>
+
+<p>DatePipeに渡すフォーマットが正しく動作するようになりました</p>
+
+<ul>
+<li><strong>NgTemplateOutlet:</strong> add context to NgTemplateOutlet (<a href="https://github.com/angular/angular/commit/164a091" target="_blank">164a091</a>), closes <a href="https://github.com/angular/angular/issues/9042" target="_blank">#9042</a><br /></li>
+</ul>
+
+<p><code>ngTemplateOutlet</code> にcontext を渡せるようになりました</p>
+
+<pre><code class="language-html">&lt;template [ngTemplateOutlet]=&quot;templateRefExpression&quot; [ngOutletContext]=&quot;objectExpression&quot;&gt;&lt;/template&gt;
+</code></pre>
+
+<h3 id="forms関連">Forms関連</h3>
+
+<ul>
+<li><strong>Control:</strong> Support select multiple with Control class (#8069) (<a href="https://github.com/angular/angular/commit/84f859d" target="_blank">84f859d</a>)<br /></li>
+<li><strong>facade:</strong> change EventEmitter to be sync by default (#8761) (<a href="https://github.com/angular/angular/commit/e5904f4" target="_blank">e5904f4</a>)<br /></li>
+<li><strong>forms:</strong> rename old forms folder to forms-deprecated (<a href="https://github.com/angular/angular/commit/515a8e0" target="_blank">515a8e0</a>)<br /></li>
+<li><strong>forms:</strong> update accessor value when native select value changes (<a href="https://github.com/angular/angular/commit/7a2ce7f" target="_blank">7a2ce7f</a>), closes <a href="https://github.com/angular/angular/issues/8710" target="_blank">#8710</a><br /></li>
+<li><strong>forms:</strong> update value and validity when controls are added (<a href="https://github.com/angular/angular/commit/50acb96" target="_blank">50acb96</a>), closes <a href="https://github.com/angular/angular/issues/8826" target="_blank">#8826</a><br /></li>
+<li><strong>forms:</strong> separate ngModelGroup from formGroupName (<a href="https://github.com/angular/angular/commit/5c0cfdee48ba5aa48528a1c20ffd99318ee716ae" target="_blank">5c0cfde</a>)<br /></li>
+<li><strong>forms:</strong> add the submitted flag to NgForm and NgFormModel directives (<a href="https://github.com/angular/angular/commit/420e83a" target="_blank">420e83a</a>), closes <a href="https://github.com/angular/angular/issues/2960" target="_blank">#2960</a> <a href="https://github.com/angular/angular/issues/7449" target="_blank">#7449</a><br /></li>
+<li><strong>forms:</strong> allow ngModel to register with parent form (<a href="https://github.com/angular/angular/commit/4ed6cf7" target="_blank">4ed6cf7</a>)<br /></li>
+<li><strong>forms:</strong> compose validator fns automatically if arrays (<a href="https://github.com/angular/angular/commit/61960c51a3b21d1cfba523f53016f6284182d4e3" target="_blank">61960c5</a>)<br /></li>
+<li><strong>forms:</strong> support setting control name in ngModelOptions (<a href="https://github.com/angular/angular/commit/a191e9697c32062eda06cd1f1cfd856d89c16026" target="_blank">a191e96</a>)<br /></li>
+<li><strong>forms:</strong> add easy way to switch between forms modules (<a href="https://github.com/angular/angular/commit/22916bb5d1abf2818d7d8d99d39605af251f42e4" target="_blank">22916bb</a>)<br /></li>
+</ul>
+
+<p><code>@angular/common</code> の中の Forms APIはすべて deprecatedになりました。<br />
+<code>ngForm</code> や <code>ngModel</code> などの基本的な機能はデフォルトで読み込まれるので気にする必要はありませんが、<br />
+<code>FormBuilder</code> などのモデルドリブンフォームのAPIは <code>@angular/forms</code> から読み込むようになっていきます。</p>
+
+<p>機能的には、select要素がmultipleをサポートできるようになったことや、<br />
+<code>ngModel</code> を設定している時に <code>ngControl</code> を使わなくてよくなりました。<br />
+また、 ngForm や ngFormModelが submitted フラグを持つようになりました。</p>
+
+<h3 id="テスト-デバッグ関連">テスト・デバッグ関連</h3>
+
+<ul>
+<li><strong>enableDebugTools:</strong> return ComponentRef (<a href="https://github.com/angular/angular/commit/4086b49" target="_blank">4086b49</a>)<br /></li>
+</ul>
+
+<p><code>enableDebugTools</code> が <code>ComponentRef</code> を返すようになったので、 <code>bootstrap()</code>の戻り値のPromiseの中で使いやすくなりました。</p>
+
+<pre><code class="language-ts">bootstrap(App)
+  .then(enableDebugTools);
+  .then(cmpRef =&gt; {
+      ...
+  });
+</code></pre>
+
+<ul>
+<li><strong>testing:</strong>  add discardPeriodicTasks to be used with fakeAsync (#8629) (<a href="https://github.com/angular/angular/commit/0cb93a4" target="_blank">0cb93a4</a>), closes <a href="https://github.com/angular/angular/issues/8616" target="_blank">#8616</a><br /></li>
+</ul>
+
+<p><code>discardPeriodicTasks</code> 関数が追加されました。 <code>fakeAsync</code> 中で残っているピリオディックなタスクを破棄します。</p>
+
+<ul>
+<li><strong>debug:</strong> collect styles and classes for the DebugElement (<a href="https://github.com/angular/angular/commit/155b882" target="_blank">155b882</a>)<br /></li>
+</ul>
+
+<p><code>DebugElement</code> がstylesとclasssを持つようになりました。</p>
+
+<h3 id="セキュリティ関連">セキュリティ関連</h3>
+
+<ul>
+<li><strong>security:</strong> allow data: URLs for images and videos. (<a href="https://github.com/angular/angular/commit/dd50124" target="_blank">dd50124</a>)<br /></li>
+<li><strong>security:</strong> allow url(&hellip;) style values. (<a href="https://github.com/angular/angular/commit/15ae710" target="_blank">15ae710</a>), closes <a href="https://github.com/angular/angular/issues/8514" target="_blank">#8514</a><br /></li>
+<li><strong>security:</strong> Automatic XSRF handling. (<a href="https://github.com/angular/angular/commit/4d793c4" target="_blank">4d793c4</a>)<br /></li>
+<li><strong>security:</strong> expose the safe value types. (<a href="https://github.com/angular/angular/commit/50c9bed" target="_blank">50c9bed</a>), closes <a href="https://github.com/angular/angular/issues/8568" target="_blank">#8568</a><br /></li>
+<li><strong>security:</strong> support transform CSS functions for sanitization. (<a href="https://github.com/angular/angular/commit/8b1b427" target="_blank">8b1b427</a>), closes <a href="https://github.com/angular/angular/issues/8514" target="_blank">#8514</a><br /></li>
+<li><strong>security:</strong> warn users when sanitizing in dev mode. (<a href="https://github.com/angular/angular/commit/3e68b7e" target="_blank">3e68b7e</a>), closes <a href="https://github.com/angular/angular/issues/8522" target="_blank">#8522</a><br /></li>
+</ul>
+
+<p>ようやく落ち着きを見せてきたセキュリティ対応です。<br />
+<code>data:image/png</code> のような値が許可されたり、スタイルの <code>url()</code> 関数が許可されたり、CSS中の関数のバリデーションが緩和されたりしています。<br />
+また、ProdModeじゃない時にはセキュリティに引っかかったときにwarningメッセージが出てくるようになりました</p>
+
+<h3 id="アップグレード関連">アップグレード関連</h3>
+
+<ul>
+<li><strong>upgrade:</strong> allow deeper nesting of ng2 components/directives (#8949) (<a href="https://github.com/angular/angular/commit/48bf349" target="_blank">48bf349</a>)<br /></li>
+</ul>
+
+<p>ng2 &gt; ng1 &gt; ng2 のような複雑な入れ子構造で正しく動くようになります</p>
+
+<ul>
+<li><strong>upgrade:</strong> allow functions for template and templateUrl (#9022) (<a href="https://github.com/angular/angular/commit/a19c4e8" target="_blank">a19c4e8</a>)<br /></li>
+</ul>
+
+<p>ng1側のディレクティブの <code>template</code> や <code>templateUrl</code> が関数の場合にその戻り値をテンプレートとして扱うようになりました</p>
+
+<ul>
+<li><strong>upgrade:</strong> Ensure upgrade adapter works on angular.js 1.2 (#8647) (<a href="https://github.com/angular/angular/commit/cbc8d0a" target="_blank">cbc8d0a</a>)<br /></li>
+<li><strong>upgrade:</strong> make bindings available on $scope in controller &amp; link function (#8645) (<a href="https://github.com/angular/angular/commit/6cdc53c" target="_blank">6cdc53c</a>)<br /></li>
+</ul>
+
+<p>Angular 1.2に対応しました。 <code>bindToController</code> がないときにはディレクティブのcontroller関数やlink関数で <code>$scope</code> から<br />
+ng2 componentからのデータバインディングが可能になりました</p>
+
+<ul>
+<li><strong>upgrade:</strong> fallback to root ng2 injector when element is compiled outside the document (#86 (<a href="https://github.com/angular/angular/commit/db82906" target="_blank">db82906</a>)<br /></li>
+</ul>
+
+<p>ui-routerのように、ディレクティブを外部でコンパイルしたものをドキュメントに挿入した時に、<br />
+挿入されたディレクティブがルートのInjectorを参照するようにフォールバックが追加されました</p>
+
+<h3 id="その他">その他</h3>
+
+<ul>
+<li>add minified bundles (<a href="https://github.com/angular/angular/commit/9175a04" target="_blank">9175a04</a>)<br /></li>
+</ul>
+
+<p>各パッケージごとにbundleされたumd.jsが同梱されます</p>
+
+<hr />
+
+<p>また、CHANGELOG以外にも公式ブログでのアナウンスもされているので一緒に紹介します。</p>
+
+<p><a href="http://angularjs.blogspot.jp/2016/06/rc2-now-available.html" target="_blank">RC2 Now Available</a></p>
+
+<h3 id="animation-apiのサポート">Animation APIのサポート</h3>
+
+<p>ついにAnimation APIが実装されました。ドキュメントも用意されています。</p>
+
+<p><a href="https://angular.io/docs/ts/latest/guide/animations.html" target="_blank">Animations - ts</a></p>
+
+<p>このドキュメントはng-confでもAnimationを担当した@teropa氏によるものです。<br />
+gitアニメーション付きでわかりやすくてよいです。</p>
+
+<h3 id="forms-api">Forms API</h3>
+
+<p>RC.2に新しいForms APIの一部が実装されています。オプトインになっているので試したい方は <code>@angular/forms</code> を使ってみましょう。</p>
+
+<h3 id="多くのプルリクエストの消化">多くのプルリクエストの消化</h3>
+
+<p>100以上のPRがマージされ、多くのバグが修正され、大きく改善されました</p>
+
+<h3 id="web-workerサポート">Web Workerサポート</h3>
+
+<p>RCリリースの際に一度ドロップしていたWeb Workerサポートが完全復帰しました。</p>
+
+<h3 id="今後の予定">今後の予定</h3>
+
+<p>RCは今後もいくつか続き、最終的には2.0.0 Finalを目指していきます。<br />
+数ヶ月以内に辿り着きそうとのことで、FormsやRouterも含めて期待していきましょう。</p>
+
+<hr />
+
+<p>いかがでしたでしょうか。<br />
+大きく変わったのはForms周りくらいで、あとはちょっと便利な機能が増えたりバグが直ったりと嬉しい変更ばかりです。<br />
+新しいForms APIに関してはまだ未完成なので今後も要チェックです。しばらくは今までどおりのAPIを使っていてもいいでしょう。<br />
+RC.3は来月以降とのことなのでゆっくり慣らしていけるはずです。</p>
+
+<p>Router v3も細かい修正が重なっているので、落ち着いたところでまた変更点を紹介します。<br />
+それではまた。</p>
+
+
+
+
+
+
+
+
+
+    </section>
+
+
+  <footer class="post-footer">
+
+
+    
+    <figure class="author-image">
+        <a class="img" href="http://twitter.com/laco0416" style="background-image: url(https://ng2-info.github.io/img/authors/laco.png)"></a>
+    </figure>
+
+    
+
+
+
+
+
+<section class="author">
+  <h5>Author: <a href="http://twitter.com/laco0416">Suguru INATOMI</a></h5>
+</section>
+
+
+
+    
+<section class="share">
+    <h5>Share this post</h5>
+    <a class="icon-twitter" style="font-size: 1.4em"
+       href="https://twitter.com/share?text=Angular%202%20RC.2%e3%81%8c%e3%83%aa%e3%83%aa%e3%83%bc%e3%82%b9%e3%81%95%e3%82%8c%e3%81%be%e3%81%97%e3%81%9f%20-%20Angular2%20Info&amp;url=https%3a%2f%2fng2-info.github.io%2f2016%2f06%2fangular-2-rc-2%2f"
+       onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+        <span class="hidden">Twitter</span>
+    </a>
+    <a class="icon-facebook" style="font-size: 1.4em"
+       href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fng2-info.github.io%2f2016%2f06%2fangular-2-rc-2%2f"
+       onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+        <span class="hidden">Facebook</span>
+    </a>
+</section>
+
+
+
+  </footer>
+</article>
+
+</main>
+<footer class="site-footer clearfix">
+    <section class="copyright"><a href="">Angular2 Info</a> </section>
+    
+    <section class="poweredby">Proudly generated by <a class="icon-hugo" href="http://gohugo.io">HUGO</a>, with <a
+            class="icon-theme" href="https://github.com/vjeantet/hugo-theme-casper">Casper</a> theme
+    </section>
+    
+</footer>
+</div>
+<script type="text/javascript" src="https://ng2-info.github.io/js/jquery.js"></script>
+<script type="text/javascript" src="https://ng2-info.github.io/js/jquery.fitvids.js"></script>
+<script type="text/javascript" src="https://ng2-info.github.io/js/index.js"></script>
+
+<script>
+    linkjuice.init('article.post', {
+        selectors: ['h2', 'h3', 'h4'],
+        icon: ''
+    });
+</script>
+</body>
+</html>
+
