@@ -2,6 +2,7 @@ baseurl = "https://ng2-info.github.io/"
 languageCode = "ja-jp"
 title = "Angular2 Info"
 theme = "casper"
+# disablePathToLower = true
 
 [params]
   description = "Angular2の最新情報を不定期更新！"
