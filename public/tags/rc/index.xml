@@ -1,0 +1,2330 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Rc on Angular2 Info</title>
+    <link>https://ng2-info.github.io/tags/rc/</link>
+    <description>Recent content in Rc on Angular2 Info</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja-jp</language>
+    <lastBuildDate>Thu, 01 Sep 2016 21:23:17 +0900</lastBuildDate>
+    <atom:link href="https://ng2-info.github.io/tags/rc/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Angular 2 RC.6がリリースされました</title>
+      <link>https://ng2-info.github.io/2016/09/angular-2-rc-6/</link>
+      <pubDate>Thu, 01 Sep 2016 21:23:17 +0900</pubDate>
+      
+      <guid>https://ng2-info.github.io/2016/09/angular-2-rc-6/</guid>
+      <description>
+
+&lt;p&gt;どうも、らこです。Angular 2のRC.6がリリースされました。&lt;br /&gt;
+RC.6はFinalリリースへの最後の一歩です。&lt;br /&gt;
+非推奨だったAPIがきれいに削除され、RC.5で導入されたNgModuleを基本としたAPIに整えられました。&lt;br /&gt;
+RC.5でAngularモジュール(&lt;code&gt;NgModule&lt;/code&gt;)対応が済んでいないと、RC.6にアップデートできません。&lt;br /&gt;
+まずはRC.5で準備を整えてから、最終リリースへの階段を登りましょう。&lt;/p&gt;
+
+&lt;p&gt;それでは今回の重要な変更点をピックアップしていきます。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/angular/angular/blob/master/CHANGELOG.md#200-rc6-2016-08-31&#34; target=&#34;_blank&#34;&gt;2.0.0-RC.6&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;破壊的変更&#34;&gt;破壊的変更&lt;/h2&gt;
+
+&lt;p&gt;まずはRC.6の破壊的変更から。破壊的変更とはいいますが、ほとんどはRC.5時点で非推奨となったAPIの完全な削除です。&lt;/p&gt;
+
+&lt;h3 id=&#34;npmパッケージの構成の変更&#34;&gt;npmパッケージの構成の変更&lt;/h3&gt;
+
+&lt;p&gt;RC.6から、npmパッケージとして配布されるAngular 2のソースコードは、 &lt;strong&gt;ESM&lt;/strong&gt; (ES6 Modules)形式のJavaScriptになりました。&lt;br /&gt;
+これはRollupや、Webpack2などの、Tree Shakingに対応したbundlerのための変更です。&lt;br /&gt;
+これまでどおりCommonJS形式でAngular 2を読み込む場合は、 &lt;code&gt;bundles/*.umd.js&lt;/code&gt; にあるUMD形式のファイルを使う必要があります。&lt;br /&gt;
+ただし、ほとんどの場合はpackage.jsonの&lt;code&gt;main&lt;/code&gt;プロパティによって自動的にそちらに誘導されるので、特に設定を変える必要はありません。&lt;/p&gt;
+
+&lt;p&gt;SystemJSに関しては、&lt;a href=&#34;https://github.com/angular/quickstart/blob/3b7452cc444c49c139ea39523ced0468c2362c16/systemjs.config.js#L17-L34&#34; target=&#34;_blank&#34;&gt;こちらの設定&lt;/a&gt;を参考にするとよいでしょう。&lt;/p&gt;
+
+&lt;h3 id=&#34;zone-jsのアップデートにともなうtestingへの影響&#34;&gt;zone.jsのアップデートにともなうtestingへの影響&lt;/h3&gt;
+
+&lt;p&gt;依存するzone.jsのバージョンが上がったことにともない、ユニットテスト環境でのzone.jsの読み込みに変更があります。&lt;br /&gt;
+詳細は &lt;a href=&#34;https://github.com/angular/quickstart/blob/3b7452cc444c49c139ea39523ced0468c2362c16/karma.conf.js#L31-L38&#34; target=&#34;_blank&#34;&gt;こちら&lt;/a&gt;を参考にしてください。&lt;/p&gt;
+
+&lt;p&gt;なお、今回の変更により &lt;strong&gt;Jasmine&lt;/strong&gt; 以外のテスティングフレームワークを使おうとするとエラーが発生する問題が起きています。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/angular/angular/issues/11230&#34; target=&#34;_blank&#34;&gt;RC6 unit tests with mocha fail to run · Issue #11230 · angular/angular&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;mocha&lt;/strong&gt;などのフレームワークを使っている場合は、今のところはRC.6へのアップデートは避けたほうがよいでしょう。&lt;br /&gt;
+上記Issueをウォッチしておくことをおすすめします。&lt;/p&gt;
+
+&lt;h3 id=&#34;sanitizationservice-domsanitizationservice-の改名&#34;&gt;&lt;code&gt;SanitizationService&lt;/code&gt;/&lt;code&gt;DomSanitizationService&lt;/code&gt;の改名&lt;/h3&gt;
+
+&lt;p&gt;上記APIはそれぞれ、 &lt;code&gt;Sanitizer&lt;/code&gt;/&lt;code&gt;DomSanitizer&lt;/code&gt;に名前が変更されました。&lt;br /&gt;
+名前以外の変更はありません。&lt;/p&gt;
+
+&lt;h3 id=&#34;component-directives-pipes-の完全廃止&#34;&gt;&lt;code&gt;@Component.directives/pipes&lt;/code&gt;の完全廃止&lt;/h3&gt;
+
+&lt;p&gt;&lt;code&gt;@Component&lt;/code&gt;デコレーターが受け取るメタデータについて、&lt;br /&gt;
+&lt;code&gt;directives&lt;/code&gt;プロパティと、&lt;code&gt;pipes&lt;/code&gt;プロパティが完全に削除されました。&lt;br /&gt;
+RC.5で導入された&lt;code&gt;@NgModule&lt;/code&gt;デコレーターの&lt;code&gt;declarations&lt;/code&gt;を使用してください。&lt;/p&gt;
+
+&lt;p&gt;また、この変更にともなって、Component単位でのコンパイルも廃止されています。&lt;br /&gt;
+具体的には以下のAPIが廃止されています&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;DynamicComponentLoader&lt;/code&gt;&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ComponentResolver&lt;/code&gt;&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Compiler.compileComponentAsync/Sync&lt;/code&gt;&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;SystemJsComponentResolver&lt;/code&gt;/&lt;code&gt;SystemJsCmpFactoryResolver&lt;/code&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;動的なコンポーネント作成の際は、&lt;code&gt;ComponentFactoryResolver&lt;/code&gt;から該当のコンポーネントの&lt;code&gt;ComponentFactory&lt;/code&gt;を取得してください。&lt;/p&gt;
+
+&lt;h3 id=&#34;アニメーション定義の非推奨なテンプレートシンタックスを廃止&#34;&gt;アニメーション定義の非推奨なテンプレートシンタックスを廃止&lt;/h3&gt;
+
+&lt;p&gt;RC.5で追加された新しいシンタックスに移行し、古いシンタックスは廃止されます。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-html&#34;&gt;&amp;lt;!-- this is now invalid --&amp;gt;
+&amp;lt;div @flip=&amp;quot;flipState&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;
+
+&amp;lt;!-- change that to --&amp;gt;
+&amp;lt;div [@flip]=&amp;quot;flipState&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;@&lt;/code&gt;プレフィックスではなく&lt;code&gt;animate-&lt;/code&gt;プレフィックスを使う場合も同様で、&lt;code&gt;bind-&lt;/code&gt;プレフィックスが必須になります。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-html&#34;&gt;&amp;lt;!-- this is now invalid --&amp;gt;
+&amp;lt;div animate-flip=&amp;quot;flipState&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;
+
+&amp;lt;!-- is valid now --&amp;gt;
+&amp;lt;div bind-animate-flip=&amp;quot;flipState&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;非推奨なプロバイダー宣言を廃止&#34;&gt;非推奨なプロバイダー宣言を廃止&lt;/h3&gt;
+
+&lt;p&gt;これまで非推奨だったプロバイダーの宣言方法が廃止され、ひとつの書き方に統一されます。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ts&#34;&gt;// NG
+bind(MyClass).toFactory(...)
+new Provider(MyClass, toFactory: ...)
+
+// OK
+{provider: MyClass, toFactory: ...}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;ngzoneerror-の廃止&#34;&gt;&lt;code&gt;NgZoneError&lt;/code&gt;の廃止&lt;/h3&gt;
+
+&lt;p&gt;非推奨にされていた&lt;code&gt;NgZoneError&lt;/code&gt;が削除されました。&lt;/p&gt;
+
+&lt;h3 id=&#34;非推奨なboostrap-apiの廃止&#34;&gt;非推奨なboostrap APIの廃止&lt;/h3&gt;
+
+&lt;p&gt;&lt;code&gt;coreBootstrap&lt;/code&gt;と&lt;code&gt;coreLoadAndBootstrap&lt;/code&gt;が廃止されました&lt;/p&gt;
+
+&lt;h3 id=&#34;applicationref-platformref-の非推奨apiの廃止&#34;&gt;&lt;code&gt;ApplicationRef&lt;/code&gt;,&lt;code&gt;PlatformRef&lt;/code&gt;の非推奨APIの廃止&lt;/h3&gt;
+
+&lt;p&gt;&lt;code&gt;ApplicationRef&lt;/code&gt;と&lt;code&gt;PlatformRef&lt;/code&gt;関連のAPIで非推奨なものがすべて廃止されました&lt;/p&gt;
+
+&lt;h3 id=&#34;非推奨な-directive-properties-events-の廃止&#34;&gt;非推奨な&lt;code&gt;@Directive.properties/events&lt;/code&gt;の廃止&lt;/h3&gt;
+
+&lt;p&gt;非推奨なAPIだった&lt;code&gt;@Directive&lt;/code&gt;や&lt;code&gt;@Component&lt;/code&gt;デコレーターの&lt;code&gt;properties&lt;/code&gt;プロパティと&lt;code&gt;events&lt;/code&gt;プロパティが廃止されました。&lt;br /&gt;
+これらは&lt;code&gt;inputs&lt;/code&gt;と&lt;code&gt;outputs&lt;/code&gt;を使用します。&lt;/p&gt;
+
+&lt;h3 id=&#34;query-viewquery-の廃止&#34;&gt;&lt;code&gt;Query&lt;/code&gt;/&lt;code&gt;ViewQuery&lt;/code&gt;の廃止&lt;/h3&gt;
+
+&lt;p&gt;非推奨でした(略)&lt;/p&gt;
+
+&lt;h3 id=&#34;testcomponentbuilder-の廃止&#34;&gt;&lt;code&gt;TestComponentBuilder&lt;/code&gt;の廃止&lt;/h3&gt;
+
+&lt;p&gt;RC.5で&lt;code&gt;TestBed&lt;/code&gt;になりました。&lt;/p&gt;
+
+&lt;h3 id=&#34;シンタックスと-var-シンタックスの廃止&#34;&gt;&lt;code&gt;#&lt;/code&gt;シンタックスと&lt;code&gt;var-&lt;/code&gt;シンタックスの廃止&lt;/h3&gt;
+
+&lt;p&gt;非推奨でした。ローカル変数宣言には&lt;code&gt;let-&lt;/code&gt;を使います&lt;/p&gt;
+
+&lt;h3 id=&#34;http-providers-と-jsonp-providers-の廃止&#34;&gt;&lt;code&gt;HTTP_PROVIDERS&lt;/code&gt;と&lt;code&gt;JSONP_PROVIDERS&lt;/code&gt;の廃止&lt;/h3&gt;
+
+&lt;p&gt;それぞれ&lt;code&gt;HttpModule&lt;/code&gt;と&lt;code&gt;JsonpModule&lt;/code&gt;になります&lt;/p&gt;
+
+&lt;h3 id=&#34;cached-template-provider-の改名&#34;&gt;&lt;code&gt;CACHED_TEMPLATE_PROVIDER&lt;/code&gt;の改名&lt;/h3&gt;
+
+&lt;p&gt;&lt;code&gt;CACHED_TEMPLATE_PROVIDER&lt;/code&gt;は&lt;code&gt;RESOURCE_CACHE_PROVIDER&lt;/code&gt;に改名されました&lt;/p&gt;
+
+&lt;h3 id=&#34;ngswitchwhen-の廃止&#34;&gt;&lt;code&gt;NgSwitchWhen&lt;/code&gt;の廃止&lt;/h3&gt;
+
+&lt;p&gt;非推奨でした。現在は&lt;code&gt;NgSwitchCase&lt;/code&gt;を使います&lt;/p&gt;
+
+&lt;h3 id=&#34;replacepipe-の廃止&#34;&gt;&lt;code&gt;ReplacePipe&lt;/code&gt;の廃止&lt;/h3&gt;
+
+&lt;p&gt;非推奨でした。&lt;/p&gt;
+
+&lt;h3 id=&#34;upgradeadapter-addprovider-の廃止&#34;&gt;&lt;code&gt;UpgradeAdapter#addProvider&lt;/code&gt;の廃止&lt;/h3&gt;
+
+&lt;p&gt;非推奨でした。Angularモジュールを使います&lt;/p&gt;
+
+&lt;h3 id=&#34;commonパッケージのforms-apiの廃止&#34;&gt;commonパッケージのForms APIの廃止&lt;/h3&gt;
+
+&lt;p&gt;&lt;code&gt;@angular/common&lt;/code&gt;パッケージから提供されていた古いForms APIは廃止されました。&lt;br /&gt;
+&lt;code&gt;@angular/forms&lt;/code&gt;を使います&lt;/p&gt;
+
+&lt;h3 id=&#34;web-worker関連apiのパッケージ分割&#34;&gt;Web Worker関連APIのパッケージ分割&lt;/h3&gt;
+
+&lt;p&gt;これまではplatform-browserパッケージに同梱されていましたが、今回から独立した&lt;code&gt;platform-webworker&lt;/code&gt;パッケージで提供さてます。&lt;br /&gt;
+新しく&lt;code&gt;@angular/platform-webworker&lt;/code&gt;と&lt;code&gt;@angular/platform-webworker-dynamic&lt;/code&gt;が公開されています。&lt;/p&gt;
+
+&lt;h2 id=&#34;その他の変更&#34;&gt;その他の変更&lt;/h2&gt;
+
+&lt;h3 id=&#34;core&#34;&gt;core&lt;/h3&gt;
+
+&lt;h4 id=&#34;no-errors-schema-の追加&#34;&gt;&lt;code&gt;NO_ERRORS_SCHEMA&lt;/code&gt;の追加&lt;/h4&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/angular/angular/commit/c631cfc&#34; target=&#34;_blank&#34;&gt;feat(core): add NO_ERRORS_SCHEMA that allows any properties to be set… · angular/angular@c631cfc&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;RC.5で、テンプレート中でのカスタムエレメントの使用を許可する、&lt;code&gt;CUSTOM_ELEMENT_SCHEMA&lt;/code&gt;が実装されましたが、&lt;br /&gt;
+今回はどんなテンプレートでもエラーを発生させないスキーマが追加されました。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;CUSTOM_ELEMENT_SCHEMA&lt;/code&gt;と同様に&lt;code&gt;NgModule.schema&lt;/code&gt;に設定します。&lt;br /&gt;
+基本的にアプリケーションでは使用しないAPIで、ユニットテスト時に使うことが想定されています。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ts&#34;&gt;TestBed.configureTestingModule({
+  schemas: [NO_ERRORS_SCHEMA]
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;animation-apiのイベントオブジェクトに-totaltime-を追加&#34;&gt;Animation APIのイベントオブジェクトに&lt;code&gt;totalTime&lt;/code&gt;を追加&lt;/h4&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/angular/angular/commit/4f8f8cf&#34; target=&#34;_blank&#34;&gt;feat(animations): make sure animation callback reports the totalTime … · angular/angular@4f8f8cf&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Animation APIのトランジションイベントで受け取れるオブジェクトが、&lt;code&gt;AnimationTransitionEvent&lt;/code&gt;というクラスのインスタンスになりました。&lt;br /&gt;
+&lt;code&gt;AnimationTransitionEvent#totalTime&lt;/code&gt;プロパティでトランジションにかかった時間を取得できます。&lt;/p&gt;
+
+&lt;h3 id=&#34;compiler&#34;&gt;compiler&lt;/h3&gt;
+
+&lt;h4 id=&#34;compiler-cliのtypescript-2-0対応&#34;&gt;compiler-cliのTypeScript 2.0対応&lt;/h4&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/angular/angular/commit/fc2fe00&#34; target=&#34;_blank&#34;&gt;fix(compiler): allow tsc-wrapped to be compile with TypeScript 2.0 (#… · angular/angular@fc2fe00&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;今まで1.9.0-devバージョンに依存していたtsc-wrappedパッケージがTypeScript 2.0に対応しました&lt;/p&gt;
+
+&lt;h4 id=&#34;entrycomponents-から-declarations-への自動的な適用を廃止&#34;&gt;&lt;code&gt;entryComponents&lt;/code&gt;から&lt;code&gt;declarations&lt;/code&gt;への自動的な適用を廃止&lt;/h4&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/angular/angular/commit/c56f3f2&#34; target=&#34;_blank&#34;&gt;fix(compiler): do not autoinclude components declared as entry points… · angular/angular@c56f3f2&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;これまで&lt;code&gt;entryComponents&lt;/code&gt;に指定されたコンポーネントは自動的に&lt;code&gt;declarations&lt;/code&gt;にも適用されていましたが、&lt;br /&gt;
+今後はどちらも明示的に指定する必要があります。&lt;/p&gt;
+
+&lt;h4 id=&#34;テンプレート中に未知の要素が存在することを検知し-エラーを発生させるようになった&#34;&gt;テンプレート中に未知の要素が存在することを検知し、エラーを発生させるようになった&lt;/h4&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/angular/angular/commit/1df69cb&#34; target=&#34;_blank&#34;&gt;fix(DomSchemaRegistry): detect invalid elements · angular/angular@1df69cb&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;HTML標準の要素でもなければAngularモジュールに登録されたディレクティブでもない未知の要素について、&lt;br /&gt;
+テンプレート中に存在するとエラーが発生するようになりました。&lt;br /&gt;
+その要素がWeb Components仕様のカスタムエレメントである場合は、Angularモジュールに&lt;code&gt;CUSTOM_ELEMENT_SCHEMA&lt;/code&gt;を追加します。&lt;br /&gt;
+そうでない場合は適切なディレクティブをAngularモジュールに登録します。&lt;/p&gt;
+
+&lt;p&gt;この件で、一部のHTML標準の要素が認められていないバグが発生しています。&lt;br /&gt;
+たとえば &lt;code&gt;&amp;lt;time&amp;gt;&lt;/code&gt;要素については、&lt;a href=&#34;https://github.com/angular/angular/issues/11219&#34; target=&#34;_blank&#34;&gt;こちらのIssue&lt;/a&gt;を参照してください。&lt;/p&gt;
+
+&lt;h4 id=&#34;host-host-context-の修正&#34;&gt;&lt;code&gt;:host&lt;/code&gt;,&lt;code&gt;:host-context&lt;/code&gt;の修正&lt;/h4&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/angular/angular/commit/af63378&#34; target=&#34;_blank&#34;&gt;fix(ShadowCss): properly shim selectors after :host and :host-context… · angular/angular@af63378&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;ViewEncapsulation&lt;/code&gt;がデフォルトの時、&lt;code&gt;:host&lt;/code&gt;セレクターと&lt;code&gt;:host-context&lt;/code&gt;セレクターがうまく適用されないバグが修正されました&lt;/p&gt;
+
+&lt;h3 id=&#34;common&#34;&gt;common&lt;/h3&gt;
+
+&lt;h4 id=&#34;datepipe-がfloat形式の文字列を受け取れるように修正&#34;&gt;&lt;code&gt;DatePipe&lt;/code&gt;がfloat形式の文字列を受け取れるように修正&lt;/h4&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/angular/angular/commit/712c7d5&#34; target=&#34;_blank&#34;&gt;fix(datePipe): allow float for date pipe input (#10687) · angular/angular@712c7d5&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;&amp;quot;123456789.11&amp;quot;&lt;/code&gt;のような文字列を扱えるようになりました。&lt;/p&gt;
+
+&lt;h3 id=&#34;http&#34;&gt;http&lt;/h3&gt;
+
+&lt;h4 id=&#34;bodyが空の時に-responce-text-が空文字列を返すように修正&#34;&gt;bodyが空の時に&lt;code&gt;Responce#text()&lt;/code&gt;が空文字列を返すように修正&lt;/h4&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/angular/angular/commit/7cd4741&#34; target=&#34;_blank&#34;&gt;https://github.com/angular/angular/commit/7cd4741&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;i18n&#34;&gt;i18n&lt;/h3&gt;
+
+&lt;h4 id=&#34;locale-id-の導入&#34;&gt;&lt;code&gt;LOCALE_ID&lt;/code&gt;の導入&lt;/h4&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/angular/angular/commit/ce4eae6&#34; target=&#34;_blank&#34;&gt;feat(i18n): provide LOCALE_ID and NgLocalization · angular/angular@ce4eae6&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;i18n機能用の新たなAPIとして、アプリケーションのロケールを管理する&lt;code&gt;LOCALE_ID&lt;/code&gt;が追加されました。&lt;br /&gt;
+次のようにロケールを指定できます。デフォルトは&lt;code&gt;en-US&lt;/code&gt;になっています。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ts&#34;&gt;providers: [{provide: LOCALE_ID, useValue: &#39;en-US&#39;}]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;currencypipe-datepipe-numberpipe-がロケールを参照するように変更&#34;&gt;&lt;code&gt;CurrencyPipe&lt;/code&gt;,&lt;code&gt;DatePipe&lt;/code&gt;,&lt;code&gt;NumberPipe&lt;/code&gt;がロケールを参照するように変更&lt;/h4&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/angular/angular/commit/0a053a4&#34; target=&#34;_blank&#34;&gt;https://github.com/angular/angular/commit/0a053a4&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;これまでは&lt;code&gt;en-US&lt;/code&gt;で固定だったこれらのパイプが、&lt;code&gt;LOCALE_ID&lt;/code&gt;を参照するようになりました。&lt;/p&gt;
+
+&lt;h3 id=&#34;router&#34;&gt;router&lt;/h3&gt;
+
+&lt;h4 id=&#34;ルーティングのカスタムエラーハンドリングをサポート&#34;&gt;ルーティングのカスタムエラーハンドリングをサポート&lt;/h4&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/angular/angular/commit/2fc5c57&#34; target=&#34;_blank&#34;&gt;feat(router): add support for custom error handlers · angular/angular@2fc5c57&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;RouterModule.forRoot()&lt;/code&gt;の第2引数で、ルーティングエラーのハンドル用関数を渡せるようになりました。&lt;br /&gt;
+また、&lt;code&gt;Router#errorHandler&lt;/code&gt;に対しても関数をセット可能です&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ts&#34;&gt;RouterModule.forRoot(appRoutes, {
+    errorHandler: (error: any) =&amp;gt; { 
+        // ...
+    }
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ts&#34;&gt;this.router.errorHandler = (error: any) =&amp;gt; {
+    // ...
+};
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;routertestingmodule-withroutes-の追加&#34;&gt;&lt;code&gt;RouterTestingModule.withRoutes&lt;/code&gt;の追加&lt;/h4&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/angular/angular/commit/53c99cf&#34; target=&#34;_blank&#34;&gt;feat(router): add syntax sugar for confuguring RouterTestingModule (#… · angular/angular@53c99cf&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;ユニットテスト用の&lt;code&gt;RouterTestingModule&lt;/code&gt;に&lt;code&gt;withRoutes&lt;/code&gt;関数が実装され、&lt;br /&gt;
+&lt;code&gt;provideRoutes()&lt;/code&gt;関数を別に呼び出す必要がなくなりました&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ts&#34;&gt;TestBed.configureTestingModule({
+    imports: [
+      RouterTestingModule.withRoutes(
+          [{path: &#39;&#39;, component: BlankCmp}, {path: &#39;simple&#39;, component: SimpleCmp}]),
+      TestModule
+    ]
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;以上、RC.6の主な変更点でした。量こそ多いですがほとんどは非推奨APIの廃止です。&lt;br /&gt;
+計画通りなら、次は2.0.0 Finalリリースです。&lt;br /&gt;
+今月末にはロンドンでAngularConnectも開催されますので楽しみにしていましょう。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://angularconnect.com/&#34; target=&#34;_blank&#34;&gt;AngularConnect 2016 - Europe’s Largest Angular Conference&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;それではまた。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Angular 2 RC.5がリリースされました</title>
+      <link>https://ng2-info.github.io/2016/08/angular-2-rc-5/</link>
+      <pubDate>Wed, 10 Aug 2016 21:13:11 +0900</pubDate>
+      
+      <guid>https://ng2-info.github.io/2016/08/angular-2-rc-5/</guid>
+      <description>
+
+&lt;p&gt;どうも、らこです。ついにAngular 2のRC.5がリリースされました。&lt;br /&gt;
+2.0最終リリースに向けた最後の大規模アップデートということで、変更の量は凄まじいものがあります。&lt;br /&gt;
+&lt;code&gt;NgModule&lt;/code&gt; APIを始めとした既存APIの刷新は、一見バージョンアップ対応のハードルは高そうに見えますが、&lt;br /&gt;
+RC.5に合わせた書き方に直していけば、これまでよりもわかりやすく直感的なAPIになっていることが感じられるはずです。&lt;/p&gt;
+
+&lt;p&gt;それでは重要な変更点をピックアップしていきます。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/angular/angular/blob/master/CHANGELOG.md#200-rc5-2016-08-09&#34; target=&#34;_blank&#34;&gt;2.0.0-RC.5&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;ngmodule-について&#34;&gt;&lt;code&gt;NgModule&lt;/code&gt;について&lt;/h2&gt;
+
+&lt;p&gt;新しい&lt;code&gt;NgModule&lt;/code&gt; APIについては、 &lt;a href=&#34;https://ng2-info.github.io/2016/07/preparing-for-ngmodule&#34;&gt;こちらの記事&lt;/a&gt;で簡単な解説をしているので、まずはそちらを読んでください。&lt;/p&gt;
+
+&lt;h2 id=&#34;破壊的変更&#34;&gt;破壊的変更&lt;/h2&gt;
+
+&lt;p&gt;まずは破壊的変更についてまとめておきます。&lt;/p&gt;
+
+&lt;h3 id=&#34;bootstrappingに関する変更&#34;&gt;bootstrappingに関する変更&lt;/h3&gt;
+
+&lt;p&gt;一番大きな変更は、アプリケーションのbootstrappingに関するAPIの変更です。&lt;br /&gt;
+&lt;code&gt;NgModule&lt;/code&gt;を前提とした新しいAPIが標準となり、今までのコンポーネントベースのbootstrapingは非推奨になりました。&lt;/p&gt;
+
+&lt;p&gt;アプリケーションを実装するにあたって、まずはモジュールを作ることになります。モジュールは次のように&lt;code&gt;@NgModule&lt;/code&gt;デコレータを使います。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ts&#34;&gt;import {NgModule} from &#39;@angular/core&#39;;
+
+@NgModule({
+  declarations: […], // モジュールに読み込むディレクティブ、コンポーネント、パイプ
+  imports: [BrowserModule], // 依存するモジュール
+  providers: […], // DIプロバイダ
+  boostrap: [MainComponent], // アプリケーションのエントリポイントになるコンポーネント
+})
+class MyAppModule {}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;こうして宣言したモジュールは、次のようにbootstrappingします。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ts&#34;&gt;import {platformBrowserDynamic} from ‘@angular/platform-browser-dynamic’;
+
+platformBrowserDynamic().bootstrapModule(MyAppModule);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;AoT(Ahead of Time)コンパイルを利用する場合は、次のようになります&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ts&#34;&gt;import {platformBrowser} from ‘@angular/platform-browser’;
+
+platformBrowser().bootstrapModuleFactory(MyAppModuleNgFactory);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;web-worker向けapiの変更&#34;&gt;Web Worker向けAPIの変更&lt;/h4&gt;
+
+&lt;p&gt;これまでWeb Workerでアプリケーションを起動するには&lt;code&gt;bootstrapWorkerApp&lt;/code&gt;を使っていましたが、&lt;br /&gt;
+&lt;code&gt;WorkerAppModule&lt;/code&gt;と&lt;code&gt;workerAppPlatform()&lt;/code&gt;を使って、モジュールをbootstrapすることになります。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;bootstrapWorkerUi&lt;/code&gt;についても、&lt;code&gt;WorkerUiModule&lt;/code&gt;をインポートして、&lt;code&gt;workerUiPlatform()&lt;/code&gt;でbootstrapします。&lt;/p&gt;
+
+&lt;h4 id=&#34;server向けapiの変更&#34;&gt;Server向けAPIの変更&lt;/h4&gt;
+
+&lt;p&gt;&lt;code&gt;serverBootstrap&lt;/code&gt;は廃止され、アプリケーションのモジュールを&lt;code&gt;serverDynamicPlatform()&lt;/code&gt;でbootstrapすることになります&lt;/p&gt;
+
+&lt;h3 id=&#34;compiler-に関する変更&#34;&gt;&lt;code&gt;Compiler&lt;/code&gt;に関する変更&lt;/h3&gt;
+
+&lt;p&gt;コンポーネントコンパイラは常に&lt;code&gt;Compiler&lt;/code&gt;クラスでInjectするようになりました。&lt;br /&gt;
+&lt;code&gt;RuntimeCompiler&lt;/code&gt;クラスや&lt;code&gt;OfflineCompiler&lt;/code&gt;クラスを直接Injectすることはできません。&lt;/p&gt;
+
+&lt;h3 id=&#34;applicationref-に関する変更&#34;&gt;&lt;code&gt;ApplicationRef&lt;/code&gt;に関する変更&lt;/h3&gt;
+
+&lt;p&gt;アプリケーションの主体がモジュールに移行したことから、&lt;code&gt;ApplicationRef&lt;/code&gt;関連のAPIの多くが非推奨になりました。&lt;/p&gt;
+
+&lt;h4 id=&#34;applicationref-waitforasyncinitializers-の廃止&#34;&gt;&lt;code&gt;ApplicationRef#waitForAsyncInitializers&lt;/code&gt;の廃止&lt;/h4&gt;
+
+&lt;p&gt;アプリケーションの初期化が完了したことを受け取るためのAPIだった&lt;code&gt;ApplicationRef#waitForAsyncInitializers&lt;/code&gt;が廃止されました。&lt;br /&gt;
+代わりに&lt;code&gt;AppInitStatus#donePromise(): Promise&lt;/code&gt;か、&lt;code&gt;AppInitStatus#done: boolean&lt;/code&gt;を使います。&lt;br /&gt;
+&lt;code&gt;AppInitStatus&lt;/code&gt;は新しく導入されたクラスで、Injection経由でインスタンスを取得できます。&lt;/p&gt;
+
+&lt;h4 id=&#34;applicationref-registerbootstraplistener-の廃止&#34;&gt;&lt;code&gt;ApplicationRef.registerBootstrapListener&lt;/code&gt;の廃止&lt;/h4&gt;
+
+&lt;p&gt;bootstrapが完了した後に呼び出されるイベントリスナーを登録するためのAPIだった&lt;code&gt;ApplicationRef.registerBootstrapListener&lt;/code&gt;が廃止されました。&lt;br /&gt;
+代わりに、&lt;code&gt;APP_BOOTSTRAP_LISTENER&lt;/code&gt;トークンを使って、multi providerを設定します。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ts&#34;&gt;[
+    {
+        provide: APP_BOOTSTRAP_LISTENER,
+        multi: true,
+        useValue: (cmp: ComponentRef) =&amp;gt; {
+            // bootstrapされたコンポーネントのComponentRefが渡される
+        }
+    }
+]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;applicationref-dispose-の廃止&#34;&gt;&lt;code&gt;ApplicationRef#dispose&lt;/code&gt;の廃止&lt;/h4&gt;
+
+&lt;p&gt;アプリケーションを破棄する&lt;code&gt;ApplicationRef#dispose&lt;/code&gt;が廃止されました。&lt;br /&gt;
+代わりにモジュールを破棄する&lt;code&gt;NgModuleRef#destroy&lt;/code&gt;を使います。&lt;/p&gt;
+
+&lt;h4 id=&#34;aplicationref-registerdisposelistener-の廃止&#34;&gt;&lt;code&gt;AplicationRef#registerDisposeListener&lt;/code&gt;の廃止&lt;/h4&gt;
+
+&lt;p&gt;アプリケーションが破棄されたイベントを受け取るためのAPIが廃止されました。&lt;br /&gt;
+代わりにモジュールのクラスで&lt;code&gt;ngOnDestroy&lt;/code&gt;ライフサイクルメソッドを実装するか、&lt;br /&gt;
+&lt;code&gt;NgModuleRef&lt;/code&gt;クラスをInjectして、&lt;code&gt;NgModuleRef#onDestroy&lt;/code&gt;メソッドでイベントリスナーを登録します。&lt;/p&gt;
+
+&lt;h4 id=&#34;applicationref-run-の廃止&#34;&gt;&lt;code&gt;ApplicationRef#run&lt;/code&gt;の廃止&lt;/h4&gt;
+
+&lt;p&gt;&lt;code&gt;ApplicationRef#run&lt;/code&gt;は廃止され、代わりに&lt;code&gt;NgZone#run&lt;/code&gt;を直接使うようになります。&lt;/p&gt;
+
+&lt;h4 id=&#34;applicationref-injector-の廃止&#34;&gt;&lt;code&gt;ApplicationRef#injector&lt;/code&gt;の廃止&lt;/h4&gt;
+
+&lt;p&gt;&lt;code&gt;ApplicationRef#injector&lt;/code&gt;は廃止され、代わりに&lt;code&gt;Injector&lt;/code&gt;を直接Injectするか、&lt;code&gt;NgModuleRef#injector&lt;/code&gt;を使います。&lt;/p&gt;
+
+&lt;h4 id=&#34;applicationref-zone-の廃止&#34;&gt;&lt;code&gt;ApplicationRef#zone&lt;/code&gt;の廃止&lt;/h4&gt;
+
+&lt;p&gt;&lt;code&gt;ApplicationRef#zone&lt;/code&gt;は廃止され、&lt;code&gt;NgZone&lt;/code&gt;を直接使います。&lt;/p&gt;
+
+&lt;h3 id=&#34;disposeplatform-の廃止&#34;&gt;&lt;code&gt;disposePlatform&lt;/code&gt;の廃止&lt;/h3&gt;
+
+&lt;p&gt;&lt;code&gt;disposePlatform&lt;/code&gt;は&lt;code&gt;destroyPlatform&lt;/code&gt;に名前が変わりました。&lt;br /&gt;
+全体として&lt;code&gt;dispose&lt;/code&gt;から&lt;code&gt;destroy&lt;/code&gt;に統一するためです。&lt;/p&gt;
+
+&lt;p&gt;同様に、&lt;code&gt;PlatformRef#dipose()&lt;/code&gt;から&lt;code&gt;PlatformRef#destroy()&lt;/code&gt;に、&lt;br /&gt;
+&lt;code&gt;PlatformRef#registerDisposeListener&lt;/code&gt;から&lt;code&gt;PlatformRef.onDestroy&lt;/code&gt;に、&lt;br /&gt;
+&lt;code&gt;PlaformRef#diposed&lt;/code&gt;から&lt;code&gt;PlatformRef#destroyed&lt;/code&gt;に、それぞれ改名されました。&lt;/p&gt;
+
+&lt;h3 id=&#34;テンプレートスキーマに関する挙動の変更&#34;&gt;テンプレートスキーマに関する挙動の変更&lt;/h3&gt;
+
+&lt;p&gt;デフォルトでは、テンプレート中の未知の要素に対するデータバインディングはエラーを起こすようになっています。&lt;br /&gt;
+ただし、&lt;code&gt;CUSTOM_ELEMENTS_SCHEMA&lt;/code&gt;を有効にすると、要素名に&lt;code&gt;-&lt;/code&gt;を含む場合はその要素をCustom Elementsとして扱い、既知の要素として扱います。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;CUSTOM_ELEMENTS_SCHEMA&lt;/code&gt;は&lt;code&gt;@NgModule&lt;/code&gt;の&lt;code&gt;schemas&lt;/code&gt;に設定します。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ts&#34;&gt;@NgModule({
+    declarations: [MyComponentThatUsesAWebComponent],
+    imports: [BrowserModule],
+    schemas: [CUSTOM_ELEMENTS_SCHEMA],
+    boostrap:  [MyComponentThatUsesAWebComponent],
+})
+export class MyAppModule{}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;coreloadandbootstrap-corebootstrap-の廃止&#34;&gt;&lt;code&gt;coreLoadAndBootstrap&lt;/code&gt;/&lt;code&gt;coreBootstrap&lt;/code&gt;の廃止&lt;/h3&gt;
+
+&lt;p&gt;&lt;code&gt;coreLoadAndBootstrap&lt;/code&gt;と&lt;code&gt;coreBootstrap&lt;/code&gt;は廃止されました。代わりには&lt;code&gt;bootstrapModule&lt;/code&gt;か&lt;code&gt;bootstrapModuleFactory&lt;/code&gt;を使います。&lt;/p&gt;
+
+&lt;h3 id=&#34;routeconfigと-declarations-に関する規定&#34;&gt;RouteConfigと&lt;code&gt;declarations&lt;/code&gt;に関する規定&lt;/h3&gt;
+
+&lt;p&gt;ルート設定に含まれるすべてのコンポーネントは、モジュールの&lt;code&gt;declarations&lt;/code&gt;に含まれている必要があります。&lt;br /&gt;
+これはJITコンパイル、AoTコンパイル、遅延ロードによらず常に必要です。&lt;/p&gt;
+
+&lt;h3 id=&#34;テスティングapiに関する変更&#34;&gt;テスティングAPIに関する変更&lt;/h3&gt;
+
+&lt;p&gt;&lt;code&gt;@angular/core/testing&lt;/code&gt;をはじめとするテスティングAPIも、&lt;code&gt;NgModule&lt;/code&gt;を前提としたAPIに刷新されました。&lt;/p&gt;
+
+&lt;h4 id=&#34;testinjector-の廃止と-testbed-の導入&#34;&gt;&lt;code&gt;TestInjector&lt;/code&gt;の廃止と&lt;code&gt;TestBed&lt;/code&gt;の導入&lt;/h4&gt;
+
+&lt;p&gt;これまでユニットテスト中のInjectionを管理していた&lt;code&gt;TestInjector&lt;/code&gt;が廃止され、&lt;br /&gt;
+代わりにユニットテスト用のモジュールを管理する&lt;code&gt;TestBed&lt;/code&gt; APIが導入されました。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;withProviders&lt;/code&gt;は&lt;code&gt;TestBed.withModule&lt;/code&gt;に、&lt;code&gt;addProviders&lt;/code&gt;は&lt;code&gt;TestBed.configureTestingModule&lt;/code&gt;に変更されます。&lt;br /&gt;
+&lt;code&gt;TestComponentBuilder&lt;/code&gt;も&lt;code&gt;TestBed.createComponent&lt;/code&gt;に変更されます。&lt;/p&gt;
+
+&lt;p&gt;Example:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ts&#34;&gt;import {TestBed} from &#39;@angular/core/testing&#39;;
+
+describe(&#39;TestComponent&#39;, () =&amp;gt; {
+  beforeEach(() =&amp;gt; {
+    // テスト用モジュールのセットアップ
+    TestBed.configureTestingModule({
+      declarations: [TestComponent]
+    });
+  });
+
+  it(&#39;component test&#39;, async(() =&amp;gt; {
+    // Component設定の上書き
+    TestBed.overrideComponent(TestComponent, {set: {
+      template: &#39;&amp;lt;p&amp;gt;Content&amp;lt;/p&amp;gt;&#39;
+    }});
+    // コンポーネントのコンパイル
+    TestBed.compileComponents().then(() =&amp;gt; {
+      // コンポーネントインスタンスの作成 
+      var fixture = TestBed.createComponent(TestComponent);
+      fixture.detectChanges();
+      var compiled = fixture.debugElement.nativeElement;
+
+      expect(compiled).toContainText(&#39;Content&#39;);
+    });
+  }));
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;テスト環境のセットアップを行う&lt;code&gt;setBaseTestProviders&lt;/code&gt;も、&lt;code&gt;TestBed.initTestEnvironment()&lt;/code&gt;に変更されます。&lt;/p&gt;
+
+&lt;p&gt;Before:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ts&#34;&gt;import {setBaseTestProviders} from &#39;@angular/core/testing&#39;;
+import {
+    TEST_BROWSER_DYNAMIC_PLATFORM_PROVIDERS,
+    TEST_BROWSER_DYNAMIC_APPLICATION_PROVIDERS
+} from &#39;@angular/platform-browser-dynamic/testing&#39;;
+
+setBaseTestProviders(
+    TEST_BROWSER_DYNAMIC_PLATFORM_PROVIDERS,
+    TEST_BROWSER_DYNAMIC_APPLICATION_PROVIDERS
+);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;After:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ts&#34;&gt;import {TestBed} from &#39;@angular/core/testing&#39;;
+import {BrowserDynamicTestingModule, platformBrowserDynamicTesting} from &#39;@angular/platform-browser-dynamic/testing&#39;;
+
+TestBed.initTestEnvironment(
+    BrowserDynamicTestingModule,
+    platformBrowserDynamicTesting()
+);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;ngmodel-の挙動の変更と-ユニットテストへの影響&#34;&gt;&lt;code&gt;ngModel&lt;/code&gt;の挙動の変更と、ユニットテストへの影響&lt;/h3&gt;
+
+&lt;p&gt;&lt;code&gt;ngModel&lt;/code&gt;は常に非同期的な挙動を取るようになりました。&lt;br /&gt;
+つまり、ユニットテスト時には&lt;code&gt;ComponentFixture#detectChanges&lt;/code&gt;の呼び出しではなく、&lt;br /&gt;
+&lt;code&gt;ComponentFixture#whenStable&lt;/code&gt;を使って非同期的に変更の反映を待つ必要があります。&lt;/p&gt;
+
+&lt;p&gt;Before:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ts&#34;&gt;let fixture = TestBed.createComponent(InputComp);
+fixture.detectChanges();
+
+let inputBox = &amp;lt;HTMLInputElement&amp;gt; fixture.debugElement.query(By.css(&#39;input&#39;)).nativeElement;
+expect(inputBox.value).toEqual(&#39;Original Name&#39;);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;After:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ts&#34;&gt;let fixture = TedBed.createComponent(InputComp);
+fixture.whenStable().then(() =&amp;gt; {
+    let inputBox = &amp;lt;HTMLInputElement&amp;gt; fixture.debugElement.query(By.css(&#39;input&#39;)).nativeElement;
+    expect(inputBox.value).toEqual(&#39;Original Name&#39;);
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;formsのモジュール化&#34;&gt;Formsのモジュール化&lt;/h3&gt;
+
+&lt;p&gt;&lt;code&gt;@angular/forms&lt;/code&gt;を使用するためのAPIが変わります。今後は各フォームAPI用のモジュールをインポートします。&lt;/p&gt;
+
+&lt;p&gt;Before:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ts&#34;&gt;import {disableDeprecatedForms, provideForms} from @angular/forms;
+
+bootstrap(App, [
+  disableDeprecatedForms(),
+  provideForms()
+]);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;After:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ts&#34;&gt;import {DeprecatedFormsModule, FormsModule, ReactiveFormsModule} from @angular/common;
+
+@NgModule({
+  declarations: [MyComponent],
+  imports: [BrowserModule, DeprecatedFormsModule],
+  boostrap:  [MyComponent],
+})
+export class MyAppModule{}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;platform-pipes-と-platform-directives-の廃止&#34;&gt;&lt;code&gt;PLATFORM_PIPES&lt;/code&gt;と&lt;code&gt;PLATFORM_DIRECTIVES&lt;/code&gt;の廃止&lt;/h3&gt;
+
+&lt;p&gt;どちらも&lt;code&gt;NgModule#declarations&lt;/code&gt;を使うようになりました&lt;/p&gt;
+
+&lt;h3 id=&#34;routerの挙動の変更&#34;&gt;Routerの挙動の変更&lt;/h3&gt;
+
+&lt;p&gt;クエリパラメータやフラグメントなど、URLに付随する要素は、デフォルトでは保持されなくなりました。&lt;br /&gt;
+ナビゲーションの際に保持したい場合は、&lt;code&gt;preserveQueryParams&lt;/code&gt;/&lt;code&gt;preserveFragments&lt;/code&gt;オプションをtrueにします。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ts&#34;&gt;router.navigate([&amp;quot;/&amp;quot;], { preserveQueryParams: true });
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;routerLinkの場合は、&lt;code&gt;[preserveQueryParams]&lt;/code&gt;として設定します。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-html&#34;&gt;&amp;lt;a routerLink=&amp;quot;/&amp;quot; [preserveQueryParams]=&amp;quot;true&amp;quot;&amp;gt;top&amp;lt;/a&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;アニメーションのテンプレートシンタックスの変更&#34;&gt;アニメーションのテンプレートシンタックスの変更&lt;/h3&gt;
+
+&lt;p&gt;アニメーションのトリガーの式は&lt;code&gt;@prop&lt;/code&gt;という書き方でしたが、&lt;code&gt;[@prop]&lt;/code&gt;に変更されました。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-html&#34;&gt;// 非推奨
+&amp;lt;div @trigger=&amp;quot;expression&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;
+
+// 新しい書き方
+&amp;lt;div [@trigger]=&amp;quot;expression&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;ngupgrade関連の変更&#34;&gt;ngUpgrade関連の変更&lt;/h3&gt;
+
+&lt;p&gt;ngUpgradeもモジュール対応しました。&lt;/p&gt;
+
+&lt;p&gt;Before:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ts&#34;&gt;let upgradeAdapter = new UpgradeAdapter();
+upgradeAdapter.addProviders([myProvidersArray);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;After:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ts&#34;&gt;@NgModule({
+  providers: myProvidersArray
+})
+class MyModule {}
+
+let upgradeAdapter = new UpgradeAdapter(MyModule);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;その他の変更&#34;&gt;その他の変更&lt;/h2&gt;
+
+&lt;p&gt;破壊的変更以外にも要注意の変更はいくつもあるので、それぞれ見ていきます。&lt;/p&gt;
+
+&lt;h3 id=&#34;core&#34;&gt;core&lt;/h3&gt;
+
+&lt;h4 id=&#34;ngforの挙動の修正&#34;&gt;ngForの挙動の修正&lt;/h4&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/angular/angular/commit/e18626b&#34; target=&#34;_blank&#34;&gt;e18626b&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;ngForの挙動が修正され、必要なときだけ要素の追加・移動・削除を行うようになりました。&lt;br /&gt;
+この変更はアニメーションに影響するものです。&lt;/p&gt;
+
+&lt;h4 id=&#34;selector-を持たないコンポーネントを許容するように修正&#34;&gt;&lt;code&gt;selector&lt;/code&gt;を持たないコンポーネントを許容するように修正&lt;/h4&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/angular/angular/commit/9b39e49&#34; target=&#34;_blank&#34;&gt;9b39e49&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;これまでは&lt;code&gt;selector&lt;/code&gt;が設定されていないコンポーネントを動的に読み込んだとき、DOM上は&lt;code&gt;&amp;lt;undefined&amp;gt;&lt;/code&gt;として展開されていましたが、&lt;br /&gt;
+今後は&lt;code&gt;&amp;lt;ng-component&amp;gt;&lt;/code&gt;として展開されるようになりました。&lt;/p&gt;
+
+&lt;h3 id=&#34;compiler&#34;&gt;compiler&lt;/h3&gt;
+
+&lt;h4 id=&#34;ngifの右辺でパイプが使えるように修正&#34;&gt;ngIfの右辺でパイプが使えるように修正&lt;/h4&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/angular/angular/commit/8efbcc9&#34; target=&#34;_blank&#34;&gt;8efbcc9&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;*ngIf&lt;/code&gt;の右辺の式でパイプが使えるようになりました。&lt;/p&gt;
+
+&lt;h4 id=&#34;safe-operator-の評価の挙動を修正&#34;&gt;Safe Operator(&lt;code&gt;?.&lt;/code&gt;)の評価の挙動を修正&lt;/h4&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/angular/angular/commit/4ec2a30&#34; target=&#34;_blank&#34;&gt;4ec2a30&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;a?.b.c&lt;/code&gt;という式について&lt;code&gt;a&lt;/code&gt;がnullあるいはundefinedだった場合、これまでは&lt;code&gt;a&lt;/code&gt;をnullと評価したあとに&lt;code&gt;b&lt;/code&gt;の評価に進んでしまい、&lt;br /&gt;
+&lt;code&gt;a?.b?.c&lt;/code&gt;と書かないとエラーになっていました。&lt;br /&gt;
+この修正により、&lt;code&gt;a&lt;/code&gt;の時点でSafe Operatorが働いた場合はその先の評価を行わなずに全体を&lt;code&gt;null&lt;/code&gt;とするように修正されました。&lt;/p&gt;
+
+&lt;h3 id=&#34;common&#34;&gt;common&lt;/h3&gt;
+
+&lt;h4 id=&#34;currencypipe-の規定の挙動の変更&#34;&gt;&lt;code&gt;CurrencyPipe&lt;/code&gt;の規定の挙動の変更&lt;/h4&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/angular/angular/commit/d455942&#34; target=&#34;_blank&#34;&gt;d455942&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;CurrencyPipe&lt;/code&gt;の各パラメータの規定値が、Intl APIのデフォルトを使うようになりました。&lt;/p&gt;
+
+&lt;h4 id=&#34;numberpipe-がstring型を許容するようになった&#34;&gt;&lt;code&gt;NumberPipe&lt;/code&gt;がstring型を許容するようになった&lt;/h4&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/angular/angular/commit/f3dd91e&#34; target=&#34;_blank&#34;&gt;f3dd91e&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;NumberPipe&lt;/code&gt;が文字列型の数値も許容するようになりました。&lt;/p&gt;
+
+&lt;h3 id=&#34;http&#34;&gt;http&lt;/h3&gt;
+
+&lt;h4 id=&#34;httpヘッダの処理をcase-insensitiveに修正&#34;&gt;HTTPヘッダの処理をcase-insensitiveに修正&lt;/h4&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/angular/angular/commit/7f64782&#34; target=&#34;_blank&#34;&gt;7f64782&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;これまでケースセンシティブになっていたのが修正されました&lt;/p&gt;
+
+&lt;h4 id=&#34;content-type-ヘッダの上書きをサポート&#34;&gt;&lt;code&gt;content-type&lt;/code&gt;ヘッダの上書きをサポート&lt;/h4&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/angular/angular/commit/bdb5912&#34; target=&#34;_blank&#34;&gt;bdb5912&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;body&lt;/code&gt;に渡されたオブジェクトの型から自動的に判別される&lt;code&gt;content-type&lt;/code&gt;は、&lt;br /&gt;
+&lt;code&gt;headers&lt;/code&gt;に明示的に指定されたもので上書きできるようになりました。&lt;/p&gt;
+
+&lt;h4 id=&#34;arraybuffer-型と-blob-型のレスポンスをサポート&#34;&gt;&lt;code&gt;arraybuffer&lt;/code&gt;型と&lt;code&gt;blob&lt;/code&gt;型のレスポンスをサポート&lt;/h4&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/angular/angular/commit/1266460&#34; target=&#34;_blank&#34;&gt;1266460&lt;/a&gt;, &lt;a href=&#34;https://github.com/angular/angular/commit/76b8a49&#34; target=&#34;_blank&#34;&gt;76b8a49&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;Response#arrayBuffer()&lt;/code&gt;と&lt;code&gt;Response#blob()&lt;/code&gt;がサポートされました。&lt;/p&gt;
+
+&lt;h4 id=&#34;optionsメソッドをサポート&#34;&gt;OPTIONSメソッドをサポート&lt;/h4&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/angular/angular/commit/0bd97ec&#34; target=&#34;_blank&#34;&gt;0bd97ec&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;HTTPのOPTIONSメソッドのための&lt;code&gt;Http#options()&lt;/code&gt;が追加されました。&lt;/p&gt;
+
+&lt;h3 id=&#34;router&#34;&gt;router&lt;/h3&gt;
+
+&lt;p&gt;routerについては個別のチェンジログがあります&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/angular/angular/blob/master/modules/@angular/router/CHANGELOG.md&#34; target=&#34;_blank&#34;&gt;Router CHANGELOG&lt;/a&gt;&lt;/p&gt;
+
+&lt;h4 id=&#34;routermodule-の導入&#34;&gt;&lt;code&gt;RouterModule&lt;/code&gt;の導入&lt;/h4&gt;
+
+&lt;p&gt;Routerもモジュール化され、&lt;code&gt;RouterModule&lt;/code&gt;をインポートするようになります。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ts&#34;&gt;@NgModule({
+    imports: [RouterModule.forRoot(appRoutes, {enableTracing: true})]
+})
+class MyAppModule {}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;クエリパラメータの値が空の時の挙動を修正&#34;&gt;クエリパラメータの値が空の時の挙動を修正&lt;/h4&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/angular/angular/commit/0d6cc17&#34; target=&#34;_blank&#34;&gt;0d6cc17&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;値が空(&lt;code&gt;?key=&lt;/code&gt;)のクエリパラメータを含むURLで初回のルーティングを行うと、値に&lt;code&gt;true&lt;/code&gt;がセットされてしまうバグを修正しました。&lt;/p&gt;
+
+&lt;h4 id=&#34;canactivatechild-canload-の追加&#34;&gt;&lt;code&gt;canActivateChild&lt;/code&gt;/&lt;code&gt;canLoad&lt;/code&gt;の追加&lt;/h4&gt;
+
+&lt;p&gt;ガードの種類に、すべての子ルートのアクティベーションをチェックする&lt;code&gt;canActivateChild&lt;/code&gt;と、&lt;br /&gt;
+遅延ロードが可能かどうかをチェックする&lt;code&gt;canLoad&lt;/code&gt;が追加されました&lt;/p&gt;
+
+&lt;h4 id=&#34;routeroutlet-のイベントを追加&#34;&gt;&lt;code&gt;RouterOutlet&lt;/code&gt;のイベントを追加&lt;/h4&gt;
+
+&lt;p&gt;&lt;code&gt;&amp;lt;router-outlet&amp;gt;&lt;/code&gt;要素から&lt;code&gt;activate&lt;/code&gt;イベントと&lt;code&gt;deactivate&lt;/code&gt;イベントが発火されるようになりました。&lt;/p&gt;
+
+&lt;h4 id=&#34;guardとresolverがpromiseをサポート&#34;&gt;GuardとResolverがPromiseをサポート&lt;/h4&gt;
+
+&lt;p&gt;各種GaurdとResolverのインターフェースで、戻り値としてPromiseが使えるようになりました。&lt;br /&gt;
+Observableと同様に、Promiseを返した場合は完了するまでナビゲーションが待機されます。&lt;/p&gt;
+
+&lt;h4 id=&#34;activateroute-が-routeconfig-を返せるようになった&#34;&gt;&lt;code&gt;ActivateRoute&lt;/code&gt;が&lt;code&gt;routeConfig&lt;/code&gt;を返せるようになった&lt;/h4&gt;
+
+&lt;p&gt;現在アクティブなルートの設定を&lt;code&gt;ActivateRoute&lt;/code&gt;から取得できます。&lt;/p&gt;
+
+&lt;h4 id=&#34;queryparams-や-fragment-が-activateroute-から取得するようになった&#34;&gt;&lt;code&gt;queryParams&lt;/code&gt;や&lt;code&gt;fragment&lt;/code&gt;が&lt;code&gt;ActivateRoute&lt;/code&gt;から取得するようになった&lt;/h4&gt;
+
+&lt;p&gt;これまで&lt;code&gt;Router#routerState&lt;/code&gt;から取得していたクエリパラメータやフラグメントは&lt;code&gt;ActivateRoute&lt;/code&gt;から取得するようになりました&lt;/p&gt;
+
+&lt;h3 id=&#34;forms&#34;&gt;forms&lt;/h3&gt;
+
+&lt;h4 id=&#34;ngform-reset-の追加&#34;&gt;&lt;code&gt;NgForm#reset&lt;/code&gt;の追加&lt;/h4&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/angular/angular/commit/da8eb9f&#34; target=&#34;_blank&#34;&gt;da8eb9f&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;フォームを初期化する&lt;code&gt;NgForm#reset()&lt;/code&gt;が追加されました&lt;/p&gt;
+
+&lt;h4 id=&#34;multipleなselect要素で-change-イベントを使うように修正&#34;&gt;multipleなselect要素で&lt;code&gt;change&lt;/code&gt;イベントを使うように修正&lt;/h4&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/angular/angular/commit/3cbded6&#34; target=&#34;_blank&#34;&gt;3cbded6&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;これまで&lt;code&gt;input&lt;/code&gt;イベントで処理していたバグが修正されました。&lt;/p&gt;
+
+&lt;h4 id=&#34;フォーム内のコントロールを簡単に取得するためのapiを追加&#34;&gt;フォーム内のコントロールを簡単に取得するためのAPIを追加&lt;/h4&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/angular/angular/commit/8d44999&#34; target=&#34;_blank&#34;&gt;8d44999&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;フォーム内のコントロールを名前で取得できる&lt;code&gt;get()&lt;/code&gt;メソッドが追加されました。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ts&#34;&gt;@Component({
+  selector: &#39;my-app&#39;,
+  template: `
+    &amp;lt;div&amp;gt;
+      &amp;lt;form #f=&amp;quot;ngForm&amp;quot;&amp;gt;
+        &amp;lt;input name=&amp;quot;a&amp;quot; ngModel&amp;gt;
+      &amp;lt;/form&amp;gt;
+      &amp;lt;button (click)=&amp;quot;checkForm(f)&amp;quot;&amp;gt;Check Form&amp;lt;/button&amp;gt;
+    &amp;lt;/div&amp;gt;
+  `,
+})
+export class App {
+  checkForm(f: NgForm) {
+    f.form.get(&amp;quot;a&amp;quot;) // FormControl
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;コントロールに-invalid-pending-プロパティを追加&#34;&gt;コントロールに&lt;code&gt;invalid&lt;/code&gt;/&lt;code&gt;pending&lt;/code&gt;プロパティを追加&lt;/h4&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/angular/angular/commit/e0eea6c&#34; target=&#34;_blank&#34;&gt;e0eea6c&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;コントロールの状態を取得するプロパティが追加されました。&lt;/p&gt;
+
+&lt;h3 id=&#34;animation&#34;&gt;animation&lt;/h3&gt;
+
+&lt;h4 id=&#34;component-host-プロパティでのアニメーショントリガーの設定をサポート&#34;&gt;&lt;code&gt;Component#host&lt;/code&gt;プロパティでのアニメーショントリガーの設定をサポート&lt;/h4&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/angular/angular/commit/806a254&#34; target=&#34;_blank&#34;&gt;806a254&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;@Component&lt;/code&gt;の&lt;code&gt;host&lt;/code&gt;プロパティでアニメーションのトリガー設定ができるようになりました。&lt;br /&gt;
+この結果として、Routerによるナビゲーションにアニメーションを付与することができるようになります。&lt;br /&gt;
+&lt;code&gt;[@routeAnimation]&lt;/code&gt;をtrueに設定しておくと、&lt;code&gt;routeAnimation&lt;/code&gt;トリガーで、表示(&lt;code&gt;void =&amp;gt; *&lt;/code&gt;)と、離脱(&lt;code&gt;* =&amp;gt; void&lt;/code&gt;)のアニメーションを記述できます。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ts&#34;&gt;@Component({
+  selector: &#39;home&#39;,
+  template: `Home`,
+   host: {
+     &#39;[@routeAnimation]&#39;: &#39;true&#39;,
+   },
+  animations: [
+    trigger(&#39;routeAnimation&#39;, [
+      state(&#39;*&#39;, style({transform: &#39;translateX(0)&#39;, opacity: 1})),
+      transition(&#39;void =&amp;gt; *&#39;, [
+        style({transform: &#39;translateX(-100%)&#39;, opacity: 0}),
+        animate(1000)
+      ]),
+      transition(&#39;* =&amp;gt; void&#39;, animate(1000, style({transform: &#39;translateX(100%)&#39;, opacity: 0})))
+    ])
+  ]
+})
+class HomeCmp {}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;実際に動くサンプルは&lt;a href=&#34;http://plnkr.co/edit/hH667v6ODDc28vBqCBvT?p=preview&#34; target=&#34;_blank&#34;&gt;こちら&lt;/a&gt;です&lt;/p&gt;
+
+&lt;iframe src=&#34;http://embed.plnkr.co/hH667v6ODDc28vBqCBvT/?show=preview&#34; frameborder=&#34;0&#34; width=&#34;100%&#34; height=&#34;300&#34;&gt;&lt;/iframe&gt;  
+
+&lt;hr /&gt;
+
+&lt;p&gt;RC.5の変更点のまとめは以上です。かなり抜粋しましたがそれでもこの量です。&lt;br /&gt;
+今回のアップデートではAoTコンパイルに関する情報も出てきていますが、この記事では扱いません。&lt;br /&gt;
+後日AoTコンパイルの手順については改めて書こうと思います。&lt;/p&gt;
+
+&lt;p&gt;それではFinalリリースまであと少し、頑張っていきましょう。よい夏を！&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>NgModule導入について</title>
+      <link>https://ng2-info.github.io/2016/07/preparing-for-ngmodule/</link>
+      <pubDate>Sat, 30 Jul 2016 20:53:25 +0900</pubDate>
+      
+      <guid>https://ng2-info.github.io/2016/07/preparing-for-ngmodule/</guid>
+      <description>
+
+&lt;p&gt;どうも、らこです。RC.5のリリースがおそらく来週と迫っていますが、多くのバグ修正と共に新しい機能が追加されます。&lt;br /&gt;
+&lt;strong&gt;NgModule&lt;/strong&gt;はこれまでのAngular2で不便だったこと、複雑だったことを一気に解決してくれる新機能です。&lt;/p&gt;
+
+&lt;p&gt;RCも大詰めとなったこのタイミングで導入されることに困惑するかもしれませんが、&lt;br /&gt;
+ぜひとも対応してもらいたいと思います。&lt;/p&gt;
+
+&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;
+
+&lt;p&gt;NgModuleは完全に新しく導入されたAPIであり、既存のAPIへの破壊的変更ではありません。&lt;br /&gt;
+ただし、従来の方法は非推奨となり、stableリリースの段階では廃止される予定です。&lt;br /&gt;
+RC.5からは移行期間に入るものと思っていてください。&lt;/p&gt;
+
+&lt;h2 id=&#34;ngmodule&#34;&gt;NgModule&lt;/h2&gt;
+
+&lt;p&gt;NgModuleの概要についてスライドを作ってあるので、これをベースに解説します。&lt;/p&gt;
+
+&lt;iframe src=&#34;//slides.com/laco/ng2-ngmodule-overview/embed&#34; width=&#34;100%&#34; height=&#34;420&#34; scrolling=&#34;no&#34; frameborder=&#34;0&#34; webkitallowfullscreen mozallowfullscreen allowfullscreen&gt;&lt;/iframe&gt;
+
+&lt;h3 id=&#34;ngmoduleの概要&#34;&gt;NgModuleの概要&lt;/h3&gt;
+
+&lt;p&gt;NgModuleは、ディレクティブやパイプ、サービスなどをひとまとめにしたモジュールを宣言するためのAPIです。&lt;br /&gt;
+&lt;code&gt;@Component&lt;/code&gt;などと同じようにデコレータを使って宣言します。&lt;/p&gt;
+
+&lt;p&gt;アプリケーションの起動に最低限必要なモジュールは次のようになります。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ts&#34;&gt;import {NgModule, ApplicationRef} from &#39;@angular/core&#39;;
+import {BrowserModule} from &#39;@angular/platform-browser&#39;;
+import {AppComponent} from &#39;./app.component&#39;;
+
+@NgModule({
+    declarations: [AppComponent],
+    imports: [BrowserModule],
+    bootstrap: [AppComponent]
+})
+class AppModule {
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;そして、NgModuleで宣言したモジュールを使ってアプリケーションを起動するための、新しいbootstrap関数があります。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ts&#34;&gt;import {AppModule} from &#39;./app.module&#39;;
+import {platformBrowserDynamic} from &#39;@angular/platform-browser-dynamic&#39;;
+
+platformBrowserDynamic().bootstrapModule(AppModule);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;NgModuleで作ったモジュールを、各プラットフォームの&lt;code&gt;bootstrapModule&lt;/code&gt;メソッドで起動するという流れになります。&lt;/p&gt;
+
+&lt;h3 id=&#34;ngmoduleの中身&#34;&gt;NgModuleの中身&lt;/h3&gt;
+
+&lt;p&gt;それではNgModuleデコレータについてもう少し詳しく見ていきましょう&lt;/p&gt;
+
+&lt;h4 id=&#34;declarations&#34;&gt;declarations&lt;/h4&gt;
+
+&lt;p&gt;このプロパティは、そのモジュールの中で宣言されている&lt;strong&gt;ディレクティブ&lt;/strong&gt;と&lt;strong&gt;パイプ&lt;/strong&gt;を登録する場所です。&lt;br /&gt;
+このディレクティブにはもちろんコンポーネントも含みます。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ts&#34;&gt;@NgModule({
+     declarations: [
+        AppComponent,
+        MyComponent,
+        MyDirective,
+        MyPipe,
+        ...SOME_LIBRALIES_DIRECTIVES
+    ],
+})
+class AppModule {}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;これまでは、&lt;code&gt;FooDirective&lt;/code&gt;を宣言したあと、それを使うには&lt;code&gt;@Component&lt;/code&gt;の&lt;code&gt;directives&lt;/code&gt;プロパティに毎回追加していました。&lt;br /&gt;
+パイプにおいても同様に&lt;code&gt;pipes&lt;/code&gt;プロパティに追加する必要がありました。&lt;/p&gt;
+
+&lt;p&gt;NgModuleの&lt;code&gt;declarations&lt;/code&gt;に登録されたディレクティブやパイプは、そのモジュール内でならどこでも使えるようになります。&lt;br /&gt;
+つまり、自作したディレクティブ・コンポーネント・パイプはすべて&lt;code&gt;declarations&lt;/code&gt;に登録しておけばよいです。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;ROUTER_DIRECTIVES&lt;/code&gt;のようなライブラリからインポートしたものも当然&lt;code&gt;declarations&lt;/code&gt;に追加することはできますが、&lt;br /&gt;
+これに関しては後で説明する方法によって、そもそも&lt;code&gt;ROUTER_DIRECTIVES&lt;/code&gt;が不要になります。&lt;/p&gt;
+
+&lt;h4 id=&#34;providers&#34;&gt;providers&lt;/h4&gt;
+
+&lt;p&gt;このプロパティは、そのモジュールのトップレベルのプロバイダを宣言する場所です。&lt;br /&gt;
+従来の&lt;code&gt;bootstrap&lt;/code&gt;関数の第2引数に渡していた配列がそのまま移ってきたと思ってください。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ts&#34;&gt;@NgModule({
+    providers: [
+        MyService,
+        SomeLibraryService,
+    ],
+})
+class AppModule {}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;完全に旧APIの上位互換となる &lt;code&gt;declarations&lt;/code&gt; と違い、&lt;code&gt;@Component&lt;/code&gt;の&lt;code&gt;providers&lt;/code&gt;は非推奨にはなりません。&lt;br /&gt;
+階層的DIの性質上、任意のコンポーネントでプロバイダを登録できる必要があるからです。&lt;br /&gt;
+とはいえ、それはライブラリ作者のような複雑な使い方をする人のためのもので、&lt;br /&gt;
+アプリケーションを普通に作っている中では基本的にすべてNgModuleの&lt;code&gt;providers&lt;/code&gt;に登録しておけばよいです。&lt;/p&gt;
+
+&lt;h4 id=&#34;imports&#34;&gt;imports&lt;/h4&gt;
+
+&lt;p&gt;NgModuleの中で一番重要と言えるのがこの&lt;code&gt;imports&lt;/code&gt;です。&lt;br /&gt;
+&lt;code&gt;imports&lt;/code&gt;プロパティを使うことで、自分のモジュールに別のモジュールを取り込むことができます。&lt;/p&gt;
+
+&lt;p&gt;例えば、&lt;code&gt;@angular/common&lt;/code&gt;や&lt;code&gt;@angular/platform-browser&lt;/code&gt;から提供されている機能(ディレクティブなど)を取り込むには次のようにします。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ts&#34;&gt;import {NgModule} from &#39;@angular/core&#39;;
+import {BrowserModule} from &#39;@angular/platform-browser&#39;;
+import {CommonModule} from &#39;@angular/common&#39;;
+
+@NgModule({
+    imports: [BrowserModule, CommonModule]
+})
+class AppModule {}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;imports&lt;/code&gt;プロパティに登録されたモジュールからは、後述の&lt;code&gt;exports&lt;/code&gt;プロパティで指定されたものと、&lt;code&gt;providers&lt;/code&gt;プロパティのプロバイダが取り込まれます。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;@angular/router&lt;/code&gt;も専用のモジュールを提供していますが、静的メソッドを使った少し特殊な方法を使います。&lt;br /&gt;
+インポートと同時にルーティングの設定を渡すことで、動的に生成されたモジュールを取り込んでいます。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ts&#34;&gt;import {NgModule} from &#39;@angular/core&#39;;
+import {RouterModule} from &#39;@angular/router&#39;;
+
+import {APP_ROUTES} from &#39;./app.routes&#39;;
+
+@NgModule({
+    imports: [
+        RouterModule.forRoot(APP_ROUTES, {useHash: true})
+    ]
+})
+class AppModule {}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;RouterModuleをインポートすれば、自動的に&lt;code&gt;ROUTER_DIRECTIVES&lt;/code&gt;が取り込まれるので、どこでも&lt;code&gt;&amp;lt;router-outlet&amp;gt;&lt;/code&gt;や&lt;code&gt;routerLink&lt;/code&gt;を使えるようになります&lt;/p&gt;
+
+&lt;h4 id=&#34;exports&#34;&gt;exports&lt;/h4&gt;
+
+&lt;p&gt;&lt;code&gt;imports&lt;/code&gt;と対をなすのが、この&lt;code&gt;exports&lt;/code&gt;です。&lt;br /&gt;
+&lt;code&gt;exports&lt;/code&gt;プロパティには、そのモジュールが&lt;code&gt;imports&lt;/code&gt;に設定された時に提供するディレクティブとパイプを指定します。&lt;br /&gt;
+アプリケーション中ではあまり使うことはなく、基本的にはライブラリ作者用のAPIです。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ts&#34;&gt;@NgModule({
+    declarations: [AwesomeComponent, AwesomePipe]
+    exports: [AwesomeComponent, AwesomePipe],
+    providers: [AwesomeService]
+})
+export class AwesomeModule {
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;bootstrap&#34;&gt;bootstrap&lt;/h4&gt;
+
+&lt;p&gt;&lt;code&gt;bootstrap&lt;/code&gt;プロパティには、アプリケーションのエントリポイントになるコンポーネントを指定します。&lt;br /&gt;
+いままで&lt;code&gt;bootstrap&lt;/code&gt;関数に渡していたコンポーネントを指定しておけば大丈夫です。&lt;/p&gt;
+
+&lt;h4 id=&#34;entrycomponents&#34;&gt;entryComponents&lt;/h4&gt;
+
+&lt;p&gt;一番難しいのがこの&lt;code&gt;entryComponents&lt;/code&gt;プロパティです。&lt;br /&gt;
+このプロパティではオフラインコンパイルを行う時にエントリポイントとなるコンポーネントを指定します。&lt;br /&gt;
+詳しく説明しようとするとまずオフラインコンパイルの説明からしないといけないので省略しますが、&lt;br /&gt;
+ここに指定するコンポーネントは、&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;アプリケーションのエントリポイントになるコンポーネント&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;Lazy Loadingのよって実行時にあとから読み込まれるコンポーネント&lt;br /&gt;
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;以上のどちらかに当てはまるコンポーネントです。&lt;br /&gt;
+ただし、&lt;code&gt;bootstrap&lt;/code&gt;プロパティに指定してあるコンポーネントは自動的に&lt;code&gt;entryComponents&lt;/code&gt;にも追加されるので、&lt;br /&gt;
+後者の、遅延ロードされるコンポーネントだけを指定することになります。&lt;/p&gt;
+
+&lt;h4 id=&#34;schemas&#34;&gt;schemas&lt;/h4&gt;
+
+&lt;p&gt;スライドでは省略しましたが、&lt;code&gt;schemas&lt;/code&gt;も面白い機能です。&lt;br /&gt;
+このプロパティには、アプリケーション中で有効にするスキーマを設定できます。&lt;/p&gt;
+
+&lt;p&gt;現在使用可能なスキーマは&lt;code&gt;CUSTOM_ELEMENTS_SCHEMA&lt;/code&gt;だけです。&lt;br /&gt;
+このスキーマを有効にすると、Web標準のCustom ElementsをAngular 2のテンプレート中で使えるようになります。&lt;br /&gt;
+具体的には、そのモジュール内のディレクティブとコンポーネントには一致せず、要素名に&lt;code&gt;-&lt;/code&gt;を含む場合はそれをCustom Elementsとして解釈します。&lt;br /&gt;
+Custom Elementsであると解釈すれば、その要素は標準のHTML要素と同様にデータバインディングやイベントハンドリングが許可されます。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ts&#34;&gt;@Component({
+  selector: &#39;some-component&#39;,
+  template: `
+    &amp;lt;some-custom-element [someUnknownProp]=&amp;quot;true&amp;quot;&amp;gt;&amp;lt;/some-custom-element&amp;gt;
+  `,
+})
+export class SomeComponent {
+}
+
+@NgModule({
+    schemas: [CUSTOM_ELEMENTS_SCHEMA], 
+    declarations: [SomeComponent]
+})
+export class ModuleUsingCustomElements {
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;rc-4からの移行&#34;&gt;RC.4からの移行&lt;/h3&gt;
+
+&lt;p&gt;NgModuleに関して、移行する必要があるのは次のものです。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;bootstrap&lt;/code&gt;関数の呼び出し&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;@Component&lt;/code&gt;の&lt;code&gt;directives&lt;/code&gt;&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;@Component&lt;/code&gt;の&lt;code&gt;pipes&lt;/code&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;まずはアプリケーションのモジュールをひとつ宣言しましょう。&lt;br /&gt;
+一般的に必要なモジュールも読み込みます。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ts&#34;&gt;import {NgModule} from &#39;@angular/core&#39;;
+import {BrowserModule} from &#39;@angular/platform-browser&#39;;
+import {CommonModule} from &#39;@angular/common&#39;;
+import {FormsModule} from &#39;@angular/forms&#39;;
+import {HttpModule} from &#39;@angular/http&#39;;
+import {RouterModule} from &#39;@angular/router&#39;;
+
+import {APP_ROUTES} from &#39;./app.routes&#39;;
+
+@NgModule({
+    imports: [BrowserModule, CommonModule, FormsModule, HttpModule, RouterModule.forRoot(APP_ROUTES)]
+})
+export class AppModule {}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;次に、&lt;code&gt;bootstrap&lt;/code&gt;関数に渡していたコンポーネント(&lt;code&gt;AppComponent&lt;/code&gt;とする)をモジュールに追加します。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ts&#34;&gt;import {NgModule} from &#39;@angular/core&#39;;
+import {BrowserModule} from &#39;@angular/platform-browser&#39;;
+import {CommonModule} from &#39;@angular/common&#39;;
+import {FormsModule} from &#39;@angular/forms&#39;;
+import {HttpModule} from &#39;@angular/http&#39;;
+
+import {AppComponent} from &#39;./app.component&#39;;
+
+@NgModule({
+    imports: [BrowserModule, CommonModule, FormsModule, HttpModule],
+    declarations: [AppComponent],
+    entryComponents: [AppComponent]
+})
+export class AppModule {}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;RC.5の時点では、&lt;code&gt;@Component&lt;/code&gt;の&lt;code&gt;directives&lt;/code&gt;や&lt;code&gt;pipes&lt;/code&gt;に指定されているディレクティブやパイプは、&lt;br /&gt;
+そのコンポーネントが&lt;code&gt;declarations&lt;/code&gt;に含まれていれば自動的に巻き上げられるようになっています。&lt;br /&gt;
+なので、とりあえず最初は&lt;code&gt;AppComponent&lt;/code&gt;だけを&lt;code&gt;declarations&lt;/code&gt;に追加しておけば今までどおりの動作が維持できます。&lt;/p&gt;
+
+&lt;p&gt;モジュールが作成できたら、bootstrapする準備をします。&lt;br /&gt;
+まずは&lt;strong&gt;モジュールからコンポーネントを起動する&lt;/strong&gt;処理をモジュールのコンストラクタに書きます。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ts&#34;&gt;import {NgModule, ApplicationRef} from &#39;@angular/core&#39;;
+import {BrowserModule} from &#39;@angular/platform-browser&#39;;
+import {CommonModule} from &#39;@angular/common&#39;;
+import {FormsModule} from &#39;@angular/forms&#39;;
+import {HttpModule} from &#39;@angular/http&#39;;
+
+import {AppComponent} from &#39;./app.component&#39;;
+
+@NgModule({
+    imports: [BrowserModule, CommonModule, FormsModule, HttpModule],
+    declarations: [AppComponent],
+    entryComponents: [AppComponent]
+})
+export class AppModule {
+
+    constructor(appRef: ApplicationRef) {
+        appRef.bootstrap(AppComponent);
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;次に、&lt;strong&gt;プラットフォームからモジュールを起動する&lt;/strong&gt;処理を書きます。&lt;br /&gt;
+これは元々&lt;code&gt;bootstrap&lt;/code&gt;関数が呼び出されていた場所を置き換えます。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ts&#34;&gt;import {platformBrowserDynamic} from &#39;@angular/browser-platform-dynamic&#39;;
+
+import {AppModule} from &#39;./app.module&#39;;
+
+platformBrowserDynamic().bootstrapModule(AppModule);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;これで&lt;code&gt;bootstrap&lt;/code&gt;から&lt;code&gt;bootstrapModule&lt;/code&gt;への移行が完了です。&lt;br /&gt;
+ここから先は、各コンポーネントに書かれた&lt;code&gt;directives&lt;/code&gt;や&lt;code&gt;pipes&lt;/code&gt;を&lt;code&gt;declarations&lt;/code&gt;に少しずつ回収していけばよいです&lt;/p&gt;
+
+&lt;h4 id=&#34;テストのngmodule化&#34;&gt;テストのNgModule化&lt;/h4&gt;
+
+&lt;p&gt;現在、テスト用のAPIもモジュール対応が進められています。&lt;br /&gt;
+こちらは残念ながら破壊的変更が行われます。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;withProviders&lt;/code&gt;から&lt;code&gt;TestBed.withModule&lt;/code&gt;に変更&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;addProviders&lt;/code&gt;から&lt;code&gt;TestBed.configureTestingModule&lt;/code&gt;に変更&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;TestComponentBuilder&lt;/code&gt;が廃止され、&lt;code&gt;TestBed.createComponent&lt;/code&gt;に変更&lt;br /&gt;
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;どの変更も、DIを直接使うのではなくテスト用のモジュールを設定してテストするいう流れに変わるものです。&lt;/p&gt;
+
+&lt;p&gt;詳細については、公式のチェンジログが待てないというかたは該当のコミットを読むなどするとよいでしょう&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/angular/angular/commit/d0a95e35af943258c360486ccb2f60d11a36e97d&#34; target=&#34;_blank&#34;&gt;refactor(testing): introduce new testing api to support ng modules · angular/angular@d0a95e3&lt;/a&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;まとめ&#34;&gt;まとめ&lt;/h2&gt;
+
+&lt;p&gt;NgModuleへの置き換えはそれほど大変ではないことがわかったと思います。&lt;br /&gt;
+そして、今まで複雑だった部分を単純にしてくれる機能であることもわかったでしょうか。&lt;br /&gt;
+RC.5のリリースは数日中に来ると思われるので、モジュールの波に乗り遅れないように頑張ってください。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Angular 2 RC.4の変更点</title>
+      <link>https://ng2-info.github.io/2016/07/angular-2-rc-4/</link>
+      <pubDate>Fri, 08 Jul 2016 21:57:10 +0900</pubDate>
+      
+      <guid>https://ng2-info.github.io/2016/07/angular-2-rc-4/</guid>
+      <description>
+
+&lt;p&gt;こんにちは、らこです。RC.3に引き続きアップデートからしばらく経ってしまいましたが、変更点についてまとめておきます。&lt;br /&gt;
+今回は破壊的な変更もそこそこあるのでしっかり把握しておきましょう。&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/angular/angular/blob/master/CHANGELOG.md#200-rc4-2016-06-30&#34; target=&#34;_blank&#34;&gt;2.0.0-RC.4&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;破壊的変更&#34;&gt;破壊的変更&lt;/h3&gt;
+
+&lt;h4 id=&#34;テスト関連&#34;&gt;テスト関連&lt;/h4&gt;
+
+&lt;p&gt;テスト関連の変更が非常に多いのでざっくりまとめます。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;なくなったもの&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;it&lt;/code&gt;, &lt;code&gt;iit&lt;/code&gt;, &lt;code&gt;xit&lt;/code&gt;&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;describe&lt;/code&gt;, &lt;code&gt;ddescribe&lt;/code&gt;, &lt;code&gt;xdescribe&lt;/code&gt;&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;expect&lt;/code&gt;&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;toThrowErrorWith&lt;/code&gt;&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;toMatchPattern&lt;/code&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Jasmineの関数をラップしていたものたち&lt;/p&gt;
+
+&lt;p&gt;Before:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ts&#34;&gt;import {beforeEachProviders, it, describe, inject} from &#39;@angular/core/testing&#39;;
+
+describe(&#39;my code&#39;, () =&amp;gt; {
+    beforeEachProviders(() =&amp;gt; [MyService]);
+
+    it(&#39;does stuff&#39;, inject([MyService], (service) =&amp;gt; {
+      // actual test
+    });
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;After:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ts&#34;&gt;import {addProviders, inject} from &#39;@angular/core/testing&#39;;
+
+describe(&#39;my code&#39;, () =&amp;gt; {
+    beforeEach(() =&amp;gt; {
+        addProviders([MyService]);
+    });
+
+    it(&#39;does stuff&#39;, inject([MyService], (service) =&amp;gt; {
+        // actual test
+    });
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;MockLocationStrategy&lt;/code&gt;&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;browserDetection&lt;/code&gt;&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;dispatchEvent&lt;/code&gt;&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;el&lt;/code&gt;&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;normalizeCSS&lt;/code&gt;&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;stringifyElement&lt;/code&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;内部用APIに。Locationのテストは&lt;code&gt;SpyLocation&lt;/code&gt;で。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;injectAsync&lt;/code&gt;&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;clearPendingTimers&lt;/code&gt;&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Log&lt;/code&gt;&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;MockAppliacationRef&lt;/code&gt;&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;MockNgZone&lt;/code&gt;&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;clearPendingTimers&lt;/code&gt;&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;getTypeOf&lt;/code&gt;&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;instantiateType&lt;/code&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;不要になったものたち&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;変わったもの&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;beforeEachProviders&lt;/code&gt; =&amp;gt; &lt;code&gt;addProviders&lt;/code&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;任意のタイミングで使う汎用のAPIとなった&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;TestComponentBuilder.createSync&lt;/code&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;与えられたコンポーネントのテンプレートが事前にインラインにコンパイルされていなければエラーを出すようになった&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;移動したもの&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;TestComponentBuilder&lt;/code&gt;&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;TestComponentRenderer&lt;/code&gt;&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ComponentFixture&lt;/code&gt;&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ComponentFixtureAutoDetect&lt;/code&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;code&gt;compiler/testing&lt;/code&gt; =&amp;gt; &lt;code&gt;core/testing&lt;/code&gt; に移動しました。&lt;/p&gt;
+
+&lt;h4 id=&#34;その他&#34;&gt;その他&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;httpモジュールの&lt;code&gt;URLSearchParams&lt;/code&gt;を使った時に、クエリパラメータが誤ってエンコードされていたのを修正したため、&lt;br /&gt;
+RC.4の前後でリクエストのクエリパラメータが変化することがあります。&lt;br /&gt;
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;RC.4からのデフォルトでは、クエリパラメータ中に含まれる&lt;code&gt;@ : $ , ; + ? /&lt;/code&gt;記号はそのまま使用されます。&lt;br /&gt;
+この挙動をカスタマイズするには、 &lt;code&gt;URLSearchParams&lt;/code&gt;のコンストラクタの第2引数に&lt;code&gt;QueryEncoder&lt;/code&gt;を継承したクラスのインスタンスを渡します。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ts&#34;&gt;import {URLSearchParams, QueryEncoder} from &#39;@angular/http&#39;;
+
+class MyQueryEncoder extends QueryEncoder {
+    encodeKey(k: string): string {
+        return myEncodingFunction(k);
+    }
+ 
+    encodeValue(v: string): string {
+        return myEncodingFunction(v);
+    }
+}
+let params = new URLSearchParams(&#39;&#39;, new MyQueryEncoder());
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;RC.3以前は同じ要素に対して&lt;code&gt;*ngFor&lt;/code&gt;と&lt;code&gt;*ngIf&lt;/code&gt;のように&lt;code&gt;*&lt;/code&gt;プレフィックスのディレクティブ(テンプレートバインディング)を複数付与することができていましたが、&lt;br /&gt;
+今後はこれは禁止されます。&lt;br /&gt;
+これまでは使用可能ではありましたが大抵の場合は想定外の結果を招いていました。&lt;br /&gt;
+&lt;code&gt;*ngIf&lt;/code&gt;と&lt;code&gt;*ngFor&lt;/code&gt;が両方必要な場合には入れ子要素にするか、&lt;code&gt;*&lt;/code&gt;プレフィックスを使わずに&lt;code&gt;&amp;lt;template&amp;gt;&lt;/code&gt;タグを明示的に使う記法を選択してください。&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;code&gt;DomEventsPlugin&lt;/code&gt;と&lt;code&gt;KeyEventsPlugin&lt;/code&gt;はこれまでパブリックなAPIとして公開されていましたが、非公開APIとなりました。&lt;br /&gt;
+また、非推奨になっていた&lt;code&gt;BROWSER_PROVIDERS&lt;/code&gt;は削除されました。&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;アニメーション関連&#34;&gt;アニメーション関連&lt;/h3&gt;
+
+&lt;p&gt;アニメーション周りのバグ修正がいくつか入っています。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;animations:&lt;/strong&gt; ensure void =&amp;gt; * animations are triggered when an expression is omitted (&lt;a href=&#34;https://github.com/angular/angular/commit/e0b0a59&#34; target=&#34;_blank&#34;&gt;e0b0a59&lt;/a&gt;), closes &lt;a href=&#34;https://github.com/angular/angular/issues/9327&#34; target=&#34;_blank&#34;&gt;#9327&lt;/a&gt; &lt;a href=&#34;https://github.com/angular/angular/issues/9381&#34; target=&#34;_blank&#34;&gt;#9381&lt;/a&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;code&gt;void =&amp;gt; *&lt;/code&gt;をトリガーとするアニメーションが条件により発火しないバグが修正されました&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;animations:&lt;/strong&gt; make sure the easing value is passed into the web-animations player (&lt;a href=&#34;https://github.com/angular/angular/commit/c43aec2&#34; target=&#34;_blank&#34;&gt;c43aec2&lt;/a&gt;), closes &lt;a href=&#34;https://github.com/angular/angular/issues/9517&#34; target=&#34;_blank&#34;&gt;#9517&lt;/a&gt; &lt;a href=&#34;https://github.com/angular/angular/issues/9523&#34; target=&#34;_blank&#34;&gt;#9523&lt;/a&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;code&gt;easing&lt;/code&gt;オプションがアニメーションプレイヤーに渡されていなかったバグが修正されました。&lt;/p&gt;
+
+&lt;h3 id=&#34;その他-1&#34;&gt;その他&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;support *directive on &lt;code&gt;&amp;lt;template&amp;gt;&lt;/code&gt; (&lt;a href=&#34;https://github.com/angular/angular/issues/9691&#34; target=&#34;_blank&#34;&gt;#9691&lt;/a&gt;) (&lt;a href=&#34;https://github.com/angular/angular/commit/3fec279&#34; target=&#34;_blank&#34;&gt;3fec279&lt;/a&gt;), closes &lt;a href=&#34;https://github.com/angular/angular/issues/7315&#34; target=&#34;_blank&#34;&gt;#7315&lt;/a&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;code&gt;*&lt;/code&gt;プレフィックスのディレクティブが&lt;code&gt;&amp;lt;template&amp;gt;&lt;/code&gt;タグ上でも使えるようになりました。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;core:&lt;/strong&gt; properly report missing providers and viewProviders (&lt;a href=&#34;https://github.com/angular/angular/issues/9411&#34; target=&#34;_blank&#34;&gt;#9411&lt;/a&gt;) (&lt;a href=&#34;https://github.com/angular/angular/commit/f114dd3&#34; target=&#34;_blank&#34;&gt;f114dd3&lt;/a&gt;), closes &lt;a href=&#34;https://github.com/angular/angular/issues/8237&#34; target=&#34;_blank&#34;&gt;#8237&lt;/a&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;コンポーネントやサービスのインスタンス化において、解決できないDIのがあったときのエラーがわかりやすくなりました。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;One or more of providers for &amp;quot;MyBrokenComp3&amp;quot; were not defined: [?, SimpleService, ?].&lt;/code&gt; のように、解決できなかった位置に?が表示されます。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;forms:&lt;/strong&gt; add select multiple accessor as built-in accessor (&lt;a href=&#34;https://github.com/angular/angular/commit/9f00a1b&#34; target=&#34;_blank&#34;&gt;9f00a1b&lt;/a&gt;)&lt;br /&gt;
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;multipleなselect要素の値へのアクセスをデフォルトでサポートするようになりました。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;forms:&lt;/strong&gt; emit statusChange when child controls have async validator (&lt;a href=&#34;https://github.com/angular/angular/issues/9652&#34; target=&#34;_blank&#34;&gt;#9652&lt;/a&gt;) (&lt;a href=&#34;https://github.com/angular/angular/commit/797914e&#34; target=&#34;_blank&#34;&gt;797914e&lt;/a&gt;)&lt;br /&gt;
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;async validatorを使っているときに、バリデーション結果が変化したことを&lt;code&gt;statusChange&lt;/code&gt;イベントで検知できるようになりました&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;forms:&lt;/strong&gt; make radio button selection logic more flexible (&lt;a href=&#34;https://github.com/angular/angular/issues/9646&#34; target=&#34;_blank&#34;&gt;#9646&lt;/a&gt;) (&lt;a href=&#34;https://github.com/angular/angular/commit/ed0ade6&#34; target=&#34;_blank&#34;&gt;ed0ade6&lt;/a&gt;), closes &lt;a href=&#34;https://github.com/angular/angular/issues/9558&#34; target=&#34;_blank&#34;&gt;#9558&lt;/a&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;これまでラジオボタンに対する&lt;code&gt;removeControl&lt;/code&gt;はtimeoutが必要でしたが、必要なくなりました。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;forms:&lt;/strong&gt; ngModel should emit valueChanges and statusChanges asynchronously (&lt;a href=&#34;https://github.com/angular/angular/commit/97a2119&#34; target=&#34;_blank&#34;&gt;97a2119&lt;/a&gt;)&lt;br /&gt;
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;code&gt;ngModel&lt;/code&gt; が&lt;code&gt;valueChanges&lt;/code&gt;や&lt;code&gt;statusChanges&lt;/code&gt;イベントを発火するタイミングが非同期的になりました。&lt;/p&gt;
+
+&lt;h3 id=&#34;features&#34;&gt;Features&lt;/h3&gt;
+
+&lt;p&gt;機能の追加もいくつか行われています。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;compiler:&lt;/strong&gt; support sync runtime compile (&lt;a href=&#34;https://github.com/angular/angular/commit/bf598d6&#34; target=&#34;_blank&#34;&gt;bf598d6&lt;/a&gt;), closes &lt;a href=&#34;https://github.com/angular/angular/issues/7084&#34; target=&#34;_blank&#34;&gt;#7084&lt;/a&gt; &lt;a href=&#34;https://github.com/angular/angular/issues/9594&#34; target=&#34;_blank&#34;&gt;#9594&lt;/a&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;code&gt;ComponentResolver&lt;/code&gt;に代わる新しいAPI、 &lt;code&gt;Compiler&lt;/code&gt;が、&lt;code&gt;compileComponentAsync&lt;/code&gt;と&lt;code&gt;compileComponentSync&lt;/code&gt;の2つのメソッドを持つようになりました。&lt;br /&gt;
+&lt;code&gt;compileComponentSync&lt;/code&gt;はコンポーネントを同期的にコンパイルできますが、テンプレートがインライン、あるいはすでに読み込まれたものでなければなりません。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;core:&lt;/strong&gt; add &lt;code&gt;[@Component](https://github.com/Component).precompile&lt;/code&gt; and &lt;code&gt;ComponentFactoryResolver&lt;/code&gt; (&lt;a href=&#34;https://github.com/angular/angular/commit/6c5b653&#34; target=&#34;_blank&#34;&gt;6c5b653&lt;/a&gt;), closes &lt;a href=&#34;https://github.com/angular/angular/issues/9543&#34; target=&#34;_blank&#34;&gt;#9543&lt;/a&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;code&gt;@Component&lt;/code&gt;デコレータに新しいプロパティ&lt;code&gt;precompile&lt;/code&gt;が追加されました。&lt;br /&gt;
+このプロパティは、対象のコンポーネントがOffline Compileされる際に、一緒にコンパイルされて欲しいコンポーネントを指定できるものです。&lt;br /&gt;
+今はまだドキュメントがないですが、RC.5が出てくる頃には用意されるでしょう。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;forms:&lt;/strong&gt; add support for formArrayName (&lt;a href=&#34;https://github.com/angular/angular/commit/c03e1f2&#34; target=&#34;_blank&#34;&gt;c03e1f2&lt;/a&gt;), closes &lt;a href=&#34;https://github.com/angular/angular/issues/9251&#34; target=&#34;_blank&#34;&gt;#9251&lt;/a&gt;&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;forms:&lt;/strong&gt; add support for standalone ngModel dirs inside forms (&lt;a href=&#34;https://github.com/angular/angular/commit/6edf047&#34; target=&#34;_blank&#34;&gt;6edf047&lt;/a&gt;), closes &lt;a href=&#34;https://github.com/angular/angular/issues/9230&#34; target=&#34;_blank&#34;&gt;#9230&lt;/a&gt;&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;forms:&lt;/strong&gt; expose ValidatorFn and AsyncValidatorFn (&lt;a href=&#34;https://github.com/angular/angular/commit/17dcbf6&#34; target=&#34;_blank&#34;&gt;17dcbf6&lt;/a&gt;), closes &lt;a href=&#34;https://github.com/angular/angular/issues/8834&#34; target=&#34;_blank&#34;&gt;#8834&lt;/a&gt;&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;forms:&lt;/strong&gt; make valueChanges and statusChanges available on abstract control directives (&lt;a href=&#34;https://github.com/angular/angular/commit/de12710&#34; target=&#34;_blank&#34;&gt;de12710&lt;/a&gt;)&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;forms:&lt;/strong&gt; support updating of validators on exiting controls (&lt;a href=&#34;https://github.com/angular/angular/issues/9516&#34; target=&#34;_blank&#34;&gt;#9516&lt;/a&gt;) (&lt;a href=&#34;https://github.com/angular/angular/commit/638fd74&#34; target=&#34;_blank&#34;&gt;638fd74&lt;/a&gt;)&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;forms:&lt;/strong&gt; use formControlName on radio buttons when name is absent (&lt;a href=&#34;https://github.com/angular/angular/issues/9681&#34; target=&#34;_blank&#34;&gt;#9681&lt;/a&gt;) (&lt;a href=&#34;https://github.com/angular/angular/commit/0961bd1&#34; target=&#34;_blank&#34;&gt;0961bd1&lt;/a&gt;)&lt;br /&gt;
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Forms周りは引き続き作業中という感じです。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;QueryList:&lt;/strong&gt; implement some() (&lt;a href=&#34;https://github.com/angular/angular/issues/9464&#34; target=&#34;_blank&#34;&gt;#9464&lt;/a&gt;) (&lt;a href=&#34;https://github.com/angular/angular/commit/f6a410a&#34; target=&#34;_blank&#34;&gt;f6a410a&lt;/a&gt;), closes &lt;a href=&#34;https://github.com/angular/angular/issues/9443&#34; target=&#34;_blank&#34;&gt;#9443&lt;/a&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;code&gt;QueryList#.some()&lt;/code&gt;が実装されました。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;router:&lt;/strong&gt; add pathMatch property to replace terminal (&lt;a href=&#34;https://github.com/angular/angular/commit/fcfddbf&#34; target=&#34;_blank&#34;&gt;fcfddbf&lt;/a&gt;)&lt;br /&gt;
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;RouteConfigの&lt;code&gt;terminal&lt;/code&gt;が廃止され、&lt;code&gt;pathMatch&lt;/code&gt;フィールドが追加されました。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;pathMatch: &amp;quot;full&amp;quot;&lt;/code&gt;の場合は、パスと完全一致した時にだけそのルートが使われます。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;router:&lt;/strong&gt; implement data and resolve (&lt;a href=&#34;https://github.com/angular/angular/commit/f2f1ec0&#34; target=&#34;_blank&#34;&gt;f2f1ec0&lt;/a&gt;)&lt;br /&gt;
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;ActivatedRouteに&lt;code&gt;data&lt;/code&gt;が追加されました。また、&lt;code&gt;resolve&lt;/code&gt;も追加されました。&lt;/p&gt;
+
+&lt;p&gt;dataは単純に固定の値をRouteConfig側で設定しておき、それがActivatedRouteからアクセスできるだけの機能です。&lt;br /&gt;
+主に同じコンポーネントを複数のルートで使う時に、どのルートが使われているかの判別などに用います。&lt;/p&gt;
+
+&lt;p&gt;resolveはDIを使って、動的なデータをActivatedRouteから受け取るための機能です。&lt;br /&gt;
+dataもresolveもまだ公式ドキュメントは追いついていないので、&lt;br /&gt;
+&lt;a href=&#34;https://github.com/angular/angular/blob/master/modules/%40angular/router/test/router.spec.ts#L418-L458&#34; target=&#34;_blank&#34;&gt;このあたり&lt;/a&gt;のテストコードを読むと使い方がわかるでしょう。&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;いやはや、今回も長かったですね。RC.5では&lt;code&gt;AppModule&lt;/code&gt;が導入され、bootstrap周りに大きな動きが出る予定です。&lt;br /&gt;
+&lt;code&gt;PLATFORM_DIRECTIVES&lt;/code&gt;や&lt;code&gt;PLATFORM_PIPES&lt;/code&gt;、さらには&lt;code&gt;APP_INITIALIZER&lt;/code&gt;あたりが非推奨APIとなります。&lt;br /&gt;
+デザインドキュメントは&lt;a href=&#34;https://docs.google.com/document/d/13-LUm1QvOff2631tHz6C4goIHuMzma2_1_PFiLryoIs/edit&#34; target=&#34;_blank&#34;&gt;こちら&lt;/a&gt;にあるので、先取りしたい方は読んでおくとよいでしょう。&lt;br /&gt;
+トラッキングイシューは&lt;a href=&#34;https://github.com/angular/angular/issues/9726&#34; target=&#34;_blank&#34;&gt;こちら&lt;/a&gt;です。&lt;/p&gt;
+
+&lt;p&gt;それではまた。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Angular2 RC.3の変更点</title>
+      <link>https://ng2-info.github.io/2016/06/angular-2-rc-3/</link>
+      <pubDate>Wed, 29 Jun 2016 00:25:32 +0900</pubDate>
+      
+      <guid>https://ng2-info.github.io/2016/06/angular-2-rc-3/</guid>
+      <description>
+
+&lt;p&gt;どうも、らこです。リリースから少し時間が経ってしまいましたが、RC.3の変更点をまとめておきます。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/angular/angular/blob/master/CHANGELOG.md#200-rc3-2016-06-21&#34; target=&#34;_blank&#34;&gt;CHANGELOG.md&lt;/a&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&#34;bug-fixes&#34;&gt;Bug Fixes&lt;/h3&gt;
+
+&lt;p&gt;RC.2までの幾つかのバグが修正されました。重要なものだけをピックアップします。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;change_detection:&lt;/strong&gt; ChangeDetectorRef reattach should restore original mode (&lt;a href=&#34;https://github.com/angular/angular/commit/773c349&#34; target=&#34;_blank&#34;&gt;773c349&lt;/a&gt;), closes &lt;a href=&#34;https://github.com/angular/angular/issues/7078&#34; target=&#34;_blank&#34;&gt;#7078&lt;/a&gt; &lt;a href=&#34;https://github.com/angular/angular/issues/7080&#34; target=&#34;_blank&#34;&gt;#7080&lt;/a&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;code&gt;ChangeDetectorRef.reattach&lt;/code&gt;が常に&lt;code&gt;CheckAlways&lt;/code&gt;を使用していたバグが修正されました。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;forms:&lt;/strong&gt; ngModel should export as ngModel (&lt;a href=&#34;https://github.com/angular/angular/commit/8e6e90e&#34; target=&#34;_blank&#34;&gt;8e6e90e&lt;/a&gt;)&lt;br /&gt;
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;code&gt;NgModel&lt;/code&gt;ディレクティブが&lt;code&gt;ngForm&lt;/code&gt;としてexportされていたのが修正されました。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;perf:&lt;/strong&gt; support prod mode again (&lt;a href=&#34;https://github.com/angular/angular/commit/c0f2a22&#34; target=&#34;_blank&#34;&gt;c0f2a22&lt;/a&gt;), closes &lt;a href=&#34;https://github.com/angular/angular/issues/9318&#34; target=&#34;_blank&#34;&gt;#9318&lt;/a&gt; &lt;a href=&#34;https://github.com/angular/angular/issues/8508&#34; target=&#34;_blank&#34;&gt;#8508&lt;/a&gt; &lt;a href=&#34;https://github.com/angular/angular/issues/9318&#34; target=&#34;_blank&#34;&gt;#9318&lt;/a&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;RC.2でうまく動かなくなっていた&lt;code&gt;enableProdMode&lt;/code&gt;が復活しました。&lt;/p&gt;
+
+&lt;h3 id=&#34;features&#34;&gt;Features&lt;/h3&gt;
+
+&lt;p&gt;新しい機能や改善も幾つか含まれています。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;compiler:&lt;/strong&gt; make interpolation symbols configurable (&lt;code&gt;@Component&lt;/code&gt; config) (#9367) (&lt;a href=&#34;https://github.com/angular/angular/commit/1b28cf7&#34; target=&#34;_blank&#34;&gt;1b28cf7&lt;/a&gt;), closes &lt;a href=&#34;https://github.com/angular/angular/issues/9158&#34; target=&#34;_blank&#34;&gt;#9158&lt;/a&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;code&gt;Component&lt;/code&gt;デコレータに&lt;code&gt;interpolation&lt;/code&gt;プロパティが追加され、そのコンポーネントのテンプレート中でのInterpolationのシンボルが変更できるようになりました。&lt;br /&gt;
+この機能は私が実装して、@vicbがしっかりレビューしてくれました。&lt;br /&gt;
+merge前のちょっとしたミスで私のcommitではなくなってしまいましたがそれはご愛嬌ということで。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;datePipe:&lt;/strong&gt; numeric string support (&lt;a href=&#34;https://github.com/angular/angular/commit/5c8d315&#34; target=&#34;_blank&#34;&gt;5c8d315&lt;/a&gt;)&lt;br /&gt;
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;code&gt;DatePipe&lt;/code&gt;が文字列型の数値を受け付けられるようになりました。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;QueryList:&lt;/strong&gt; support index in callbacks (&lt;a href=&#34;https://github.com/angular/angular/commit/5fe6075&#34; target=&#34;_blank&#34;&gt;5fe6075&lt;/a&gt;), closes &lt;a href=&#34;https://github.com/angular/angular/issues/9278&#34; target=&#34;_blank&#34;&gt;#9278&lt;/a&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;code&gt;QueryList&lt;/code&gt;の各メソッドのコールバックで&lt;code&gt;index&lt;/code&gt;が第2引数に追加されました。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;radio:&lt;/strong&gt; support radio button sharing a control (&lt;a href=&#34;https://github.com/angular/angular/commit/39e0b49&#34; target=&#34;_blank&#34;&gt;39e0b49&lt;/a&gt;)&lt;br /&gt;
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;ラジオボタンに対する&lt;code&gt;ngModel&lt;/code&gt;が使いやすくなりました。&lt;br /&gt;
+複数のラジオボタンに対して同じオブジェクトを&lt;code&gt;ngModel&lt;/code&gt;で渡した時に、選択状態のラジオボタンのvalueがセットされるようになりました。&lt;/p&gt;
+
+&lt;p&gt;今までは配列やオブジェクトなどを用いて面倒でしたが、Angular 1と似た書き方になり、とても簡単になりました。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-html&#34;&gt;&amp;lt;form&amp;gt;
+    &amp;lt;input type=&amp;quot;radio&amp;quot; name=&amp;quot;food&amp;quot; [(ngModel)]=&amp;quot;data.food&amp;quot; value=&amp;quot;chicken&amp;quot;&amp;gt;
+    &amp;lt;input type=&amp;quot;radio&amp;quot; name=&amp;quot;food&amp;quot;  [(ngModel)]=&amp;quot;data.food&amp;quot; value=&amp;quot;fish&amp;quot;&amp;gt;
+    &amp;lt;input type=&amp;quot;radio&amp;quot; name=&amp;quot;drink&amp;quot; [(ngModel)]=&amp;quot;data.drink&amp;quot; value=&amp;quot;cola&amp;quot;&amp;gt;
+    &amp;lt;input type=&amp;quot;radio&amp;quot; name=&amp;quot;drink&amp;quot; [(ngModel)]=&amp;quot;data.drink&amp;quot; value=&amp;quot;sprite&amp;quot;&amp;gt;
+&amp;lt;/form&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;breaking-changes&#34;&gt;BREAKING CHANGES&lt;/h3&gt;
+
+&lt;p&gt;わずかな破壊的変更も含まれています。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Parse5Adapter is no longer exported as public API, use serverBootstrap()&lt;br /&gt;
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;code&gt;Parse5Adapter&lt;/code&gt;はこれまでパブリックなAPIでしたが、RC.3からはexportされなくなりました。&lt;br /&gt;
+代わりに&lt;code&gt;serverBootstrap()&lt;/code&gt;関数を呼び出します。&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;以上、RC.3の変更点でした。RC.2でパフォーマンスの問題を発生させてなければもう少し先になっていたと思いますが、&lt;br /&gt;
+思っていた以上に深刻な不具合だったので、だいぶ前倒しでRC.3がリリースされました。&lt;br /&gt;
+RC.4は予定通り、FormsやTestingのAPIの改善が完了してからの落ち着いたリリースになるでしょう。&lt;/p&gt;
+
+&lt;p&gt;それではまた。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Angular 2 RC.2がリリースされました</title>
+      <link>https://ng2-info.github.io/2016/06/angular-2-rc-2/</link>
+      <pubDate>Thu, 16 Jun 2016 20:51:37 +0900</pubDate>
+      
+      <guid>https://ng2-info.github.io/2016/06/angular-2-rc-2/</guid>
+      <description>
+
+&lt;p&gt;&lt;strong&gt;追記&lt;/strong&gt; : CHANGELOG以外の情報を追加しました。&lt;/p&gt;
+
+&lt;p&gt;どうも、らこです。ようやくRC.2がリリースされたので変更点を確認しましょう。&lt;br /&gt;
+1ヶ月以上の間に多くの変更が盛り込まれたので数は多いですが、破壊的変更はほとんどないので、&lt;br /&gt;
+落ち着いて移行していきましょう&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/angular/angular/blob/master/CHANGELOG.md#200-rc2-2016-06-15&#34; target=&#34;_blank&#34;&gt;angular/CHANGELOG.md at master · angular/angular&lt;/a&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&#34;angular-2-rc-2-変更点&#34;&gt;Angular 2 RC.2 変更点&lt;/h2&gt;
+
+&lt;p&gt;CHANGELOG.mdを見ればわかるようにとんでもない変更の数なので、分類してまとまりごとに見ていきましょう。&lt;br /&gt;
+まず、アプリケーション開発に関係のあるものだけを抽出すると次のようになります&lt;/p&gt;
+
+&lt;h3 id=&#34;bug-fixes&#34;&gt;Bug Fixes&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;bootstrap:&lt;/strong&gt; Swap coreBootstrap() and coreLoadAndBootstrap() arguments (&lt;a href=&#34;https://github.com/angular/angular/commit/f95a604&#34; target=&#34;_blank&#34;&gt;f95a604&lt;/a&gt;)&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;compiler:&lt;/strong&gt; Support for comment finishing with multiple dashes (&lt;a href=&#34;https://github.com/angular/angular/commit/60a2ba8&#34; target=&#34;_blank&#34;&gt;60a2ba8&lt;/a&gt;), closes &lt;a href=&#34;https://github.com/angular/angular/issues/7119&#34; target=&#34;_blank&#34;&gt;#7119&lt;/a&gt;&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;compiler:&lt;/strong&gt; have CSS parser support nested parentheses inside functions (&lt;a href=&#34;https://github.com/angular/angular/commit/ceac045&#34; target=&#34;_blank&#34;&gt;ceac045&lt;/a&gt;), closes &lt;a href=&#34;https://github.com/angular/angular/issues/7580&#34; target=&#34;_blank&#34;&gt;#7580&lt;/a&gt;&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Control:&lt;/strong&gt; Support select multiple with Control class (#8069) (&lt;a href=&#34;https://github.com/angular/angular/commit/84f859d&#34; target=&#34;_blank&#34;&gt;84f859d&lt;/a&gt;)&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;facade:&lt;/strong&gt; change EventEmitter to be sync by default (#8761) (&lt;a href=&#34;https://github.com/angular/angular/commit/e5904f4&#34; target=&#34;_blank&#34;&gt;e5904f4&lt;/a&gt;)&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;forms:&lt;/strong&gt; rename old forms folder to forms-deprecated (&lt;a href=&#34;https://github.com/angular/angular/commit/515a8e0&#34; target=&#34;_blank&#34;&gt;515a8e0&lt;/a&gt;)&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;forms:&lt;/strong&gt; update accessor value when native select value changes (&lt;a href=&#34;https://github.com/angular/angular/commit/7a2ce7f&#34; target=&#34;_blank&#34;&gt;7a2ce7f&lt;/a&gt;), closes &lt;a href=&#34;https://github.com/angular/angular/issues/8710&#34; target=&#34;_blank&#34;&gt;#8710&lt;/a&gt;&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;forms:&lt;/strong&gt; update value and validity when controls are added (&lt;a href=&#34;https://github.com/angular/angular/commit/50acb96&#34; target=&#34;_blank&#34;&gt;50acb96&lt;/a&gt;), closes &lt;a href=&#34;https://github.com/angular/angular/issues/8826&#34; target=&#34;_blank&#34;&gt;#8826&lt;/a&gt;&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;forms:&lt;/strong&gt; separate ngModelGroup from formGroupName (&lt;a href=&#34;https://github.com/angular/angular/commit/5c0cfdee48ba5aa48528a1c20ffd99318ee716ae&#34; target=&#34;_blank&#34;&gt;5c0cfde&lt;/a&gt;)&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;http:&lt;/strong&gt; Set response.ok (&lt;a href=&#34;https://github.com/angular/angular/commit/9234035&#34; target=&#34;_blank&#34;&gt;9234035&lt;/a&gt;), closes &lt;a href=&#34;https://github.com/angular/angular/issues/6390&#34; target=&#34;_blank&#34;&gt;#6390&lt;/a&gt; &lt;a href=&#34;https://github.com/angular/angular/issues/6503&#34; target=&#34;_blank&#34;&gt;#6503&lt;/a&gt;&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;metadata:&lt;/strong&gt; Allow spacing in multiple selectors (#7418) (&lt;a href=&#34;https://github.com/angular/angular/commit/b2e804c&#34; target=&#34;_blank&#34;&gt;b2e804c&lt;/a&gt;)&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;ngSwitch:&lt;/strong&gt; use switchCase instead of switchWhen (#9076) (&lt;a href=&#34;https://github.com/angular/angular/commit/e1fcab7&#34; target=&#34;_blank&#34;&gt;e1fcab7&lt;/a&gt;)&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Request:&lt;/strong&gt; Change Request.text&amp;rsquo;s return type to string (&lt;a href=&#34;https://github.com/angular/angular/commit/b2e0946&#34; target=&#34;_blank&#34;&gt;b2e0946&lt;/a&gt;), closes &lt;a href=&#34;https://github.com/angular/angular/issues/8138&#34; target=&#34;_blank&#34;&gt;#8138&lt;/a&gt;&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;router:&lt;/strong&gt; Added pushState fallback for IE 9 browser. (&lt;a href=&#34;https://github.com/angular/angular/commit/bab6023&#34; target=&#34;_blank&#34;&gt;bab6023&lt;/a&gt;), closes &lt;a href=&#34;https://github.com/angular/angular/issues/6506&#34; target=&#34;_blank&#34;&gt;#6506&lt;/a&gt; &lt;a href=&#34;https://github.com/angular/angular/issues/7929&#34; target=&#34;_blank&#34;&gt;#7929&lt;/a&gt;&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;testing:&lt;/strong&gt;  add discardPeriodicTasks to be used with fakeAsync (#8629) (&lt;a href=&#34;https://github.com/angular/angular/commit/0cb93a4&#34; target=&#34;_blank&#34;&gt;0cb93a4&lt;/a&gt;), closes &lt;a href=&#34;https://github.com/angular/angular/issues/8616&#34; target=&#34;_blank&#34;&gt;#8616&lt;/a&gt;&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;upgrade:&lt;/strong&gt; allow deeper nesting of ng2 components/directives (#8949) (&lt;a href=&#34;https://github.com/angular/angular/commit/48bf349&#34; target=&#34;_blank&#34;&gt;48bf349&lt;/a&gt;)&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;upgrade:&lt;/strong&gt; allow functions for template and templateUrl (#9022) (&lt;a href=&#34;https://github.com/angular/angular/commit/a19c4e8&#34; target=&#34;_blank&#34;&gt;a19c4e8&lt;/a&gt;)&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;upgrade:&lt;/strong&gt; Ensure upgrade adapter works on angular.js 1.2 (#8647) (&lt;a href=&#34;https://github.com/angular/angular/commit/cbc8d0a&#34; target=&#34;_blank&#34;&gt;cbc8d0a&lt;/a&gt;)&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;upgrade:&lt;/strong&gt; fallback to root ng2 injector when element is compiled outside the document (#86 (&lt;a href=&#34;https://github.com/angular/angular/commit/db82906&#34; target=&#34;_blank&#34;&gt;db82906&lt;/a&gt;)&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;upgrade:&lt;/strong&gt; make bindings available on $scope in controller &amp;amp; link function (#8645) (&lt;a href=&#34;https://github.com/angular/angular/commit/6cdc53c&#34; target=&#34;_blank&#34;&gt;6cdc53c&lt;/a&gt;)&lt;br /&gt;
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;features&#34;&gt;Features&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;ChangeDetectorRef:&lt;/strong&gt; make detectChanges() correct (&lt;a href=&#34;https://github.com/angular/angular/commit/6028368&#34; target=&#34;_blank&#34;&gt;6028368&lt;/a&gt;), closes &lt;a href=&#34;https://github.com/angular/angular/issues/8599&#34; target=&#34;_blank&#34;&gt;#8599&lt;/a&gt;&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;common:&lt;/strong&gt; DatePipe supports ISO string (&lt;a href=&#34;https://github.com/angular/angular/commit/abc266f&#34; target=&#34;_blank&#34;&gt;abc266f&lt;/a&gt;), closes &lt;a href=&#34;https://github.com/angular/angular/issues/7794&#34; target=&#34;_blank&#34;&gt;#7794&lt;/a&gt;&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;common/datePipe:&lt;/strong&gt; change date formatter to use correct pattern closes #7008 (#8154) (&lt;a href=&#34;https://github.com/angular/angular/commit/324f014&#34; target=&#34;_blank&#34;&gt;324f014&lt;/a&gt;), closes &lt;a href=&#34;https://github.com/angular/angular/issues/7008&#34; target=&#34;_blank&#34;&gt;#7008&lt;/a&gt; [(#8154](&lt;a href=&#34;https://github.com/(/issues/8154&#34; target=&#34;_blank&#34;&gt;https://github.com/(/issues/8154&lt;/a&gt;)&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;compiler:&lt;/strong&gt; Add support for &lt;code&gt;&amp;lt;ng-container&amp;gt;&lt;/code&gt; (&lt;a href=&#34;https://github.com/angular/angular/commit/0dbff55bc6750653c5f8decc06d07e7269e3d6a5&#34; target=&#34;_blank&#34;&gt;0dbff55&lt;/a&gt;)&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;ComponentResolver:&lt;/strong&gt; Add a SystemJS resolver for compiled apps (#9145) (&lt;a href=&#34;https://github.com/angular/angular/commit/a6e5ddc&#34; target=&#34;_blank&#34;&gt;a6e5ddc&lt;/a&gt;)&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;core:&lt;/strong&gt; add a component resolver that can load components lazily using system.js (&lt;a href=&#34;https://github.com/angular/angular/commit/1a0aea6&#34; target=&#34;_blank&#34;&gt;1a0aea6&lt;/a&gt;)&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;core:&lt;/strong&gt; introduce support for animations (&lt;a href=&#34;https://github.com/angular/angular/commit/5e0f8cf&#34; target=&#34;_blank&#34;&gt;5e0f8cf&lt;/a&gt;), closes &lt;a href=&#34;https://github.com/angular/angular/issues/8734&#34; target=&#34;_blank&#34;&gt;#8734&lt;/a&gt;&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;core/linker:&lt;/strong&gt; add SimpleChanges type to lifecycle_hooks to simplify OnChanges signature (&lt;a href=&#34;https://github.com/angular/angular/commit/0a872ff&#34; target=&#34;_blank&#34;&gt;0a872ff&lt;/a&gt;), closes &lt;a href=&#34;https://github.com/angular/angular/issues/8557&#34; target=&#34;_blank&#34;&gt;#8557&lt;/a&gt;&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;debug:&lt;/strong&gt; collect styles and classes for the DebugElement (&lt;a href=&#34;https://github.com/angular/angular/commit/155b882&#34; target=&#34;_blank&#34;&gt;155b882&lt;/a&gt;)&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;enableDebugTools:&lt;/strong&gt; return ComponentRef (&lt;a href=&#34;https://github.com/angular/angular/commit/4086b49&#34; target=&#34;_blank&#34;&gt;4086b49&lt;/a&gt;)&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;forms:&lt;/strong&gt; add the submitted flag to NgForm and NgFormModel directives (&lt;a href=&#34;https://github.com/angular/angular/commit/420e83a&#34; target=&#34;_blank&#34;&gt;420e83a&lt;/a&gt;), closes &lt;a href=&#34;https://github.com/angular/angular/issues/2960&#34; target=&#34;_blank&#34;&gt;#2960&lt;/a&gt; &lt;a href=&#34;https://github.com/angular/angular/issues/7449&#34; target=&#34;_blank&#34;&gt;#7449&lt;/a&gt;&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;forms:&lt;/strong&gt; allow ngModel to register with parent form (&lt;a href=&#34;https://github.com/angular/angular/commit/4ed6cf7&#34; target=&#34;_blank&#34;&gt;4ed6cf7&lt;/a&gt;)&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;forms:&lt;/strong&gt; compose validator fns automatically if arrays (&lt;a href=&#34;https://github.com/angular/angular/commit/61960c51a3b21d1cfba523f53016f6284182d4e3&#34; target=&#34;_blank&#34;&gt;61960c5&lt;/a&gt;)&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;forms:&lt;/strong&gt; support setting control name in ngModelOptions (&lt;a href=&#34;https://github.com/angular/angular/commit/a191e9697c32062eda06cd1f1cfd856d89c16026&#34; target=&#34;_blank&#34;&gt;a191e96&lt;/a&gt;)&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;forms:&lt;/strong&gt; add easy way to switch between forms modules (&lt;a href=&#34;https://github.com/angular/angular/commit/22916bb5d1abf2818d7d8d99d39605af251f42e4&#34; target=&#34;_blank&#34;&gt;22916bb&lt;/a&gt;)&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;http:&lt;/strong&gt; added withCredentials support (&lt;a href=&#34;https://github.com/angular/angular/commit/95af14b&#34; target=&#34;_blank&#34;&gt;95af14b&lt;/a&gt;), closes &lt;a href=&#34;https://github.com/angular/angular/issues/7281&#34; target=&#34;_blank&#34;&gt;#7281&lt;/a&gt; &lt;a href=&#34;https://github.com/angular/angular/issues/7281&#34; target=&#34;_blank&#34;&gt;#7281&lt;/a&gt;&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;http:&lt;/strong&gt; automatically set request Content-Type header based on body type (&lt;a href=&#34;https://github.com/angular/angular/commit/0f0a8ad&#34; target=&#34;_blank&#34;&gt;0f0a8ad&lt;/a&gt;), closes &lt;a href=&#34;https://github.com/angular/angular/issues/7310&#34; target=&#34;_blank&#34;&gt;#7310&lt;/a&gt;&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;http:&lt;/strong&gt; implement Response.prototype.toString() to make for a nicer error message (&lt;a href=&#34;https://github.com/angular/angular/commit/89f6108&#34; target=&#34;_blank&#34;&gt;89f6108&lt;/a&gt;), closes &lt;a href=&#34;https://github.com/angular/angular/issues/7511&#34; target=&#34;_blank&#34;&gt;#7511&lt;/a&gt;&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;http:&lt;/strong&gt; set the statusText property from the XMLHttpRequest instance (&lt;a href=&#34;https://github.com/angular/angular/commit/3019140&#34; target=&#34;_blank&#34;&gt;3019140&lt;/a&gt;), closes &lt;a href=&#34;https://github.com/angular/angular/issues/4162&#34; target=&#34;_blank&#34;&gt;#4162&lt;/a&gt;&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;NgTemplateOutlet:&lt;/strong&gt; add context to NgTemplateOutlet (&lt;a href=&#34;https://github.com/angular/angular/commit/164a091&#34; target=&#34;_blank&#34;&gt;164a091&lt;/a&gt;), closes &lt;a href=&#34;https://github.com/angular/angular/issues/9042&#34; target=&#34;_blank&#34;&gt;#9042&lt;/a&gt;&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;NgZone:&lt;/strong&gt; isStable (&lt;a href=&#34;https://github.com/angular/angular/commit/587c119&#34; target=&#34;_blank&#34;&gt;587c119&lt;/a&gt;), closes &lt;a href=&#34;https://github.com/angular/angular/issues/8108&#34; target=&#34;_blank&#34;&gt;#8108&lt;/a&gt;&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;security:&lt;/strong&gt; allow data: URLs for images and videos. (&lt;a href=&#34;https://github.com/angular/angular/commit/dd50124&#34; target=&#34;_blank&#34;&gt;dd50124&lt;/a&gt;)&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;security:&lt;/strong&gt; allow url(&amp;hellip;) style values. (&lt;a href=&#34;https://github.com/angular/angular/commit/15ae710&#34; target=&#34;_blank&#34;&gt;15ae710&lt;/a&gt;), closes &lt;a href=&#34;https://github.com/angular/angular/issues/8514&#34; target=&#34;_blank&#34;&gt;#8514&lt;/a&gt;&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;security:&lt;/strong&gt; Automatic XSRF handling. (&lt;a href=&#34;https://github.com/angular/angular/commit/4d793c4&#34; target=&#34;_blank&#34;&gt;4d793c4&lt;/a&gt;)&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;add minified bundles (&lt;a href=&#34;https://github.com/angular/angular/commit/9175a04&#34; target=&#34;_blank&#34;&gt;9175a04&lt;/a&gt;)&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;security:&lt;/strong&gt; expose the safe value types. (&lt;a href=&#34;https://github.com/angular/angular/commit/50c9bed&#34; target=&#34;_blank&#34;&gt;50c9bed&lt;/a&gt;), closes &lt;a href=&#34;https://github.com/angular/angular/issues/8568&#34; target=&#34;_blank&#34;&gt;#8568&lt;/a&gt;&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;security:&lt;/strong&gt; support transform CSS functions for sanitization. (&lt;a href=&#34;https://github.com/angular/angular/commit/8b1b427&#34; target=&#34;_blank&#34;&gt;8b1b427&lt;/a&gt;), closes &lt;a href=&#34;https://github.com/angular/angular/issues/8514&#34; target=&#34;_blank&#34;&gt;#8514&lt;/a&gt;&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;security:&lt;/strong&gt; warn users when sanitizing in dev mode. (&lt;a href=&#34;https://github.com/angular/angular/commit/3e68b7e&#34; target=&#34;_blank&#34;&gt;3e68b7e&lt;/a&gt;), closes &lt;a href=&#34;https://github.com/angular/angular/issues/8522&#34; target=&#34;_blank&#34;&gt;#8522&lt;/a&gt;&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;shadow_css:&lt;/strong&gt; add encapsulation support for CSS @supports at-rule (&lt;a href=&#34;https://github.com/angular/angular/commit/cb84cbf&#34; target=&#34;_blank&#34;&gt;cb84cbf&lt;/a&gt;), closes &lt;a href=&#34;https://github.com/angular/angular/issues/7944&#34; target=&#34;_blank&#34;&gt;#7944&lt;/a&gt;&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;ViewEncapsulation:&lt;/strong&gt; default ViewEncapsulation to configurable (&lt;a href=&#34;https://github.com/angular/angular/commit/f93512b&#34; target=&#34;_blank&#34;&gt;f93512b&lt;/a&gt;), closes &lt;a href=&#34;https://github.com/angular/angular/issues/7883&#34; target=&#34;_blank&#34;&gt;#7883&lt;/a&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;だいぶ絞りましたがまだ多いですね。1件ずつ見ていくとキリがないのでグループごとにまとめていきます&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&#34;コア機能関連&#34;&gt;コア機能関連&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;facade:&lt;/strong&gt; change EventEmitter to be sync by default (#8761) (&lt;a href=&#34;https://github.com/angular/angular/commit/e5904f4&#34; target=&#34;_blank&#34;&gt;e5904f4&lt;/a&gt;)&lt;br /&gt;
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;code&gt;EventEmitter&lt;/code&gt; によるイベントの伝播が、デフォルトで同期処理になりました。&lt;br /&gt;
+標準のHTML要素からのイベントと同じ振る舞いをするようになり、&lt;code&gt;@Output&lt;/code&gt; との区別をしなくてよくなりました。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;NgZone:&lt;/strong&gt; isStable (&lt;a href=&#34;https://github.com/angular/angular/commit/587c119&#34; target=&#34;_blank&#34;&gt;587c119&lt;/a&gt;), closes &lt;a href=&#34;https://github.com/angular/angular/issues/8108&#34; target=&#34;_blank&#34;&gt;#8108&lt;/a&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;code&gt;NgZone&lt;/code&gt; が &lt;code&gt;isStable&lt;/code&gt; プロパティを持ちます&lt;/p&gt;
+
+&lt;h3 id=&#34;コンポーネント関連&#34;&gt;コンポーネント関連&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;compiler:&lt;/strong&gt; Support for comment finishing with multiple dashes (&lt;a href=&#34;https://github.com/angular/angular/commit/60a2ba8&#34; target=&#34;_blank&#34;&gt;60a2ba8&lt;/a&gt;), closes &lt;a href=&#34;https://github.com/angular/angular/issues/7119&#34; target=&#34;_blank&#34;&gt;#7119&lt;/a&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;code&gt;&amp;lt;!-- --&amp;gt;&lt;/code&gt; のように複数のダッシュ記号で閉じられたコメントが許容されるようになりました&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;compiler:&lt;/strong&gt; have CSS parser support nested parentheses inside functions (&lt;a href=&#34;https://github.com/angular/angular/commit/ceac045&#34; target=&#34;_blank&#34;&gt;ceac045&lt;/a&gt;), closes &lt;a href=&#34;https://github.com/angular/angular/issues/7580&#34; target=&#34;_blank&#34;&gt;#7580&lt;/a&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;コンポーネントが読み込むCSS内で入れ子の関数が許可されました&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;ChangeDetectorRef:&lt;/strong&gt; make detectChanges() correct (&lt;a href=&#34;https://github.com/angular/angular/commit/6028368&#34; target=&#34;_blank&#34;&gt;6028368&lt;/a&gt;), closes &lt;a href=&#34;https://github.com/angular/angular/issues/8599&#34; target=&#34;_blank&#34;&gt;#8599&lt;/a&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;私のPRです。&lt;br /&gt;
+&lt;code&gt;ChangeDetectorRef#detectChanges()&lt;/code&gt; が、 &lt;code&gt;detach&lt;/code&gt; 状態でも動作するように修正されました&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;compiler:&lt;/strong&gt; Add support for &lt;code&gt;&amp;lt;ng-container&amp;gt;&lt;/code&gt; (&lt;a href=&#34;https://github.com/angular/angular/commit/0dbff55bc6750653c5f8decc06d07e7269e3d6a5&#34; target=&#34;_blank&#34;&gt;0dbff55&lt;/a&gt;)&lt;br /&gt;
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;コンパイル後にHTMLコメントになりDOMに影響しない &lt;code&gt;&amp;lt;ng-container&amp;gt;&lt;/code&gt; が導入されました。&lt;br /&gt;
+テンプレート内で階層構造だけを作りたいときに使えます。例えば &lt;code&gt;ngSwitch&lt;/code&gt; で無駄なdivタグを作らなくてよくなります。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;core/linker:&lt;/strong&gt; add SimpleChanges type to lifecycle_hooks to simplify OnChanges signature (&lt;a href=&#34;https://github.com/angular/angular/commit/0a872ff&#34; target=&#34;_blank&#34;&gt;0a872ff&lt;/a&gt;), closes &lt;a href=&#34;https://github.com/angular/angular/issues/8557&#34; target=&#34;_blank&#34;&gt;#8557&lt;/a&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;code&gt;ngOnChanges&lt;/code&gt; メソッドに渡される引数の型が &lt;code&gt;SimpleChanges&lt;/code&gt; 型になりました。&lt;br /&gt;
+実体は&lt;code&gt;{[key:string]: SimpleChange}&lt;/code&gt; のタイプエイリアスです&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;metadata:&lt;/strong&gt; Allow spacing in multiple selectors (#7418) (&lt;a href=&#34;https://github.com/angular/angular/commit/b2e804c&#34; target=&#34;_blank&#34;&gt;b2e804c&lt;/a&gt;)&lt;br /&gt;
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;これも私のPRです。&lt;br /&gt;
+&lt;code&gt;@ViewChildren&lt;/code&gt; や &lt;code&gt;@ContentChildren&lt;/code&gt; に文字列でテンプレート変数を渡すときにカンマ区切りの中にスペースを許容するようになりました&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;shadow_css:&lt;/strong&gt; add encapsulation support for CSS @supports at-rule (&lt;a href=&#34;https://github.com/angular/angular/commit/cb84cbf&#34; target=&#34;_blank&#34;&gt;cb84cbf&lt;/a&gt;), closes &lt;a href=&#34;https://github.com/angular/angular/issues/7944&#34; target=&#34;_blank&#34;&gt;#7944&lt;/a&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;code&gt;ViewEncapusulation.Emulated&lt;/code&gt; がCSSの &lt;code&gt;@supports&lt;/code&gt; に対応しました。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;ViewEncapsulation:&lt;/strong&gt; default ViewEncapsulation to configurable (&lt;a href=&#34;https://github.com/angular/angular/commit/f93512b&#34; target=&#34;_blank&#34;&gt;f93512b&lt;/a&gt;), closes &lt;a href=&#34;https://github.com/angular/angular/issues/7883&#34; target=&#34;_blank&#34;&gt;#7883&lt;/a&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;これも私のPRです。&lt;br /&gt;
+&lt;code&gt;Component&lt;/code&gt; デコレータに &lt;code&gt;encapsulation&lt;/code&gt; プロパティを設定しなかった時のデフォルトの設定を変更できるようになりました。&lt;br /&gt;
+&lt;code&gt;CompilerConfig&lt;/code&gt; から変更可能です&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;ComponentResolver:&lt;/strong&gt; Add a SystemJS resolver for compiled apps (#9145) (&lt;a href=&#34;https://github.com/angular/angular/commit/a6e5ddc&#34; target=&#34;_blank&#34;&gt;a6e5ddc&lt;/a&gt;)&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;core:&lt;/strong&gt; add a component resolver that can load components lazily using system.js (&lt;a href=&#34;https://github.com/angular/angular/commit/1a0aea6&#34; target=&#34;_blank&#34;&gt;1a0aea6&lt;/a&gt;)&lt;br /&gt;
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;SystemJSを使ったダイナミックなコンポーネントの読み込みをサポートするための仕組みが整いつつあります。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;core:&lt;/strong&gt; introduce support for animations (&lt;a href=&#34;https://github.com/angular/angular/commit/5e0f8cf&#34; target=&#34;_blank&#34;&gt;5e0f8cf&lt;/a&gt;), closes &lt;a href=&#34;https://github.com/angular/angular/issues/8734&#34; target=&#34;_blank&#34;&gt;#8734&lt;/a&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Animation APIが実装されました。詳しくは後述。&lt;/p&gt;
+
+&lt;h3 id=&#34;http関連&#34;&gt;HTTP関連&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;http:&lt;/strong&gt; Set response.ok (&lt;a href=&#34;https://github.com/angular/angular/commit/9234035&#34; target=&#34;_blank&#34;&gt;9234035&lt;/a&gt;), closes &lt;a href=&#34;https://github.com/angular/angular/issues/6390&#34; target=&#34;_blank&#34;&gt;#6390&lt;/a&gt; &lt;a href=&#34;https://github.com/angular/angular/issues/6503&#34; target=&#34;_blank&#34;&gt;#6503&lt;/a&gt;&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Request:&lt;/strong&gt; Change Request.text&amp;rsquo;s return type to string (&lt;a href=&#34;https://github.com/angular/angular/commit/b2e0946&#34; target=&#34;_blank&#34;&gt;b2e0946&lt;/a&gt;), closes &lt;a href=&#34;https://github.com/angular/angular/issues/8138&#34; target=&#34;_blank&#34;&gt;#8138&lt;/a&gt;&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;http:&lt;/strong&gt; added withCredentials support (&lt;a href=&#34;https://github.com/angular/angular/commit/95af14b&#34; target=&#34;_blank&#34;&gt;95af14b&lt;/a&gt;), closes &lt;a href=&#34;https://github.com/angular/angular/issues/7281&#34; target=&#34;_blank&#34;&gt;#7281&lt;/a&gt; &lt;a href=&#34;https://github.com/angular/angular/issues/7281&#34; target=&#34;_blank&#34;&gt;#7281&lt;/a&gt;&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;http:&lt;/strong&gt; automatically set request Content-Type header based on body type (&lt;a href=&#34;https://github.com/angular/angular/commit/0f0a8ad&#34; target=&#34;_blank&#34;&gt;0f0a8ad&lt;/a&gt;), closes &lt;a href=&#34;https://github.com/angular/angular/issues/7310&#34; target=&#34;_blank&#34;&gt;#7310&lt;/a&gt;&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;http:&lt;/strong&gt; implement Response.prototype.toString() to make for a nicer error message (&lt;a href=&#34;https://github.com/angular/angular/commit/89f6108&#34; target=&#34;_blank&#34;&gt;89f6108&lt;/a&gt;), closes &lt;a href=&#34;https://github.com/angular/angular/issues/7511&#34; target=&#34;_blank&#34;&gt;#7511&lt;/a&gt;&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;http:&lt;/strong&gt; set the statusText property from the XMLHttpRequest instance (&lt;a href=&#34;https://github.com/angular/angular/commit/3019140&#34; target=&#34;_blank&#34;&gt;3019140&lt;/a&gt;), closes &lt;a href=&#34;https://github.com/angular/angular/issues/4162&#34; target=&#34;_blank&#34;&gt;#4162&lt;/a&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;code&gt;RequestOptions&lt;/code&gt; と &lt;code&gt;BaseRequestOptions&lt;/code&gt; に &lt;code&gt;withCredentials&lt;/code&gt; プロパティが追加されたことと、&lt;br /&gt;
+&lt;code&gt;post()&lt;/code&gt; や &lt;code&gt;put()&lt;/code&gt; などの第2引数 &lt;code&gt;body&lt;/code&gt; がany型となり、その型によって自動的にContent-Typeを設定してくれるようになったのが重要です。&lt;br /&gt;
+今までワークアラウンドで解決していた部分が不要になるでしょう。&lt;/p&gt;
+
+&lt;h3 id=&#34;ルーター関連&#34;&gt;ルーター関連&lt;/h3&gt;
+
+&lt;p&gt;Router v3が出ていますのでRC.2に含まれているルーター関連のコミットはほとんど意味ないです。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;router:&lt;/strong&gt; Added pushState fallback for IE 9 browser. (&lt;a href=&#34;https://github.com/angular/angular/commit/bab6023&#34; target=&#34;_blank&#34;&gt;bab6023&lt;/a&gt;), closes &lt;a href=&#34;https://github.com/angular/angular/issues/6506&#34; target=&#34;_blank&#34;&gt;#6506&lt;/a&gt; &lt;a href=&#34;https://github.com/angular/angular/issues/7929&#34; target=&#34;_blank&#34;&gt;#7929&lt;/a&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;ブラウザがPushStateに対応していない時のフォールバックが追加されました&lt;/p&gt;
+
+&lt;h3 id=&#34;パイプ-ディレクティブ関連&#34;&gt;パイプ・ディレクティブ関連&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;ngSwitch:&lt;/strong&gt; use switchCase instead of switchWhen (#9076) (&lt;a href=&#34;https://github.com/angular/angular/commit/e1fcab7&#34; target=&#34;_blank&#34;&gt;e1fcab7&lt;/a&gt;)&lt;br /&gt;
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;code&gt;ngSwitchWhen&lt;/code&gt; が &lt;code&gt;ngSwitchCase&lt;/code&gt; に改名されました。JavaScriptのswitch文と合わせた形です。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;common:&lt;/strong&gt; DatePipe supports ISO string (&lt;a href=&#34;https://github.com/angular/angular/commit/abc266f&#34; target=&#34;_blank&#34;&gt;abc266f&lt;/a&gt;), closes &lt;a href=&#34;https://github.com/angular/angular/issues/7794&#34; target=&#34;_blank&#34;&gt;#7794&lt;/a&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;これも私のPRです。&lt;br /&gt;
+DatePipeが &lt;code&gt;Date.fromISOString&lt;/code&gt; で受け入れ可能な ISO形式の文字列を許容するようになりました&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;common/datePipe:&lt;/strong&gt; change date formatter to use correct pattern closes #7008 (#8154) (&lt;a href=&#34;https://github.com/angular/angular/commit/324f014&#34; target=&#34;_blank&#34;&gt;324f014&lt;/a&gt;), closes &lt;a href=&#34;https://github.com/angular/angular/issues/7008&#34; target=&#34;_blank&#34;&gt;#7008&lt;/a&gt; [(#8154](&lt;a href=&#34;https://github.com/(/issues/8154&#34; target=&#34;_blank&#34;&gt;https://github.com/(/issues/8154&lt;/a&gt;)&lt;br /&gt;
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;DatePipeに渡すフォーマットが正しく動作するようになりました&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;NgTemplateOutlet:&lt;/strong&gt; add context to NgTemplateOutlet (&lt;a href=&#34;https://github.com/angular/angular/commit/164a091&#34; target=&#34;_blank&#34;&gt;164a091&lt;/a&gt;), closes &lt;a href=&#34;https://github.com/angular/angular/issues/9042&#34; target=&#34;_blank&#34;&gt;#9042&lt;/a&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;code&gt;ngTemplateOutlet&lt;/code&gt; にcontext を渡せるようになりました&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-html&#34;&gt;&amp;lt;template [ngTemplateOutlet]=&amp;quot;templateRefExpression&amp;quot; [ngOutletContext]=&amp;quot;objectExpression&amp;quot;&amp;gt;&amp;lt;/template&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;forms関連&#34;&gt;Forms関連&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Control:&lt;/strong&gt; Support select multiple with Control class (#8069) (&lt;a href=&#34;https://github.com/angular/angular/commit/84f859d&#34; target=&#34;_blank&#34;&gt;84f859d&lt;/a&gt;)&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;facade:&lt;/strong&gt; change EventEmitter to be sync by default (#8761) (&lt;a href=&#34;https://github.com/angular/angular/commit/e5904f4&#34; target=&#34;_blank&#34;&gt;e5904f4&lt;/a&gt;)&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;forms:&lt;/strong&gt; rename old forms folder to forms-deprecated (&lt;a href=&#34;https://github.com/angular/angular/commit/515a8e0&#34; target=&#34;_blank&#34;&gt;515a8e0&lt;/a&gt;)&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;forms:&lt;/strong&gt; update accessor value when native select value changes (&lt;a href=&#34;https://github.com/angular/angular/commit/7a2ce7f&#34; target=&#34;_blank&#34;&gt;7a2ce7f&lt;/a&gt;), closes &lt;a href=&#34;https://github.com/angular/angular/issues/8710&#34; target=&#34;_blank&#34;&gt;#8710&lt;/a&gt;&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;forms:&lt;/strong&gt; update value and validity when controls are added (&lt;a href=&#34;https://github.com/angular/angular/commit/50acb96&#34; target=&#34;_blank&#34;&gt;50acb96&lt;/a&gt;), closes &lt;a href=&#34;https://github.com/angular/angular/issues/8826&#34; target=&#34;_blank&#34;&gt;#8826&lt;/a&gt;&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;forms:&lt;/strong&gt; separate ngModelGroup from formGroupName (&lt;a href=&#34;https://github.com/angular/angular/commit/5c0cfdee48ba5aa48528a1c20ffd99318ee716ae&#34; target=&#34;_blank&#34;&gt;5c0cfde&lt;/a&gt;)&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;forms:&lt;/strong&gt; add the submitted flag to NgForm and NgFormModel directives (&lt;a href=&#34;https://github.com/angular/angular/commit/420e83a&#34; target=&#34;_blank&#34;&gt;420e83a&lt;/a&gt;), closes &lt;a href=&#34;https://github.com/angular/angular/issues/2960&#34; target=&#34;_blank&#34;&gt;#2960&lt;/a&gt; &lt;a href=&#34;https://github.com/angular/angular/issues/7449&#34; target=&#34;_blank&#34;&gt;#7449&lt;/a&gt;&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;forms:&lt;/strong&gt; allow ngModel to register with parent form (&lt;a href=&#34;https://github.com/angular/angular/commit/4ed6cf7&#34; target=&#34;_blank&#34;&gt;4ed6cf7&lt;/a&gt;)&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;forms:&lt;/strong&gt; compose validator fns automatically if arrays (&lt;a href=&#34;https://github.com/angular/angular/commit/61960c51a3b21d1cfba523f53016f6284182d4e3&#34; target=&#34;_blank&#34;&gt;61960c5&lt;/a&gt;)&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;forms:&lt;/strong&gt; support setting control name in ngModelOptions (&lt;a href=&#34;https://github.com/angular/angular/commit/a191e9697c32062eda06cd1f1cfd856d89c16026&#34; target=&#34;_blank&#34;&gt;a191e96&lt;/a&gt;)&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;forms:&lt;/strong&gt; add easy way to switch between forms modules (&lt;a href=&#34;https://github.com/angular/angular/commit/22916bb5d1abf2818d7d8d99d39605af251f42e4&#34; target=&#34;_blank&#34;&gt;22916bb&lt;/a&gt;)&lt;br /&gt;
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;code&gt;@angular/common&lt;/code&gt; の中の Forms APIはすべて deprecatedになりました。&lt;br /&gt;
+&lt;code&gt;ngForm&lt;/code&gt; や &lt;code&gt;ngModel&lt;/code&gt; などの基本的な機能はデフォルトで読み込まれるので気にする必要はありませんが、&lt;br /&gt;
+&lt;code&gt;FormBuilder&lt;/code&gt; などのモデルドリブンフォームのAPIは &lt;code&gt;@angular/forms&lt;/code&gt; から読み込むようになっていきます。&lt;/p&gt;
+
+&lt;p&gt;機能的には、select要素がmultipleをサポートできるようになったことや、&lt;br /&gt;
+&lt;code&gt;ngModel&lt;/code&gt; を設定している時に &lt;code&gt;ngControl&lt;/code&gt; を使わなくてよくなりました。&lt;br /&gt;
+また、 ngForm や ngFormModelが submitted フラグを持つようになりました。&lt;/p&gt;
+
+&lt;h3 id=&#34;テスト-デバッグ関連&#34;&gt;テスト・デバッグ関連&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;enableDebugTools:&lt;/strong&gt; return ComponentRef (&lt;a href=&#34;https://github.com/angular/angular/commit/4086b49&#34; target=&#34;_blank&#34;&gt;4086b49&lt;/a&gt;)&lt;br /&gt;
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;code&gt;enableDebugTools&lt;/code&gt; が &lt;code&gt;ComponentRef&lt;/code&gt; を返すようになったので、 &lt;code&gt;bootstrap()&lt;/code&gt;の戻り値のPromiseの中で使いやすくなりました。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ts&#34;&gt;bootstrap(App)
+  .then(enableDebugTools);
+  .then(cmpRef =&amp;gt; {
+      ...
+  });
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;testing:&lt;/strong&gt;  add discardPeriodicTasks to be used with fakeAsync (#8629) (&lt;a href=&#34;https://github.com/angular/angular/commit/0cb93a4&#34; target=&#34;_blank&#34;&gt;0cb93a4&lt;/a&gt;), closes &lt;a href=&#34;https://github.com/angular/angular/issues/8616&#34; target=&#34;_blank&#34;&gt;#8616&lt;/a&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;code&gt;discardPeriodicTasks&lt;/code&gt; 関数が追加されました。 &lt;code&gt;fakeAsync&lt;/code&gt; 中で残っているピリオディックなタスクを破棄します。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;debug:&lt;/strong&gt; collect styles and classes for the DebugElement (&lt;a href=&#34;https://github.com/angular/angular/commit/155b882&#34; target=&#34;_blank&#34;&gt;155b882&lt;/a&gt;)&lt;br /&gt;
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;code&gt;DebugElement&lt;/code&gt; がstylesとclasssを持つようになりました。&lt;/p&gt;
+
+&lt;h3 id=&#34;セキュリティ関連&#34;&gt;セキュリティ関連&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;security:&lt;/strong&gt; allow data: URLs for images and videos. (&lt;a href=&#34;https://github.com/angular/angular/commit/dd50124&#34; target=&#34;_blank&#34;&gt;dd50124&lt;/a&gt;)&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;security:&lt;/strong&gt; allow url(&amp;hellip;) style values. (&lt;a href=&#34;https://github.com/angular/angular/commit/15ae710&#34; target=&#34;_blank&#34;&gt;15ae710&lt;/a&gt;), closes &lt;a href=&#34;https://github.com/angular/angular/issues/8514&#34; target=&#34;_blank&#34;&gt;#8514&lt;/a&gt;&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;security:&lt;/strong&gt; Automatic XSRF handling. (&lt;a href=&#34;https://github.com/angular/angular/commit/4d793c4&#34; target=&#34;_blank&#34;&gt;4d793c4&lt;/a&gt;)&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;security:&lt;/strong&gt; expose the safe value types. (&lt;a href=&#34;https://github.com/angular/angular/commit/50c9bed&#34; target=&#34;_blank&#34;&gt;50c9bed&lt;/a&gt;), closes &lt;a href=&#34;https://github.com/angular/angular/issues/8568&#34; target=&#34;_blank&#34;&gt;#8568&lt;/a&gt;&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;security:&lt;/strong&gt; support transform CSS functions for sanitization. (&lt;a href=&#34;https://github.com/angular/angular/commit/8b1b427&#34; target=&#34;_blank&#34;&gt;8b1b427&lt;/a&gt;), closes &lt;a href=&#34;https://github.com/angular/angular/issues/8514&#34; target=&#34;_blank&#34;&gt;#8514&lt;/a&gt;&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;security:&lt;/strong&gt; warn users when sanitizing in dev mode. (&lt;a href=&#34;https://github.com/angular/angular/commit/3e68b7e&#34; target=&#34;_blank&#34;&gt;3e68b7e&lt;/a&gt;), closes &lt;a href=&#34;https://github.com/angular/angular/issues/8522&#34; target=&#34;_blank&#34;&gt;#8522&lt;/a&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;ようやく落ち着きを見せてきたセキュリティ対応です。&lt;br /&gt;
+&lt;code&gt;data:image/png&lt;/code&gt; のような値が許可されたり、スタイルの &lt;code&gt;url()&lt;/code&gt; 関数が許可されたり、CSS中の関数のバリデーションが緩和されたりしています。&lt;br /&gt;
+また、ProdModeじゃない時にはセキュリティに引っかかったときにwarningメッセージが出てくるようになりました&lt;/p&gt;
+
+&lt;h3 id=&#34;アップグレード関連&#34;&gt;アップグレード関連&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;upgrade:&lt;/strong&gt; allow deeper nesting of ng2 components/directives (#8949) (&lt;a href=&#34;https://github.com/angular/angular/commit/48bf349&#34; target=&#34;_blank&#34;&gt;48bf349&lt;/a&gt;)&lt;br /&gt;
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;ng2 &amp;gt; ng1 &amp;gt; ng2 のような複雑な入れ子構造で正しく動くようになります&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;upgrade:&lt;/strong&gt; allow functions for template and templateUrl (#9022) (&lt;a href=&#34;https://github.com/angular/angular/commit/a19c4e8&#34; target=&#34;_blank&#34;&gt;a19c4e8&lt;/a&gt;)&lt;br /&gt;
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;ng1側のディレクティブの &lt;code&gt;template&lt;/code&gt; や &lt;code&gt;templateUrl&lt;/code&gt; が関数の場合にその戻り値をテンプレートとして扱うようになりました&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;upgrade:&lt;/strong&gt; Ensure upgrade adapter works on angular.js 1.2 (#8647) (&lt;a href=&#34;https://github.com/angular/angular/commit/cbc8d0a&#34; target=&#34;_blank&#34;&gt;cbc8d0a&lt;/a&gt;)&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;upgrade:&lt;/strong&gt; make bindings available on $scope in controller &amp;amp; link function (#8645) (&lt;a href=&#34;https://github.com/angular/angular/commit/6cdc53c&#34; target=&#34;_blank&#34;&gt;6cdc53c&lt;/a&gt;)&lt;br /&gt;
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Angular 1.2に対応しました。 &lt;code&gt;bindToController&lt;/code&gt; がないときにはディレクティブのcontroller関数やlink関数で &lt;code&gt;$scope&lt;/code&gt; から&lt;br /&gt;
+ng2 componentからのデータバインディングが可能になりました&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;upgrade:&lt;/strong&gt; fallback to root ng2 injector when element is compiled outside the document (#86 (&lt;a href=&#34;https://github.com/angular/angular/commit/db82906&#34; target=&#34;_blank&#34;&gt;db82906&lt;/a&gt;)&lt;br /&gt;
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;ui-routerのように、ディレクティブを外部でコンパイルしたものをドキュメントに挿入した時に、&lt;br /&gt;
+挿入されたディレクティブがルートのInjectorを参照するようにフォールバックが追加されました&lt;/p&gt;
+
+&lt;h3 id=&#34;その他&#34;&gt;その他&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;add minified bundles (&lt;a href=&#34;https://github.com/angular/angular/commit/9175a04&#34; target=&#34;_blank&#34;&gt;9175a04&lt;/a&gt;)&lt;br /&gt;
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;各パッケージごとにbundleされたumd.jsが同梱されます&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;また、CHANGELOG以外にも公式ブログでのアナウンスもされているので一緒に紹介します。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://angularjs.blogspot.jp/2016/06/rc2-now-available.html&#34; target=&#34;_blank&#34;&gt;RC2 Now Available&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;animation-apiのサポート&#34;&gt;Animation APIのサポート&lt;/h3&gt;
+
+&lt;p&gt;ついにAnimation APIが実装されました。ドキュメントも用意されています。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://angular.io/docs/ts/latest/guide/animations.html&#34; target=&#34;_blank&#34;&gt;Animations - ts&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;このドキュメントはng-confでもAnimationを担当した@teropa氏によるものです。&lt;br /&gt;
+gitアニメーション付きでわかりやすくてよいです。&lt;/p&gt;
+
+&lt;h3 id=&#34;forms-api&#34;&gt;Forms API&lt;/h3&gt;
+
+&lt;p&gt;RC.2に新しいForms APIの一部が実装されています。オプトインになっているので試したい方は &lt;code&gt;@angular/forms&lt;/code&gt; を使ってみましょう。&lt;/p&gt;
+
+&lt;h3 id=&#34;多くのプルリクエストの消化&#34;&gt;多くのプルリクエストの消化&lt;/h3&gt;
+
+&lt;p&gt;100以上のPRがマージされ、多くのバグが修正され、大きく改善されました&lt;/p&gt;
+
+&lt;h3 id=&#34;web-workerサポート&#34;&gt;Web Workerサポート&lt;/h3&gt;
+
+&lt;p&gt;RCリリースの際に一度ドロップしていたWeb Workerサポートが完全復帰しました。&lt;/p&gt;
+
+&lt;h3 id=&#34;今後の予定&#34;&gt;今後の予定&lt;/h3&gt;
+
+&lt;p&gt;RCは今後もいくつか続き、最終的には2.0.0 Finalを目指していきます。&lt;br /&gt;
+数ヶ月以内に辿り着きそうとのことで、FormsやRouterも含めて期待していきましょう。&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;いかがでしたでしょうか。&lt;br /&gt;
+大きく変わったのはForms周りくらいで、あとはちょっと便利な機能が増えたりバグが直ったりと嬉しい変更ばかりです。&lt;br /&gt;
+新しいForms APIに関してはまだ未完成なので今後も要チェックです。しばらくは今までどおりのAPIを使っていてもいいでしょう。&lt;br /&gt;
+RC.3は来月以降とのことなのでゆっくり慣らしていけるはずです。&lt;/p&gt;
+
+&lt;p&gt;Router v3も細かい修正が重なっているので、落ち着いたところでまた変更点を紹介します。&lt;br /&gt;
+それではまた。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Angular 2 RCリリースについて</title>
+      <link>https://ng2-info.github.io/2016/05/angular-2-rc-1/</link>
+      <pubDate>Mon, 09 May 2016 11:35:30 +0900</pubDate>
+      
+      <guid>https://ng2-info.github.io/2016/05/angular-2-rc-1/</guid>
+      <description>
+
+&lt;p&gt;ng-confお疲れ様でした、らこです。&lt;br /&gt;
+Angular 2もついにRelease Candidateとなりまして、最終リリースへのステップをまたひとつ進めたところです。&lt;br /&gt;
+Betaから大きく変わっている部分もありますが基本的には機械的に対応可能な破壊的変更なので、さくっとRC対応していきましょう。&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&#34;パッケージの変更&#34;&gt;パッケージの変更&lt;/h2&gt;
+
+&lt;p&gt;RCからはnpmで配布するパッケージ自体が変わりました。&lt;br /&gt;
+今まではすべて &lt;code&gt;angular2&lt;/code&gt; パッケージの中にまとめられて配布されていましたが、今後は細かい単位でパッケージが分割されます。&lt;br /&gt;
+古い&lt;code&gt;angular2&lt;/code&gt;のモジュールと新しいパッケージの対応は以下のようになっています。&lt;/p&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th align=&#34;center&#34;&gt;&lt;code&gt;angular2/***&lt;/code&gt;&lt;/th&gt;
+&lt;th align=&#34;center&#34;&gt;&lt;code&gt;@angular/***&lt;/code&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td align=&#34;center&#34;&gt;core&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;core&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;center&#34;&gt;common&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;common&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;center&#34;&gt;compiler&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;compiler&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;center&#34;&gt;testing&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;core/testing, compiler/testing, platform-browser/testing,&amp;hellip;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;center&#34;&gt;platform/browser&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;platform-browser, &lt;strong&gt;platform-browser-dynamic&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;center&#34;&gt;platform/server&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;platform-server&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;center&#34;&gt;platform/common&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;strong&gt;common&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;center&#34;&gt;http&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;http&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;center&#34;&gt;router&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;strong&gt;router-deprecated&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;center&#34;&gt;alt_router&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;strong&gt;router&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;center&#34;&gt;upgrade&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;upgrade&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;&lt;code&gt;@angular/core&lt;/code&gt; というパッケージ名は、npmの &lt;em&gt;scoped package&lt;/em&gt; という形式で、&lt;br /&gt;
+「&amp;rdquo;angular&amp;rdquo; organizationの &amp;ldquo;core&amp;rdquo; パッケージ」という意味になります。&lt;br /&gt;
+具体的には次のようなインストールコマンドを使います。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ npm i @angular/core @angular/compiler @angular/common @angular/platform-browser @angular/platform-browser-dynamic
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;パッケージは小分けになりましたが、各パッケージはpeer dependencyで依存しあっているので、&lt;br /&gt;
+もし足りないパッケージがあったとしてもインストール後にwarningが発生して教えてくれます。&lt;/p&gt;
+
+&lt;p&gt;ところで、一部のAPI、&lt;code&gt;AnimationBuilder&lt;/code&gt;や&lt;code&gt;BrowserDomAdapter&lt;/code&gt;などがパブリックなAPIから消滅しています。&lt;br /&gt;
+内部的には存在していて、無理やり使用することはできますが、自己責任で。&lt;br /&gt;
+おそらくRC以降に巻き込まれて一時的に隠れているだけだと思われます。&lt;/p&gt;
+
+&lt;h2 id=&#34;依存パッケージの変更&#34;&gt;依存パッケージの変更&lt;/h2&gt;
+
+&lt;p&gt;今までAngular 2はいくつかのpeer dependencyを持っていましたが、それが最小限のものだけになりました。&lt;br /&gt;
+具体的には、&lt;code&gt;es6-shim&lt;/code&gt;と&lt;code&gt;reflect-metadata&lt;/code&gt;がpeer dependencyから削除されました。&lt;br /&gt;
+これは依存しなくなったわけではなく、使用するpolyfillをユーザーに委ねるようにした、いわゆるポリシー変更です。&lt;br /&gt;
+ES6機能のpolyfillには以前からcore-jsなど他のものを使うことができましたが、es6-shimをインストールしないとwarningがでるという状態だったので、&lt;br /&gt;
+扱いやすい形に変わったといえます。&lt;/p&gt;
+
+&lt;h2 id=&#34;platform-browserとplatform-browser-dynamicの分割&#34;&gt;platform-browserとplatform-browser-dynamicの分割&lt;/h2&gt;
+
+&lt;p&gt;従来通りランタイムでbootstrapする方式と、Offline Compilerを使ったstaticなbootstrap方式の両方をサポートするため、&lt;br /&gt;
+ブラウザプラットフォーム用のパッケージが&lt;code&gt;@angular/platform-browser&lt;/code&gt;と&lt;code&gt;@angular/platform-browser-dynamic&lt;/code&gt;に分割されました。&lt;br /&gt;
+元々&lt;code&gt;angular2/platform/browser&lt;/code&gt;からexportされてた&lt;code&gt;bootstrap&lt;/code&gt;関数は、&lt;code&gt;@angular/platform-browser-dynamic&lt;/code&gt;に含まれています。&lt;/p&gt;
+
+&lt;h2 id=&#34;alt-routerがrouterに昇格&#34;&gt;alt_routerがrouterに昇格&lt;/h2&gt;
+
+&lt;p&gt;今までの&lt;code&gt;angular2/router&lt;/code&gt;モジュールは&lt;code&gt;@angular/router-deprecated&lt;/code&gt;パッケージとなり、&lt;br /&gt;
+その名の通り過去のものになってしまいました。&lt;br /&gt;
+そしてVictor Savkinが作りなおした新しいパッケージが&lt;code&gt;@angular/router&lt;/code&gt;として配布されています。&lt;/p&gt;
+
+&lt;p&gt;しかしまだ&lt;code&gt;@angular/router&lt;/code&gt;は開発途上なので、旧routerから移行するには機能が足りていない場合があります。&lt;br /&gt;
+既存のAngular 2アプリケーションはまだしばらく&lt;code&gt;@angular/router-deprecated&lt;/code&gt;でもよさそうです。&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;Beta.17まで順調についてきていればあとはパッケージ名の置換だけで済むはずなので、さくっとRC対応できるはずです。&lt;br /&gt;
+RCも短いスパンでアップデートされていくのが目に見えているので、置いていかれないようにしていきましょう。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>週次ミーティングとBeta.10予告</title>
+      <link>https://ng2-info.github.io/2016/03/weekly-meeting-mar-15/</link>
+      <pubDate>Tue, 15 Mar 2016 23:59:19 +0900</pubDate>
+      
+      <guid>https://ng2-info.github.io/2016/03/weekly-meeting-mar-15/</guid>
+      <description>
+
+&lt;p&gt;こんばんは、らこです。今週も週次ミーティングの内容をかいつまんで紹介していきます。&lt;/p&gt;
+
+&lt;h2 id=&#34;3-14-週次ミーティング&#34;&gt;3/14 週次ミーティング&lt;/h2&gt;
+
+&lt;h3 id=&#34;batarangleの更新&#34;&gt;Batarangleの更新&lt;/h3&gt;
+
+&lt;p&gt;Angular 2用のBatarangleがBeta.8に対応したようです。というよりもBeta.8で追加されたAPIを元に解析するので、&lt;br /&gt;
+Beta.8以前のAngular 2アプリケーションはBatarangleでデバッグできなくなりました。&lt;/p&gt;
+
+&lt;p&gt;新機能としてRouterやDIのInjector周りのビジュアライズができるようになったらしいです。&lt;br /&gt;
+今後はComponentやRoute、DIなどをリアルタイムでオンオフ切り替えしながらビューを比較できるようなことを目指すらしいです。期待。&lt;/p&gt;
+
+&lt;h3 id=&#34;angular-2-final進捗報告&#34;&gt;Angular 2 Final進捗報告&lt;/h3&gt;
+
+&lt;p&gt;Angular 2 Finalに向けて大きなカテゴリごとに進捗報告です。&lt;/p&gt;
+
+&lt;h4 id=&#34;code-generation&#34;&gt;Code Generation&lt;/h4&gt;
+
+&lt;p&gt;今まであまり表に出ていなかった計画ですが、Code Generation(コード生成)による爆速化に向けて作業が進められています。&lt;/p&gt;
+
+&lt;p&gt;Code Generationとは、現在bootstrap時に計算しているリフレクションを事前に計算しておき、起動処理時間を短縮する試みです。&lt;br /&gt;
+具体的には&lt;code&gt;@Component&lt;/code&gt;や&lt;code&gt;@Directive&lt;/code&gt;などのメタデータの計算結果をコードとして生成します。作業は&lt;a href=&#34;https://github.com/angular/angular/issues/6270&#34; target=&#34;_blank&#34;&gt;このPR&lt;/a&gt;で行われています。&lt;br /&gt;
+現在はまだTypeScript/JavaScript版でしか動作せず、Dart版でも使えるようにしている段階ですが、完成すればざっくり5倍は速くなるそうです。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://i.imgur.com/FU7jlvH.png&#34; alt=&#34;Imgur&#34; /&gt;&lt;/p&gt;
+
+&lt;h4 id=&#34;ng2-material&#34;&gt;ng2-material&lt;/h4&gt;
+
+&lt;p&gt;今週Alpha版のリリースがあるようです。最初はAlpha.0からスタートで、&lt;code&gt;ngButton&lt;/code&gt;、&lt;code&gt;ngCard&lt;/code&gt;など基本的なパーツだけを含んでいます。&lt;br /&gt;
+今後のアップデートで要素はもっと増えていく予定です。&lt;/p&gt;
+
+&lt;h4 id=&#34;gesture&#34;&gt;Gesture&lt;/h4&gt;
+
+&lt;p&gt;モバイルのタッチイベントなどに対応するライブラリも開発中で、ng2-materialからも利用される予定です。&lt;/p&gt;
+
+&lt;h4 id=&#34;進捗具合&#34;&gt;進捗具合&lt;/h4&gt;
+
+&lt;p&gt;現在のところ20%程度です。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/angular/angular/milestones&#34; target=&#34;_blank&#34;&gt;https://github.com/angular/angular/milestones&lt;/a&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;blockquote class=&#34;twitter-tweet&#34; data-lang=&#34;ja&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;Angular 2 final release progress now at 20%.&lt;br&gt;This can regress if we find critical issues, but GO TEAM GO! :) &lt;a href=&#34;https://t.co/R7EExZOpTE&#34;&gt;pic.twitter.com/R7EExZOpTE&lt;/a&gt;&lt;/p&gt;&amp;mdash; Brad Green (@bradlygreen) &lt;a href=&#34;https://twitter.com/bradlygreen/status/709521449070022657&#34;&gt;2016年3月14日&lt;/a&gt;&lt;/blockquote&gt;&lt;br /&gt;
+&lt;script async src=&#34;//platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;angularプロジェクトのnpmガイドライン&#34;&gt;Angularプロジェクトのnpmガイドライン&lt;/h3&gt;
+
+&lt;p&gt;Angularプロジェクトで公開するnpmパッケージについてルールを決めようという話です。&lt;br /&gt;
+現在Angular2本体は&lt;code&gt;angular2&lt;/code&gt;として公開されていますが、npmで検索した時にどれが公式のパッケージなのかわからない問題があるということでどうにか解決できないかと模索中です。&lt;br /&gt;
+具体的には、先日公開されたng1用のComponentRouterは&lt;code&gt;@angular/router&lt;/code&gt;として公開されており、&lt;code&gt;@angular/&lt;/code&gt;スコープを一律で使うようにするのがいいんじゃないかという意見が強いです。&lt;br /&gt;
+ただし特殊なパッケージ名に見えるしnpm依存の何かしらのツールでは対応できないんじゃないかという懸念がありより良い方法がないか検討中です。&lt;/p&gt;
+
+&lt;h3 id=&#34;fluent-conferenceが開催されました&#34;&gt;Fluent Conferenceが開催されました&lt;/h3&gt;
+
+&lt;p&gt;オライリーが主催のFluent Conferenceが開催され、BradがKeynoteでAngular 2についてスピーチしました。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://www.oreilly.com/ideas/angular-2-and-the-future-of-html5-apps&#34; target=&#34;_blank&#34;&gt;Angular 2 and the future of HTML5 apps - O&amp;rsquo;Reilly Media&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;先程のCode Generationの画像もこの動画からです。Angularイベントではないのに新情報が盛り沢山なのですが、一番衝撃的だったのはAngular Universalの今後です。&lt;br /&gt;
+現在Node.js用に開発されているAngular Universalが将来的には.NetやPHP、Javaでも使えるようにするとの話です。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://i.imgur.com/Dp3zMzm.png&#34; alt=&#34;Imgur&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;先日JeffがJavaやPythonもサポートするだろうと言っていたのはあまり真に受けてなかったのですが、Bradが公式にプレゼンした以上これはほぼ確約と言っていいのではないかと思います。&lt;br /&gt;
+とはいえ今年中に来る気はしないですが楽しみに待ちましょう。&lt;/p&gt;
+
+&lt;h3 id=&#34;ng1用componentrouterのドキュメントができました&#34;&gt;ng1用ComponentRouterのドキュメントができました&lt;/h3&gt;
+
+&lt;p&gt;Angular 1.5のドキュメントにComponent Routerの使いかたが追加されました。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://docs.angularjs.org/guide/component-router&#34; target=&#34;_blank&#34;&gt;AngularJS: Developer Guide: Component Router&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;zonesの標準化&#34;&gt;Zonesの標準化&lt;/h3&gt;
+
+&lt;p&gt;Zonesの仕様をTC39のStage 1に上げようという計画です。現在のZone.jsの全部の機能を仕様化するのはやめて、最小限の機能でまずはv1としてStage 1に移行させる予定です。&lt;br /&gt;
+今月28日のTC39のミーティングにむけて作業中のようです。&lt;/p&gt;
+
+&lt;h3 id=&#34;メソッドパラメータのdecoratorについて&#34;&gt;メソッドパラメータのDecoratorについて&lt;/h3&gt;
+
+&lt;p&gt;Babelでメソッドの引数にDecoratorを使えるようにPRを出したらしいです。これが通ればAngular 2のES6版とTS版は型の有無以外の差がなくなります。&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;ざっくりこんな感じです。Bradの動画はぜひ見て欲しいです。&lt;/p&gt;
+
+&lt;p&gt;今日はさらに今週リリースされるであろうBeta.10の予告も行います。久々に大きな変更がありますので備えておきましょう。&lt;/p&gt;
+
+&lt;h3 id=&#34;view-の廃止-破壊的変更&#34;&gt;&lt;code&gt;@View&lt;/code&gt;の廃止 [破壊的変更]&lt;/h3&gt;
+
+&lt;p&gt;随分前から非推奨になっていた&lt;code&gt;@View&lt;/code&gt;アノテーションがついに削除されました。もし古いコードで依存している場合は&lt;code&gt;@Component&lt;/code&gt;に切り替えましょう&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/angular/angular/commit/f9fb72fb0e9bcbda7aeebbf8321ce5d70d78ecee&#34; target=&#34;_blank&#34;&gt;chore(core): remove @View annotation · angular/angular@f9fb72f&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;shadow-cssにおける-deep-と-のサポート&#34;&gt;Shadow CSSにおける&lt;code&gt;/deep/&lt;/code&gt;と&lt;code&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/code&gt;のサポート&lt;/h3&gt;
+
+&lt;p&gt;CSSの&lt;code&gt;/deep/&lt;/code&gt;と&lt;code&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/code&gt;が`ViewEncapsulate.Emutatedでもサポートされます&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/angular/angular/pull/7563&#34; target=&#34;_blank&#34;&gt;feat(shadow_css): support &lt;code&gt;/deep/&lt;/code&gt; and &lt;code&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/code&gt; by tbosch · Pull Request #7563 · angular/angular&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;ngplural-の追加&#34;&gt;&lt;code&gt;ngPlural&lt;/code&gt;の追加&lt;/h3&gt;
+
+&lt;p&gt;i18n用の新しいディレクティブ&lt;code&gt;ngPlural&lt;/code&gt;と&lt;code&gt;ngPluralCase&lt;/code&gt;が追加されました。&lt;code&gt;ngSwitch&lt;/code&gt;と似たような使い方をします。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;@Component({
+  selector: &#39;app&#39;,
+  template: `
+    &amp;lt;div [ngPlural]=&amp;quot;value&amp;quot;&amp;gt;
+      &amp;lt;template ngPluralCase=&amp;quot;=0&amp;quot;&amp;gt;there is nothing&amp;lt;/template&amp;gt;
+      &amp;lt;template ngPluralCase=&amp;quot;=1&amp;quot;&amp;gt;there is one&amp;lt;/template&amp;gt;
+      &amp;lt;template ngPluralCase=&amp;quot;other&amp;quot;&amp;gt;there is some number&amp;lt;/template&amp;gt;
+    &amp;lt;/div&amp;gt;
+  `,
+  directives: [NgPlural, NgPluralCase]
+})
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;というわけで今回はここまで。それではまた。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>週次ミーティング、RCリリースに関する情報他</title>
+      <link>https://ng2-info.github.io/2016/03/weekly-meeting-mar-9/</link>
+      <pubDate>Wed, 09 Mar 2016 21:45:29 +0900</pubDate>
+      
+      <guid>https://ng2-info.github.io/2016/03/weekly-meeting-mar-9/</guid>
+      <description>
+
+&lt;p&gt;どうも、らこです。今週も週次ミーティングの内容をチェックしていきます。ですがその前にまずは重大なニュースを紹介します。&lt;/p&gt;
+
+&lt;h2 id=&#34;google-preps-angular-2-for-final-release&#34;&gt;Google Preps Angular 2 for Final Release&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://thenewstack.io/google-preps-angular-2-final-release/&#34; target=&#34;_blank&#34;&gt;http://thenewstack.io/google-preps-angular-2-final-release/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;先週投稿された記事です。GoogleがAngular 2の &lt;strong&gt;Final Release&lt;/strong&gt; の準備を始めているというニュースを取り上げています。&lt;br /&gt;
+初めは半信半疑だったのですが、この記事に続いて先日GitHubのリポジトリ上でRelease Candidateのマイルストーンが作成され、&lt;br /&gt;
+さらにBradが次のようにツイートしていることから、確実な情報だと思われます。&lt;/p&gt;
+
+&lt;p&gt;&lt;blockquote class=&#34;twitter-tweet&#34; data-lang=&#34;ja&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;We&amp;#39;re in the chute for Angular 2 final. Follow along at home via our milestone: &lt;a href=&#34;https://t.co/2U9urkadAd&#34;&gt;https://t.co/2U9urkadAd&lt;/a&gt; &lt;a href=&#34;https://t.co/7Nv6zfOq27&#34;&gt;pic.twitter.com/7Nv6zfOq27&lt;/a&gt;&lt;/p&gt;&amp;mdash; Brad Green (@bradlygreen) &lt;a href=&#34;https://twitter.com/bradlygreen/status/707291878777982976&#34;&gt;2016, 3月 8&lt;/a&gt;&lt;/blockquote&gt;&lt;br /&gt;
+&lt;script async src=&#34;//platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;&lt;/p&gt;
+
+&lt;p&gt;つまり、これらの文脈での &lt;strong&gt;Final&lt;/strong&gt; とはRCリリースのことを意味しているらしく、完全なStableリリースではないようです。&lt;br /&gt;
+記事の情報を信じるならば、ng-confあたりでRCの開始となってもおかしくありません。実に楽しみですね。&lt;/p&gt;
+
+&lt;p&gt;というわけでここからは週次ミーティングのまとめです。&lt;/p&gt;
+
+&lt;h2 id=&#34;angular-weekly-meeting&#34;&gt;Angular Weekly Meeting&lt;/h2&gt;
+
+&lt;h3 id=&#34;finalリリースに向けた準備&#34;&gt;Finalリリースに向けた準備&lt;/h3&gt;
+
+&lt;p&gt;先述のRCリリースに向けた仕上げの調整を始めているようです。まずは今できている機能の確認や、リポジトリの整理などを行います。&lt;br /&gt;
+さらにドッグフーディングをもっと行って品質の向上を図っていくようです。&lt;/p&gt;
+
+&lt;h3 id=&#34;angular-1-5-1のリリースを急ぐ&#34;&gt;Angular 1.5.1のリリースを急ぐ&lt;/h3&gt;
+
+&lt;p&gt;AngularはGitHubと連携しているTravisだけではなく、&lt;strong&gt;google3&lt;/strong&gt; という名前の社内CIサーバーでもビルドのチェックを行っています。&lt;br /&gt;
+このCIサーバーが詰まっているらしくAngular 1.5.1がいつまでたってもリリースできない状態になっています。&lt;br /&gt;
+IgorとMatiasがこれを解決するための作業を行うので、解決でき次第1.5.1のリリースがされるはずです。&lt;/p&gt;
+
+&lt;h3 id=&#34;ブログ投稿予定&#34;&gt;ブログ投稿予定&lt;/h3&gt;
+
+&lt;p&gt;RCリリースに向けてCore TeamメンバーやGDEが続々とブログ記事を出していきます。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;AlexはOffline Compile TemplateのHelloWorldについて書く予定でしたが、この機能自体がRC段階では見送りになったのでおそらく書かれません。&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;RobはAngular 2を使ったProgressive Web Appsについて書く予定です。&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;Jeffはモバイル対応に関する全体的な話を書く予定です&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;MatiasはテンプレートやCSSなどのパーサについて書く予定です&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;Hansはangular-cliについて&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;Karaは初心者向けの入門記事と、trackByに関する記事&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;VictorはAngular 2のテンプレートによる利点について&lt;br /&gt;
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;公開され次第ng2-infoでも紹介していくつもりです。&lt;/p&gt;
+
+&lt;h2 id=&#34;angular-1-x-meeting&#34;&gt;Angular 1.x Meeting&lt;/h2&gt;
+
+&lt;h3 id=&#34;複数のjqueryのバージョンでテストするように&#34;&gt;複数のjQueryのバージョンでテストするように&lt;/h3&gt;
+
+&lt;p&gt;jQuery v3がリリースされるので、Angular 1.xのCIでもちゃんとテストするように対応するようです。&lt;/p&gt;
+
+&lt;h3 id=&#34;1-5-xで壊れていたbatarangの修正リリース&#34;&gt;1.5.xで壊れていたBatarangの修正リリース&lt;/h3&gt;
+
+&lt;p&gt;次期リリースで1.5.x対応できるようです&lt;/p&gt;
+
+&lt;h3 id=&#34;component-routerをangularjs側に組み込む計画&#34;&gt;Component RouterをAngularJS側に組み込む計画&lt;/h3&gt;
+
+&lt;p&gt;現在はngcomponentrouterパッケージとしてリリースされているAngular 1用Component Routerを、AngularJSのリポジトリに組み込む計画です。&lt;br /&gt;
+実現すればngRouteはおそらく廃止されるでしょう。&lt;/p&gt;
+
+&lt;h3 id=&#34;hashprefixのデフォルトを-に変える計画&#34;&gt;HashPrefixのデフォルトを&lt;code&gt;!&lt;/code&gt;に変える計画&lt;/h3&gt;
+
+&lt;p&gt;地味にでかい破壊的変更の計画があります。hashbangでのルーティングのデフォルトURLが&lt;br /&gt;
+&lt;code&gt;mydomain.com/#/a/b/c&lt;/code&gt;から&lt;code&gt;mydomain/#!/a/b/c.&lt;/code&gt;に変わります。元の挙動に戻すには&lt;code&gt;$locationProvider&lt;/code&gt;でhashPrefixを変更します。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;appModule.config([&#39;$locationProvider&#39;, function($locationProvider) {
+  $locationProvider.hashPrefix(&amp;quot;&amp;quot;);
+}]);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;唐突な変更で戸惑うかもしれませんが、発端はこのIssueです。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/angular/angular.js/issues/13812&#34; target=&#34;_blank&#34;&gt;$location.hash inserts two hash signs · Issue #13812 · angular/angular.js&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;$location.hash(&amp;quot;foo&amp;quot;)&lt;/code&gt;でURLに&lt;code&gt;#foo&lt;/code&gt;を追加しようとすると、ルートURLにいた時に&lt;code&gt;##foo&lt;/code&gt;になってしまう問題を解決するための変更です。&lt;br /&gt;
+この変更が入れば、&lt;code&gt;index.html#!#foo&lt;/code&gt;という風に&lt;code&gt;##&lt;/code&gt;を回避できます。&lt;/p&gt;
+
+&lt;p&gt;おそらく1.5.2か1.6に入ってくる変更でしょう。PushStateを使っていれば影響がないので切り替えておくのも手かもしれません。&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;今週はBeta.9が出るか出ないか怪しいところです。RCリリースに向けてすごく忙しそうなのでしばらくはBeta.8かもしれません。ゆったり待ちましょう。&lt;br /&gt;
+それでは。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://thenewstack.io/google-preps-angular-2-final-release/&#34; target=&#34;_blank&#34;&gt;Google Preps Angular 2 for Final Release - The New Stack&lt;/a&gt;&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://docs.google.com/document/d/150lerb1LmNLuau_a_EznPV1I1UHMTbEl61t4hZ7ZpS0/edit#heading=h.wyupmi438jru&#34; target=&#34;_blank&#34;&gt;Angular Weekly Meeting - Google ドキュメント&lt;/a&gt;&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://docs.google.com/document/d/1xKEbydyUEOQ_gTbcbxy_k2myctG8EiVbeMgLgXTxIc0/edit#&#34; target=&#34;_blank&#34;&gt;Angular 1.x Meeting Notes - Google ドキュメント&lt;/a&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
