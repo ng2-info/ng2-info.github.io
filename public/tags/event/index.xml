@@ -1,0 +1,968 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Event on Angular2 Info</title>
+    <link>https://ng2-info.github.io/tags/event/</link>
+    <description>Recent content in Event on Angular2 Info</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja-jp</language>
+    <lastBuildDate>Sat, 06 Aug 2016 11:26:50 +0900</lastBuildDate>
+    <atom:link href="https://ng2-info.github.io/tags/event/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>ng-sake#5を開催しました</title>
+      <link>https://ng2-info.github.io/2016/08/ng-sake-5-report/</link>
+      <pubDate>Sat, 06 Aug 2016 11:26:50 +0900</pubDate>
+      
+      <guid>https://ng2-info.github.io/2016/08/ng-sake-5-report/</guid>
+      <description>
+
+&lt;p&gt;どうも、らこです。8/3にng-sakeというイベントの第5回を開催しましたので、そのレポートです。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://ng-sake.connpass.com/event/36225/&#34; target=&#34;_blank&#34;&gt;ng-sake #5 - connpass&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;今回の参加者は10人で、なんと欠席は1人だけでした。用意したお酒が無駄にならなくてよかったです。&lt;/p&gt;
+
+&lt;p&gt;以下はディスカッションの内容のざっくりしたまとめです&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Animationについていくつか質問があります。メトロノームに前回アドバイス頂いた部分を反映しましたので、その報告と新たな質問（Animation）をさせて下さい。&lt;br /&gt;
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;kawakamiさんが作っているメトロノームアプリの相談。&lt;br /&gt;
+前回の相談でコンポーネントツリーの構造が改善されたので、次はアニメーションを導入してみた話。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Atomic Designについて雑に話したい&lt;br /&gt;
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Angular2と&lt;a href=&#34;http://bradfrost.com/blog/post/atomic-web-design/&#34; target=&#34;_blank&#34;&gt;Atomic Design&lt;/a&gt;は微妙に噛み合わないなという話をした。&lt;br /&gt;
+Angularでコンポーネントを作ろうと思う粒度はせいぜいMoleculeで、ヘタするとOrganismで1コンポーネントもあり得る。&lt;br /&gt;
+実装からコンポーネントを考えるとだいたいトップダウンで、再利用できそうなところを分割していくけど、&lt;br /&gt;
+Atomic Designはボトムアップだから、アプリケーションの開発には向いてないなという感じに落ち着いた。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Native Apps vs Web Apps　みなさんどのように考えているか聞きたいです&lt;br /&gt;
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;よく言われるが、リーチはWebが強いので入り口に使おうという感じ。&lt;br /&gt;
+あと、ネイティブアプリだとスプラッシュスクリーンで起動時間をごまかすのがあまり忌避されないのがズルい。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Custom Form Controlsの使いどころ。 &lt;a href=&#34;http://blog.thoughtram.io/angular/2016/07/27/custom-form-controls-in-angular-2.html&#34; target=&#34;_blank&#34;&gt;http://blog.thoughtram.io/angular/2016/07/27/custom-form-controls-in-angular-2.html&lt;/a&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;アプリケーション作者のためのものじゃなくてコンポーネントライブラリ作者向けだという結論&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;RoutingのGuardの具体的な使い道。&lt;br /&gt;
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;編集画面からの保存前離脱チェックや、認証チェックなど。実装としてはただのServiceなのでDI経由で何でも使えて自由に使える&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;サーバークライアント両方やる案件として、チームでどういう人数比率が一般的なのか気になる&lt;br /&gt;
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;だいたいフロントが少数で、サーバーのほうが人数が多いようだった。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;ActivatedRouteのparamsをsnapshotではなくObservableとして受け取らなければならないケースにどういったものがあるか。&lt;br /&gt;
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;同じルートに遷移する場合。 &lt;code&gt;/user/11&lt;/code&gt; から &lt;code&gt;user/12&lt;/code&gt; に遷移する時はコンポーネントが再利用されるので動的にパラメータを受け取らないといけない。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;アニメーションをCSSでやるのかAnimationAPIでやるのか。最近のトレンドを踏まえつつ、これからのアニメーション作り方、これら使い分けについて有識者の話を聞きたいです。&lt;br /&gt;
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;残念ながら有識者はいなかったけど、Angular2でやるならWeb Animation APIがよさそう。&lt;br /&gt;
+Specはちょうど8月頭にドラフトが更新されてた。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://w3c.github.io/web-animations/&#34; target=&#34;_blank&#34;&gt;https://w3c.github.io/web-animations/&lt;/a&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;そろそろ案件で使いたいのでプロジェクトのScafoldについて。現実解を知りたいです。&lt;br /&gt;
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;みんな好きにやってる。yo使ってる人は全然いなかった。yeoman-generatorを作るのがつらい話もあった。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Angular-CLIがwebpack対応したらしいけど誰か試しました？&lt;br /&gt;
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;誰も試してなかった。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;rc.5からAnimation APIでページ遷移のアニメーションができるようになるという話ですが、そもそもページ遷移にアニメーションを導入したいかしたくないか。またはすべきかすべきでないか。&lt;br /&gt;
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;みんなやりたかった。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;ng2にもng-cloak的な仕組み欲しい気がする&lt;br /&gt;
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;必要ないのでは？という雰囲気。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;このイベントの名前もうちょっと良い感じのないかなと思いつつある。Angular酒部とか、井戸端Angularとか ご意見求む&lt;br /&gt;
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;ng-sakeでいいよという結論&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;ここ2回くらいはLTタイムを無くしているけど、LTがあるイベントのほうが行きたいものですか？&lt;br /&gt;
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;次回2枠くらい復活させてみようと言う話になった&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;WebComponents ベースのライブラリを Angular 2 で wrap しようとするとカオスになる問題の解決策について&lt;br /&gt;
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Custom ElementsとAngular 2の相性の悪さについて。RC.5で追加される機能で解決する問題だった。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Angular2にむけて(そうじゃなくても)TypeScriptを最近始めた人多いと思うけど、何を教材にしました？&lt;br /&gt;
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;公式のハンドブックを読みながら覚えた人が多かった。公式のチュートリアルはあまりよくなかったらしい。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Angular(1.xでも2.xでも) Component Guide(Style Guide)を作るとしたら、どんな方法が良いのでしょう？ dgeniは一度爆死したことがあるので、使いたくありません。&lt;br /&gt;
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;１つそれ用のアプリを作るしかないよねという結論。&lt;br /&gt;
+Angularチームも&lt;a href=&#34;https://github.com/angular/periscope&#34; target=&#34;_blank&#34;&gt;periscope&lt;/a&gt;というアプリケーションでドッグフーディングしているし、&lt;br /&gt;
+Material2もデモアプリを同梱している。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;アーキテクチャどうしてますか？&lt;br /&gt;
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;データフロー的な話。一切Component内に同期的なステートを持たずに、すべてをSubjectにするみたいなやり方はすごいけど原理主義っぽかった。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;SPA全般ですが、戻るボタンで前のページに戻ったときなどに、ページが再構築されてしまうのが微妙だなと思うのですが、なにか対策してますか？ APIのリクエスト結果をキャッシュするとか？&lt;br /&gt;
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;スクロール位置とか、ページングとかの話。URLにシリアライズできるならルーティングをちゃんとやって、&lt;br /&gt;
+それ以外はlocalStorageとかsessionStorageで持つしかないよねという感じ。&lt;br /&gt;
+他にもモーダルで出してしまえばそもそも元の画面を捨てずに済むよねというアイデアも。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;新しいプロジェクトでAngular2かReactで迷ってますが、なにか選定のポイントなどアドバイスがあれば聞きたいです。&lt;br /&gt;
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;結局人による。選べるならやりたい方やればいい。モックアプリみたいなものを両方で実装してみて感触がよかったほうでいいんじゃないという声も&lt;/p&gt;
+
+&lt;h2 id=&#34;関連リンク&#34;&gt;関連リンク&lt;/h2&gt;
+
+&lt;p&gt;ディスカッションの中で登場したリンクなど&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://medium.com/@dan_abramov/smart-and-dumb-components-7ca2f9a7c7d0#.hyn6o5osb&#34; target=&#34;_blank&#34;&gt;Presentational and Container Components — Medium&lt;/a&gt;&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://qiita.com/ovrmrw/items/28e5384771925b46b891&#34; target=&#34;_blank&#34;&gt;Angular2(rc.4)のRouting, Formsの簡単なサンプル。ついでにFlux。 - Qiita&lt;/a&gt;&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://code.visualstudio.com&#34; target=&#34;_blank&#34;&gt;Visual Studio Code - Code Editing. Redefined&lt;/a&gt;&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.typescriptlang.org/docs/handbook/basic-types.html&#34; target=&#34;_blank&#34;&gt;Basic Types · TypeScript&lt;/a&gt;&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/angular/material2&#34; target=&#34;_blank&#34;&gt;angular/material2: Material Design components for Angular 2&lt;/a&gt;&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/laco0416/angular2-tour-of-heroes&#34; target=&#34;_blank&#34;&gt;laco0416/angular2-tour-of-heroes: Tour of Heroes with the latest API&lt;/a&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;次回は9月か10月にやる予定です。&lt;br /&gt;
+今回はプレミアムモルツを入荷して好評だったので、次回ももしかしたら用意するかもです。日本酒とかワインも飲みたいですね。&lt;/p&gt;
+
+&lt;p&gt;参加者のみなさん、ありがとうございました！&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Beta.13リリースとng-conf extendedのお知らせ</title>
+      <link>https://ng2-info.github.io/2016/03/beta-13-and-ng-conf-extended/</link>
+      <pubDate>Thu, 31 Mar 2016 22:14:33 +0900</pubDate>
+      
+      <guid>https://ng2-info.github.io/2016/03/beta-13-and-ng-conf-extended/</guid>
+      <description>
+
+&lt;p&gt;どうも、らこです。今週もAngular 2のアップデートが行われ、Beta.13になりました。主な変更点をかいつまんで紹介します。&lt;/p&gt;
+
+&lt;h1 id=&#34;beta-13リリース&#34;&gt;Beta.13リリース&lt;/h1&gt;
+
+&lt;h2 id=&#34;デコレータメタデータの静的解決が実装されました&#34;&gt;デコレータメタデータの静的解決が実装されました&lt;/h2&gt;
+
+&lt;p&gt;将来的に実装されるOffline Template Compileのための基礎となる機能が実装されました。&lt;br /&gt;
+コンポーネントやディレクティブなどのデコレータで定義している設定(メタデータ)にJavaScriptを実行することなくアクセスできるようにする仕組みです。&lt;br /&gt;
+これまではコンポーネントのテンプレートは実行時に文字列が評価されるので静的に解析するのが難しかったですが、&lt;br /&gt;
+この仕組みによって予めメタデータの情報だけを抽出できるようになり、ツールによる静的解析に大きく寄与します。&lt;/p&gt;
+
+&lt;p&gt;さっそくcodelyzer(ng2lintから名前が変わりました)で使う計画もあるようです。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/angular/angular/commit/ae876d1&#34; target=&#34;_blank&#34;&gt;feat(build): Persisting decorator metadata · angular/angular@ae876d1&lt;/a&gt;&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/mgechev/codelyzer/issues/11&#34; target=&#34;_blank&#34;&gt;Use metadata reader · Issue #11 · mgechev/codelyzer&lt;/a&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;ngif-などの-系ディレクティブをng-contentで扱いやすくなりました&#34;&gt;&lt;code&gt;*ngIf&lt;/code&gt;などの&lt;code&gt;*-&lt;/code&gt;系ディレクティブをng-contentで扱いやすくなりました&lt;/h2&gt;
+
+&lt;p&gt;これはバグ修正に含めるべきな気もしますが、今まで&lt;code&gt;*-&lt;/code&gt;系のディレクティブが付いた要素はng-contentのselectで選択するときに&lt;code&gt;template&lt;/code&gt;要素としてしかselectできませんでしたが、&lt;br /&gt;
+この変更によって直接選択できるようになります。&lt;/p&gt;
+
+&lt;p&gt;次の要素がcontentになっていたとして、&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;p *ngIf=&amp;quot;condition&amp;quot; foo&amp;gt;&amp;lt;/p&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;以前はtemplateでしかselectできませんでしたが&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;    // Use the implicit template for projection
+    &amp;lt;ng-content select=&amp;quot;template&amp;quot;&amp;gt;&amp;lt;/ng-content&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;これからは直接selectできるようになります&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;    // Use the actual element for projection
+    &amp;lt;ng-content select=&amp;quot;p[foo]&amp;quot;&amp;gt;&amp;lt;/ng-content&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/angular/angular/commit/aa966f5&#34; target=&#34;_blank&#34;&gt;feat(Compiler): Allow overriding the projection selector · angular/angular@aa966f5&lt;/a&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;i18n関連機能の実装が終わりました&#34;&gt;i18n関連機能の実装が終わりました&lt;/h2&gt;
+
+&lt;p&gt;&lt;blockquote class=&#34;twitter-tweet&#34; data-cards=&#34;hidden&#34; data-lang=&#34;ja&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;Angular 2 beta 13 is out! The i18n support begins in this release&amp;hellip;&lt;a href=&#34;https://t.co/nsyUVw2Rpr&#34;&gt;https://t.co/nsyUVw2Rpr&lt;/a&gt; &lt;a href=&#34;https://t.co/QZU4ZfyR6s&#34;&gt;pic.twitter.com/QZU4ZfyR6s&lt;/a&gt;&lt;/p&gt;&amp;mdash; Angular (@angularjs) &lt;a href=&#34;https://twitter.com/angularjs/status/715390643732762625&#34;&gt;2016年3月31日&lt;/a&gt;&lt;/blockquote&gt;&lt;br /&gt;
+&lt;script async src=&#34;//platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;&lt;/p&gt;
+
+&lt;p&gt;i18nを実現するためのコンポーネント、ディレクティブ、サービスなどがようやく出揃い、i18n実装完了ということになったようです。&lt;br /&gt;
+ただしi18n実装のトラッキングイシューでは全然完了してないので、公式ドキュメントが出るまでは待つほうがよさそうです。&lt;br /&gt;
+急ぎで国際化を行いたい場合は、&lt;a href=&#34;https://github.com/ocombe/ng2-translate&#34; target=&#34;_blank&#34;&gt;ocombe/ng2-translate&lt;/a&gt;を使うと良いでしょう。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/angular/angular/issues/7480&#34; target=&#34;_blank&#34;&gt;Tracking: i18n support · Issue #7480 · angular/angular&lt;/a&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&#34;ng-conf-extendedのお知らせ&#34;&gt;ng-conf extendedのお知らせ&lt;/h2&gt;
+
+&lt;p&gt;ソルトレイクシティで5/4から開催されるAngular最大のイベントng-confのライブビューイングイベントを開催します。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://connpass.com/event/29136/&#34; target=&#34;_blank&#34;&gt;ng-conf extended Tokyo - connpass&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;上のイベントページはすべて英語で書いていますが、ng-confも当然英語のセッションですのでご了承ください。&lt;br /&gt;
+日本に住んでいる外国人の方も何人か来てくれそうなので、英語で話ができるいい機会にもなるんじゃないでしょうか。&lt;/p&gt;
+
+&lt;p&gt;ちなみにイベントページにも書いていますが、ソルトレイクシティは日本と時差が15時間あるので、イベントの開始が日本時間の夜中0時で、終了が朝9時です。&lt;br /&gt;
+結構ヘビーなので体力に自信のない方は自宅でゆったり見てもらったほうがよいと思います。&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;Angular 2のフットプリントのサイズを小さくする件について少しずつ動きが出ています。&lt;br /&gt;
+まずは現在配布中のmin.jsが軒並み壊れている問題を解決するようです。&lt;br /&gt;
+その次に、npmでインストールしたライブラリを含めてアプリケーションをminifyするときに壊れないようにするための手段を用意してくれるようです。&lt;br /&gt;
+2,3週間以内に動きがあると思うので楽しみに待ちましょう。&lt;/p&gt;
+
+&lt;p&gt;それでは。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>ng-sake を開催しました</title>
+      <link>https://ng2-info.github.io/2016/03/ng-sake-1-report/</link>
+      <pubDate>Thu, 31 Mar 2016 00:48:45 +0900</pubDate>
+      
+      <guid>https://ng2-info.github.io/2016/03/ng-sake-1-report/</guid>
+      <description>
+
+&lt;p&gt;どうも、らこです。3/30に&lt;a href=&#34;http://connpass.com/event/27707/&#34; target=&#34;_blank&#34;&gt;ng-sake #1&lt;/a&gt;を開催しましたので、そのレポート記事です。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://i.imgur.com/nPB5WHK.jpg&#34; alt=&#34;Imgur&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;第1回だったのでいろいろと実験的な試みもありましたが、概ね好評だったようですし私も満足しています。&lt;br /&gt;
+今後も毎月くらいのスパンで開催できたらいいなと思っています。&lt;/p&gt;
+
+&lt;h2 id=&#34;趣旨&#34;&gt;趣旨&lt;/h2&gt;
+
+&lt;p&gt;「Angular好きで集まって酒飲みながら話をしよう！」という簡単な趣旨でした。&lt;br /&gt;
+前の週にng-japan 2016が開催されたのもあり、Angularコミュニティが活性化していたのでその勢いに乗じる形でした。&lt;/p&gt;
+
+&lt;h2 id=&#34;内容&#34;&gt;内容&lt;/h2&gt;
+
+&lt;p&gt;開始と共に乾杯しました。&lt;/p&gt;
+
+&lt;h3 id=&#34;ltパート&#34;&gt;LTパート&lt;/h3&gt;
+
+&lt;p&gt;前半は事前に募集したLTの発表時間です&lt;/p&gt;
+
+&lt;h4 id=&#34;quramyさん-ssr-with-angular-2&#34;&gt;@Quramyさん: SSR with Angular 2&lt;/h4&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://i.imgur.com/bSEt4EQ.jpg&#34; alt=&#34;Imgur&#34; /&gt;&lt;/p&gt;
+
+&lt;script async class=&#34;speakerdeck-embed&#34; data-id=&#34;8b4fd4950fcd42709d38fa585d3199bd&#34; data-ratio=&#34;1.33333333333333&#34; src=&#34;//speakerdeck.com/assets/embed.js&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;Angular 2のサーバーサイドレンダリングに関する発表でした。実際に&lt;a href=&#34;https://github.com/angular/universal&#34; target=&#34;_blank&#34;&gt;angular/universal&lt;/a&gt;を使ったデモや、&lt;br /&gt;
+さらにはprebootまで試したデモを見せてもらえてとても新鮮でした。&lt;/p&gt;
+
+&lt;h4 id=&#34;mitsuruogさん-angular-2-unit-testing-overview&#34;&gt;@mitsuruogさん: Angular 2 Unit testing Overview&lt;/h4&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://i.imgur.com/BNrpEYJ.jpg&#34; alt=&#34;Imgur&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;iframe src=&#34;//www.slideshare.net/slideshow/embed_code/key/5eDmVzNYiE0Jl6&#34; width=&#34;595&#34; height=&#34;485&#34; frameborder=&#34;0&#34; marginwidth=&#34;0&#34; marginheight=&#34;0&#34; scrolling=&#34;no&#34; style=&#34;border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;&#34; allowfullscreen&gt; &lt;/iframe&gt; &lt;div style=&#34;margin-bottom:5px&#34;&gt; &lt;strong&gt; &lt;a href=&#34;//www.slideshare.net/mitsuruogawa33/angular-2-unit-testing-overview&#34; title=&#34;Angular 2 unit testing overview&#34; target=&#34;_blank&#34;&gt;Angular 2 unit testing overview&lt;/a&gt; &lt;/strong&gt; from &lt;strong&gt;&lt;a target=&#34;_blank&#34; href=&#34;//www.slideshare.net/mitsuruogawa33&#34;&gt;Mitsuru Ogawa&lt;/a&gt;&lt;/strong&gt; &lt;/div&gt;&lt;/p&gt;
+
+&lt;p&gt;Angular 2のユニットテストに関する発表です。&lt;code&gt;angular2/testing&lt;/code&gt;パッケージを使ってテストを書くときの具体的なサンプルコードがたくさん紹介されました。&lt;br /&gt;
+Angular 2のドキュメントの中でもテスト周りは特に貧弱なので、まとまった資料があるのはとてもありがたいですね。&lt;/p&gt;
+
+&lt;h4 id=&#34;tyfkdaさん-angular2-触ってみた&#34;&gt;@tyfkdaさん: Angular2 触ってみた&lt;/h4&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://i.imgur.com/5wOPHr7.jpg&#34; alt=&#34;Imgur&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://docs.google.com/presentation/d/1GWgqxAxRNjaC5FrF0x4XGwmdZlV8LlE2feA2SGUVVy0/edit#slide=id.p&#34; target=&#34;_blank&#34;&gt;スライドURL&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Angular 1の機能とそれに対応するAngular 2の書き方の紹介や、Angular 2を実際に書いてみてすごいと思った点などが挙げられました。&lt;br /&gt;
+Angular 2とFirebaseを合わせたアプリケーションのデモもありました。&lt;/p&gt;
+
+&lt;h4 id=&#34;norami-dreamさん&#34;&gt;@norami_dreamさん&lt;/h4&gt;
+
+&lt;p&gt;詳細は公開NGとのことですが、Angular 1のSPAでUIを重視したアプリケーションを作る工夫や、CSSフレームワークの衝突の回避方法などを話してもらいました。&lt;/p&gt;
+
+&lt;h3 id=&#34;ディスカッションパート&#34;&gt;ディスカッションパート&lt;/h3&gt;
+
+&lt;p&gt;後半はNode Discussion形式で、 sli.doを使ってテーマを募ってディスカッションしました。&lt;br /&gt;
+当初は30分くらいのつもりでしたが気づいたら1時間半ほどみんなでディスカッションしていたので詳細は覚えていないのですがざっくりとまとめます。&lt;/p&gt;
+
+&lt;h4 id=&#34;angular-2やコンポーネント志向の開発におけるテストファイルの置き場所&#34;&gt;Angular 2やコンポーネント志向の開発におけるテストファイルの置き場所&lt;/h4&gt;
+
+&lt;p&gt;&lt;code&gt;app/app.spec.ts&lt;/code&gt; vs &lt;code&gt;test/app/app.spec.ts&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Angular 2のコードスタイルガイドでは前者が取り上げれているけど、会場では後者のほうが多かったです。&lt;br /&gt;
+理由としてはkarmaなどの設定ファイルでテスト用のコードのパターンが書きやすいとか、テスト用のtsconfig.jsonが配置できるとかありました。&lt;br /&gt;
+結論は「チーム内で決めろ」でした&lt;/p&gt;
+
+&lt;h4 id=&#34;es2015があるのになぜtypescriptなのか&#34;&gt;ES2015があるのになぜTypeScriptなのか？&lt;/h4&gt;
+
+&lt;p&gt;結論「型とデコレータとジェネリクス」&lt;/p&gt;
+
+&lt;h4 id=&#34;gulpを使わずにnpm-scriptsを使うべきか&#34;&gt;gulpを使わずにnpm scriptsを使うべきか&lt;/h4&gt;
+
+&lt;p&gt;会場での集計ではnpm scripts派が2人、Gulp派が7人、Grunt派が3人くらいで、Gulpは全員がv3系でした。&lt;br /&gt;
+結論は「規模による」&lt;/p&gt;
+
+&lt;h4 id=&#34;rootstrap-broadcast-のng2移行手順が確立されてない&#34;&gt;&lt;code&gt;$rootstrap.$broadcast()&lt;/code&gt; のng2移行手順が確立されてない！&lt;/h4&gt;
+
+&lt;p&gt;会場でAngular 2移行作業してるのが私と@armorik83(出題者)の2人だけだったので流しました。&lt;/p&gt;
+
+&lt;h4 id=&#34;デザイナとの協業について&#34;&gt;デザイナとの協業について&lt;/h4&gt;
+
+&lt;p&gt;デザイナにどこまで仕事をお願いしているかなど結構話が盛り上がりました。&lt;br /&gt;
+結論としては「PSDだけください」に落ち着いたみたいです。&lt;/p&gt;
+
+&lt;h4 id=&#34;rxの詳細-使われ方-使い方-などを知りたい&#34;&gt;Rxの詳細（使われ方／使い方）などを知りたい&lt;/h4&gt;
+
+&lt;p&gt;すでにQiitaやその他媒体にRxの記事はあるので、読むといいよという話になりました。&lt;br /&gt;
+Rxの根幹の部分は本家Rx(C#)やRxJavaなどにけっこう知見が詰まっているので資料はけっこうあります。&lt;br /&gt;
+ただRxJSはv4とv5でかなり違うのでドキュメントの選別が難しいという話もありました。&lt;/p&gt;
+
+&lt;h4 id=&#34;typescriptをwebstormで書くおすすめの設定&#34;&gt;TypeScriptをWebStormで書くおすすめの設定&lt;/h4&gt;
+
+&lt;p&gt;WebStormの設定を詰めてる人はあまりいなかったようです。ほぼデフォルトで使っている人が多かったみたいです。&lt;br /&gt;
+VS Codeやその他エディタ勢からの攻撃もありました。&lt;/p&gt;
+
+&lt;h4 id=&#34;webpackとsystemjs&#34;&gt;WebpackとSystemJS&lt;/h4&gt;
+
+&lt;p&gt;開発・プロダクションでどちらをどう使うべきかという話。SystemJSはまだ知見がなくてちゃんと使ってる人がほとんどいなくて、&lt;br /&gt;
+とりあえず今はWebpackのdevserverを活用して開発もbundleもやるのがいいんじゃないかくらいのところに落ち着きました。&lt;/p&gt;
+
+&lt;p&gt;SystemJSはコンフィグがまるでわからんという話で、近々AngularチームのrobwormaldがSystemJS設定に関するブログを書くはずなのでそれを待ちましょう。&lt;/p&gt;
+
+&lt;h4 id=&#34;angular2でのcss管理-設計の話&#34;&gt;Angular2でのCSS管理、設計の話&lt;/h4&gt;
+
+&lt;p&gt;Angular 2だとデフォルトでCSSにスコープがあるけど、それに乗っかるべきかグローバルで今までどおり戦うべきか、&lt;br /&gt;
+乗っかるとしてコンポーネント内部でのクラス名の付け方とかどうするべきかという踏み込んだ話。&lt;br /&gt;
+Angular 2の仕組みに乗っかる恩恵のほうが大きいので、スコープを享受する方向で、&lt;br /&gt;
+小分けになったCSSの中では要素名とか汎用的なクラス名で指定していいのでは？という流れになった。&lt;/p&gt;
+
+&lt;p&gt;複雑なCSSが発生するなら、それはディレクティブやコンポーネントに切り出すことで単純化できそう、Angular Material 2の&lt;code&gt;md-button&lt;/code&gt;みたいな仕組みがよいかもという話をしました。&lt;/p&gt;
+
+&lt;h4 id=&#34;angular-1のパフォーマンス向上のよくあるネタ&#34;&gt;Angular 1のパフォーマンス向上のよくあるネタ&lt;/h4&gt;
+
+&lt;p&gt;結論「ディレクティブを減らす、watchを減らす」&lt;/p&gt;
+
+&lt;h4 id=&#34;reactからangular-2への移行難易度が知りたい&#34;&gt;ReactからAngular 2への移行難易度が知りたい&lt;/h4&gt;
+
+&lt;p&gt;結論「試して記事を書いてくれ」&lt;/p&gt;
+
+&lt;h4 id=&#34;angular-2とsass&#34;&gt;Angular 2とSass&lt;/h4&gt;
+
+&lt;p&gt;コンポーネントごとに1つSassのファイルがある構成で、個別にコンパイルすればいいんじゃない？ということになりました。&lt;/p&gt;
+
+&lt;p&gt;余談ですがCompassが実はいつのまにかLibsass依存になってたらしく、rubyのsassを使ってないということを今日始めて知りました。&lt;/p&gt;
+
+&lt;h4 id=&#34;ng-showないとcssで隣接セレクタとか使うときつらい&#34;&gt;ng-showないとCSSで隣接セレクタとか使うときつらい&lt;/h4&gt;
+
+&lt;p&gt;Angular 2に&lt;code&gt;ng-show&lt;/code&gt;がない話。簡単に書けるから自分で書けばいいじゃんという若干乱暴な結論。&lt;/p&gt;
+
+&lt;h4 id=&#34;viewchild-と-contentchild-の違い&#34;&gt;&lt;code&gt;@ViewChild&lt;/code&gt;と&lt;code&gt;@ContentChild&lt;/code&gt;の違い&lt;/h4&gt;
+
+&lt;p&gt;コンポーネント自身のテンプレートの中にあるのがViewで、外部から与えられるのがContent。&lt;br /&gt;
+Angular 1のTranscludeとContentが同じものだという説明をしました。&lt;br /&gt;
+これに関しては後日Qiitaあたりに記事を書きます。&lt;/p&gt;
+
+&lt;h4 id=&#34;parse-comなき今-angular2でさくっと遊びたいときのおすすめサーバー構成&#34;&gt;Parse.comなき今、Angular2でさくっと遊びたいときのおすすめサーバー構成&lt;/h4&gt;
+
+&lt;p&gt;Firebaseをおすすめしました。&lt;a href=&#34;https://github.com/angular/angularfire2&#34; target=&#34;_blank&#34;&gt;AngularFire2&lt;/a&gt;もあるので、&lt;br /&gt;
+さくっと作れそうだしFirebaseにデプロイもできてHerokuみたいに使えるよという話をしました&lt;/p&gt;
+
+&lt;h2 id=&#34;主催としてのまとめ&#34;&gt;主催としてのまとめ&lt;/h2&gt;
+
+&lt;p&gt;みなさん楽しんでもらえたようで何よりでした。第1回からすごく濃い内容だったので次回以降もとても楽しみです。&lt;/p&gt;
+
+&lt;p&gt;ng-sakeはミートアップに属するイベントで勉強会ではないので、発表中に聴衆から声があがったり突発的に議論が始まったり、なかなか自由な雰囲気でした。&lt;br /&gt;
+これが全員に受け入れられるかはわかりませんが、堅苦しくないイベントにしたいと思っているので今後もこの雰囲気でやりたいと思います。&lt;br /&gt;
+次回、4月の ng-sake をお楽しみに！&lt;/p&gt;
+
+&lt;p&gt;あと余談ですが、ディスカッション中にZoneが難解という話になったので「Zone.jsを紐解く会」も近々開催しようと思います。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Beta.12リリースと最近の動き</title>
+      <link>https://ng2-info.github.io/2016/03/beta-12/</link>
+      <pubDate>Sat, 26 Mar 2016 08:15:49 +0900</pubDate>
+      
+      <guid>https://ng2-info.github.io/2016/03/beta-12/</guid>
+      <description>
+
+&lt;p&gt;こんにちは、らこです。最近ng-japanやミートアップや普段の仕事などで忙しくて更新が滞ってました。&lt;/p&gt;
+
+&lt;h2 id=&#34;ng-japan&#34;&gt;ng-japan&lt;/h2&gt;
+
+&lt;p&gt;ng-japanお疲れ様でした！現地にいた方もYoutubeで見ていた方も楽しんでもらえたでしょうか？&lt;br /&gt;
+私は「&lt;a href=&#34;http://laco0416.github.io/slides/a-way-for-happy-angular-days/#/&#34; target=&#34;_blank&#34;&gt;Angular 2の間違えない始め方&lt;/a&gt;」というセッションでトップバッターを務めさせてもらいまして、Twitterなんかの反応を見る限り好評だったようで嬉しいです。&lt;/p&gt;
+
+&lt;p&gt;全体のまとめは&lt;a href=&#34;http://qiita.com/nyamogera/items/b83833d1e15a55d0bb66&#34; target=&#34;_blank&#34;&gt;ng-japan 2016 セッション資料まとめ - Qiita&lt;/a&gt;が参考になるでしょう。&lt;/p&gt;
+
+&lt;h2 id=&#34;beta-12リリース&#34;&gt;Beta.12リリース&lt;/h2&gt;
+
+&lt;p&gt;Angular 2のBeta.12がリリースされました。予定外のリリースでバグがたくさん残っていたBeta.11の修正がメインですので、&lt;br /&gt;
+Beta.11で入った変更も含めて紹介します&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/angular/angular/blob/master/CHANGELOG.md&#34; target=&#34;_blank&#34;&gt;angular/CHANGELOG.md at master · angular/angular&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;view-アノテーションの廃止&#34;&gt;&lt;code&gt;@View&lt;/code&gt;アノテーションの廃止&lt;/h3&gt;
+
+&lt;p&gt;前にも書きましたがついに廃止されました。今後は&lt;code&gt;@Component&lt;/code&gt;にビューの情報も含めることが必須になります。&lt;/p&gt;
+
+&lt;p&gt;そもそもなぜ&lt;code&gt;@View&lt;/code&gt;と&lt;code&gt;@Component&lt;/code&gt;が共存していたかというと、&lt;br /&gt;
+&lt;code&gt;@View&lt;/code&gt;は1つのコンポーネントに複数付けられることが想定されていたからです。&lt;br /&gt;
+同じコンポーネントでも状態によってビューのテンプレートを切り替えたい、&lt;br /&gt;
+同じロジックでもセレクタによってビューを変えたいなど、動的なビューの切り替えを想定したものでした。&lt;br /&gt;
+ただし現状ではそれを実装することはコストが重く、需要もほとんどないので、一旦すべて白紙に戻して仕様から練り直すことになりました。&lt;/p&gt;
+
+&lt;h3 id=&#34;zone-js-0-6-x&#34;&gt;Zone.js 0.6.x&lt;/h3&gt;
+
+&lt;p&gt;すぐにBeta.11が出てしまったのでほとんど気づかれていませんでしたが、Beta.10からZone.jsが0.6系になっています。&lt;br /&gt;
+Zone.jsは0.5系までは単なるAngularのサブプロジェクトでしたが、0.6系からはES.next ProposalとなったZones仕様のpolyfillとして存在します。&lt;/p&gt;
+
+&lt;p&gt;Beta.11ではこの新しいZoneへの依存部分にバグがあったので、Beta.12で修正されました。&lt;br /&gt;
+Beta.12の修正により、今まで必須だったZone.jsのlong-stack-traceがオプショナルになったので、commonjsでインポートする際は次の1行だけで実行可能になりました。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;import &amp;quot;zone.js/dist/zone&amp;quot;;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;ただこれだとZoneをまたいだエラーのスタックトレースが追えなくなるので、特別な事情がなければlong-stack-traceも読み込んでおくほうが良いでしょう。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;import &amp;quot;zone.js/dist/zone&amp;quot;;
+import &amp;quot;zone.js/dist/long-stack-trace-zone&amp;quot;;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Zonesの仕様&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/domenic/zones&#34; target=&#34;_blank&#34;&gt;domenic/zones: Zones proposal for JavaScript&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;peerdependenciesからes6-promiseを削除&#34;&gt;peerDependenciesからes6-promiseを削除&lt;/h3&gt;
+
+&lt;p&gt;peerDependenciesからes6-promiseが削除されました。&lt;br /&gt;
+Zone.js 0.6系がPromiseのpolyfillを兼ねるようになったらしいので、ブラウザの対応状況に変化はありません。&lt;/p&gt;
+
+&lt;h2 id=&#34;今後のイベント情報&#34;&gt;今後のイベント情報&lt;/h2&gt;
+
+&lt;p&gt;最近はAngular 2の機運もあって日本でたくさんAngularのイベントが開催されています。&lt;br /&gt;
+募集開始直後に埋まってしまうものがほとんどなので、まだ参加できるものを紹介します&lt;/p&gt;
+
+&lt;h3 id=&#34;angularjsハンズオン-初心者向け-in-広島-crunch-lab-https-22525f535689619dc83bdcae89-doorkeeper-jp-events-41718&#34;&gt;&lt;a href=&#34;https://22525f535689619dc83bdcae89.doorkeeper.jp/events/41718&#34; target=&#34;_blank&#34;&gt;AngularJSハンズオン（初心者向け） in 広島 - Crunch-Lab&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;広島で開催されるAngularJSのハンズオンです&lt;/p&gt;
+
+&lt;h3 id=&#34;ng-conf-extended-tokyo-http-connpass-com-event-29136&#34;&gt;&lt;a href=&#34;http://connpass.com/event/29136/&#34; target=&#34;_blank&#34;&gt;ng-conf extended Tokyo&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;私が主催するng-confのライブビューイングイベントです。これは抽選制にするので先着で埋まることはないです。&lt;/p&gt;
+
+&lt;h2 id=&#34;その他&#34;&gt;その他&lt;/h2&gt;
+
+&lt;p&gt;現在はRCに向けた作業がメインでコアチームは多忙なようですが、2,3週間後からはPRの整理を再開できるらしいです。&lt;br /&gt;
+送ったパッチがなかなか取り込まれない期間でコントリビューションするにはやきもきしますが、今は待ちましょう。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Component Router 解説スライドの紹介他</title>
+      <link>https://ng2-info.github.io/2016/03/component-router-by-gerardsans/</link>
+      <pubDate>Sun, 06 Mar 2016 22:25:04 +0900</pubDate>
+      
+      <guid>https://ng2-info.github.io/2016/03/component-router-by-gerardsans/</guid>
+      <description>
+
+&lt;p&gt;どうも、らこです。今日は&lt;a href=&#34;https://twitter.com/gerardsans&#34; target=&#34;_blank&#34;&gt;@gerardsans&lt;/a&gt;によるAngular 2のComponent Routerについてのスライドを紹介します。&lt;/p&gt;
+
+&lt;h2 id=&#34;angular-2-component-router-gerardsans&#34;&gt;Angular 2 Component Router (@gerardsans)&lt;/h2&gt;
+
+&lt;iframe src=&#34;//slides.com/gerardsans/riga-dev-day-component-router/embed&#34; width=&#34;576&#34; height=&#34;420&#34; scrolling=&#34;no&#34; frameborder=&#34;0&#34; webkitallowfullscreen mozallowfullscreen allowfullscreen&gt;&lt;/iframe&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://slides.com/gerardsans/riga-dev-day-component-router#/&#34; target=&#34;_blank&#34;&gt;スライド&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;component-routerの主な機能&#34;&gt;Component Routerの主な機能&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;コンポーネントをベースにしている&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;柔軟なルーティング&lt;br /&gt;
+
+&lt;ul&gt;
+&lt;li&gt;入れ子のビュー、複数ビュー&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;ライフサイクルフック&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;遅延読み込み&lt;br /&gt;
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://i.imgur.com/8i4fQqG.png&#34; alt=&#34;Imgur&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;bit.ly/spiderman-app&#34; target=&#34;_blank&#34;&gt;bit.ly/spiderman-app&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;セットアップ&#34;&gt;セットアップ&lt;/h3&gt;
+
+&lt;p&gt;Component Routerを使う上で依存するもの&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Angular 2に同梱されているrouter.js&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;LocationStrategyの選択&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ROUTER_PROVIDERS&lt;/code&gt;&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ROUTER_DIRECTIVES&lt;/code&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&#34;locationstrategy&#34;&gt;LocationStrategy&lt;/h4&gt;
+
+&lt;p&gt;Component RouterのルーティングがURLでどう表現されるかを選択できる。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;HashLocationStrategy: #/home, #/users/34&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;PathLocationStrategy: /home, /users/34 (&lt;code&gt;APP_HREF_BASE&lt;/code&gt;が別途必要)&lt;br /&gt;
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&#34;ルートの定義&#34;&gt;ルートの定義&lt;/h4&gt;
+
+&lt;p&gt;Componentに対して&lt;code&gt;RouteConfig&lt;/code&gt;アノテーションでルートを定義する。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://i.imgur.com/JEiycGX.png&#34; alt=&#34;Imgur&#34; /&gt;&lt;/p&gt;
+
+&lt;h4 id=&#34;アウトレットの宣言&#34;&gt;アウトレットの宣言&lt;/h4&gt;
+
+&lt;p&gt;Component RouterでルーティングされたComponentが読み込まれる場所を&lt;code&gt;&amp;lt;router-outlet&amp;gt;&lt;/code&gt;要素で宣言する。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://i.imgur.com/fX35h0a.png&#34; alt=&#34;Imgur&#34; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;柔軟なルーティング&#34;&gt;柔軟なルーティング&lt;/h3&gt;
+
+&lt;h4 id=&#34;入れ子ルーティング&#34;&gt;入れ子ルーティング&lt;/h4&gt;
+
+&lt;p&gt;親側のComponent側で、&lt;code&gt;/...&lt;/code&gt;を使ったルートを定義すると、その対象のComponent側で入れ子になったルートを定義できる。&lt;br /&gt;
+子側のComponentでは必ず&lt;code&gt;useAsDefault&lt;/code&gt;に設定されたルート定義が必要である。&lt;/p&gt;
+
+&lt;p&gt;次の例では親のルート定義で&lt;code&gt;/users/...&lt;/code&gt;に対して&lt;code&gt;Users&lt;/code&gt;が割り当てられた時の、子のルート定義の例を示している。&lt;br /&gt;
+&lt;code&gt;/&lt;/code&gt;に対するルートは&lt;code&gt;useAsDefault&lt;/code&gt;になっており、&lt;code&gt;/users&lt;/code&gt;と&lt;code&gt;/users/&lt;/code&gt;どちらにもヒットする。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://i.imgur.com/UTZUPaA.png&#34; alt=&#34;Imgur&#34; /&gt;&lt;br /&gt;
+&lt;img src=&#34;http://i.imgur.com/Uan3ctq.png&#34; alt=&#34;Imgur&#34; /&gt;&lt;/p&gt;
+
+&lt;h4 id=&#34;ナビゲーション&#34;&gt;ナビゲーション&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;選択したLocationStrategyによってURLの表現は変わる&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;routerLink&lt;/code&gt;ディレクティブではLink DSLを使ってルートを表現する&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;プログラム上では&lt;code&gt;Router&lt;/code&gt;クラスを使ってナビゲーションできる&lt;br /&gt;
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://i.imgur.com/Uan3ctq.png&#34; alt=&#34;Imgur&#34; /&gt;&lt;/p&gt;
+
+&lt;h4 id=&#34;複数ルーティング-auxルーティング&#34;&gt;複数ルーティング(Auxルーティング)&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;path&lt;/code&gt;ではなく&lt;code&gt;aux&lt;/code&gt;を指定したルート定義は、対応した&lt;code&gt;name&lt;/code&gt;が設定された&lt;code&gt;router-outlet&lt;/code&gt;に作用する&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;複数の&lt;code&gt;router-outlet&lt;/code&gt;について、柔軟にナビゲーションが可能&lt;br /&gt;
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://i.imgur.com/Miq0dMx.png&#34; alt=&#34;Imgur&#34; /&gt;&lt;/p&gt;
+
+&lt;h4 id=&#34;パスパラメータの取得&#34;&gt;パスパラメータの取得&lt;/h4&gt;
+
+&lt;p&gt;&lt;code&gt;:id&lt;/code&gt;など、パス中のパラメータは&lt;code&gt;RouteParams&lt;/code&gt;としてDIで取得できる&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://i.imgur.com/PF9haKF.png&#34; alt=&#34;Imgur&#34; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;ライフサイクル&#34;&gt;ライフサイクル&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;CanDeactive&lt;/code&gt;フックを使うと画面遷移前の保存確認ができる&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;CanActivate&lt;/code&gt;フックを使うとアクセス制御ができる&lt;br /&gt;
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://i.imgur.com/6rMvGSF.png&#34; alt=&#34;Imgur&#34; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;遅延読み込み&#34;&gt;遅延読み込み&lt;/h3&gt;
+
+&lt;p&gt;&lt;code&gt;component&lt;/code&gt;の代わりに&lt;code&gt;loader&lt;/code&gt;を設定するとルーティングが発生するまでComponentの読み込みを遅延できる&lt;/p&gt;
+
+&lt;h3 id=&#34;デモ&#34;&gt;デモ&lt;/h3&gt;
+
+&lt;p&gt;一連の内容は&lt;a href=&#34;http://plnkr.co/edit/PdQTp0ZirG6BOtk2uj16?p=preview&#34; target=&#34;_blank&#34;&gt;Plunker&lt;/a&gt;で動かすことができる&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;ざっくりと重要な部分だけを要約しました。時間がある方はスライドを見ながらデモを動かすとRouterをばっちり理解できるはずです。&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&#34;ng-sakeやります&#34;&gt;ng-sakeやります&lt;/h2&gt;
+
+&lt;p&gt;突然ですが、私が主催するイベントの紹介です。ng-sakeというAngularユーザ向けのイベントを開催します。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://connpass.com/event/27707/&#34; target=&#34;_blank&#34;&gt;ng-sake&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;ng-sakeはお酒を飲みながらAngularについて話すイベントです。開催日は3/30で、ng-japanの翌週です。&lt;br /&gt;
+ng-japanのアフターフォローも兼ねた会にしようと思っていて、ng-japanでも一緒に登壇する@armorik83にも手伝ってもらう予定です。Angularに関する大体の質問には答えられるはずです。&lt;/p&gt;
+
+&lt;p&gt;募集開始は &lt;strong&gt;3/8(火)の朝10時&lt;/strong&gt; です。第1回なのもありどれくらい集められるのかわからないので枠が20人と少なめです。&lt;br /&gt;
+もし興味があれば忘れないように申し込みしていただければ幸いです。&lt;/p&gt;
+
+&lt;p&gt;それでは。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>週次ミーティング、海外記事の紹介他</title>
+      <link>https://ng2-info.github.io/2016/03/weekly-meeting-mar-1/</link>
+      <pubDate>Tue, 01 Mar 2016 21:55:29 +0900</pubDate>
+      
+      <guid>https://ng2-info.github.io/2016/03/weekly-meeting-mar-1/</guid>
+      <description>
+
+&lt;p&gt;こんにちは、らこです。今回は内容盛りだくさんです。&lt;/p&gt;
+
+&lt;h2 id=&#34;週次ミーティング&#34;&gt;週次ミーティング&lt;/h2&gt;
+
+&lt;p&gt;まずは週次ミーティングについて。ここ2週間ミーティングもリリースもなかったのはオフサイトを行っていたかららしく、今週から完全復活の模様です。&lt;/p&gt;
+
+&lt;h3 id=&#34;batarangle&#34;&gt;Batarangle&lt;/h3&gt;
+
+&lt;p&gt;AngularJSのデバッガとして有名なChrome拡張のBatarangが、Angular 2対応した「Batarangle」をリリースしています。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://go.rangle.io/batarangle&#34; target=&#34;_blank&#34;&gt;Batarangle.io&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;近いうちにBatarangleを使ったデバッグに関するドキュメントを公式に出す予定だそうです。&lt;/p&gt;
+
+&lt;h3 id=&#34;オフサイトについて&#34;&gt;オフサイトについて&lt;/h3&gt;
+
+&lt;p&gt;今後の長期的な計画についてオフサイトで話し合ったようです。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;アップグレードを簡単にすることでAngular 2を古くならないようにする(古いバージョンのAngularが使われ続けないようにする)&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;ビジュアルデザイナー向けのツールを提供する&lt;br /&gt;
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;という2つの大きな展望が掲げられたようです。&lt;/p&gt;
+
+&lt;h3 id=&#34;ビルド環境とciについて&#34;&gt;ビルド環境とCIについて&lt;/h3&gt;
+
+&lt;p&gt;先週AngularチームはCI環境の改善について多くの時間を割いたらしく、頻繁に落ちるテストを直したり無効にしたりと忙しかったようです。&lt;br /&gt;
+(これで先週はPRがほとんど処理できてなかったゴメンよということらしい)&lt;br /&gt;
+現在PRを出してもなかなかCI結果が緑にならず、安心してマージできないことが多々あります。&lt;br /&gt;
+特にSauce Labのテストは特に頼りないので、なんとかしたいねという話をしています。&lt;/p&gt;
+
+&lt;h3 id=&#34;マイルストーンについて&#34;&gt;マイルストーンについて&lt;/h3&gt;
+
+&lt;p&gt;今週末までに、Angular 2最終版(Stableリリースのことだと思われる)までのマイルストーンを発表するらしいです。超楽しみ！&lt;/p&gt;
+
+&lt;h3 id=&#34;routerのアップデートについて&#34;&gt;Routerのアップデートについて&lt;/h3&gt;
+
+&lt;p&gt;Routerのアップデートがやはり来るようです。主に作業しているのはBrianとNaomiとIgorです。(Brianは今バケーションとのこと)&lt;br /&gt;
+ただしアップデートはできるだけ段階的に行い、劇的な破壊的変更は出さないようにするとのこと。新しいRouterの機能として計画されているのは、&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;静的なリンクチェック(&lt;code&gt;routerLink&lt;/code&gt;が静的解析可能になる？)&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;canActivate&lt;/code&gt;(今はデコレータで提供されているが、ライフサイクルとして再実装されるっぽい=&amp;gt;DIが使えるようになる)&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;非同期モジュール読み込みのサポート(これは一番最後に実装する予定)&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;もっとわかりやすいRouter API(Router Link DSLの廃止？)&lt;br /&gt;
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;今月からはRouterが大きく変わりそうです。要注目。&lt;/p&gt;
+
+&lt;p&gt;補足情報として、&lt;code&gt;ui-router&lt;/code&gt;がAngular 2に対応し始めたようです。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/angular-ui/ui-router/commit/217de70449c7870057d440d161752f1945dc4937&#34; target=&#34;_blank&#34;&gt;feat(ui-router-ng2): Initial angular2 support · angular-ui/ui-router@217de70&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;まだ正式リリースはされていませんがnpmでインストールすればng2用のソースを使えるようです。興味のある人は試してみては。&lt;br /&gt;
+個人的にはComponent Routerでお腹いっぱいです。&lt;/p&gt;
+
+&lt;h3 id=&#34;溜まってるprについて&#34;&gt;溜まってるPRについて&lt;/h3&gt;
+
+&lt;p&gt;先述の通り先週はいろいろと忙しくてPRを見られてなかったので、今週はその消化に充てたいとのこと。&lt;/p&gt;
+
+&lt;h3 id=&#34;angularjsの使われ方に関する調査&#34;&gt;AngularJSの使われ方に関する調査&lt;/h3&gt;
+
+&lt;p&gt;グーグルのクローラを使って分析したところ、現在150000ドメインのウェブサイトがAngular 1を使っており、&lt;br /&gt;
+ページ数でいえば200000000件にも及ぶとのこと。&lt;/p&gt;
+
+&lt;p&gt;ただし使われているバージョンはまだ多くが1.4への移行中であり、1.5がリリースされたにもかかわらずまだ0.9.16を使っているサイトもあるらしいです。&lt;br /&gt;
+この問題を解決するために現在の安定バージョンへのアップグレードを推奨するポリシーをつくります。&lt;br /&gt;
+明日、明後日にも作成されるらしいです。&lt;/p&gt;
+
+&lt;h3 id=&#34;nganimateについて&#34;&gt;ngAnimateについて&lt;/h3&gt;
+
+&lt;p&gt;Angular 2用の&lt;strong&gt;ngAnimate&lt;/strong&gt;がいよいよあと数週間でプロトタイプを完成させるようです。主な機能は以下のとおり&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;アノテーションレベルでのアニメーション記述&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;CSSパーサの実装&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;シーケンス処理&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;Web Animations APIとの連携&lt;br /&gt;
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;ngAnimateを使うためのコードは驚くほど少なく、スタイルとアニメーションが分離されるのでシンプルな記述ができます。&lt;br /&gt;
+DOMの計算も少なく、とてもハイパフォーマンスなアニメーションを実装しています。&lt;br /&gt;
+Web Animations APIについては、現在ChromeとFirefoxでだけサポートされているので他のブラウザではpolyfillを必要とします。&lt;br /&gt;
+ただしpolyfillをそのまま同梱すれば楽ではありますがサイズが12kbと大きいので、最小限のものを実装し直すつもりだそうです。&lt;/p&gt;
+
+&lt;h2 id=&#34;angularjsについて&#34;&gt;AngularJSについて&lt;/h2&gt;
+
+&lt;p&gt;Angular 1.5.1が近日中にリリースされる予定です。&lt;br /&gt;
+また、Angular 1.6系の計画も進んでいます。機能としてはAngular 2につなげるためのものですが、破壊的変更がある場合はまず1.6で実装し、&lt;br /&gt;
+その後1.5系にバックポートしていくという方針らしいです。1.5系をLTS的に扱いたい雰囲気を感じます。&lt;/p&gt;
+
+&lt;h2 id=&#34;ng-japan&#34;&gt;ng-japan&lt;/h2&gt;
+
+&lt;p&gt;今月の21日に開催される &lt;strong&gt;ng-japan&lt;/strong&gt; の参加申し込みが今日行われ、あっという間に260人のチケットが埋まってしまいました。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://ngjapan.org/&#34; target=&#34;_blank&#34;&gt;ng-japan - The Angular conference in Tokyo, Japan (2016/3/21)&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;募集開始前にng2-infoでも告知しようと思っていたのですがすっかり忘れていました。すみません :P&lt;br /&gt;
+一応キャンセル待ちはできるので、万が一に備えて応募しておくと良いと思います。&lt;/p&gt;
+
+&lt;p&gt;またこれはまだ未定なのですが、ng-japanの翌週にアフターイベントということで軽いミートアップを開催しようと思っています。&lt;br /&gt;
+「ng-japanで学んだことを試してみたけどわからなかった」とか、「ng-japan行けなかったけど聞きたいことがあった」とか、&lt;br /&gt;
+そういう部分をフォローするためのアフターイベントにするつもりです。また詳しいことが決まり次第告知します。&lt;/p&gt;
+
+&lt;h2 id=&#34;海外ブログ紹介&#34;&gt;海外ブログ紹介&lt;/h2&gt;
+
+&lt;p&gt;続々と海外のブログで面白い記事が出てきています。&lt;/p&gt;
+
+&lt;h3 id=&#34;components-with-custom-templates-in-angular-2-http-www-michaelbromley-co-uk-blog-513-components-with-custom-templates-in-angular-2&#34;&gt;&lt;a href=&#34;http://www.michaelbromley.co.uk/blog/513/components-with-custom-templates-in-angular-2&#34; target=&#34;_blank&#34;&gt;Components with Custom Templates in Angular 2&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;ComponentのテンプレートHTMLを動的に差し替える方法についての実践的な内容です。&lt;/p&gt;
+
+&lt;h3 id=&#34;how-to-build-angular-2-apps-using-observable-data-services-pitfalls-to-avoid-http-blog-jhades-org-how-to-build-angular2-apps-using-rxjs-observable-data-services-pitfalls-to-avoid&#34;&gt;&lt;a href=&#34;http://blog.jhades.org/how-to-build-angular2-apps-using-rxjs-observable-data-services-pitfalls-to-avoid/&#34; target=&#34;_blank&#34;&gt;How to build Angular 2 apps using Observable Data Services - Pitfalls to avoid&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;Observableを活用したデータサービスを実装する際の落とし穴と避け方についての内容です。&lt;br /&gt;
+合わせて読みたいのはこちら&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.bennadel.com/blog/3035-http-requests-are-cold-lazy-streams-in-angular-2-beta-6.htm&#34; target=&#34;_blank&#34;&gt;HTTP Requests Are Cold / Lazy Streams In Angular 2 Beta 6&lt;/a&gt;&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://qiita.com/toRisouP/items/f6088963037bfda658d3&#34; target=&#34;_blank&#34;&gt;RxのHotとColdについて - Qiita&lt;/a&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;RxJSのObservableの*Hot*と*Cold*の違いを理解することが大事です。&lt;br /&gt;
+特に最も重要なAjaxは、&lt;code&gt;http.get&lt;/code&gt;の戻り値のObservableがColdであることに留意しないと挙動に悩まされるでしょう&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;今週はおそらくBeta.8がリリースされるでしょう。それではまた。&lt;/p&gt;
+
+&lt;p&gt;参考URL&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://docs.google.com/document/d/150lerb1LmNLuau_a_EznPV1I1UHMTbEl61t4hZ7ZpS0/edit#heading=h.v9yw0ynxk8hq&#34; target=&#34;_blank&#34;&gt;Angular Weekly Meeting - Google ドキュメント&lt;/a&gt;&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://docs.google.com/document/d/1xKEbydyUEOQ_gTbcbxy_k2myctG8EiVbeMgLgXTxIc0/edit#heading=h.yu4zcypn0qmi&#34; target=&#34;_blank&#34;&gt;Angular 1.x Meeting Notes - Google ドキュメント&lt;/a&gt;&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://docs.google.com/document/d/1j6Crqk5rLwJH_iahUStnlaXNfuJZH2cwOZwAYq0p218/edit#heading=h.qr27868rrp3z&#34; target=&#34;_blank&#34;&gt;Angular2 - Animation Meeting Notes - Google ドキュメント&lt;/a&gt;&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>海外のブログとイベント情報</title>
+      <link>https://ng2-info.github.io/2016/02/news-in-2016-02-25/</link>
+      <pubDate>Thu, 25 Feb 2016 00:33:48 +0900</pubDate>
+      
+      <guid>https://ng2-info.github.io/2016/02/news-in-2016-02-25/</guid>
+      <description>
+
+&lt;p&gt;こんにちは、らこです。最近は開発側からの大きなニュースがないので記事にすることが減ってきてるのですが、&lt;br /&gt;
+一方で海外では有用なブログ記事がいくつも出てきています。今日はそれらを紹介します。&lt;/p&gt;
+
+&lt;h3 id=&#34;angular-2-change-detection-explained-http-blog-thoughtram-io-angular-2016-02-22-angular-2-change-detection-explained-html&#34;&gt;&lt;a href=&#34;http://blog.thoughtram.io//angular/2016/02/22/angular-2-change-detection-explained.html&#34; target=&#34;_blank&#34;&gt;Angular 2 Change Detection Explained&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;信頼と実績の@PascalPrechtによるChange Detectionの解説記事が公開されています。&lt;br /&gt;
+結構長いので英語が苦手だと読むのがつらそうなので、[日本語訳](&lt;a href=&#34;http://qiita.com/laco0416/items/523d96ddbfe55c4e6949&#34; target=&#34;_blank&#34;&gt;日本語訳：Angular 2 Change Detection Explained - Qiita&lt;/a&gt;しました。&lt;br /&gt;
+パフォーマンスチューニングする人だけではなく、すべてのAngular 2ユーザーが読むべき解説記事です。&lt;/p&gt;
+
+&lt;h3 id=&#34;rendering-in-angular2-http-www-yearofmoo-com-2016-02-rendering-in-angular2-html&#34;&gt;&lt;a href=&#34;http://www.yearofmoo.com/2016/02/rendering-in-angular2.html&#34; target=&#34;_blank&#34;&gt;Rendering in Angular2&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;GooglerでAngular Core Teamの@matskoが書いたブログです。&lt;br /&gt;
+Angular 2のレンダリングシステムの中身を切り開いて、さらに自作のレンダラを作成するところまで解説しています。&lt;br /&gt;
+興味深い記事なので暇を見つけてこれも翻訳か、噛み砕いた記事を書きたいと思います。&lt;/p&gt;
+
+&lt;h3 id=&#34;setup-nativescript-and-angular-2-http-blog-thecodecampus-de-setup-nativescript-and-angular-2&#34;&gt;&lt;a href=&#34;http://blog.thecodecampus.de/setup-nativescript-and-angular-2/&#34; target=&#34;_blank&#34;&gt;Setup NativeScript and Angular 2&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;Angular 2をNativeScriptでレンダリングしてモバイルアプリを作る解説記事です。&lt;/p&gt;
+
+&lt;h3 id=&#34;debugging-angular-2-applications-from-the-console-http-juristr-com-blog-2016-02-debugging-angular2-console&#34;&gt;&lt;a href=&#34;http://juristr.com/blog/2016/02/debugging-angular2-console/&#34; target=&#34;_blank&#34;&gt;Debugging Angular 2 Applications from the Console&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;ブラウザの開発者用コンソールでAngular 2をデバッグする方法が紹介されています。&lt;br /&gt;
+AngularJSにおける&lt;code&gt;angular.element()&lt;/code&gt;関数に相当する&lt;code&gt;ng.probe()&lt;/code&gt;関数の使い方を解説してくれています。&lt;/p&gt;
+
+&lt;h3 id=&#34;looping-over-object-properties-in-angular-2-s-ngfor-https-webcake-co-object-properties-in-angular-2s-ngfor&#34;&gt;&lt;a href=&#34;https://webcake.co/object-properties-in-angular-2s-ngfor/&#34; target=&#34;_blank&#34;&gt;Looping Over Object Properties in Angular 2’s ngFor&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;&lt;code&gt;ngFor&lt;/code&gt;ではオブジェクトをマップとして反復できなくなっていますが、それをPipeを使って可能にする方法を解説しています。&lt;br /&gt;
+JavaScriptのオブジェクトのプロパティをマップと捉えて反復することはバッドプラクティスであるとAngular Teamは考えており、標準の機能ではサポートされなくなってます。&lt;br /&gt;
+とはいえAngularJSから移行しようとすると不便であるパターンが結構あるので、そういう時はPipeで解決したらいいよと中の人も言っています。&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;また、今回はイベントの情報も紹介します。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://ngjapan.org/&#34; target=&#34;_blank&#34;&gt;ng-japan&lt;/a&gt;の参加者の募集開始が3/1の9:00に決まりました。&lt;br /&gt;
+登壇者も固まりつつあります。Angular 2に興味がある方はぜひ参加してほしいです。&lt;/p&gt;
+
+&lt;p&gt;昨日、&lt;a href=&#34;http://lig.connpass.com/event/26115/&#34; target=&#34;_blank&#34;&gt;第1回Angular2勉強会 #ng2Curry&lt;/a&gt;が開催されました。&lt;br /&gt;
+Angular 2の基本の話や、マイグレーションの実録話などが発表された良いイベントでした。&lt;br /&gt;
+私の発表は &lt;a href=&#34;http://qiita.com/laco0416/items/ff08a496ecd53403bffc&#34; target=&#34;_blank&#34;&gt;Angular2勉強会で発表してきた&lt;/a&gt; でまとめています。&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;今週もミーティングがなかったようですし、リリースがあるのか怪しいコミット数なので、&lt;br /&gt;
+もしリリースがなかったらまた来週ですね。それでは。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Angular2 Beta.7リリースとng-nl情報</title>
+      <link>https://ng2-info.github.io/2016/02/beta-7-has-released/</link>
+      <pubDate>Sat, 20 Feb 2016 00:13:27 +0900</pubDate>
+      
+      <guid>https://ng2-info.github.io/2016/02/beta-7-has-released/</guid>
+      <description>
+
+&lt;p&gt;こんにちは、らこです。&lt;br /&gt;
+今週は週次ミーティングもなく、木曜日にリリースがなかったので次は来週かなと表いましたが、1日遅れでBeta.7にアップデートされました。&lt;/p&gt;
+
+&lt;p&gt;とはいえ今回のリリースはバグ修正のみで、そのバグも小さなものなので、変更点の解説は行いません。&lt;br /&gt;
+CHANGELOGのリンクだけを貼っておくので、気になる方はチェックしてみてください。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/angular/angular/blob/master/CHANGELOG.md#200-beta7-2016-02-18&#34; target=&#34;_blank&#34;&gt;2.0.0-beta.7 (2016-02-18)&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;ただ、CHANGELOGには載っていないのですがBeta.7でpeerDependenciesが更新されています。&lt;br /&gt;
+RxJSは5.0.0-Beta.2に、Zone.jsは0.5.15に上がっています。&lt;br /&gt;
+特にRxJSの方は破壊的変更があるので、忘れないようにアップデートしましょう。&lt;br /&gt;
+&lt;code&gt;fromPromise&lt;/code&gt;から&lt;code&gt;PromiseObservable&lt;/code&gt;への改名がされているだけなので、忘れていてもビルドが通らなくて気付くはずです。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/angular/angular/commit/46d9c87ddc7071e8bc6c21032171610e6b5f6e5a&#34; target=&#34;_blank&#34;&gt;build(package): bump rxjs to 5.0.0-beta.2 · angular/angular@46d9c87&lt;/a&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;リリースノートの話が特になかったので、今回は &lt;strong&gt;ng-nl&lt;/strong&gt; について紹介します。&lt;br /&gt;
+昨日、オランダでng-nlというAngularのコミュニティイベントが開催されました。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.ng-nl.org/&#34; target=&#34;_blank&#34;&gt;NG-NL 2016&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;公式サイト上ではまだセッションやスライドは公開されていないのですが、何人かの登壇者がTwitter上で共有しているので見ることができます。&lt;/p&gt;
+
+&lt;h3 id=&#34;angular-2-change-detection-explained-http-pascalprecht-github-io-slides-angular-2-change-detection-explained&#34;&gt;&lt;a href=&#34;http://pascalprecht.github.io/slides/angular-2-change-detection-explained/#/&#34; target=&#34;_blank&#34;&gt;Angular 2 Change Detection Explained&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;Pascal Precht氏によるChange Detectionの解説です。&lt;br /&gt;
+Angular2を学習する上で必読といえるレベルのスライドです。ぜひ読んでみてください。&lt;/p&gt;
+
+&lt;h3 id=&#34;angular-2-and-the-single-immutable-state-tree-speaker-deck-https-speakerdeck-com-cironunes-angular-2-and-the-single-immutable-state-tree&#34;&gt;&lt;a href=&#34;https://speakerdeck.com/cironunes/angular-2-and-the-single-immutable-state-tree&#34; target=&#34;_blank&#34;&gt;Angular 2 and the Single Immutable State Tree // Speaker Deck&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;Ciro Nunes氏によるImmutableの利点についてのセッションです。&lt;br /&gt;
+Angular2におけるMutableなモデルの欠点と、Immutableなモデルを使うことによる利点が説明されており、&lt;br /&gt;
+PascalPrechtのCD解説の後に読むとよりわかりやすいと思います。&lt;/p&gt;
+
+&lt;h3 id=&#34;introduction-to-rxjs-5-by-gerard-sans-http-slides-com-gerardsans-ng-nl-rxjs5&#34;&gt;&lt;a href=&#34;http://slides.com/gerardsans/ng-nl-rxjs5#/&#34; target=&#34;_blank&#34;&gt;Introduction to RxJS 5 by Gerard Sans&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;Gerard Sans氏によるRxJSの解説です。&lt;br /&gt;
+非同期処理の歴史やRxJS/Observableの思想から、Angular2がRxJSを使っていることによる利点を細かく解説しています。&lt;/p&gt;
+
+&lt;p&gt;このスライドと一緒に、去年のAngular ConnectのRxJSセッションも読んでおくと良いでしょう。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.slideshare.net/benlesh1/rxjs-indepth-angularconnect-2015&#34; target=&#34;_blank&#34;&gt;RxJS In-Depth - AngularConnect 2015&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;angular-2-and-relay-speaker-deck-https-speakerdeck-com-sfroestl-angular-2-and-realy&#34;&gt;&lt;a href=&#34;https://speakerdeck.com/sfroestl/angular-2-and-realy&#34; target=&#34;_blank&#34;&gt;Angular 2 and Relay // Speaker Deck&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;Sebastian Fröstl氏によるAngular2とRelay/GraphQLの組み合わせに関するセッションです。&lt;br /&gt;
+RelayとGraphQLによるクライアント・サーバー間のコミュニケーションの記述と、&lt;br /&gt;
+それをAngular2と併用可能であることが紹介されています。&lt;/p&gt;
+
+&lt;h3 id=&#34;how-to-write-an-angular-2-library-by-olivier-combe-http-slides-com-ocombe-ngnl2016&#34;&gt;&lt;a href=&#34;http://slides.com/ocombe/ngnl2016#/&#34; target=&#34;_blank&#34;&gt;How to write an Angular 2 library by Olivier Combe&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;Olivier Combe氏によるAngular2のライブラリを書く方法のセッションです。&lt;br /&gt;
+残念ながらスライドはあまり詳しくは書かれておらず、セッションの録画が欲しくなります。&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;他にも多くのセッションがあったはずなので、見つかり次第紹介していきます。&lt;/p&gt;
+
+&lt;p&gt;ところで、来週の2/24に東京で開催されるAngular2勉強会で、Angular2とライブラリの話で登壇する予定です。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://lig.connpass.com/event/26115/&#34; target=&#34;_blank&#34;&gt;第1回Angular2勉強会 #ng2Curry - connpass&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;すでにconnpassの参加枠は埋まっているので今から参加はできませんが、参加予定の方はお楽しみに。&lt;/p&gt;
+
+&lt;p&gt;それではまた。&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
