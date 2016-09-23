@@ -97,15 +97,15 @@ routerパッケージの次期バージョン 4.0.0に向けた内部の修正�
 
 ## 記事・動画紹介
 
-### [The Powerful URL Matching Engine of Angular Router](https://vsavkin.com/the-powerful-url-matching-engine-of-angular-router-775dad593b03#.899t2sn9b)
+* [The Powerful URL Matching Engine of Angular Router](https://vsavkin.com/the-powerful-url-matching-engine-of-angular-router-775dad593b03#.899t2sn9b)
 
 Victor Savkin氏がRouterのURLルーティングの規則や機能などを詳しく解説しています。
 
-### [Angular 2 Animations \- Foundation Concepts](http://blog.thoughtram.io/angular/2016/09/16/angular-2-animation-important-concepts.html)
+* [Angular 2 Animations \- Foundation Concepts](http://blog.thoughtram.io/angular/2016/09/16/angular-2-animation-important-concepts.html)
 
 安定と信頼のthoughtram blogです。Angular 2のアニメーションAPIについて概要の解説をしています。
 
-### [Webinar: using new ngModule in Angular 2 w/ Pascal Precht \(LIVE\)](https://www.youtube.com/watch?v=Usohbij6frA&feature=em-lss)
+* [Webinar: using new ngModule in Angular 2 w/ Pascal Precht \(LIVE\)](https://www.youtube.com/watch?v=Usohbij6frA&feature=em-lss)
 
 Pascal Precht氏による`NgModule`機能のwebinarです。とてもわかりやすく重要なポイントを解説しているので必見です。
 
