@@ -21,7 +21,7 @@ tags = ["release"]
 
 ## 2.0.1の修正点
 
-### **common:** fix ngOnChanges signature of NgTemplateOutlet directive ([14ee759](https://github.com/angular/angular/commit/14ee759))
+* **common:** fix ngOnChanges signature of NgTemplateOutlet directive ([14ee759](https://github.com/angular/angular/commit/14ee759))
 
 `NgTemplateOutlet`クラスの`ngOnChanges`メソッドが正しく宣言されていなかった問題が修正されました。
 AoTコンパイル時に`NgTemplateOutlet`を使うとエラーが発生していたのが解決されます。
