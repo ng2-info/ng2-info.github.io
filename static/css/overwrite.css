@@ -32,3 +32,15 @@ a.linkjuice {
 code {
     font-family: Inconsolata, monospace, sans-serif;
 }
+
+ul {
+    margin: 0;
+}
+
+li > br {
+    display: none;
+}
+
+ul + p {
+    padding-left: 2em;
+}
