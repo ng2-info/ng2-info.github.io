@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Library on Angular2 Info</title>
+    <link>https://ng2-info.github.io/tags/library/</link>
+    <description>Recent content in Library on Angular2 Info</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja-jp</language>
+    <lastBuildDate>Tue, 05 Apr 2016 23:34:23 +0900</lastBuildDate>
+    <atom:link href="https://ng2-info.github.io/tags/library/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>週次ミーティングと新着情報</title>
+      <link>https://ng2-info.github.io/2016/04/weekly-meeting-apr-5/</link>
+      <pubDate>Tue, 05 Apr 2016 23:34:23 +0900</pubDate>
+      
+      <guid>https://ng2-info.github.io/2016/04/weekly-meeting-apr-5/</guid>
+      <description>
+
+&lt;p&gt;どうも、らこです。今週も週次ミーティングの要点を紹介します。&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://docs.google.com/document/d/150lerb1LmNLuau_a_EznPV1I1UHMTbEl61t4hZ7ZpS0/edit#heading=h.ke05vma2f6h3&#34; target=&#34;_blank&#34;&gt;Angular Weekly Meeting - Google ドキュメント&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;build-2016&#34;&gt;Build 2016&lt;/h2&gt;
+
+&lt;p&gt;先日開催されたMicrosoftのイベント &amp;ldquo;Build&amp;rdquo; でAngularチームのBradがAngular 2のクロスプラットフォーム対応についてスピーチしました。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://channel9.msdn.com/Events/Build/2016/T627&#34; target=&#34;_blank&#34;&gt;Creating Cross-Platform Apps with Angular 2 | Build 2016 | Channel 9&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;また、それと関連したインタビューの動画もアップされています。こちらはMiskoとMSのAnders氏が同席です。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://channel9.msdn.com/Events/Build/2016/TypeScript-and-Angular-2&#34; target=&#34;_blank&#34;&gt;TypeScript and Angular 2 | Build 2016 | Channel 9&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;angular-material-2&#34;&gt;Angular Material 2&lt;/h2&gt;
+
+&lt;p&gt;Angular Material 2のAlpha.2がまもなくリリースされるそうです。&lt;/p&gt;
+
+&lt;h2 id=&#34;router-update&#34;&gt;Router update&lt;/h2&gt;
+
+&lt;p&gt;Angular 2のRouterのアップデートがいよいよ近づいています。大きなリファクタリングが行われる予定です。&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;今週は他にも注目のニュースがあります。&lt;/p&gt;
+
+&lt;h3 id=&#34;ui-router-1-0-0-alpha-3のリリース&#34;&gt;ui-router 1.0.0-alpha.3のリリース&lt;/h3&gt;
+
+&lt;p&gt;Ui-RouterのAlpha.3がリリースされました。今回からAngular 2への対応が始まっているようです。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/angular-ui/ui-router/releases/tag/1.0.0-alpha.3&#34; target=&#34;_blank&#34;&gt;Release 1.0.0-alpha.3 · angular-ui/ui-router&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;ng2-bootstrapがangular-beta-13に対応&#34;&gt;ng2-bootstrapがAngular Beta.13に対応&lt;/h3&gt;
+
+&lt;p&gt;ng2-bootstrapの1.0.10がリリースされ、Beta.13に対応しました。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/valor-software/ng2-bootstrap/releases/tag/v1.0.10&#34; target=&#34;_blank&#34;&gt;Release v1.0.10 · valor-software/ng2-bootstrap&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;angular-2のrcマイルストーンが35-に到達&#34;&gt;Angular 2のRCマイルストーンが35%に到達&lt;/h3&gt;
+
+&lt;p&gt;Angular 2のFinalリリースまでのマイルストーンが35%に達しました&lt;/p&gt;
+
+&lt;p&gt;&lt;blockquote class=&#34;twitter-tweet&#34; data-lang=&#34;ja&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;Angular 2 now at 35% done towards RC1! &lt;a href=&#34;https://twitter.com/hashtag/GettingThere?src=hash&#34;&gt;#GettingThere&lt;/a&gt;&lt;a href=&#34;https://t.co/TEN2DqMW26&#34;&gt;https://t.co/TEN2DqMW26&lt;/a&gt; &lt;a href=&#34;https://t.co/C6WFaQqKb7&#34;&gt;pic.twitter.com/C6WFaQqKb7&lt;/a&gt;&lt;/p&gt;&amp;mdash; Brad Green (@bradlygreen) &lt;a href=&#34;https://twitter.com/bradlygreen/status/717033304973660160&#34;&gt;2016年4月4日&lt;/a&gt;&lt;/blockquote&gt;&lt;br /&gt;
+&lt;script async src=&#34;//platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;今週も順調にいけば金曜日あたりにBeta.14がリリースされるでしょう。それでは。&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
