@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="ja-jp">
+<head>
+
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+  	<meta property="og:title" content=" Beta.16とBeta.17の変更点 &middot;  Angular2 Info" />
+  	<meta property="og:site_name" content="Angular2 Info" />
+  	<meta property="og:url" content="https://ng2-info.github.io/2016/04/beta-16-and-beta-17/" />
+
+    
+  	<meta property="og:type" content="article" />
+
+    <meta property="og:article:published_time" content="2016-04-29T23:36:29&#43;09:00" />
+
+    
+    <meta property="og:article:tag" content="Beta" />
+    
+    <meta property="og:article:tag" content="Release" />
+    
+    <meta property="og:article:tag" content="BreakingChange" />
+    
+    
+
+  <title>
+     Beta.16とBeta.17の変更点 &middot;  Angular2 Info
+  </title>
+
+    <meta name="description" content="Angular2の最新情報を不定期更新！" />
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" href="https://ng2-info.github.io/favicon.png">
+    <link rel="apple-touch-icon" href="https://ng2-info.github.io/images/apple-touch-icon.png" />
+
+    <link rel="stylesheet" type="text/css" href="https://ng2-info.github.io/css/screen.css" />
+    <link rel="stylesheet" type="text/css" href="https://ng2-info.github.io/css/nav.css" />
+    <link rel="stylesheet" type="text/css" href="https://ng2-info.github.io/css/overwrite.css" />
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400|Inconsolata" />
+
+    
+      
+          <link href="https://ng2-info.github.io/index.xml" rel="alternate" type="application/rss+xml" title="Angular2 Info" />
+      
+      
+    
+    <meta name="generator" content="Hugo 0.17-DEV" />
+
+    <link rel="canonical" href="https://ng2-info.github.io/2016/04/beta-16-and-beta-17/" />
+
+    
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-52362663-3', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+    
+
+    
+    <link rel="stylesheet" href="//yandex.st/highlightjs/8.0/styles/default.min.css">
+    <script type="text/javascript" src="https://ng2-info.github.io/js/linkjuice.min.js"></script>
+    <script src="//yandex.st/highlightjs/8.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body class="nav-closed">
+
+  <div class="nav">
+    <h3 class="nav-title">Menu</h3>
+    <a href="#" class="nav-close">
+        <span class="hidden">Close</span>
+    </a>
+    <ul>
+        
+        
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="/">Top</a>
+            </li>
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="/tags">Tags</a>
+            </li>
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="https://github.com/ng2-info/ng2-info.github.io">Repository</a>
+            </li>
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="http://blog.lacolaco.net">Author&#39;s Blog</a>
+            </li>
+        
+    </ul>
+    
+    
+    <a class="subscribe-button icon-feed" href="https://ng2-info.github.io/index.xml">Subscribe</a>
+    
+</div>
+<span class="nav-cover"></span>
+
+
+ <div class="site-wrapper">
+
+
+
+
+
+<header class="main-header post-head">
+    <nav class="main-nav overlay clearfix">
+
+
+      
+        <a class="blog-logo" href="https://ng2-info.github.io/"><img src="https://ng2-info.github.io/img/ng2-info.png" alt="Home" /></a>
+      
+      
+          <a class="menu-button" href="#"><span class="burger">&#9776;</span><span class="word">Menu</span></a>
+      
+    </nav>
+
+    <div class="vertical">
+        <div class="main-header-content inner">
+            <h1 class="page-title">Angular2 Info</h1>
+            <h2 class="page-description">
+                
+            </h2>
+        </div>
+    </div>
+
+
+</header>
+
+
+
+<main class="content" role="main">
+
+
+
+
+  <article class="post post">
+    <header class="post-header">
+      <nav class="breadcrumb">
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      </nav>
+
+
+        <h1 class="post-title">Beta.16とBeta.17の変更点</h1>
+        <small></small>
+
+        <section class="post-meta">
+        
+          <time class="post-date" datetime="2016-04-29T23:36:29&#43;09:00">
+            Apr 29, 2016
+          </time>
+        
+         
+          <span class="post-tag small"><a href="https://ng2-info.github.io/tags/beta/">#Beta</a></span>
+         
+          <span class="post-tag small"><a href="https://ng2-info.github.io/tags/release/">#Release</a></span>
+         
+          <span class="post-tag small"><a href="https://ng2-info.github.io/tags/breakingchange/">#BreakingChange</a></span>
+         
+        </section>
+    </header>
+
+    <section class="post-content">
+
+
+
+
+<p>どうも、らこです。<br />
+今週はBeta.16とBeta.17の2つのリリースがありまして、特にBeta.16はベータ始まって以来の最大級の変更がリリースされているので、<br />
+みなさんにはぜひとも頑張ってBeta.17へのアップデートを乗り越えて欲しいところです。<br />
+破壊的変更は多いですが、基本的なAPIについては機械的に修正可能なものがほとんどです。<br />
+逆に、Angular 2の深いところまで潜っていた方ほど被害が大きいでしょう。<br />
+それでは重要な変更をピックアップしていきます。</p>
+
+<hr />
+
+<h2 id="changelog-https-github-com-angular-angular-blob-master-changelog-md"><a href="https://github.com/angular/angular/blob/master/CHANGELOG.md" target="_blank">CHANGELOG</a></h2>
+
+<h3 id="location-が-angular2-platform-common-に移動しました"><code>Location</code> が <code>angular2/platform/common</code> に移動しました</h3>
+
+<p>これまで <code>angular2/router</code> モジュールから提供されていた <code>Location</code> クラスが、<br />
+新しく生まれた <code>angular2/platform/common</code> モジュールに移動しました。<br />
+つまり Core側のパッケージに含まれることになり、 <code>angular2/router</code> に依存せずに使えるようになります。</p>
+
+<p>また、 <code>Location</code> に関連する <code>APP_BASE_HREF</code> や <code>LocationStrategy</code> などのAPIも移動しています。<br />
+以前は次のようにインポートしていましたが、</p>
+
+<pre><code class="language-ts">import {
+  PlatformLocation,
+  Location,
+  LocationStrategy,
+  HashLocationStrategy,
+  PathLocationStrategy,
+  APP_BASE_HREF}
+from 'angular2/router';
+</code></pre>
+
+<p>今後は次のようにインポートするようになります。</p>
+
+<pre><code class="language-ts">import {
+  PlatformLocation,
+  Location,
+  LocationStrategy,
+  HashLocationStrategy,
+  PathLocationStrategy,
+  APP_BASE_HREF}
+from 'angular2/platform/common';
+</code></pre>
+
+<h3 id="injector-が読み込み専用になり-reflectiveinjector-が追加されました"><code>Injector</code> が読み込み専用になり、 <code>ReflectiveInjector</code> が追加されました</h3>
+
+<p>Offline Compileの実装に伴い、<code>Injector</code>に大きな変更が入りました。</p>
+
+<p><a href="https://angular.io/docs/ts/latest/api/core/Injector-class.html" target="_blank">Injector - ts</a></p>
+
+<p>まず第一に、 <code>Injector</code> クラスが抽象クラスとなり、 <code>get</code> メソッドだけを提供するようになりました。<br />
+これまで <code>Injector</code>が提供していた他のメソッドは、具象クラスである <code>ReflectiveInjector</code> が実装しています。</p>
+
+<p><a href="https://angular.io/docs/ts/latest/api/core/ReflectiveInjector-class.html" target="_blank">ReflectiveInjector - ts</a></p>
+
+<pre><code class="language-ts">var injector = ReflectiveInjector.resolveAndCreate([]);
+expect(injector.get(Injector)).toBe(injector);
+</code></pre>
+
+<p>また、<code>getOptional</code> メソッドが廃止され、 <code>get</code> メソッドが第2引数としてデフォルト値を取るようになりました。<br />
+デフォルト値を設定しない時にプロバイダが見つからなかった時は今までどおり例外が発生します。</p>
+
+<pre><code class="language-ts">injector.get(optionalDependency, notFoundValue);
+</code></pre>
+
+<h3 id="compiler-の廃止と-componentfactory-の導入"><code>Compiler</code>の廃止と<code>ComponentFactory</code>の導入</h3>
+
+<p>コンポーネントを動的にコンパイルするためのAPIとして、これまでは<code>Compiler</code>が提供されていましたが、<br />
+これが廃止され、新たに<code>ComponentResolver</code>と<code>ComponentFactory</code>という2つのAPIが追加されました。</p>
+
+<p><a href="https://github.com/angular/angular/commit/0c600cf6e31b7f69f5a36f7dea959e4884217a4d" target="_blank">refactor(core): introduce ComponentFactory. · angular/angular@0c600cf</a></p>
+
+<p><code>ComponentResolver</code>は基本的に従来の<code>Compiler</code>とほとんど変わらないAPIを持っています。</p>
+
+<pre><code class="language-ts">// beta.15
+export abstract class Compiler {
+  abstract compileInHost(componentType: Type): Promise&lt;HostViewFactoryRef&gt;;
+  abstract clearCache();
+}
+
+// beta.17
+export abstract class ComponentResolver {
+  abstract resolveComponent(componentType: Type): Promise&lt;ComponentFactory&gt;;
+  abstract clearCache();
+}
+</code></pre>
+
+<p><code>ComponentResolver</code>はプロバイダを記述しなくてもコンポーネントやディレクティブでインジェクト可能です。</p>
+
+<p><code>ComponentResolver#resolveComponent</code>が返す<code>ComponentFactory</code>は<br />
+後述する<code>ViewContainerRef.createComponent</code>のメソッドの引数として使うことができます。<br />
+また、<code>ComponentFactory.create</code> メソッドを使えば、ビューへの挿入なしに、<code>ComponentRef</code>だけを生成できます。</p>
+
+<h3 id="viewcontainerref-createhostview-が-createcomponent-に改名されました"><code>ViewContainerRef.createHostView</code> が <code>.createComponent</code>に改名されました</h3>
+
+<p>よりわかりやすい名前に変わり、戻り値の型も <code>HostViewRef</code> から <code>ComponentRef</code> に変わりました。</p>
+
+<p>さらに、<code>ResolvedProvider</code>クラスが廃止された影響で、第3引数は<code>Injector</code>を要求するようになりました。<br />
+もしInjectorを渡したい場合は、専用の新しい子Injectorを作ってあげるのが推奨されます。</p>
+
+<pre><code class="language-ts">let childInjector = ReflectiveInjector.resolveAndCreate(…);
+vcRef.createComponent(cmpFactory, index, childInjector)
+</code></pre>
+
+<h3 id="dynamiccomponentloader-loadintolocation-が廃止されました"><code>DynamicComponentLoader.loadIntoLocation</code> が廃止されました</h3>
+
+<p><a href="https://github.com/angular/angular/commit/efbd446d18e6e0380beafcad6e94a7751d788623" target="_blank">refactor(core): add <code>Query.read</code> and remove `DynamicComponentLoader.l… · angular/angular@efbd446</a></p>
+
+<p>指定した要素をコンテナとして動的にコンポーネントをビューに追加するAPIだった <code>DynamicComponentLoader.loadIntoLocation</code> が廃止されました。<br />
+代わりに、指定した要素の次の位置に追加する <code>DynamicComponentLoader.loadNextToLocation</code> が引数として<code>ElementRef</code>ではなく<code>ViewContainerRef</code>を要求するようになりました。<br />
+つまり、動的にコンポーネントをビューへ追加するには必ず<code>ViewContainerRef</code>が必要になったということです。</p>
+
+<p><code>ViewContainerRef</code>はコンポーネントやディレクティブが自身のものをDIで取得することができます。<br />
+また、コンポーネントのテンプレート中から任意の要素の<code>ViewContainerRef</code>を得るには、<code>@ViewChild</code>を使います。<br />
+通常、<code>@ViewChild(&quot;loc&quot;)</code>とすると<code>#loc</code>が付与された要素の<code>ElementRef</code>が得られますが、<br />
+第2引数として <code>{read: ViewContainerRef}</code>とすることでコンテナを取得することができます</p>
+
+<pre><code class="language-ts">@Component({
+    selector: 'my-comp',
+    template: '&lt;div #loc&gt;&lt;/div&gt;'
+})
+class MyComp {
+  ctxBoolProp: boolean;
+
+  @ViewChild('loc', {read: ViewContainerRef}) viewContainerRef: ViewContainerRef;
+
+  constructor(private loader: DynamicComponentLoader){}
+
+  loadChildComponent() {
+    this.loader.loadNextToLocation(OtherComponent, this.viewContainerRef)
+        .then(componentRef =&gt; {
+            ...
+        });
+  }
+}
+</code></pre>
+
+<h3 id="appviewmanager-が廃止されました"><code>AppViewManager</code> が廃止されました</h3>
+
+<p>低レイヤーのビュー管理APIだった <code>AppViewManager</code>が内部専用のAPIになり、外部には公開されなくなりました。<br />
+<code>AppViewManager</code>でできることは<code>DynamicComponentLoader</code>と<code>ViewContainerRef</code>で同じことができます。</p>
+
+<h3 id="componentref-dispose-が-componentref-destroy-に改名されました"><code>ComponentRef.dispose</code> が <code>ComponentRef.destroy</code>に改名されました</h3>
+
+<p>名前が変わっただけです。ライフサイクルの<code>ngOnDestroy</code>に合わせてわかりやすくした形です。</p>
+
+<h3 id="非同期テストのやりかたが大きく変わりました">非同期テストのやりかたが大きく変わりました</h3>
+
+<p><code>angular2/testing</code>での非同期テストが大きく変わりました。</p>
+
+<p>まず最初に、非同期テストを行うために <code>zone.js/dist/async-test</code>の読み込みが必要になりました。</p>
+
+<pre><code class="language-ts">import &quot;zone.js/dist/async-test&quot;;
+</code></pre>
+
+<p>また、APIも変わっています。これまではDIを行いつつ非同期テストを行うには<code>injectAsync</code>関数を使っていましたが、<br />
+DIを行う<code>inject</code>関数と、非同期テストを行う<code>async</code>関数の2つに分離されました</p>
+
+<pre><code class="language-ts">// Before:
+
+it('should wait for returned promises', injectAsync([FancyService], (service) =&gt; {
+  return service.getAsyncValue().then((value) =&gt; { expect(value).toEqual('async value'); });
+}));
+it('should wait for returned promises', injectAsync([], () =&gt; {
+  return somePromise.then(() =&gt; { expect(true).toEqual(true); });
+}));
+
+// After
+it('should wait for returned promises', async(inject([FancyService], (service) =&gt; {
+  service.getAsyncValue().then((value) =&gt; { expect(value).toEqual('async value'); });
+})));
+it('should wait for returned promises', async(() =&gt; {
+  somePromise.then() =&gt; { expect(true).toEqual(true); });
+}));
+</code></pre>
+
+<p><code>async</code>関数に渡された関数は、そのテスト固有のZoneが生成され、<br />
+そのZoneが非同期処理の完了を監視してくれるので、<code>done</code>のような明示的なテスト終了処理は不要です。<br />
+Promiseをreturnする必要もなくなりました。</p>
+
+<p>ちなみに、<code>fakeAsync</code>も同様です。<br />
+<code>fakeAsync</code>を使う際には追加で <code>zone.js/dist/fake-async-test</code>の読み込みが必要になり、<br />
+使い方も<code>fakeAsync(inject([...], (...) =&gt; {...}))</code>のように変わります。</p>
+
+<h3 id="renderer-rendercomponent-が廃止されました"><code>Renderer.renderComponent</code>が廃止されました</h3>
+
+<p>任意のコンポーネントをレンダリングする低レベルAPIだった<code>Renderer.renderComponent</code>が廃止されました。<br />
+同じAPIは<code>RootRenderer.renderComponent</code>として提供されています。</p>
+
+<h3 id="ビューのクエリの仕様が変わりました">ビューのクエリの仕様が変わりました</h3>
+
+<p><a href="https://github.com/angular/angular/commit/2b34c88" target="_blank">refactor(view_compiler): codegen DI and Queries · angular/angular@2b34c88</a></p>
+
+<p><code>@ViewQuery</code>や<code>@ViewChild</code>、<code>@ContentChild</code>などのビュークエリは、<code>DynamicComponentLoader</code>によって動的に読み込まれたコンポーネントには適用されない、という仕様に変わりました。<br />
+例えば、<code>&lt;router-outlet&gt;</code>によって読み込まれるコンポーネントは、クエリ対象になりません。<br />
+ただし、<code>&lt;router-outlet&gt;</code>は<code>activate</code>イベントを発火するので、<br />
+新しく読み込まれたコンポーネントの<code>ComponentRef</code>を取得することができます。<br />
+動的にコンポーネントを読み込む場合は同じようにイベントを発火してあげるようにしましょう。</p>
+
+<h3 id="change-detectionの処理順序が変わりました">Change Detectionの処理順序が変わりました</h3>
+
+<p>Change Detectionの処理順序が次のようになります。</p>
+
+<ol>
+<li>Inputのチェック<br />
+
+<ol>
+<li><code>ngOnChanges</code><br /></li>
+<li><code>ngOnInit</code> (一度のみ)<br /></li>
+<li><code>ngDoCheck</code><br /></li>
+</ol></li>
+<li>Contentの更新<br />
+
+<ol>
+<li>ContentのChange Detection<br /></li>
+<li><code>ContentChildren</code>の更新<br /></li>
+<li><code>ngAfterContentChecked</code><br /></li>
+</ol></li>
+<li>Viewの更新<br />
+
+<ol>
+<li>ViewのChange Detection<br /></li>
+<li><code>ViewChildren</code>/<code>ViewQuery</code>の更新<br /></li>
+<li><code>ngAfterViewChecked</code><br />
+<br /></li>
+</ol></li>
+</ol>
+
+<h3 id="pipeのパラメータの仕様が変更されました">Pipeのパラメータの仕様が変更されました</h3>
+
+<p>これまで、Pipeの<code>transform</code>メソッドには第2引数の型が<code>args: any[]</code>だったので常に配列が渡されていましたが、<br />
+<code>...args: any[]</code>に変わり、直接オブジェクトを受け取れるようになりました。</p>
+
+<pre><code class="language-ts">// Before
+@Pipe({name: &quot;repeat&quot;})
+class RepeatPipe implemetes PipeTransform {
+    transform(value: any, args: any[]): any {
+        let times = &lt;number&gt;args[0]; // 常に配列なので0番目を取得する必要があった
+        return value.repeat(times);
+    }
+}
+
+// After
+@Pipe({name: &quot;repeat&quot;})
+class RepeatPipe implemetes PipeTransform {
+    transform(value: any, times: number): any {
+        return value.repeat(times);
+    }
+}
+</code></pre>
+
+<h3 id="シンタックスの仕様変更と-let-ref-シンタックスの追加"><code>#...</code>シンタックスの仕様変更と<code>let-</code>/<code>ref-</code>シンタックスの追加</h3>
+
+<p><a href="https://github.com/angular/angular/commit/d2efac1" target="_blank">feat(core): separate refs from vars. · angular/angular@d2efac1</a></p>
+
+<p>これまで、<code>ngFor</code>の中で使われる<code>#...</code>は反復中のオブジェクトを示し、それ以外では付与された要素の参照を示していましたが、<br />
+これは混乱を招いていました。</p>
+
+<p>そこで、テンプレート内でのローカル変数を作るためのシンタックスとして新しく<code>let-</code>が追加されました。</p>
+
+<pre><code class="language-html">&lt;!--Before--&gt;
+&lt;li *ngFor=&quot;#item of items; #i = index&quot;&gt;...&lt;/li&gt;
+&lt;template ngFor=&quot;#item of items; #i = index&quot;&gt;&lt;/div&gt;
+&lt;template ngFor #item [ngForOf]=&quot;items&quot; #i=&quot;index&quot;&gt;&lt;li&gt;...&lt;/li&gt;&lt;/template&gt;
+
+&lt;!--After--&gt;
+&lt;li *ngFor=&quot;let item of items; let i = index&quot;&gt;...&lt;/li&gt;
+&lt;template ngFor=&quot;let item of items; let i = index&quot;&gt;&lt;/div&gt;
+&lt;template ngFor let-item [ngForOf]=&quot;items&quot; let-i=&quot;index&quot;&gt;&lt;li&gt;...&lt;/li&gt;&lt;/template&gt;
+</code></pre>
+
+<p>また、<code>#...</code>シンタックスはこれまで<code>var-...</code>と対応していましたが、今後は<code>ref-...</code>になります。<br />
+通常の要素に付与すればその要素の参照に、<code>&lt;template&gt;</code>要素に付与すれば<code>TemplateRef</code>として扱えます。</p>
+
+<p><code>var-</code>シンタックスは将来的に廃止される非推奨なAPIとなりました。<br />
+<code>let-</code>か<code>ref-</code>のどちらかに書き直しましょう。</p>
+
+<h3 id="templateref-にコンテキストのジェネリクスが付きました"><code>TemplateRef</code>にコンテキストのジェネリクスが付きました</h3>
+
+<p>先述の<code>let-</code>と関連して、ローカル変数をオブジェクトとして扱うためのコンテキストが導入されました。<br />
+<code>TemplateRef</code>は、自身のコンテキストの型をジェネリクスとして宣言する必要があります</p>
+
+<p>例えば、<code>NgFor</code>は<code>NgForRow</code>というコンテキストを持っています。</p>
+
+<pre><code class="language-ts">export class NgForRow {
+  constructor(public $implicit: any, public index: number, public count: number) {}
+
+  get first(): boolean { return this.index === 0; }
+
+  get last(): boolean { return this.index === this.count - 1; }
+
+  get even(): boolean { return this.index % 2 === 0; }
+
+  get odd(): boolean { return !this.even; }
+}
+
+...
+
+export class NgFor implements DoCheck {
+  ...
+
+  constructor(private _viewContainer: ViewContainerRef, private _templateRef: TemplateRef&lt;NgForRow&gt;,
+              private _iterableDiffers: IterableDiffers, private _cdr: ChangeDetectorRef) {}
+
+  ...
+}
+</code></pre>
+
+<p><code>ViewContainerRef.createEmbeddedView</code>を使って<code>TemplateRef</code>からビューを作るときに、第2引数としてコンテキストオブジェクトを渡すことができます。</p>
+
+<pre><code class="language-ts">class SomeViewportContext {
+  constructor(public someTmpl: string) {}
+}
+
+@Directive({selector: '[someViewport]'})
+@Injectable()
+class SomeViewport {
+constructor(container: ViewContainerRef, templateRef: TemplateRef&lt;SomeViewportContext&gt;) {
+  container.createEmbeddedView(templateRef, new SomeViewportContext('hello'));
+  container.createEmbeddedView(templateRef, new SomeViewportContext('again'));
+  }
+}
+
+&lt;template someViewport let-greeting=&quot;someTmpl&quot;&gt;
+    &lt;p&gt;{{greeting}}&lt;/p&gt;
+&lt;/template&gt;
+</code></pre>
+
+<p>コンテキストを使ってローカル変数を設定できるようになったので、<br />
+従来の<code>EmbeddedViewRef.setLocal</code>は削除されました。</p>
+
+<h3 id="ngtemplateoutlet-の追加"><code>NgTemplateOutlet</code>の追加</h3>
+
+<p><code>TemplateRef</code>を渡すと内部のViewContainerにセットしてくれる便利なディレクティブが追加されました。</p>
+
+<pre><code class="language-html">&lt;div&gt;
+  &lt;template #tmp&gt;
+    &lt;h1&gt;Template!!&lt;/h1&gt;
+  &lt;/template&gt;
+  &lt;div [ngTemplateOutlet]=&quot;tmp&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+
+<p>簡単に<code>router-outlet</code>のようなビューの切り替えが実装できるようになります。</p>
+
+<hr />
+
+<p><strong>長い！！！！！！</strong></p>
+
+<p>お疲れ様でした。Beta.16, 17ではOffline Compileのために基盤部分が大きく変わっており、<br />
+深いAPIを使っているほど影響が大きいアップデートです。<br />
+冒頭にも言ったように、このアップデートに対応しておかないと今後の追従が難しいので、<br />
+被害の大きかった人も頑張って対応しましょう。</p>
+
+<p>Offline Compileの使い方はまだドキュメントがなく、CLIがまだ開発途上らしいのでもうしばらく時間がかかりそうです。</p>
+
+<p>それでは。</p>
+
+
+
+
+
+
+
+
+
+    </section>
+
+
+  <footer class="post-footer">
+
+
+    
+    <figure class="author-image">
+        <a class="img" href="http://twitter.com/laco0416" style="background-image: url(https://ng2-info.github.io/img/authors/laco.png)"></a>
+    </figure>
+
+    
+
+
+
+
+
+<section class="author">
+  <h5>Author: <a href="http://twitter.com/laco0416">Suguru INATOMI</a></h5>
+</section>
+
+
+
+    
+<section class="share">
+    <h5>Share this post</h5>
+    <a class="icon-twitter" style="font-size: 1.4em"
+       href="https://twitter.com/share?text=Beta.16%e3%81%a8Beta.17%e3%81%ae%e5%a4%89%e6%9b%b4%e7%82%b9%20-%20Angular2%20Info&amp;url=https%3a%2f%2fng2-info.github.io%2f2016%2f04%2fbeta-16-and-beta-17%2f"
+       onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+        <span class="hidden">Twitter</span>
+    </a>
+    <a class="icon-facebook" style="font-size: 1.4em"
+       href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fng2-info.github.io%2f2016%2f04%2fbeta-16-and-beta-17%2f"
+       onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+        <span class="hidden">Facebook</span>
+    </a>
+</section>
+
+
+
+  </footer>
+</article>
+
+</main>
+<footer class="site-footer clearfix">
+    <section class="copyright"><a href="">Angular2 Info</a> </section>
+    
+    <section class="poweredby">Proudly generated by <a class="icon-hugo" href="http://gohugo.io">HUGO</a>, with <a
+            class="icon-theme" href="https://github.com/vjeantet/hugo-theme-casper">Casper</a> theme
+    </section>
+    
+</footer>
+</div>
+<script type="text/javascript" src="https://ng2-info.github.io/js/jquery.js"></script>
+<script type="text/javascript" src="https://ng2-info.github.io/js/jquery.fitvids.js"></script>
+<script type="text/javascript" src="https://ng2-info.github.io/js/index.js"></script>
+
+<script>
+    linkjuice.init('article.post', {
+        selectors: ['h2', 'h3', 'h4'],
+        icon: ''
+    });
+</script>
+</body>
+</html>
+

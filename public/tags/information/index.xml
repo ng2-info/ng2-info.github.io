@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Information on Angular2 Info</title>
+    <link>https://ng2-info.github.io/tags/information/</link>
+    <description>Recent content in Information on Angular2 Info</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja-jp</language>
+    <lastBuildDate>Sun, 27 Dec 2015 18:11:24 +0900</lastBuildDate>
+    <atom:link href="https://ng2-info.github.io/tags/information/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Angular2 Infoを開設しました！</title>
+      <link>https://ng2-info.github.io/2015/12/open-ng2-info/</link>
+      <pubDate>Sun, 27 Dec 2015 18:11:24 +0900</pubDate>
+      
+      <guid>https://ng2-info.github.io/2015/12/open-ng2-info/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://twitter.com/laco0416&#34; target=&#34;_blank&#34;&gt;@laco0416&lt;/a&gt;がAngular2の最新情報を発信するブログ「Angular2 Info」を開設しました。&lt;br /&gt;
+Angular2のリリース情報や進行中の計画、今後の展望に関する関係者の発言等があれば不定期に更新していく予定です。&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

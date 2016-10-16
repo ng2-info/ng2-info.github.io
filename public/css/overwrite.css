@@ -1,0 +1,46 @@
+.main-header {
+    background: #0143A3;
+    background-position-x: 50%;
+    background-position-y: 50%;
+    min-height: 160px;
+    max-height: 40vh;
+}
+.scroll-down {
+    display: none;
+}
+.no-cover.post-head.main-header {
+    background: #0143A3;
+}
+
+.page-description {
+    font-family: "Open Sans", sans-serif;
+}
+
+pre {
+    background: transparent;
+}
+
+a.linkjuice {
+    text-decoration: none;
+
+}
+
+.post {
+    font-family: "Open Sans", sans-serif;
+}
+
+code {
+    font-family: Inconsolata, monospace, sans-serif;
+}
+
+ul {
+    margin: 0;
+}
+
+li > br {
+    display: none;
+}
+
+ul + p {
+    padding-left: 2em;
+}
