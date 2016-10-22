@@ -48,7 +48,6 @@ router.umd.jsにRxJSのfilterオペレーターが含まれておらず、router
 
 * **forms:** add hasError and getError to AbstractControlDirective ([#11985](https://github.com/angular/angular/issues/11985)) ([592f40a](https://github.com/angular/angular/commit/592f40a)), closes [#7255](https://github.com/angular/angular/issues/7255)
 フォームのコントロールに `hasError` メソッドと `getError` メソッドが追加されました
-
 ```html
 <label>Username</label><input name="username" ngModel required #username="ngModel">
 <div *ngIf="username.dirty && username.hasError('required')">Username is required</div>
@@ -60,7 +59,6 @@ router.umd.jsにRxJSのfilterオペレーターが含まれておらず、router
 * **forms:** Added emitEvent to AbstractControl methods ([#11949](https://github.com/angular/angular/issues/11949)) ([b9fc090](https://github.com/angular/angular/commit/b9fc090))
 フォームのコントロールが持つメソッドに、 `emitEvent` オプションが追加されます。
 `emitEvent`がfalseのとき、そのメソッドによる操作は`valueChange`イベントや`statusChange`イベントを発火しません。
-
 ```ts
 control.setValue('foo', {emitEvent: false});
 ```
@@ -75,11 +73,10 @@ control.setValue('foo', {emitEvent: false});
 `@angular/upgrade`パッケージを使ったアプリケーションがAoTコンパイル可能になります。
 
 * **router:** add support for ng1/ng2 migration ([#12160](https://github.com/angular/angular/issues/12160)) ([8b9ab44](https://github.com/angular/angular/commit/8b9ab44))
+
 `@anguar/upgrade`を使ってAngular 1と2を共存させるアプリケーションにおいて、部分的にAngular 2のrouterを使用できるようにする機能が追加されます。
 この新しい機能については、Victor Savkin氏が自身のブログで自ら記事を書いています。
-
 [Migrating Angular 1 Applications to Angular 2 in 5 Simple Steps](https://vsavkin.com/migrating-angular-1-applications-to-angular-2-in-5-simple-steps-40621800a25b#.tucitwyc7)
-
 Angular 2のrouterを有効にする条件を、`UrlHandlingStrategy`という仕組みで制御できるようになります。
 
 ----
