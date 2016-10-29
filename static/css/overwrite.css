@@ -22,7 +22,6 @@ pre {
 
 a.linkjuice {
     text-decoration: none;
-
 }
 
 .post {
@@ -37,10 +36,34 @@ ul {
     margin: 0;
 }
 
-li > br {
+.post-content li > br {
     display: none;
 }
 
-ul + p {
-    padding-left: 2em;
+.post-content h2 {
+    font-size: 1.5em;
+}
+
+.post-content h3 {
+    font-size: 1.25em;
+}
+
+.post-content h4 {
+    font-weight: normal;
+    font-size: 1.0em;
+    text-decoration: underline;
+}
+
+.post-content h4 a {
+    color: deepskyblue;
+}
+
+.post-content a:hover {
+    color: lightskyblue;
+    font-size: 110%;
+    text-decoration: underline;
+}
+
+.post-content p {
+    margin: 1.1em 0;
 }
