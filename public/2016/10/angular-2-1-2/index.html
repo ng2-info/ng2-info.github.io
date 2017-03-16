@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="ja-jp">
+<head>
+
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+  	<meta property="og:title" content=" Angular 2.1.2/2.2.0-beta.1のリリース &middot;  Angular Info" />
+  	<meta property="og:site_name" content="Angular Info" />
+  	<meta property="og:url" content="https://ng2-info.github.io/2016/10/angular-2-1-2/" />
+
+    
+  	<meta property="og:type" content="article" />
+
+    <meta property="og:article:published_time" content="2016-10-28T13:53:56&#43;09:00" />
+
+    
+    <meta property="og:article:tag" content="release" />
+    
+    
+
+  <title>
+     Angular 2.1.2/2.2.0-beta.1のリリース &middot;  Angular Info
+  </title>
+
+    <meta name="description" content="Angularの最新情報を不定期更新！" />
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" href="https://ng2-info.github.io/favicon.png">
+    <link rel="apple-touch-icon" href="https://ng2-info.github.io/images/apple-touch-icon.png" />
+
+    <link rel="stylesheet" type="text/css" href="https://ng2-info.github.io/css/screen.css" />
+    <link rel="stylesheet" type="text/css" href="https://ng2-info.github.io/css/nav.css" />
+    <link rel="stylesheet" type="text/css" href="https://ng2-info.github.io/css/overwrite.css" />
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400|Inconsolata" />
+
+    
+      
+          <link href="https://ng2-info.github.io/index.xml" rel="alternate" type="application/rss+xml" title="Angular Info" />
+      
+      
+    
+    <meta name="generator" content="Hugo 0.18.1" />
+
+    <link rel="canonical" href="https://ng2-info.github.io/2016/10/angular-2-1-2/" />
+
+    
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-52362663-3', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+    
+
+    
+    <link rel="stylesheet" href="//yandex.st/highlightjs/8.0/styles/default.min.css">
+    <script type="text/javascript" src="https://ng2-info.github.io/js/linkjuice.min.js"></script>
+    <script src="//yandex.st/highlightjs/8.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body class="nav-closed">
+
+  <div class="nav">
+    <h3 class="nav-title">Menu</h3>
+    <a href="#" class="nav-close">
+        <span class="hidden">Close</span>
+    </a>
+    <ul>
+        
+        
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="/">Top</a>
+            </li>
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="/tags">Tags</a>
+            </li>
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="https://github.com/ng2-info/ng2-info.github.io">Repository</a>
+            </li>
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="http://blog.lacolaco.net">Author&#39;s Blog</a>
+            </li>
+        
+    </ul>
+    
+    
+    <a class="subscribe-button icon-feed" href="https://ng2-info.github.io/index.xml">Subscribe</a>
+    
+</div>
+<span class="nav-cover"></span>
+
+
+ <div class="site-wrapper">
+
+
+
+
+
+<header class="main-header post-head">
+    <nav class="main-nav overlay clearfix">
+
+
+      
+        <a class="blog-logo" href="https://ng2-info.github.io/"><img src="https://ng2-info.github.io/img/ng2-info.png" alt="Home" /></a>
+      
+      
+          <a class="menu-button" href="#"><span class="burger">&#9776;</span><span class="word">Menu</span></a>
+      
+    </nav>
+
+    <div class="vertical">
+        <div class="main-header-content inner">
+            <h1 class="page-title">Angular Info</h1>
+            <h2 class="page-description">
+                
+            </h2>
+        </div>
+    </div>
+
+
+</header>
+
+
+
+<main class="content" role="main">
+
+
+
+
+  <article class="post post">
+    <header class="post-header">
+      <nav class="breadcrumb">
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      </nav>
+
+
+        <h1 class="post-title">Angular 2.1.2/2.2.0-beta.1のリリース</h1>
+        <small></small>
+
+        <section class="post-meta">
+        
+          <time class="post-date" datetime="2016-10-28T13:53:56&#43;09:00">
+            Oct 28, 2016
+          </time>
+        
+         
+          <span class="post-tag small"><a href="https://ng2-info.github.io/tags/release/">#release</a></span>
+         
+        </section>
+    </header>
+
+    <section class="post-content">
+
+
+<p></p>
+
+<p>どうも、らこです。今週も予定通り新しいバージョンのリリースが行われました。現在リリースされているバージョンは以下のとおりです</p>
+
+<table>
+<thead>
+<tr>
+<th></th>
+<th>latest</th>
+<th>next</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>core</td>
+<td>2.1.2</td>
+<td>2.2.0-beta.1</td>
+</tr>
+
+<tr>
+<td>router</td>
+<td>3.1.2</td>
+<td>3.2.0-beta.1</td>
+</tr>
+</tbody>
+</table>
+
+<p>それでは今回の注目すべき変更点をまとめます。</p>
+
+<hr />
+
+<h2 id="2-1-2-https-github-com-angular-angular-blob-master-changelog-md-212-2016-10-27"><a href="https://github.com/angular/angular/blob/master/CHANGELOG.md#212-2016-10-27" target="_blank">2.1.2</a></h2>
+
+<h3 id="bug-fixes">Bug Fixes</h3>
+
+<h4 id="compiler-walk-third-party-modules-12453-https-github-com-angular-angular-issues-12453-a838aba-https-github-com-angular-angular-commit-a838aba-closes-11889-https-github-com-angular-angular-issues-11889-12428-https-github-com-angular-angular-issues-12428"><strong>compiler:</strong> walk third party modules (<a href="https://github.com/angular/angular/issues/12453" target="_blank">#12453</a>) (<a href="https://github.com/angular/angular/commit/a838aba" target="_blank">a838aba</a>), closes <a href="https://github.com/angular/angular/issues/11889" target="_blank">#11889</a> <a href="https://github.com/angular/angular/issues/12428" target="_blank">#12428</a></h4>
+
+<p>サードパーティライブラリが提供するDirectiveを使ったときに、AoTコンパイルで生成されるコードが正しくないimport文を含むバグが修正されました</p>
+
+<h4 id="compiler-use-maps-instead-of-objects-in-selector-implementation-d321b0e-https-github-com-angular-angular-commit-d321b0e"><strong>compiler:</strong> use Maps instead of objects in selector implementation (<a href="https://github.com/angular/angular/commit/d321b0e" target="_blank">d321b0e</a>)</h4>
+
+<p>ComponentやDirectiveのselectorとクラスのマッピングに使っていたオブジェクトを、Mapに置き換えました。<br />
+今までは単なるObjectのインスタンスだったので、一部の文字列(<code>constructor</code>など)は特別な意味をもってしまい、selectorとして使えませんでした。</p>
+
+<h4 id="compiler-cli-assert-that-all-pipes-and-directives-are-declared-by-a-module-7221632-https-github-com-angular-angular-commit-7221632"><strong>compiler-cli:</strong> assert that all pipes and directives are declared by a module  (<a href="https://github.com/angular/angular/commit/7221632" target="_blank">7221632</a>)</h4>
+
+<p>ngcコンパイラが、NgModuleのdeclarationsに含まれていないPipeやDirectiveが見つかったときにも警告を出すようになりました。</p>
+
+<h4 id="http-overwrite-already-set-xsrf-header-b4265e0-https-github-com-angular-angular-commit-b4265e0"><strong>http:</strong> overwrite already set xsrf header (<a href="https://github.com/angular/angular/commit/b4265e0" target="_blank">b4265e0</a>)</h4>
+
+<p>リクエストの際に明示的に<code>X-XSRF-TOKEN</code>ヘッダを設定してある場合はhttpパッケージによって自動的に付与されているものを上書きするように修正されました</p>
+
+<h4 id="router-candeactivate-guards-are-not-triggered-for-componentless-routes-b741853-https-github-com-angular-angular-commit-b741853-closes-12375-https-github-com-angular-angular-issues-12375"><strong>router:</strong> canDeactivate guards are not triggered for componentless routes (<a href="https://github.com/angular/angular/commit/b741853" target="_blank">b741853</a>), closes <a href="https://github.com/angular/angular/issues/12375" target="_blank">#12375</a></h4>
+
+<h4 id="router-change-router-not-to-deactivate-aux-routes-when-navigating-from-a-componentless-routes-52a853e-https-github-com-angular-angular-commit-52a853e"><strong>router:</strong> change router not to deactivate aux routes when navigating from a componentless routes (<a href="https://github.com/angular/angular/commit/52a853e" target="_blank">52a853e</a>)</h4>
+
+<p>Componentを持たないルートについて、deactivateに関するバグが修正されました。</p>
+
+<h4 id="router-disallow-component-routes-with-named-outlets-8f2fa0f-https-github-com-angular-angular-commit-8f2fa0f-closes-11208-https-github-com-angular-angular-issues-11208-11082-https-github-com-angular-angular-issues-11082"><strong>router:</strong> disallow component routes with named outlets (<a href="https://github.com/angular/angular/commit/8f2fa0f" target="_blank">8f2fa0f</a>), closes <a href="https://github.com/angular/angular/issues/11208" target="_blank">#11208</a> <a href="https://github.com/angular/angular/issues/11082" target="_blank">#11082</a></h4>
+
+<p>Componentを持たないルートがRouterOutletの名前を指定したときにエラーを出すようになりました。</p>
+
+<h4 id="router-preserve-resolve-data-6ccbfd4-https-github-com-angular-angular-commit-6ccbfd4-closes-12306-https-github-com-angular-angular-issues-12306"><strong>router:</strong> preserve resolve data (<a href="https://github.com/angular/angular/commit/6ccbfd4" target="_blank">6ccbfd4</a>), closes <a href="https://github.com/angular/angular/issues/12306" target="_blank">#12306</a></h4>
+
+<p>一度resolveされた値を、<code>ActivatedRoute</code>が保存するようになりました。</p>
+
+<h3 id="その他">その他</h3>
+
+<p>ngcによって生成されるngfactoryファイルのサイズを小さくする最適化が行われています。</p>
+
+<h2 id="2-2-0-beta-1-https-github-com-angular-angular-blob-master-changelog-md-220-beta1-2016-10-27"><a href="https://github.com/angular/angular/blob/master/CHANGELOG.md#220-beta1-2016-10-27" target="_blank">2.2.0-beta.1</a></h2>
+
+<h3 id="code-refactoring">Code Refactoring</h3>
+
+<h4 id="upgrade-re-export-the-new-static-upgrade-apis-on-new-entry-a26dd28-https-github-com-angular-angular-commit-a26dd28"><strong>upgrade:</strong> re-export the new static upgrade APIs on new entry (<a href="https://github.com/angular/angular/commit/a26dd28" target="_blank">a26dd28</a>)</h4>
+
+<p>upgradeパッケージのAPIをimportするパスが変更されました。</p>
+
+<ul>
+<li>downgradeComponent<br /></li>
+<li>downgradeInjectable<br /></li>
+<li>UpgradeComponent<br /></li>
+<li>UpgradeModule<br />
+<br /></li>
+</ul>
+
+<p>以上のAPIは <code>@angular/upgrade/static</code> からexportされるようになります。</p>
+
+<h3 id="features">Features</h3>
+
+<h4 id="router-export-routerlinkactive-w-isactive-property-c9f58cf-https-github-com-angular-angular-commit-c9f58cf"><strong>router:</strong> export routerLinkActive w/ isActive property (<a href="https://github.com/angular/angular/commit/c9f58cf" target="_blank">c9f58cf</a>)</h4>
+
+<p><code>RouterLinkActive</code> ディレクティブが <code>routerLinkActive</code> としてテンプレート中でexportされます。<br />
+次のように<code>routerLinkActive</code>ディレクティブをテンプレート変数として取り出し、<code>isActive</code>プロパティにアクセスできます。</p>
+
+<pre><code class="language-html">&lt;a routerLink=&quot;/user/bob&quot; routerLinkActive #rla=&quot;routerLinkActive&quot;&gt;
+    Bob {{ rla.isActive ? '(already open)' : ''}}
+&lt;/a&gt;
+</code></pre>
+
+<hr />
+
+<p>今週は追加でいくつか。</p>
+
+<h3 id="記事紹介">記事紹介</h3>
+
+<ul>
+<li><a href="https://www.bennadel.com/blog/3174-handling-service-configuration-without-a-configuration-phase-in-angular-2-1-1.htm" target="_blank">Handling Service Configuration Without A Configuration Phase In Angular 2.1.1</a><br />
+<br /></li>
+</ul>
+
+<p>Angular 2.1系における、Serviceのデザインパターンです。<code>multi: true</code>なproviderを使って柔軟な設定を行うサービスを作る方法を紹介しています。<br />
+Dependency Injectionの有効な活用法なので参考にすると良いでしょう</p>
+
+<ul>
+<li><a href="https://toddmotto.com/reactive-formgroup-validation-angular-2" target="_blank">Reactive FormGroup validation with AbstractControl in Angular 2</a><br />
+<br /></li>
+</ul>
+
+<p>最近リニューアルしたTodd Motto氏のブログの新しい記事です。ReactiveFormsのFormGroupに対してカスタムバリデーターを作成、適用する方法を解説しています</p>
+
+<h3 id="その他-1">その他</h3>
+
+<ul>
+<li>Angular-CLIの<strong>1.0.0-beta.19-3</strong>がリリースされました<br /></li>
+<li>Universalプロジェクトのコアであるplatform-nodeモジュールがAngularの本体に吸収されることになりました<br /></li>
+<li>上記と関連して、Core TeamのメンバーによるUniversalへのコントリビューションが増えるとのことです<br />
+<br /></li>
+</ul>
+
+<hr />
+
+<p>今週も順調にリリースが進んでいます。また、Universalの開発をCore Teamが加速させるのはとても期待できますね。完成が楽しみです</p>
+
+<p>それではまた来週のリリースで。</p>
+
+
+
+
+
+
+
+
+    </section>
+
+
+  <footer class="post-footer">
+
+
+    
+    <figure class="author-image">
+        <a class="img" href="http://twitter.com/laco0416" style="background-image: url(https://ng2-info.github.io/img/authors/laco.png)"></a>
+    </figure>
+
+    
+
+
+
+
+
+<section class="author">
+  <h5>Author: <a href="http://twitter.com/laco0416">Suguru INATOMI</a></h5>
+</section>
+
+
+
+    
+<section class="share">
+    <h5>Share this post</h5>
+    <a class="icon-twitter" style="font-size: 1.4em"
+       href="https://twitter.com/share?text=Angular%202.1.2%2f2.2.0-beta.1%e3%81%ae%e3%83%aa%e3%83%aa%e3%83%bc%e3%82%b9%20-%20Angular%20Info&amp;url=https%3a%2f%2fng2-info.github.io%2f2016%2f10%2fangular-2-1-2%2f"
+       onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+        <span class="hidden">Twitter</span>
+    </a>
+    <a class="icon-facebook" style="font-size: 1.4em"
+       href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fng2-info.github.io%2f2016%2f10%2fangular-2-1-2%2f"
+       onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+        <span class="hidden">Facebook</span>
+    </a>
+</section>
+
+
+
+  </footer>
+</article>
+
+</main>
+<footer class="site-footer clearfix">
+    <section class="copyright"><a href="">Angular Info</a> </section>
+    
+    <section class="poweredby">Proudly generated by <a class="icon-hugo" href="http://gohugo.io">HUGO</a>, with <a
+            class="icon-theme" href="https://github.com/vjeantet/hugo-theme-casper">Casper</a> theme
+    </section>
+    
+</footer>
+</div>
+<script type="text/javascript" src="https://ng2-info.github.io/js/jquery.js"></script>
+<script type="text/javascript" src="https://ng2-info.github.io/js/jquery.fitvids.js"></script>
+<script type="text/javascript" src="https://ng2-info.github.io/js/index.js"></script>
+
+<script>
+    linkjuice.init('article.post', {
+        selectors: ['h2', 'h3'],
+        icon: ''
+    });
+</script>
+</body>
+</html>
+

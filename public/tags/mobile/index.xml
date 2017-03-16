@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Mobile on Angular Info</title>
+    <link>https://ng2-info.github.io/tags/mobile/index.xml</link>
+    <description>Recent content in Mobile on Angular Info</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja-jp</language>
+    <atom:link href="https://ng2-info.github.io/tags/mobile/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>週次ミーティング</title>
+      <link>https://ng2-info.github.io/2016/04/weekly-meeting-apr-12/</link>
+      <pubDate>Tue, 12 Apr 2016 21:24:38 +0900</pubDate>
+      
+      <guid>https://ng2-info.github.io/2016/04/weekly-meeting-apr-12/</guid>
+      <description>&lt;p&gt;どうも、らこです。今週も週次ミーティングの内容を噛み砕いて紹介します。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&#34;4-11-週次ミーティング&#34;&gt;4/11 週次ミーティング&lt;/h2&gt;
+
+&lt;h3 id=&#34;コアライブラリの変更&#34;&gt;コアライブラリの変更&lt;/h3&gt;
+
+&lt;p&gt;Angular 2のコア部分に2つ大きな変更があります。&lt;/p&gt;
+
+&lt;p&gt;1つ目は、テンプレートのコンパイルやDIの解決、Change Detectionなどのコア機能を静的コード生成に委ねるようにする変更です。&lt;br /&gt;
+この変更によりパフォーマンスが格段に改善されるとともに、アプリケーションのデプロイ時のサイズを削減することができます。&lt;/p&gt;
+
+&lt;p&gt;2つ目はbootstrapの方法が変わり、ツリーシェイキングやデッドコードの削除が可能になります。&lt;/p&gt;
+
+&lt;h3 id=&#34;angular-material-2&#34;&gt;Angular Material 2&lt;/h3&gt;
+
+&lt;p&gt;Angular Material 2のAlpha.2がリリースされました。&lt;br /&gt;
+今後のリリース予定についてはGitHubのマイルストーンで確認できます。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/angular/material2/milestones&#34; target=&#34;_blank&#34;&gt;Milestones - angular/material2&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;ドキュメンテーション&#34;&gt;ドキュメンテーション&lt;/h3&gt;
+
+&lt;p&gt;今後もドキュメンテーションの拡充を進めていきます。「Why Angular?」というコンテンツが追加される予定で、&lt;br /&gt;
+ドキュメンテーションのランディングページも改善されます。&lt;/p&gt;
+
+&lt;p&gt;また、モバイル向けの情報やプラットフォームなどにより細かくサブドメインを分けます。&lt;/p&gt;
+
+&lt;p&gt;angular.ioには新しく次のドキュメントが追加されています。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://angular.io/docs/ts/latest/cookbook/component-communication.html&#34; target=&#34;_blank&#34;&gt;Component Interaction - ts&lt;/a&gt;&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://angular.io/docs/ts/latest/cookbook/dependency-injection.html&#34; target=&#34;_blank&#34;&gt;Dependency Injection - ts&lt;/a&gt;&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://angular.io/docs/ts/latest/cookbook/dynamic-form.html&#34; target=&#34;_blank&#34;&gt;Dynamic Form - ts&lt;/a&gt;&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://angular.io/docs/ts/latest/guide/component-styles.html&#34; target=&#34;_blank&#34;&gt;Component Styles - ts&lt;/a&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;周辺ツール&#34;&gt;周辺ツール&lt;/h3&gt;
+
+&lt;h3 id=&#34;スタイルガイド&#34;&gt;スタイルガイド&lt;/h3&gt;
+
+&lt;p&gt;John Papaがスタイルガイドの開発をMinko Gechevらと進めています。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/mgechev/angular2-style-guide&#34; target=&#34;_blank&#34;&gt;mgechev/angular2-style-guide: Community-driven set of best practices and style guidelines for Angular 2 application development&lt;/a&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&#34;angular-cli&#34;&gt;Angular CLI&lt;/h4&gt;
+
+&lt;p&gt;スタイルガイドをもとにコードのブループリントを実装しています。&lt;br /&gt;
+その次にはオフラインテンプレートコンパイルとの連携を実装します。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/angular/angular-cli&#34; target=&#34;_blank&#34;&gt;angular/angular-cli: CLI tool for Angular2&lt;/a&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&#34;batarangle&#34;&gt;Batarangle&lt;/h4&gt;
+
+&lt;p&gt;Batarangleはもうすぐ正式リリースされます。&lt;br /&gt;
+コンポーネントやDI、ルートの可視化ができます。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/rangle/augury&#34; target=&#34;_blank&#34;&gt;rangle/augury: Angular 2 development tools for Chrome&lt;/a&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&#34;language-services&#34;&gt;Language Services&lt;/h4&gt;
+
+&lt;p&gt;TypeScriptのLanguage Servicesで、Angular 2のテンプレート内の入力補完を可能にする計画です。&lt;br /&gt;
+そのために必要なコンポーネントメタデータの抽出はすでにtboschが実装を終えており、&lt;br /&gt;
+次はそのデータをエディターで使えるようにする段階です。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/angular/angular/issues/7482&#34; target=&#34;_blank&#34;&gt;Tracking: Language services provide intellisense for Angular 2 templates · Issue #7482 · angular/angular&lt;/a&gt;&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/microsoft/typescript/issues/6508&#34; target=&#34;_blank&#34;&gt;TypeScript extensibility · Issue #6508 · Microsoft/TypeScript&lt;/a&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&#34;nglint&#34;&gt;ngLint&lt;/h4&gt;
+
+&lt;p&gt;Minko GechevがAngular 2のlinterを開発しています。&lt;br /&gt;
+Language Serviceと統合することでコマンドラインやIDE上にメッセージを表示できるようになります。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/mgechev/codelyzer&#34; target=&#34;_blank&#34;&gt;mgechev/codelyzer&lt;/a&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;router&#34;&gt;Router&lt;/h3&gt;
+
+&lt;p&gt;Finalリリースに向けて幾つかのAPIの変更が行われます。&lt;br /&gt;
+将来的に、コードの分割と遅延読み込みが自動的に行えるようになります。&lt;br /&gt;
+APIを今よりシンプルにして混乱を避けるようにし、クリティカルなバグを取り除きます。&lt;/p&gt;
+
+&lt;h3 id=&#34;animation&#34;&gt;Animation&lt;/h3&gt;
+
+&lt;p&gt;まもなくngAnimate2の最初のリリースが行われる予定です。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/angular/angular/pull/7698&#34; target=&#34;_blank&#34;&gt;wip: feat(animations): introduce animation support for angular2 by matsko · Pull Request #7698 · angular/angular&lt;/a&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;i18n&#34;&gt;i18n&lt;/h3&gt;
+
+&lt;p&gt;文字列抽出とngPluralディレクティブが実装されています。&lt;br /&gt;
+残りは実装した機能を実際に使いやすくするステップです。&lt;br /&gt;
+ただし残りの作業は最初のコアの変更にブロックされています。&lt;/p&gt;
+
+&lt;h3 id=&#34;typescript-google&#34;&gt;TypeScript @ Google&lt;/h3&gt;
+
+&lt;p&gt;GoogleもTypeScriptの開発に協力しているようで、そのチームによる最初の成果がプロダクションに入るようです。&lt;/p&gt;
+
+&lt;h3 id=&#34;モバイル&#34;&gt;モバイル&lt;/h3&gt;
+
+&lt;p&gt;Angular 2を使ってProgressive Web Appを作りやすくするようにするのが目的の取り組みです。&lt;br /&gt;
+まずはGitHub管理アプリをサンプルとして開発中です。&lt;br /&gt;
+計画ではその成果をng-confとGoogle I/Oで紹介する予定です。&lt;/p&gt;
+
+&lt;p&gt;これらについてはmobile.angular.ioで別サイトとして独立したコンテンツになります。&lt;/p&gt;
+
+&lt;h3 id=&#34;marcy-sutton&#34;&gt;Marcy Sutton&lt;/h3&gt;
+
+&lt;p&gt;Marcy SuttonさんがMountain Viewに来るのでアクセシビリティについてAngularチームとミートアップするようです。&lt;br /&gt;
+また、アクセシビリティについてのクックブックを作成中です。&lt;/p&gt;
+
+&lt;h3 id=&#34;angular-cli-1&#34;&gt;Angular CLI&lt;/h3&gt;
+
+&lt;p&gt;Hansがデザインドキュメントを作成中です。&lt;br /&gt;
+次のバージョンではng1からのマイグレーションにも対応するようです。&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;てんこもりの内容でした。ng-confに向けてどんどん開発が加速しています。今週のbeta.15もてんこもりの内容になりそうなので、要チェックです。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>1/25 週次ミーティング議事録</title>
+      <link>https://ng2-info.github.io/2016/01/weekly-meeting-jan-25/</link>
+      <pubDate>Tue, 26 Jan 2016 10:11:27 +0900</pubDate>
+      
+      <guid>https://ng2-info.github.io/2016/01/weekly-meeting-jan-25/</guid>
+      <description>&lt;p&gt;こんにちは。今週のAngularチームの週次ミーティングについての情報です。&lt;br /&gt;
+今後のリリースや計画について多く言及されているので要チェックな内容です。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;
+
+&lt;p&gt;議事録は&lt;a href=&#34;https://docs.google.com/document/d/150lerb1LmNLuau_a_EznPV1I1UHMTbEl61t4hZ7ZpS0/edit#&#34; target=&#34;_blank&#34;&gt;こちら&lt;/a&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&#34;demo-of-the-new-dart-dev-compiler-for-the-team&#34;&gt;Demo of the new Dart Dev Compiler for the team&lt;/h3&gt;
+
+&lt;p&gt;Angularチーム内でDDCを使った開発のデモが行われたようです。&lt;br /&gt;
+DDCはDartの新しいコンパイラで、特徴はヒューマンリーダブルなES6を吐き出すことです。&lt;br /&gt;
+DDCによる開発をサポートすることで、Angular2 for Dartユーザの開発サイクルを改善できるとしています。&lt;/p&gt;
+
+&lt;p&gt;DDCがサポートされるとDartium以外のブラウザでも即時コンパイルが可能になり、&lt;br /&gt;
+さらにDDCが吐き出したES6はBabelなどのコンパイラでさらにES5に変換可能とのこと。&lt;br /&gt;
+DDCがどれほど安定しているのかはさておき、for Dartのユーザには朗報です。&lt;/p&gt;
+
+&lt;h3 id=&#34;update-on-i18n-support&#34;&gt;Update on i18n support&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;2016/01/16/working-about-i18n-in-jan/&#34; target=&#34;_blank&#34;&gt;先日取り上げた&lt;/a&gt;Angular2のi18n対応についての続報です。&lt;/p&gt;
+
+&lt;p&gt;i18n対応の目標は&lt;code&gt;{% raw %}{{}}{% endraw %}&lt;/code&gt;によってテンプレートを多言語化することであると改めて定められ、&lt;br /&gt;
+まずはじめに静的な文字列について翻訳できるように翻訳できるように作業中とのこと。&lt;br /&gt;
+将来的には性別や単数・複数形などの動的なシナリオについてもサポートする予定です。&lt;/p&gt;
+
+&lt;p&gt;忙しくて忘れられているのではないかと思われていましたが、ちゃんと取り組んでいて安心しました。&lt;/p&gt;
+
+&lt;h3 id=&#34;router-update&#34;&gt;Router update&lt;/h3&gt;
+
+&lt;p&gt;Routerモジュールのアップデートが行われます。&lt;br /&gt;
+遅延ローディングや、コンポーネントとルーティング設定のコードの分割を可能にするための修正が行われる予定で、&lt;br /&gt;
+この変更のために現在のRouterのシンタックスが多少変わる可能性があります。&lt;/p&gt;
+
+&lt;p&gt;ただし今後数週間かけて改修を行うとのことで、今すぐに破壊的変更が来ることはないでしょう。&lt;/p&gt;
+
+&lt;h3 id=&#34;angular-1-5-update&#34;&gt;Angular 1.5 update&lt;/h3&gt;
+
+&lt;p&gt;AngularJSの1.5 RC2が水曜日（日本時間だと木曜日）にリリース予定です。&lt;br /&gt;
+そして、1.5の最終版は来週、遅くても再来週にはリリースするとのこと。&lt;/p&gt;
+
+&lt;p&gt;1.5 finalに向け、Brian氏はAngular2のComponent Routerと協調できるように作業中らしく、&lt;br /&gt;
+&lt;code&gt;component&lt;/code&gt;の導入によってAngular2と同じスタイルでComponent Routerを使って開発できるようになるようです。&lt;/p&gt;
+
+&lt;p&gt;1.5 finalのリリース時には&lt;code&gt;component&lt;/code&gt;の使い方についてのチュートリアルやドキュメントを整備するらしく、&lt;br /&gt;
+まだAngular2に触れていないAngularJSユーザでもスムーズにコンポーネント化を進めることができるでしょう。&lt;/p&gt;
+
+&lt;h3 id=&#34;animation-update&#34;&gt;Animation Update&lt;/h3&gt;
+
+&lt;p&gt;Animationサポートについても情報の更新がありました。&lt;br /&gt;
+Animationモジュールのデザインドキュメントが&lt;a href=&#34;https://docs.google.com/document/d/1rTJKNJ6Rv2N5jElLIrrukuEsS_kFOQPH1D5O1Dfva44/edit#heading=h.x01aekc0f0sk&#34; target=&#34;_blank&#34;&gt;公開&lt;/a&gt;され、&lt;br /&gt;
+CSSと協調したアノテーションベースのアニメーション記述を可能にする方針であることがわかりました。&lt;br /&gt;
+また、アニメーションにはW3Cで仕様策定中の&lt;a href=&#34;https://www.w3.org/TR/web-animations-1/&#34; target=&#34;_blank&#34;&gt;Web Animations API&lt;/a&gt;を使用するようです。&lt;/p&gt;
+
+&lt;p&gt;現在はCSSを解釈するためのパーサが開発中で、まもなく完成します。&lt;br /&gt;
+&lt;a href=&#34;https://docs.google.com/spreadsheets/d/1G5-hb4DpqddLtDV0PD0cueeVh7Eb8o7fPmNryX4AvGM/edit#gid=0&#34; target=&#34;_blank&#34;&gt;残りのタスク&lt;/a&gt;はまだたくさんありますが、&lt;br /&gt;
+すでに半分は作業中なのでパーサさえできてしまえば案外早くBetaに入ってくるのではないでしょうか。&lt;/p&gt;
+
+&lt;h3 id=&#34;mobile-update&#34;&gt;Mobile update&lt;/h3&gt;
+
+&lt;p&gt;モバイル対応についての情報も追加されました。&lt;/p&gt;
+
+&lt;p&gt;リアルタイムDBのFirebaseをAngularJSから使うライブラリとしてAngularFireというものがありますが、&lt;br /&gt;
+Angular2用のAngularFire 2のアルファ版が近々公開される予定です。&lt;/p&gt;
+
+&lt;p&gt;また、Angular2を使ったProgressive Web Appのリファレンスとなるアプリケーションを開発中で、&lt;br /&gt;
+サーバサイドレンダリングやService Worker、Web Worker、HTTP/2などの要素を盛り込むとのこと。&lt;/p&gt;
+
+&lt;h3 id=&#34;angular-2-release-plan&#34;&gt;Angular 2 release plan&lt;/h3&gt;
+
+&lt;p&gt;最後に、今後のAngular2 Betaのリリースに関する情報です。&lt;br /&gt;
+最近はBeta版で落ち着いていた印象ですが、今週、遅くても来週あたりからはAlphaの頃と同じく&lt;br /&gt;
+毎週リリースを行う計画です。&lt;br /&gt;
+次のリリースから最終版までずっとそのペースで行くつもりらしく、開発陣の気合の入りようが伺えます。&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;先週の週次ミーティングがなかった分、盛りだくさんの内容になりました。&lt;/p&gt;
+
+&lt;p&gt;おまけですが、AngularConnect 2016のWebサイトが公開されました。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://angularconnect.com/&#34; target=&#34;_blank&#34;&gt;Home page | AngularConnect - The Official European Angular Conference 2016&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;今年は9月の26日、27日にロンドンで行われます。&lt;br /&gt;
+9月にはもうRC版になっているのか、まだBetaなのか、はたまたもうfinalになっているのかわかりませんが&lt;br /&gt;
+去年のような充実したイベントになるのは間違いないでしょう。とても楽しみですね。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

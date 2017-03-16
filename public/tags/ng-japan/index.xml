@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ng Japan on Angular Info</title>
+    <link>https://ng2-info.github.io/tags/ng-japan/index.xml</link>
+    <description>Recent content in Ng Japan on Angular Info</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja-jp</language>
+    <atom:link href="https://ng2-info.github.io/tags/ng-japan/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>週次ミーティング、海外記事の紹介他</title>
+      <link>https://ng2-info.github.io/2016/03/weekly-meeting-mar-1/</link>
+      <pubDate>Tue, 01 Mar 2016 21:55:29 +0900</pubDate>
+      
+      <guid>https://ng2-info.github.io/2016/03/weekly-meeting-mar-1/</guid>
+      <description>&lt;p&gt;こんにちは、らこです。今回は内容盛りだくさんです。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;週次ミーティング&#34;&gt;週次ミーティング&lt;/h2&gt;
+
+&lt;p&gt;まずは週次ミーティングについて。ここ2週間ミーティングもリリースもなかったのはオフサイトを行っていたかららしく、今週から完全復活の模様です。&lt;/p&gt;
+
+&lt;h3 id=&#34;batarangle&#34;&gt;Batarangle&lt;/h3&gt;
+
+&lt;p&gt;AngularJSのデバッガとして有名なChrome拡張のBatarangが、Angular 2対応した「Batarangle」をリリースしています。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://go.rangle.io/batarangle&#34; target=&#34;_blank&#34;&gt;Batarangle.io&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;近いうちにBatarangleを使ったデバッグに関するドキュメントを公式に出す予定だそうです。&lt;/p&gt;
+
+&lt;h3 id=&#34;オフサイトについて&#34;&gt;オフサイトについて&lt;/h3&gt;
+
+&lt;p&gt;今後の長期的な計画についてオフサイトで話し合ったようです。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;アップグレードを簡単にすることでAngular 2を古くならないようにする(古いバージョンのAngularが使われ続けないようにする)&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;ビジュアルデザイナー向けのツールを提供する&lt;br /&gt;
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;という2つの大きな展望が掲げられたようです。&lt;/p&gt;
+
+&lt;h3 id=&#34;ビルド環境とciについて&#34;&gt;ビルド環境とCIについて&lt;/h3&gt;
+
+&lt;p&gt;先週AngularチームはCI環境の改善について多くの時間を割いたらしく、頻繁に落ちるテストを直したり無効にしたりと忙しかったようです。&lt;br /&gt;
+(これで先週はPRがほとんど処理できてなかったゴメンよということらしい)&lt;br /&gt;
+現在PRを出してもなかなかCI結果が緑にならず、安心してマージできないことが多々あります。&lt;br /&gt;
+特にSauce Labのテストは特に頼りないので、なんとかしたいねという話をしています。&lt;/p&gt;
+
+&lt;h3 id=&#34;マイルストーンについて&#34;&gt;マイルストーンについて&lt;/h3&gt;
+
+&lt;p&gt;今週末までに、Angular 2最終版(Stableリリースのことだと思われる)までのマイルストーンを発表するらしいです。超楽しみ！&lt;/p&gt;
+
+&lt;h3 id=&#34;routerのアップデートについて&#34;&gt;Routerのアップデートについて&lt;/h3&gt;
+
+&lt;p&gt;Routerのアップデートがやはり来るようです。主に作業しているのはBrianとNaomiとIgorです。(Brianは今バケーションとのこと)&lt;br /&gt;
+ただしアップデートはできるだけ段階的に行い、劇的な破壊的変更は出さないようにするとのこと。新しいRouterの機能として計画されているのは、&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;静的なリンクチェック(&lt;code&gt;routerLink&lt;/code&gt;が静的解析可能になる？)&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;canActivate&lt;/code&gt;(今はデコレータで提供されているが、ライフサイクルとして再実装されるっぽい=&amp;gt;DIが使えるようになる)&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;非同期モジュール読み込みのサポート(これは一番最後に実装する予定)&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;もっとわかりやすいRouter API(Router Link DSLの廃止？)&lt;br /&gt;
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;今月からはRouterが大きく変わりそうです。要注目。&lt;/p&gt;
+
+&lt;p&gt;補足情報として、&lt;code&gt;ui-router&lt;/code&gt;がAngular 2に対応し始めたようです。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/angular-ui/ui-router/commit/217de70449c7870057d440d161752f1945dc4937&#34; target=&#34;_blank&#34;&gt;feat(ui-router-ng2): Initial angular2 support · angular-ui/ui-router@217de70&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;まだ正式リリースはされていませんがnpmでインストールすればng2用のソースを使えるようです。興味のある人は試してみては。&lt;br /&gt;
+個人的にはComponent Routerでお腹いっぱいです。&lt;/p&gt;
+
+&lt;h3 id=&#34;溜まってるprについて&#34;&gt;溜まってるPRについて&lt;/h3&gt;
+
+&lt;p&gt;先述の通り先週はいろいろと忙しくてPRを見られてなかったので、今週はその消化に充てたいとのこと。&lt;/p&gt;
+
+&lt;h3 id=&#34;angularjsの使われ方に関する調査&#34;&gt;AngularJSの使われ方に関する調査&lt;/h3&gt;
+
+&lt;p&gt;グーグルのクローラを使って分析したところ、現在150000ドメインのウェブサイトがAngular 1を使っており、&lt;br /&gt;
+ページ数でいえば200000000件にも及ぶとのこと。&lt;/p&gt;
+
+&lt;p&gt;ただし使われているバージョンはまだ多くが1.4への移行中であり、1.5がリリースされたにもかかわらずまだ0.9.16を使っているサイトもあるらしいです。&lt;br /&gt;
+この問題を解決するために現在の安定バージョンへのアップグレードを推奨するポリシーをつくります。&lt;br /&gt;
+明日、明後日にも作成されるらしいです。&lt;/p&gt;
+
+&lt;h3 id=&#34;nganimateについて&#34;&gt;ngAnimateについて&lt;/h3&gt;
+
+&lt;p&gt;Angular 2用の&lt;strong&gt;ngAnimate&lt;/strong&gt;がいよいよあと数週間でプロトタイプを完成させるようです。主な機能は以下のとおり&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;アノテーションレベルでのアニメーション記述&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;CSSパーサの実装&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;シーケンス処理&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;Web Animations APIとの連携&lt;br /&gt;
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;ngAnimateを使うためのコードは驚くほど少なく、スタイルとアニメーションが分離されるのでシンプルな記述ができます。&lt;br /&gt;
+DOMの計算も少なく、とてもハイパフォーマンスなアニメーションを実装しています。&lt;br /&gt;
+Web Animations APIについては、現在ChromeとFirefoxでだけサポートされているので他のブラウザではpolyfillを必要とします。&lt;br /&gt;
+ただしpolyfillをそのまま同梱すれば楽ではありますがサイズが12kbと大きいので、最小限のものを実装し直すつもりだそうです。&lt;/p&gt;
+
+&lt;h2 id=&#34;angularjsについて&#34;&gt;AngularJSについて&lt;/h2&gt;
+
+&lt;p&gt;Angular 1.5.1が近日中にリリースされる予定です。&lt;br /&gt;
+また、Angular 1.6系の計画も進んでいます。機能としてはAngular 2につなげるためのものですが、破壊的変更がある場合はまず1.6で実装し、&lt;br /&gt;
+その後1.5系にバックポートしていくという方針らしいです。1.5系をLTS的に扱いたい雰囲気を感じます。&lt;/p&gt;
+
+&lt;h2 id=&#34;ng-japan&#34;&gt;ng-japan&lt;/h2&gt;
+
+&lt;p&gt;今月の21日に開催される &lt;strong&gt;ng-japan&lt;/strong&gt; の参加申し込みが今日行われ、あっという間に260人のチケットが埋まってしまいました。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://ngjapan.org/&#34; target=&#34;_blank&#34;&gt;ng-japan - The Angular conference in Tokyo, Japan (2016/3/21)&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;募集開始前にng2-infoでも告知しようと思っていたのですがすっかり忘れていました。すみません :P&lt;br /&gt;
+一応キャンセル待ちはできるので、万が一に備えて応募しておくと良いと思います。&lt;/p&gt;
+
+&lt;p&gt;またこれはまだ未定なのですが、ng-japanの翌週にアフターイベントということで軽いミートアップを開催しようと思っています。&lt;br /&gt;
+「ng-japanで学んだことを試してみたけどわからなかった」とか、「ng-japan行けなかったけど聞きたいことがあった」とか、&lt;br /&gt;
+そういう部分をフォローするためのアフターイベントにするつもりです。また詳しいことが決まり次第告知します。&lt;/p&gt;
+
+&lt;h2 id=&#34;海外ブログ紹介&#34;&gt;海外ブログ紹介&lt;/h2&gt;
+
+&lt;p&gt;続々と海外のブログで面白い記事が出てきています。&lt;/p&gt;
+
+&lt;h3 id=&#34;components-with-custom-templates-in-angular-2-http-www-michaelbromley-co-uk-blog-513-components-with-custom-templates-in-angular-2&#34;&gt;&lt;a href=&#34;http://www.michaelbromley.co.uk/blog/513/components-with-custom-templates-in-angular-2&#34; target=&#34;_blank&#34;&gt;Components with Custom Templates in Angular 2&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;ComponentのテンプレートHTMLを動的に差し替える方法についての実践的な内容です。&lt;/p&gt;
+
+&lt;h3 id=&#34;how-to-build-angular-2-apps-using-observable-data-services-pitfalls-to-avoid-http-blog-jhades-org-how-to-build-angular2-apps-using-rxjs-observable-data-services-pitfalls-to-avoid&#34;&gt;&lt;a href=&#34;http://blog.jhades.org/how-to-build-angular2-apps-using-rxjs-observable-data-services-pitfalls-to-avoid/&#34; target=&#34;_blank&#34;&gt;How to build Angular 2 apps using Observable Data Services - Pitfalls to avoid&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;Observableを活用したデータサービスを実装する際の落とし穴と避け方についての内容です。&lt;br /&gt;
+合わせて読みたいのはこちら&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.bennadel.com/blog/3035-http-requests-are-cold-lazy-streams-in-angular-2-beta-6.htm&#34; target=&#34;_blank&#34;&gt;HTTP Requests Are Cold / Lazy Streams In Angular 2 Beta 6&lt;/a&gt;&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://qiita.com/toRisouP/items/f6088963037bfda658d3&#34; target=&#34;_blank&#34;&gt;RxのHotとColdについて - Qiita&lt;/a&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;RxJSのObservableの*Hot*と*Cold*の違いを理解することが大事です。&lt;br /&gt;
+特に最も重要なAjaxは、&lt;code&gt;http.get&lt;/code&gt;の戻り値のObservableがColdであることに留意しないと挙動に悩まされるでしょう&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;今週はおそらくBeta.8がリリースされるでしょう。それではまた。&lt;/p&gt;
+
+&lt;p&gt;参考URL&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://docs.google.com/document/d/150lerb1LmNLuau_a_EznPV1I1UHMTbEl61t4hZ7ZpS0/edit#heading=h.v9yw0ynxk8hq&#34; target=&#34;_blank&#34;&gt;Angular Weekly Meeting - Google ドキュメント&lt;/a&gt;&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://docs.google.com/document/d/1xKEbydyUEOQ_gTbcbxy_k2myctG8EiVbeMgLgXTxIc0/edit#heading=h.yu4zcypn0qmi&#34; target=&#34;_blank&#34;&gt;Angular 1.x Meeting Notes - Google ドキュメント&lt;/a&gt;&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://docs.google.com/document/d/1j6Crqk5rLwJH_iahUStnlaXNfuJZH2cwOZwAYq0p218/edit#heading=h.qr27868rrp3z&#34; target=&#34;_blank&#34;&gt;Angular2 - Animation Meeting Notes - Google ドキュメント&lt;/a&gt;&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

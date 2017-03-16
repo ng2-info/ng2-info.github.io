@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="ja-jp">
+<head>
+
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+  	<meta property="og:title" content=" Beta.8がリリースされました &middot;  Angular Info" />
+  	<meta property="og:site_name" content="Angular Info" />
+  	<meta property="og:url" content="https://ng2-info.github.io/2016/03/beta-8-release/" />
+
+    
+  	<meta property="og:type" content="article" />
+
+    <meta property="og:article:published_time" content="2016-03-03T21:08:12&#43;09:00" />
+
+    
+    <meta property="og:article:tag" content="Release" />
+    
+    <meta property="og:article:tag" content="Beta" />
+    
+    <meta property="og:article:tag" content="ComponentRouter" />
+    
+    <meta property="og:article:tag" content="BreakingChange" />
+    
+    <meta property="og:article:tag" content="Router" />
+    
+    
+
+  <title>
+     Beta.8がリリースされました &middot;  Angular Info
+  </title>
+
+    <meta name="description" content="Angularの最新情報を不定期更新！" />
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" href="https://ng2-info.github.io/favicon.png">
+    <link rel="apple-touch-icon" href="https://ng2-info.github.io/images/apple-touch-icon.png" />
+
+    <link rel="stylesheet" type="text/css" href="https://ng2-info.github.io/css/screen.css" />
+    <link rel="stylesheet" type="text/css" href="https://ng2-info.github.io/css/nav.css" />
+    <link rel="stylesheet" type="text/css" href="https://ng2-info.github.io/css/overwrite.css" />
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400|Inconsolata" />
+
+    
+      
+          <link href="https://ng2-info.github.io/index.xml" rel="alternate" type="application/rss+xml" title="Angular Info" />
+      
+      
+    
+    <meta name="generator" content="Hugo 0.18.1" />
+
+    <link rel="canonical" href="https://ng2-info.github.io/2016/03/beta-8-release/" />
+
+    
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-52362663-3', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+    
+
+    
+    <link rel="stylesheet" href="//yandex.st/highlightjs/8.0/styles/default.min.css">
+    <script type="text/javascript" src="https://ng2-info.github.io/js/linkjuice.min.js"></script>
+    <script src="//yandex.st/highlightjs/8.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body class="nav-closed">
+
+  <div class="nav">
+    <h3 class="nav-title">Menu</h3>
+    <a href="#" class="nav-close">
+        <span class="hidden">Close</span>
+    </a>
+    <ul>
+        
+        
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="/">Top</a>
+            </li>
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="/tags">Tags</a>
+            </li>
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="https://github.com/ng2-info/ng2-info.github.io">Repository</a>
+            </li>
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="http://blog.lacolaco.net">Author&#39;s Blog</a>
+            </li>
+        
+    </ul>
+    
+    
+    <a class="subscribe-button icon-feed" href="https://ng2-info.github.io/index.xml">Subscribe</a>
+    
+</div>
+<span class="nav-cover"></span>
+
+
+ <div class="site-wrapper">
+
+
+
+
+
+<header class="main-header post-head">
+    <nav class="main-nav overlay clearfix">
+
+
+      
+        <a class="blog-logo" href="https://ng2-info.github.io/"><img src="https://ng2-info.github.io/img/ng2-info.png" alt="Home" /></a>
+      
+      
+          <a class="menu-button" href="#"><span class="burger">&#9776;</span><span class="word">Menu</span></a>
+      
+    </nav>
+
+    <div class="vertical">
+        <div class="main-header-content inner">
+            <h1 class="page-title">Angular Info</h1>
+            <h2 class="page-description">
+                
+            </h2>
+        </div>
+    </div>
+
+
+</header>
+
+
+
+<main class="content" role="main">
+
+
+
+
+  <article class="post post">
+    <header class="post-header">
+      <nav class="breadcrumb">
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      </nav>
+
+
+        <h1 class="post-title">Beta.8がリリースされました</h1>
+        <small></small>
+
+        <section class="post-meta">
+        
+          <time class="post-date" datetime="2016-03-03T21:08:12&#43;09:00">
+            Mar 3, 2016
+          </time>
+        
+         
+          <span class="post-tag small"><a href="https://ng2-info.github.io/tags/release/">#Release</a></span>
+         
+          <span class="post-tag small"><a href="https://ng2-info.github.io/tags/beta/">#Beta</a></span>
+         
+          <span class="post-tag small"><a href="https://ng2-info.github.io/tags/componentrouter/">#ComponentRouter</a></span>
+         
+          <span class="post-tag small"><a href="https://ng2-info.github.io/tags/breakingchange/">#BreakingChange</a></span>
+         
+          <span class="post-tag small"><a href="https://ng2-info.github.io/tags/router/">#Router</a></span>
+         
+        </section>
+    </header>
+
+    <section class="post-content">
+
+
+<p>どうも、らこです。予想通り今週はBeta.8がリリースされましたので、主な変更点をさらっていこうと思います。</p>
+
+<p></p>
+
+<h2 id="componentrouter-angular-1用-の破壊的変更">ComponentRouter(Angular 1用)の破壊的変更</h2>
+
+<p>Angular 1向けのComponent Routerに破壊的な変更が入りました。DIの文字列が大きく変わっています。<br />
+<code>$route</code>から<code>$rootRouter</code>に、<code>router</code>から<code>$router</code>になっているので、要注意です。<br />
+また、<code>templateUrl</code>を持つcomponentにルーティングできなかったバグが修正されています。</p>
+
+<ul>
+<li><a href="https://github.com/angular/angular/commit/a1c3be2" target="_blank">fix(angular1_router): rename <code>$route</code> service to <code>$rootRouter</code> · angular/angular@a1c3be2</a><br /></li>
+<li><a href="https://github.com/angular/angular/commit/edad8e3" target="_blank">fix(angular1_router): rename <code>router</code> component binding to <code>$router</code> · angular/angular@edad8e3</a><br /></li>
+<li><a href="https://github.com/angular/angular/commit/d4a4d81" target="_blank">fix(angular1_router): support templateUrl components · angular/angular@d4a4d81</a><br />
+<br />
+<br /></li>
+</ul>
+
+<h2 id="trackby-のバグ修正"><code>trackBy</code>のバグ修正</h2>
+
+<p><code>ngFor</code>の<code>trackBy</code>でインデックスを使った際に配列の操作で容易にChange Detectorが壊れるバグが修正されました<br />
+いろいろ危なっかしい実装だったので心配してましたがようやく安心して<code>trackBy</code>できます。</p>
+
+<ul>
+<li><a href="https://github.com/angular/angular/commit/ab36ea0" target="_blank">fix(differ): clean up stale identity change refs · angular/angular@ab36ea0</a><br />
+<br /></li>
+</ul>
+
+<p>ちなみにAngular 1でもAngular 2でも共通する話ですが、<code>ng-repeat</code>も<code>ngFor</code>も<code>trackBy</code>を使うと目に見えてパフォーマンスが上がります。<br />
+配列の変更検知をするためには「どの要素」が変わったのかを効率よく調べないと全要素舐め直すことになるので、<br />
+一意性の調べ方をこちらで提供してあげるとめっちゃ早くなります。前にも貼った気がしますが、<br />
+<a href="https://github.com/angular/angular/issues/7088" target="_blank">Is Angular 2 faster ? · Issue #7088 · angular/angular</a><br />
+では最初に「<code>track by</code>した<code>ng-repeat</code>」と「素の<code>ngFor</code>」を比較してAngular 2が本当に速いのか疑問を投げかけていますが、<br />
+<a href="https://plnkr.co/edit/cjFGtnI704bjSg6F0DEM?p=preview" target="_blank"><code>ngFor</code>と<code>trackBy</code>を併用</a>すると明らかにAngular 2のほうが速くなっていることがわかりました。</p>
+
+<p>要素数が多く、変更も多いパフォーマンスのネックになりがちな部分には<code>trackBy</code>をつけるようにしましょう。</p>
+
+<h2 id="querylist-foreach-の実装"><code>QueryList#forEach()</code>の実装</h2>
+
+<p>TypeScript/JavaScript側の<code>QueryList</code>にはなかった<code>forEach</code>メソッドが追加されました。ちなみに私が実装しました。</p>
+
+<ul>
+<li><a href="https://github.com/angular/angular/commit/b634a25" target="_blank">feat(core): Add <code>QueryList#forEach</code> · angular/angular@b634a25</a><br /></li>
+<li><a href="https://github.com/angular/angular/commit/e7470d5" target="_blank">feat(core): Add <code>QueryList.forEach</code> to public api. · angular/angular@e7470d5</a><br />
+<br /></li>
+</ul>
+
+<p>Dart版では<code>QueryList</code>は<code>IterableMixin</code>クラスを継承しているのでそのまま<code>forEach</code>が暗黙のうちに生えていたのですが、<br />
+TS/JSでは単なるクラスなので、APIに差ができてしまっていました。</p>
+
+<ul>
+<li><a href="https://github.com/angular/angular/blob/d4a4d81173ff31ab8af0f5928735399d92d73339/modules%2Fangular2%2Fsrc%2Fcore%2Flinker%2Fquery_list.ts" target="_blank">angular/query_list.ts at d4a4d81173ff31ab8af0f5928735399d92d73339 · angular/angular</a><br /></li>
+<li><a href="https://github.com/angular/angular/blob/d4a4d81173ff31ab8af0f5928735399d92d73339/modules%2Fangular2%2Fsrc%2Fcore%2Flinker%2Fquery_list.dart" target="_blank">angular/query_list.dart at d4a4d81173ff31ab8af0f5928735399d92d73339 · angular/angular</a><br /></li>
+<li><a href="https://api.dartlang.org/1.14.2/dart-collection/IterableMixin-class.html" target="_blank">IterableMixin class - dart:collection library - Dart API</a><br />
+<br /></li>
+</ul>
+
+<h2 id="デバッグ用のapiが新しく追加された">デバッグ用のAPIが新しく追加された</h2>
+
+<p>デバッグ用のAPIが3つも増えました。</p>
+
+<ul>
+<li><code>window.getAllAngularRootElements()</code> : ページ上で<code>angular.bootstrap()</code>の対象となっているルートエレメントを取得できる<br /></li>
+<li><code>ng.coreTokens.ApplicationRef</code> : <code>ApplicationRef</code>の参照が取れる<br /></li>
+<li><code>ng.coreTokens.Ngzone</code> : <code>NgZone</code>の参照が取れる<br />
+<br /></li>
+</ul>
+
+<p><code>ng.prove</code>と合わせたこれらデバッグAPIの使い方は近いうちに別に特集しようと思います。</p>
+
+<ul>
+<li><a href="https://github.com/angular/angular/commit/b5e6319" target="_blank">feat(core): add more debug APIs to inspect the application form a bro… · angular/angular@b5e6319</a><br />
+<br /></li>
+</ul>
+
+<h2 id="dart版でジェネリクスを使ったdiの廃止">Dart版でジェネリクスを使ったDIの廃止</h2>
+
+<p>Dart版のみで、ジェネリック付きの型がDIできなくなりました。背景にはOffline Template Compiler周りの実装の障害になったことがあるようです。</p>
+
+<ul>
+<li><a href="https://github.com/angular/angular/commit/c9a3df9" target="_blank">feat(di): drop support for injecting types with generics in Dart · angular/angular@c9a3df9</a><br />
+<br /></li>
+</ul>
+
+<h2 id="pattern-バリデータの追加"><code>pattern</code>バリデータの追加</h2>
+
+<p>ビルトインのバリデータに<code>pattern</code>バリデータが追加されました。<code>input</code>要素のバリデーションに正規表現でパターンを指定できます。</p>
+
+<pre><code>&lt;input [ngControl]=&quot;fullName&quot; pattern=&quot;[a-zA-Z ]*&quot;&gt;
+</code></pre>
+
+<ul>
+<li><a href="https://github.com/angular/angular/commit/38cb526" target="_blank">feat(forms/validators): pattern validator · angular/angular@38cb526</a><br />
+<br /></li>
+</ul>
+
+<h2 id="i18n機能のpipeの追加">i18n機能のPipeの追加</h2>
+
+<p>i18n用に新しく<code>i18nPlural</code>と<code>i18nSelect</code>の2つのPipeが追加されました。</p>
+
+<h3 id="i18nplural"><code>i18nPlural</code></h3>
+
+<p><code>i18nPlural</code>は数値に関するi18n対応を担います。数値の値によって文字列の単数形、複数形を対応させる際に使えます。</p>
+
+<pre><code>&lt;div&gt;
+  {{ messages.length | i18nPlural: messageMapping }}
+&lt;/div&gt;
+
+class MyApp {
+  messages: any[];
+  messageMapping: any = {
+    '=0': 'No messages.',
+    '=1': 'One message.',
+    'other': '# messages.'
+  }
+  ...
+}
+</code></pre>
+
+<h3 id="i18nselect"><code>i18nSelect</code></h3>
+
+<p><code>i18nSelect</code>は文字列に関するi18n対応を担います。文字列の値によって表現を変える部分に有用です。<br />
+次の例では<code>gender</code>の値によってテキストの中の<code>her</code>や<code>him</code>を切り替えています。</p>
+
+<pre><code>&lt;div&gt;
+  {{ gender | i18nSelect: inviteMap }}
+&lt;/div&gt;
+
+class MyApp {
+  gender: string = 'male';
+  inviteMap: any = {
+    'male': 'Invite her.',
+    'female': 'Invite him.',
+    'other': 'Invite them.'
+  }
+  ...
+}
+</code></pre>
+
+<ul>
+<li><a href="https://github.com/angular/angular/commit/59629a0" target="_blank">feat(i18n): added i18nPlural and i18nSelect pipes · angular/angular@59629a0</a><br />
+<br /></li>
+</ul>
+
+<h2 id="replace-pipeの追加"><code>replace</code> Pipeの追加</h2>
+
+<p>文字列を置換する<code>replace</code> Pipeが追加されました。</p>
+
+<pre><code>{{ expression | replace:pattern:replacement }}
+</code></pre>
+
+<p>という形式で記述できます。具体的には次のようになります。</p>
+
+<pre><code>&lt;div&gt;
+  {{ 'abcdef' | replace:abcPattern:'ABC' }}
+&lt;/div&gt;
+
+class MyApp {
+  abcPattern = /abc/g;
+}
+</code></pre>
+
+<p>実行すると <code>ABCdef</code> という風に置換されます。挙動は<code>String.prototype.replace</code>と互換があります。</p>
+
+<ul>
+<li><a href="https://github.com/angular/angular/commit/6ef2121" target="_blank">feat(pipes): add ReplacePipe for string manipulation · angular/angular@6ef2121</a><br />
+<br />
+<br /></li>
+</ul>
+
+<hr />
+
+<p>今週は便利なAPIがたくさん増えました。こういうアップデートは久々なので良いリファクタリングの機会かもしれません。</p>
+
+<p>ちなみにBeta.9のリリースからはいよいよrouterの改革が始まります。<code>routerLink</code>のDSLが徐々に廃止され、正規表現と関数によってルーティングが記述できるようになります。</p>
+
+<ul>
+<li><a href="https://github.com/angular/angular/commit/75343eb34007579be9cdc803da834c38e02ae12c" target="_blank">feat(router): add regex matchers · angular/angular@75343eb</a><br />
+<br /></li>
+</ul>
+
+<p>破壊的変更にはしないらしいのでゆったり構えておきましょう。</p>
+
+<p>参考資料</p>
+
+<ul>
+<li><a href="https://github.com/angular/angular/blob/master/CHANGELOG.md#200-beta8-2016-03-02" target="_blank">angular/CHANGELOG.md at master · angular/angular</a><br /></li>
+</ul>
+
+
+
+
+
+
+
+
+    </section>
+
+
+  <footer class="post-footer">
+
+
+    
+    <figure class="author-image">
+        <a class="img" href="http://twitter.com/laco0416" style="background-image: url(https://ng2-info.github.io/img/authors/laco.png)"></a>
+    </figure>
+
+    
+
+
+
+
+
+<section class="author">
+  <h5>Author: <a href="http://twitter.com/laco0416">Suguru INATOMI</a></h5>
+</section>
+
+
+
+    
+<section class="share">
+    <h5>Share this post</h5>
+    <a class="icon-twitter" style="font-size: 1.4em"
+       href="https://twitter.com/share?text=Beta.8%e3%81%8c%e3%83%aa%e3%83%aa%e3%83%bc%e3%82%b9%e3%81%95%e3%82%8c%e3%81%be%e3%81%97%e3%81%9f%20-%20Angular%20Info&amp;url=https%3a%2f%2fng2-info.github.io%2f2016%2f03%2fbeta-8-release%2f"
+       onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+        <span class="hidden">Twitter</span>
+    </a>
+    <a class="icon-facebook" style="font-size: 1.4em"
+       href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fng2-info.github.io%2f2016%2f03%2fbeta-8-release%2f"
+       onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+        <span class="hidden">Facebook</span>
+    </a>
+</section>
+
+
+
+  </footer>
+</article>
+
+</main>
+<footer class="site-footer clearfix">
+    <section class="copyright"><a href="">Angular Info</a> </section>
+    
+    <section class="poweredby">Proudly generated by <a class="icon-hugo" href="http://gohugo.io">HUGO</a>, with <a
+            class="icon-theme" href="https://github.com/vjeantet/hugo-theme-casper">Casper</a> theme
+    </section>
+    
+</footer>
+</div>
+<script type="text/javascript" src="https://ng2-info.github.io/js/jquery.js"></script>
+<script type="text/javascript" src="https://ng2-info.github.io/js/jquery.fitvids.js"></script>
+<script type="text/javascript" src="https://ng2-info.github.io/js/index.js"></script>
+
+<script>
+    linkjuice.init('article.post', {
+        selectors: ['h2', 'h3'],
+        icon: ''
+    });
+</script>
+</body>
+</html>
+
