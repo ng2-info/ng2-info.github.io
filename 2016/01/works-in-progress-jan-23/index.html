@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="ja-jp">
+<head>
+
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+  	<meta property="og:title" content=" 1/23 最近のAngular2の動き &middot;  Angular Info" />
+  	<meta property="og:site_name" content="Angular Info" />
+  	<meta property="og:url" content="https://ng2-info.github.io/2016/01/works-in-progress-jan-23/" />
+
+    
+  	<meta property="og:type" content="article" />
+
+    <meta property="og:article:published_time" content="2016-01-23T21:27:40&#43;09:00" />
+
+    
+    <meta property="og:article:tag" content="Planning" />
+    
+    
+
+  <title>
+     1/23 最近のAngular2の動き &middot;  Angular Info
+  </title>
+
+    <meta name="description" content="Angularの最新情報を不定期更新！" />
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" href="https://ng2-info.github.io/favicon.png">
+    <link rel="apple-touch-icon" href="https://ng2-info.github.io/images/apple-touch-icon.png" />
+
+    <link rel="stylesheet" type="text/css" href="https://ng2-info.github.io/css/screen.css" />
+    <link rel="stylesheet" type="text/css" href="https://ng2-info.github.io/css/nav.css" />
+    <link rel="stylesheet" type="text/css" href="https://ng2-info.github.io/css/overwrite.css" />
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400|Inconsolata" />
+
+    
+      
+          <link href="https://ng2-info.github.io/index.xml" rel="alternate" type="application/rss+xml" title="Angular Info" />
+      
+      
+    
+    <meta name="generator" content="Hugo 0.18.1" />
+
+    <link rel="canonical" href="https://ng2-info.github.io/2016/01/works-in-progress-jan-23/" />
+
+    
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-52362663-3', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+    
+
+    
+    <link rel="stylesheet" href="//yandex.st/highlightjs/8.0/styles/default.min.css">
+    <script type="text/javascript" src="https://ng2-info.github.io/js/linkjuice.min.js"></script>
+    <script src="//yandex.st/highlightjs/8.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body class="nav-closed">
+
+  <div class="nav">
+    <h3 class="nav-title">Menu</h3>
+    <a href="#" class="nav-close">
+        <span class="hidden">Close</span>
+    </a>
+    <ul>
+        
+        
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="/">Top</a>
+            </li>
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="/tags">Tags</a>
+            </li>
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="https://github.com/ng2-info/ng2-info.github.io">Repository</a>
+            </li>
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="http://blog.lacolaco.net">Author&#39;s Blog</a>
+            </li>
+        
+    </ul>
+    
+    
+    <a class="subscribe-button icon-feed" href="https://ng2-info.github.io/index.xml">Subscribe</a>
+    
+</div>
+<span class="nav-cover"></span>
+
+
+ <div class="site-wrapper">
+
+
+
+
+
+<header class="main-header post-head">
+    <nav class="main-nav overlay clearfix">
+
+
+      
+        <a class="blog-logo" href="https://ng2-info.github.io/"><img src="https://ng2-info.github.io/img/ng2-info.png" alt="Home" /></a>
+      
+      
+          <a class="menu-button" href="#"><span class="burger">&#9776;</span><span class="word">Menu</span></a>
+      
+    </nav>
+
+    <div class="vertical">
+        <div class="main-header-content inner">
+            <h1 class="page-title">Angular Info</h1>
+            <h2 class="page-description">
+                
+            </h2>
+        </div>
+    </div>
+
+
+</header>
+
+
+
+<main class="content" role="main">
+
+
+
+
+  <article class="post post">
+    <header class="post-header">
+      <nav class="breadcrumb">
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      </nav>
+
+
+        <h1 class="post-title">1/23 最近のAngular2の動き</h1>
+        <small></small>
+
+        <section class="post-meta">
+        
+          <time class="post-date" datetime="2016-01-23T21:27:40&#43;09:00">
+            Jan 23, 2016
+          </time>
+        
+         
+          <span class="post-tag small"><a href="https://ng2-info.github.io/tags/planning/">#Planning</a></span>
+         
+        </section>
+    </header>
+
+    <section class="post-content">
+
+
+<p>Beta.1以降しばらく目立った動きがないですが、Beta.2に向けていくつかの面白い変更があるので紹介します。</p>
+
+<p></p>
+
+<h3 id="ddcビルドの必須化">DDCビルドの必須化</h3>
+
+<p>Dartの新コンパイラであるDart Dev Compiler(DDC)は現在も開発中ですが、<br />
+Angular2のCI設定が変わり、DDCでビルドが通ることが必須になりました。</p>
+
+<p><a href="https://github.com/dart-lang/dev_compiler" target="_blank">dart-lang/dev_compiler: Experimental Dart to JavaScript compiler designed to create idiomatic, readable JavaScript output.</a></p>
+
+<p><a href="https://github.com/angular/angular/pull/6647" target="_blank">chore(ddc): make DDC build non-experimental by yjbanov · Pull Request #6647 · angular/angular</a></p>
+
+<p>DDCもちょうど1年くらい開発されていますし、そろそろ安心して使えるコンパイラになってきたんでしょうか。<br />
+TypeScript/JavaScript側には何も影響ないですが、Dartのソースコードの変更はDDCでもビルドできるように気を使わないといけません。</p>
+
+<h3 id="プロジェクトのnpm-v3化">プロジェクトのnpm v3化</h3>
+
+<p>開発環境のNodeバージョンが5.4系に上がり、それに合わせてnpmもv3系になりました。<br />
+依存しているパッケージも一気にアップデートされています。</p>
+
+<p><a href="https://github.com/angular/angular/pull/6213" target="_blank">build: npm dependencies update + dedupe by IgorMinar · Pull Request #6213 · angular/angular</a></p>
+
+<p>今まではgit cloneしたあとのnpm installがnpm v2じゃないと行えなかったので、<br />
+npm v3になることでコントリビュートしやすくなりました。</p>
+
+<p>しかしAngular2のnpm配布パッケージは未だpeerDependenciesを使っており、RxJSやZone.jsなどを別にインストールしないといけない状況は変わっていません。</p>
+
+<h3 id="angular2の型定義ファイルに関する変更">Angular2の型定義ファイルに関する変更</h3>
+
+<p>現在、Angular2とjQueryの型定義が共存できない問題があります。</p>
+
+<p><a href="https://github.com/angular/angular/issues/5459" target="_blank">Type definition conflict with jQuery TSD · Issue #5459 · angular/angular</a></p>
+
+<p>グローバルの<code>$</code>変数が衝突しており、手作業でどちらかの型定義ファイルを編集しなければ解決できません。<br />
+直接の原因はAngular2の配布パッケージに含まれる型定義が、E2Eテスト用のパッケージである<code>angular-protractor</code>の型定義を含んでいたことです。<br />
+テストにしか使わないもので本来必要ない型定義なので、通常のビルドとテスト用のビルドで依存する型定義を切り替える変更が入りました。</p>
+
+<p><a href="https://github.com/angular/angular/pull/6262" target="_blank">build(node): split test and src compilation units by vicb · Pull Request #6262 · angular/angular</a></p>
+
+<p>これがリリースされれば、AngularJSが依存しているjQueryとの衝突もなくなるはずなので、1系からのマイグレーションもやりやすくなるはずです。</p>
+
+<hr />
+
+<p>おそらく来週にはBeta.2がリリースされる雰囲気（あくまでも雰囲気）なので、アップデートを楽しみにしましょう。</p>
+
+
+
+
+
+
+
+
+    </section>
+
+
+  <footer class="post-footer">
+
+
+    
+    <figure class="author-image">
+        <a class="img" href="http://twitter.com/laco0416" style="background-image: url(https://ng2-info.github.io/img/authors/laco.png)"></a>
+    </figure>
+
+    
+
+
+
+
+
+<section class="author">
+  <h5>Author: <a href="http://twitter.com/laco0416">Suguru INATOMI</a></h5>
+</section>
+
+
+
+    
+<section class="share">
+    <h5>Share this post</h5>
+    <a class="icon-twitter" style="font-size: 1.4em"
+       href="https://twitter.com/share?text=1%2f23%20%e6%9c%80%e8%bf%91%e3%81%aeAngular2%e3%81%ae%e5%8b%95%e3%81%8d%20-%20Angular%20Info&amp;url=https%3a%2f%2fng2-info.github.io%2f2016%2f01%2fworks-in-progress-jan-23%2f"
+       onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+        <span class="hidden">Twitter</span>
+    </a>
+    <a class="icon-facebook" style="font-size: 1.4em"
+       href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fng2-info.github.io%2f2016%2f01%2fworks-in-progress-jan-23%2f"
+       onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+        <span class="hidden">Facebook</span>
+    </a>
+</section>
+
+
+
+  </footer>
+</article>
+
+</main>
+<footer class="site-footer clearfix">
+    <section class="copyright"><a href="">Angular Info</a> </section>
+    
+    <section class="poweredby">Proudly generated by <a class="icon-hugo" href="http://gohugo.io">HUGO</a>, with <a
+            class="icon-theme" href="https://github.com/vjeantet/hugo-theme-casper">Casper</a> theme
+    </section>
+    
+</footer>
+</div>
+<script type="text/javascript" src="https://ng2-info.github.io/js/jquery.js"></script>
+<script type="text/javascript" src="https://ng2-info.github.io/js/jquery.fitvids.js"></script>
+<script type="text/javascript" src="https://ng2-info.github.io/js/index.js"></script>
+
+<script>
+    linkjuice.init('article.post', {
+        selectors: ['h2', 'h3'],
+        icon: ''
+    });
+</script>
+</body>
+</html>
+

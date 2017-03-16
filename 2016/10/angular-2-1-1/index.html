@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="ja-jp">
+<head>
+
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+  	<meta property="og:title" content=" Angular 2.1.1/2.2.0-beta.0のリリース &middot;  Angular Info" />
+  	<meta property="og:site_name" content="Angular Info" />
+  	<meta property="og:url" content="https://ng2-info.github.io/2016/10/angular-2-1-1/" />
+
+    
+  	<meta property="og:type" content="article" />
+
+    <meta property="og:article:published_time" content="2016-10-22T14:09:43&#43;09:00" />
+
+    
+    <meta property="og:article:tag" content="release" />
+    
+    
+
+  <title>
+     Angular 2.1.1/2.2.0-beta.0のリリース &middot;  Angular Info
+  </title>
+
+    <meta name="description" content="Angularの最新情報を不定期更新！" />
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" href="https://ng2-info.github.io/favicon.png">
+    <link rel="apple-touch-icon" href="https://ng2-info.github.io/images/apple-touch-icon.png" />
+
+    <link rel="stylesheet" type="text/css" href="https://ng2-info.github.io/css/screen.css" />
+    <link rel="stylesheet" type="text/css" href="https://ng2-info.github.io/css/nav.css" />
+    <link rel="stylesheet" type="text/css" href="https://ng2-info.github.io/css/overwrite.css" />
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400|Inconsolata" />
+
+    
+      
+          <link href="https://ng2-info.github.io/index.xml" rel="alternate" type="application/rss+xml" title="Angular Info" />
+      
+      
+    
+    <meta name="generator" content="Hugo 0.18.1" />
+
+    <link rel="canonical" href="https://ng2-info.github.io/2016/10/angular-2-1-1/" />
+
+    
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-52362663-3', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+    
+
+    
+    <link rel="stylesheet" href="//yandex.st/highlightjs/8.0/styles/default.min.css">
+    <script type="text/javascript" src="https://ng2-info.github.io/js/linkjuice.min.js"></script>
+    <script src="//yandex.st/highlightjs/8.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body class="nav-closed">
+
+  <div class="nav">
+    <h3 class="nav-title">Menu</h3>
+    <a href="#" class="nav-close">
+        <span class="hidden">Close</span>
+    </a>
+    <ul>
+        
+        
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="/">Top</a>
+            </li>
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="/tags">Tags</a>
+            </li>
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="https://github.com/ng2-info/ng2-info.github.io">Repository</a>
+            </li>
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="http://blog.lacolaco.net">Author&#39;s Blog</a>
+            </li>
+        
+    </ul>
+    
+    
+    <a class="subscribe-button icon-feed" href="https://ng2-info.github.io/index.xml">Subscribe</a>
+    
+</div>
+<span class="nav-cover"></span>
+
+
+ <div class="site-wrapper">
+
+
+
+
+
+<header class="main-header post-head">
+    <nav class="main-nav overlay clearfix">
+
+
+      
+        <a class="blog-logo" href="https://ng2-info.github.io/"><img src="https://ng2-info.github.io/img/ng2-info.png" alt="Home" /></a>
+      
+      
+          <a class="menu-button" href="#"><span class="burger">&#9776;</span><span class="word">Menu</span></a>
+      
+    </nav>
+
+    <div class="vertical">
+        <div class="main-header-content inner">
+            <h1 class="page-title">Angular Info</h1>
+            <h2 class="page-description">
+                
+            </h2>
+        </div>
+    </div>
+
+
+</header>
+
+
+
+<main class="content" role="main">
+
+
+
+
+  <article class="post post">
+    <header class="post-header">
+      <nav class="breadcrumb">
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      </nav>
+
+
+        <h1 class="post-title">Angular 2.1.1/2.2.0-beta.0のリリース</h1>
+        <small></small>
+
+        <section class="post-meta">
+        
+          <time class="post-date" datetime="2016-10-22T14:09:43&#43;09:00">
+            Oct 22, 2016
+          </time>
+        
+         
+          <span class="post-tag small"><a href="https://ng2-info.github.io/tags/release/">#release</a></span>
+         
+        </section>
+    </header>
+
+    <section class="post-content">
+
+
+<p></p>
+
+<p>どうも、らこです。今週も予定通り新しいバージョンのリリースが行われました。現在リリースされているバージョンは以下のとおりです</p>
+
+<table>
+<thead>
+<tr>
+<th></th>
+<th>latest</th>
+<th>next</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>core</td>
+<td>2.1.1</td>
+<td>2.2.0-beta.0</td>
+</tr>
+
+<tr>
+<td>router</td>
+<td>3.1.1</td>
+<td>3.2.0-beta.0</td>
+</tr>
+</tbody>
+</table>
+
+<p>それでは今回の注目すべき変更点をまとめます。</p>
+
+<hr />
+
+<h2 id="2-1-1-https-github-com-angular-angular-blob-master-changelog-md-211-2016-10-20"><a href="https://github.com/angular/angular/blob/master/CHANGELOG.md#211-2016-10-20" target="_blank">2.1.1</a></h2>
+
+<h3 id="bug-fixes">Bug Fixes</h3>
+
+<ul>
+<li><strong>compiler:</strong> generate aot code for animation trigger output events (<a href="https://github.com/angular/angular/issues/12291" target="_blank">#12291</a>) (<a href="https://github.com/angular/angular/commit/6e5f8b5" target="_blank">6e5f8b5</a>), closes <a href="https://github.com/angular/angular/issues/11707" target="_blank">#11707</a><br />
+<br /></li>
+</ul>
+
+<p>アニメーションのトランジションイベントのハンドリングを含むテンプレートがAoTコンパイルできなかったバグが修正されました</p>
+
+<ul>
+<li><strong>router:</strong> correctly export filter operator in es5 (<a href="https://github.com/angular/angular/issues/12286" target="_blank">#12286</a>) (<a href="https://github.com/angular/angular/commit/27d7677" target="_blank">27d7677</a>)<br />
+<br /></li>
+</ul>
+
+<p>router.umd.jsにRxJSのfilterオペレーターが含まれておらず、routerパッケージ単体で読み込んだときにエラーになっているのが修正されました</p>
+
+<ul>
+<li><strong>router:</strong> do not update primary route if only secondary outlet is given (<a href="https://github.com/angular/angular/issues/11797" target="_blank">#11797</a>) (<a href="https://github.com/angular/angular/commit/da5fc69" target="_blank">da5fc69</a>)<br />
+<br /></li>
+</ul>
+
+<p>名前付きrouter-outletだけを更新する遷移のときに、デフォルトのrouter-outletを更新しないように修正されました</p>
+
+<ul>
+<li><strong>router:</strong> fix lazy loading triggered by redirects from wildcard routes (<a href="https://github.com/angular/angular/commit/5ae6915" target="_blank">5ae6915</a>), closes <a href="https://github.com/angular/angular/issues/12183" target="_blank">#12183</a><br />
+<br /></li>
+</ul>
+
+<p>ワイルドカードルート <code>**</code> からリダイレクトした先のルートがLazy Loadingを使っていると正しくルーティングされないバグが修正されました</p>
+
+<h2 id="2-2-0-beta-0-https-github-com-angular-angular-blob-master-changelog-md-220-beta0-2016-10-20"><a href="https://github.com/angular/angular/blob/master/CHANGELOG.md#220-beta0-2016-10-20" target="_blank">2.2.0-beta.0</a></h2>
+
+<h3 id="features">Features</h3>
+
+<ul>
+<li><strong>common:</strong> support narrow forms for month and weekdays in DatePipe (<a href="https://github.com/angular/angular/issues/12297" target="_blank">#12297</a>) (<a href="https://github.com/angular/angular/commit/f77ab6a" target="_blank">f77ab6a</a>), closes <a href="https://github.com/angular/angular/issues/12294" target="_blank">#12294</a><br />
+<br /></li>
+</ul>
+
+<p><code>date</code>パイプのフォーマットに新しく1文字形式(<strong>Narrow form</strong>)での月と曜日の表現が追加されました</p>
+
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th align="center">Symbol</th>
+<th>Narrow</th>
+<th>Short Form</th>
+<th>Long Form</th>
+<th>Numeric</th>
+<th>2-digit</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>month</td>
+<td align="center">M</td>
+<td>L (S)</td>
+<td>MMM (Sep)</td>
+<td>MMMM (September)</td>
+<td>M (9)</td>
+<td>MM (09)</td>
+</tr>
+
+<tr>
+<td>weekday</td>
+<td align="center">E</td>
+<td>E (S)</td>
+<td>EEE (Sun)</td>
+<td>EEEE (Sunday)</td>
+<td>-</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+
+<ul>
+<li><strong>forms:</strong> add hasError and getError to AbstractControlDirective (<a href="https://github.com/angular/angular/issues/11985" target="_blank">#11985</a>) (<a href="https://github.com/angular/angular/commit/592f40a" target="_blank">592f40a</a>), closes <a href="https://github.com/angular/angular/issues/7255" target="_blank">#7255</a><br />
+<br /></li>
+</ul>
+
+<p>フォームのコントロールに <code>hasError</code> メソッドと <code>getError</code> メソッドが追加されました</p>
+
+<pre><code class="language-html">&lt;label&gt;Username&lt;/label&gt;&lt;input name=&quot;username&quot; ngModel required #username=&quot;ngModel&quot;&gt;
+&lt;div *ngIf=&quot;username.dirty &amp;&amp; username.hasError('required')&quot;&gt;Username is required&lt;/div&gt;
+</code></pre>
+
+<ul>
+<li><strong>forms:</strong> add ng-pending CSS class during async validation (<a href="https://github.com/angular/angular/issues/11243" target="_blank">#11243</a>) (<a href="https://github.com/angular/angular/commit/97bc971" target="_blank">97bc971</a>), closes <a href="https://github.com/angular/angular/issues/10336" target="_blank">#10336</a><br />
+<br /></li>
+</ul>
+
+<p>非同期バリデーターによるバリデーション中に<code>ng-pending</code>クラスがセットされます</p>
+
+<ul>
+<li><strong>forms:</strong> Added emitEvent to AbstractControl methods (<a href="https://github.com/angular/angular/issues/11949" target="_blank">#11949</a>) (<a href="https://github.com/angular/angular/commit/b9fc090" target="_blank">b9fc090</a>)<br />
+<br /></li>
+</ul>
+
+<p>フォームのコントロールが持つメソッドに、 <code>emitEvent</code> オプションが追加されます。<br />
+<code>emitEvent</code>がfalseのとき、そのメソッドによる操作は<code>valueChange</code>イベントや<code>statusChange</code>イベントを発火しません。</p>
+
+<pre><code class="language-ts">control.setValue('foo', {emitEvent: false});
+</code></pre>
+
+<ul>
+<li><strong>forms:</strong> make &lsquo;parent&rsquo; a public property of &lsquo;AbstractControl&rsquo; (<a href="https://github.com/angular/angular/issues/11855" target="_blank">#11855</a>) (<a href="https://github.com/angular/angular/commit/445e592" target="_blank">445e592</a>)<br />
+<br /></li>
+</ul>
+
+<p>フォームのコントロールに<code>parent</code>プロパティが追加され、入れ子になったコントロールから親のコントロールグループを取得できるようになります</p>
+
+<ul>
+<li><strong>forms:</strong> Validator.pattern accepts a RegExp (<a href="https://github.com/angular/angular/issues/12323" target="_blank">#12323</a>) (<a href="https://github.com/angular/angular/commit/bf60418" target="_blank">bf60418</a>)<br />
+<br /></li>
+</ul>
+
+<p><code>Validator.pattern</code>バリデーターがRegexp型のパターンを受け付けるようになります</p>
+
+<ul>
+<li><strong>upgrade:</strong> add support for AoT compiled upgrade applications (<a href="https://github.com/angular/angular/commit/d6791ff" target="_blank">d6791ff</a>), closes <a href="https://github.com/angular/angular/issues/12239" target="_blank">#12239</a><br />
+<br /></li>
+</ul>
+
+<p><code>@angular/upgrade</code>パッケージを使ったアプリケーションがAoTコンパイル可能になります。</p>
+
+<ul>
+<li><strong>router:</strong> add support for ng1/ng2 migration (<a href="https://github.com/angular/angular/issues/12160" target="_blank">#12160</a>) (<a href="https://github.com/angular/angular/commit/8b9ab44" target="_blank">8b9ab44</a>)<br />
+<br /></li>
+</ul>
+
+<p><code>@anguar/upgrade</code>を使ってAngular 1と2を共存させるアプリケーションにおいて、部分的にAngular 2のrouterを使用できるようにする機能が追加されます。<br />
+この新しい機能については、Victor Savkin氏が自身のブログで自ら記事を書いています。<br />
+<a href="https://vsavkin.com/migrating-angular-1-applications-to-angular-2-in-5-simple-steps-40621800a25b#.tucitwyc7" target="_blank">Migrating Angular 1 Applications to Angular 2 in 5 Simple Steps</a><br />
+Angular 2のrouterを有効にする条件を、<code>UrlHandlingStrategy</code>という仕組みで制御できるようになります。</p>
+
+<hr />
+
+<p>2.2系に含まれるフォーム関連の機能はとても便利そうです。Angular 1からのマイグレーション関連の変更も特徴的です。とはいえまだbeta.0ですので、緊急でなければ3週間後の2.2.0リリースを待ちましょう。</p>
+
+<p>それではまた来週のリリースで。</p>
+
+
+
+
+
+
+
+
+    </section>
+
+
+  <footer class="post-footer">
+
+
+    
+    <figure class="author-image">
+        <a class="img" href="http://twitter.com/laco0416" style="background-image: url(https://ng2-info.github.io/img/authors/laco.png)"></a>
+    </figure>
+
+    
+
+
+
+
+
+<section class="author">
+  <h5>Author: <a href="http://twitter.com/laco0416">Suguru INATOMI</a></h5>
+</section>
+
+
+
+    
+<section class="share">
+    <h5>Share this post</h5>
+    <a class="icon-twitter" style="font-size: 1.4em"
+       href="https://twitter.com/share?text=Angular%202.1.1%2f2.2.0-beta.0%e3%81%ae%e3%83%aa%e3%83%aa%e3%83%bc%e3%82%b9%20-%20Angular%20Info&amp;url=https%3a%2f%2fng2-info.github.io%2f2016%2f10%2fangular-2-1-1%2f"
+       onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+        <span class="hidden">Twitter</span>
+    </a>
+    <a class="icon-facebook" style="font-size: 1.4em"
+       href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fng2-info.github.io%2f2016%2f10%2fangular-2-1-1%2f"
+       onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+        <span class="hidden">Facebook</span>
+    </a>
+</section>
+
+
+
+  </footer>
+</article>
+
+</main>
+<footer class="site-footer clearfix">
+    <section class="copyright"><a href="">Angular Info</a> </section>
+    
+    <section class="poweredby">Proudly generated by <a class="icon-hugo" href="http://gohugo.io">HUGO</a>, with <a
+            class="icon-theme" href="https://github.com/vjeantet/hugo-theme-casper">Casper</a> theme
+    </section>
+    
+</footer>
+</div>
+<script type="text/javascript" src="https://ng2-info.github.io/js/jquery.js"></script>
+<script type="text/javascript" src="https://ng2-info.github.io/js/jquery.fitvids.js"></script>
+<script type="text/javascript" src="https://ng2-info.github.io/js/index.js"></script>
+
+<script>
+    linkjuice.init('article.post', {
+        selectors: ['h2', 'h3'],
+        icon: ''
+    });
+</script>
+</body>
+</html>
+
