@@ -1,11 +1,11 @@
 baseurl = "https://ng2-info.github.io/"
 languageCode = "ja-jp"
-title = "Angular2 Info"
+title = "Angular Info"
 theme = "casper"
 # disablePathToLower = true
 
 [params]
-  description = "Angular2の最新情報を不定期更新！"
+  description = "Angularの最新情報を不定期更新！"
   cover = "missing.png"
   author = "laco"
   logo = "img/ng2-info.png"
